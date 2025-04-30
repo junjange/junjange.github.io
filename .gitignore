@@ -1,33 +1,40 @@
-# Gradle files
+#  Gradle 관련
 .gradle/
+**/build/
+!src/**/build/
 build/
-
-# Local configuration file (sdk path, etc)
 local.properties
-
-# Log/OS Files
 *.log
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.apk
-output.json
-
-# IntelliJ
-*.iml
+# Android Studio / IntelliJ IDEA
 .idea/
+*.iml
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
+captures/
+.externalNativeBuild/
+.cxx/
 
-# Keystore files
-*.jks
-*.keystore
+# 빌드 산출물
+*.apk
+output.json
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
-
-# Android Profiling
+# Android 프로파일링
 *.hprof
+
+# Kotlin 관련
+.kotlin
+
+# macOS / JetBrains Fleet
+.DS_Store
+.fleet
+
+# Xcode / Apple 개발환경
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
+xcuserdata
