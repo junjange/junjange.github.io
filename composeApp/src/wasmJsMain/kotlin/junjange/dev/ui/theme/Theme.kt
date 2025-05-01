@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 
 val lightColorTheme =
     lightColorScheme(
-        primary = Purple,
+        primary = Black,
         onPrimary = White,
         primaryContainer = White,
         onPrimaryContainer = DarkGray,
@@ -25,7 +25,7 @@ val lightColorTheme =
 
 val darkColorTheme =
     darkColorScheme(
-        primary = Purple,
+        primary = White,
         onPrimary = White,
         primaryContainer = DarkGray,
         onPrimaryContainer = White,
