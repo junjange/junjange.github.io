@@ -2,6 +2,7 @@ package junjange.dev
 
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.ComposeViewport
+import junjange.dev.ui.App
 import kotlinx.browser.document
 
 @OptIn(ExperimentalComposeUiApi::class)
