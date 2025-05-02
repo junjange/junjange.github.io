@@ -1,8 +1,16 @@
 <resources>
+    <!-- Section -->
     <string name="section_home">Home</string>
     <string name="section_about">About</string>
     <string name="section_career">Career</string>
     <string name="section_experience">Experience</string>
     <string name="section_contact">Contact</string>
+
+    <!--Home-->
+    <string name="blue_chip">저평가 우량주</string>
+    <string name="jojunjang"> 조준장</string>
+    <string name="intro">겉보기엔 평범할지 몰라도, 기술적 가능성은 무한한 저평가 우량주 개발자\nKotlin으로 안드로이드 앱을 개발하며, 사용자 경험을 최우선으로 생각합니다</string>
+    <string name="follow_github">Follow on Github</string>
+    <string name="visit_blog">Visit my Blog</string>
 
 </resources>
