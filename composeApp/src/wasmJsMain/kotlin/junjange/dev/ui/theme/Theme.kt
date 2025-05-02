@@ -8,24 +8,24 @@ import androidx.compose.runtime.Composable
 
 val lightColorTheme =
     lightColorScheme(
-        primary = Black,
+        primary = Purple,
         onPrimary = White,
         primaryContainer = White,
         onPrimaryContainer = DarkGray,
-        secondaryContainer = DarkGray,
-        onSecondaryContainer = White,
+        secondaryContainer = LightGray,
+        onSecondaryContainer = Black,
         surfaceVariant = White,
         secondary = Purple,
         onSecondary = White,
         background = White,
         onBackground = DarkGray,
-        surface = Gray,
-        onSurface = White,
+        surface = White,
+        onSurface = DarkGray,
     )
 
 val darkColorTheme =
     darkColorScheme(
-        primary = White,
+        primary = Purple,
         onPrimary = White,
         primaryContainer = DarkGray,
         onPrimaryContainer = White,
