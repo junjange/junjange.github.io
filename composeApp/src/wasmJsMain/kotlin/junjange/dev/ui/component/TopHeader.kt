@@ -35,7 +35,9 @@ fun TopHeader(
 
     Row(
         modifier =
-            modifier.fillMaxWidth().padding(horizontal = 32.dp),
+            modifier
+                .fillMaxWidth()
+                .padding(horizontal = 32.dp),
         horizontalArrangement = Arrangement.Center,
     ) {
         Row(
@@ -74,4 +76,4 @@ fun TopHeader(
     }
 }
 
-private const val HEADER_HEIGHT = 72
+const val HEADER_HEIGHT = 72

@@ -117,7 +117,7 @@ fun HomeContent(
                     ),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                item { HomeSection() }
+                item { HomeSection(onSectionClicked = onSectionClicked) }
             }
         }
     }

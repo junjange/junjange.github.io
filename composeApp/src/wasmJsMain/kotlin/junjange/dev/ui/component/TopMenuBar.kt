@@ -33,7 +33,7 @@ fun TopMenuBar(
         actions = {
             IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
                 Icon(
-                    painterResource(themeMode.iconRes),
+                    painter = painterResource(themeMode.iconRes),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(24.dp),
@@ -41,7 +41,7 @@ fun TopMenuBar(
             }
             IconButton(onClick = onMenuClick) {
                 Icon(
-                    Icons.Default.Menu,
+                    imageVector = Icons.Default.Menu,
                     tint = MaterialTheme.colorScheme.primary,
                     contentDescription = null,
                 )
@@ -51,6 +51,7 @@ fun TopMenuBar(
             TopAppBarDefaults.topAppBarColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
             ),
-        modifier = modifier.then(Modifier.padding(end = 8.dp)),
+        modifier = modifier.padding(end = 8.dp),
+        expandedHeight = HEADER_HEIGHT.dp,
     )
 }

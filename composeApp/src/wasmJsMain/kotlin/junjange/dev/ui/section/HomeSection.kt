@@ -2,7 +2,6 @@ package junjange.dev.ui.section
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -35,15 +35,20 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.LocalScreenSize
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
+import junjange.dev.ui.MOBILE_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
-import junjange.dev.ui.PC_CONTENT_WIDTH
-import junjange.dev.ui.component.SectionColumn
+import junjange.dev.ui.PC_CONTENT_MIN_HEIGHT
+import junjange.dev.ui.component.AnimatedArrow
+import junjange.dev.ui.component.HEADER_HEIGHT
 import junjange.dev.ui.component.defaultEnterAnim
 import junjange.dev.ui.model.Device
+import junjange.dev.ui.model.Section
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.isMobile
 import junjange.dev.ui.state.rememberDeviceState
+import junjange.dev.ui.toDpSize
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.blue_chip
 import junjange_dev.composeapp.generated.resources.follow_github
@@ -56,7 +61,10 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun HomeSection(modifier: Modifier = Modifier) {
+fun HomeSection(
+    modifier: Modifier = Modifier,
+    onSectionClicked: (Section) -> Unit,
+) {
     val visibleState =
         rememberSaveable {
             MutableTransitionState(false).apply {
@@ -66,27 +74,27 @@ fun HomeSection(modifier: Modifier = Modifier) {
     val deviceState = rememberDeviceState()
     val nicknameString = buildNicknameString(deviceState = deviceState)
 
-    Box {
-        HomePcSection(
+    HomePcSection(
+        nicknameString = nicknameString,
+        visibleState = visibleState,
+        modifier =
+            modifier.then(
+                if (deviceState.isMobile) {
+                    Modifier.height(0.dp)
+                } else {
+                    Modifier
+                },
+            ),
+        onSectionClicked = onSectionClicked,
+    )
+
+    if (deviceState.isMobile) {
+        HomeMobileSection(
             nicknameString = nicknameString,
             visibleState = visibleState,
-            modifier =
-                modifier.then(
-                    if (deviceState.isMobile) {
-                        Modifier.height(1.dp)
-                    } else {
-                        Modifier
-                    },
-                ),
+            modifier = modifier,
+            onSectionClicked = onSectionClicked,
         )
-        if (deviceState.isMobile) {
-            HomeMobileSection(
-                nicknameString = nicknameString,
-                deviceState = deviceState,
-                visibleState = visibleState,
-                modifier = modifier,
-            )
-        }
     }
 }
 
@@ -120,14 +128,22 @@ private fun getFontSize(deviceState: DeviceState): TextUnit =
 private fun HomeMobileSection(
     nicknameString: AnnotatedString,
     visibleState: MutableTransitionState<Boolean>,
-    deviceState: DeviceState,
     modifier: Modifier = Modifier,
+    onSectionClicked: (Section) -> Unit,
 ) {
-    SectionColumn(
-        modifier = modifier,
-        deviceState = deviceState,
-        contentPadding = PaddingValues(bottom = 24.dp),
-        content = {
+    val screenSize = LocalScreenSize.current.toDpSize()
+
+    Box(
+        modifier =
+            modifier
+                .width(screenSize.width.dp)
+                .height((maxOf(MOBILE_CONTENT_MIN_HEIGHT, screenSize.height) - HEADER_HEIGHT).dp),
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
             AnimatedVisibility(
                 visibleState = visibleState,
                 enter =
@@ -146,11 +162,7 @@ private fun HomeMobileSection(
                 ) {
                     Text(
                         text = nicknameString,
-                        lineHeight =
-                            when (deviceState.value) {
-                                Device.PC -> 92.sp
-                                Device.MOBILE -> 76.sp
-                            },
+                        lineHeight = 76.sp,
                     )
                 }
             }
@@ -187,9 +199,16 @@ private fun HomeMobileSection(
                     BlogButton(modifier = Modifier.fillMaxWidth())
                 }
             }
-            Spacer(modifier = Modifier.height(50.dp))
-        },
-    )
+        }
+
+        AnimatedArrow(
+            modifier =
+                Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 20.dp),
+            onClick = { onSectionClicked(Section.AboutMe) },
+        )
+    }
 }
 
 @Composable
@@ -197,21 +216,23 @@ private fun HomePcSection(
     nicknameString: AnnotatedString,
     visibleState: MutableTransitionState<Boolean>,
     modifier: Modifier = Modifier,
+    onSectionClicked: (Section) -> Unit,
 ) {
+    val screenSize = LocalScreenSize.current.toDpSize()
+
     Box(
         modifier =
             modifier.then(
                 Modifier
-                    .background(color = MaterialTheme.colorScheme.primaryContainer)
-                    .width(PC_CONTENT_WIDTH.dp),
+                    .width(screenSize.width.dp)
+                    .height((maxOf(PC_CONTENT_MIN_HEIGHT, screenSize.height) - HEADER_HEIGHT).dp),
             ),
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
         ) {
-            Spacer(modifier = Modifier.height(100.dp))
-
             AnimatedVisibility(
                 visibleState = visibleState,
                 enter = defaultEnterAnim(delayMillis = 500, inverseSlide = true),
@@ -249,8 +270,15 @@ private fun HomePcSection(
                     BlogButton()
                 }
             }
-            Spacer(modifier = Modifier.height(200.dp))
         }
+
+        AnimatedArrow(
+            modifier =
+                Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 20.dp),
+            onClick = { onSectionClicked(Section.AboutMe) },
+        )
     }
 }
 
