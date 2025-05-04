@@ -1,0 +1,182 @@
+package junjange.dev.ui.section
+
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING
+import junjange.dev.ui.component.CenteredImage
+import junjange.dev.ui.component.defaultEnterAnim
+import junjange.dev.ui.model.Device
+import junjange.dev.ui.model.Skill
+import junjange.dev.ui.state.contentPadding
+import junjange.dev.ui.state.rememberDeviceState
+import junjange_dev.composeapp.generated.resources.Res
+import junjange_dev.composeapp.generated.resources.about_me
+import junjange_dev.composeapp.generated.resources.i_build_with
+import junjange_dev.composeapp.generated.resources.section_about
+import org.jetbrains.compose.resources.stringResource
+
+@Composable
+fun AboutSection(modifier: Modifier = Modifier) {
+    val deviceState = rememberDeviceState()
+    val visibleState =
+        remember {
+            MutableTransitionState(false).apply {
+                targetState = true
+            }
+        }
+
+    Column(
+        modifier =
+            modifier
+                .background(MaterialTheme.colorScheme.secondaryContainer)
+                .padding(deviceState.contentPadding()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        AnimatedVisibility(
+            visibleState = visibleState,
+            enter = defaultEnterAnim(),
+            modifier = Modifier.padding(bottom = 36.dp),
+        ) {
+            Text(
+                stringResource(Res.string.section_about),
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 36.sp,
+                textAlign = TextAlign.Center,
+            )
+        }
+        AnimatedVisibility(
+            visibleState = visibleState,
+            enter = defaultEnterAnim(delayMillis = 400),
+            modifier = Modifier.padding(bottom = 72.dp),
+        ) {
+            val horizontalPadding =
+                when (deviceState.value) {
+                    Device.MOBILE -> 0.dp
+                    Device.PC -> (PC_CONTENT_HORIZONTAL_PADDING / 2).dp
+                }
+            Text(
+                stringResource(Res.string.about_me),
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                fontSize = 16.sp,
+                textAlign = TextAlign.Center,
+                lineHeight = 28.sp,
+                modifier = Modifier.padding(horizontal = horizontalPadding),
+            )
+        }
+        AnimatedVisibility(
+            visibleState = visibleState,
+            enter = defaultEnterAnim(delayMillis = 800),
+            modifier = Modifier.padding(bottom = 36.dp),
+        ) {
+            Text(
+                stringResource(Res.string.i_build_with),
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                fontWeight = FontWeight.Bold,
+                fontSize = 24.sp,
+                textAlign = TextAlign.Center,
+            )
+        }
+        AnimatedVisibility(
+            visibleState = visibleState,
+            enter = defaultEnterAnim(delayMillis = 1200),
+        ) {
+            val (gridColumns, gridModifier, gridSpacing) =
+                when (deviceState.value) {
+                    Device.MOBILE -> {
+                        Triple(2, Modifier.fillMaxWidth().aspectRatio(2 / 3f), 12.dp)
+                    }
+
+                    Device.PC -> {
+                        Triple(3, Modifier.width(720.dp).aspectRatio(3 / 2f), 12.dp)
+                    }
+                }
+
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(gridColumns),
+                contentPadding = PaddingValues(4.dp),
+                horizontalArrangement = Arrangement.spacedBy(gridSpacing),
+                verticalArrangement = Arrangement.spacedBy(gridSpacing),
+                modifier = gridModifier,
+            ) {
+                items(Skill.entries) {
+                    SkillCard(it)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SkillCard(
+    skill: Skill,
+    modifier: Modifier = Modifier,
+) {
+    val uriHandler = LocalUriHandler.current
+
+    Card(
+        onClick = { uriHandler.openUri(skill.url) },
+        shape = RoundedCornerShape(12.dp),
+        colors =
+            CardDefaults.outlinedCardColors(
+                containerColor = MaterialTheme.colorScheme.surface,
+                contentColor = MaterialTheme.colorScheme.onSurface,
+            ),
+        modifier = modifier.then(Modifier.aspectRatio(1f)),
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(top = 36.dp, bottom = 24.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            CenteredImage(
+                resource = skill.logo,
+                modifier = Modifier.size(48.dp),
+            )
+            Spacer(Modifier.height(12.dp))
+            Box(
+                modifier = Modifier.height(40.dp),
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    text = stringResource(skill.label),
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 16.sp,
+                    lineHeight = 20.sp,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+            }
+        }
+    }
+}

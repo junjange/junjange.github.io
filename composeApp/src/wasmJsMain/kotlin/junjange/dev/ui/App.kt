@@ -13,7 +13,7 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.unit.Constraints
-import junjange.dev.ui.screen.HomeScreen
+import junjange.dev.ui.screen.MainScreen
 import junjange.dev.ui.theme.JUNJNAGETheme
 
 @Composable
@@ -69,7 +69,7 @@ fun AppContent(
         LocalThemeMode provides themeMode,
     ) {
         JUNJNAGETheme(isDarkTheme = themeMode == ThemeMode.Dark) {
-            HomeScreen(
+            MainScreen(
                 modifier = Modifier.fillMaxSize(),
                 onThemeChanged = onThemeChanged,
             )
@@ -80,6 +80,8 @@ fun AppContent(
 const val PC_CONTENT_HORIZONTAL_PADDING = 128
 const val PC_CONTENT_VERTICAL_PADDING = 72
 const val PC_CONTENT_WIDTH = 1280
+const val PC_CONTENT_MIN_HEIGHT = 768
 
 const val MOBILE_CONTENT_HORIZONTAL_PADDING = 24
 const val MOBILE_CONTENT_VERTICAL_PADDING = 48
+const val MOBILE_CONTENT_MIN_HEIGHT = 640
