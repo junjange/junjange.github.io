@@ -13,7 +13,7 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.unit.Constraints
-import junjange.dev.ui.screen.HomeScreen
+import junjange.dev.ui.screen.MainScreen
 import junjange.dev.ui.theme.JUNJNAGETheme
 
 @Composable
@@ -69,7 +69,7 @@ fun AppContent(
         LocalThemeMode provides themeMode,
     ) {
         JUNJNAGETheme(isDarkTheme = themeMode == ThemeMode.Dark) {
-            HomeScreen(
+            MainScreen(
                 modifier = Modifier.fillMaxSize(),
                 onThemeChanged = onThemeChanged,
             )
