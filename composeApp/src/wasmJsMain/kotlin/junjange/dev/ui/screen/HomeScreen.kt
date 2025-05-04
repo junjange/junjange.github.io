@@ -22,6 +22,7 @@ import junjange.dev.ui.ThemeMode
 import junjange.dev.ui.component.HomeDrawer
 import junjange.dev.ui.component.HomeTopBar
 import junjange.dev.ui.model.Section
+import junjange.dev.ui.section.AboutSection
 import junjange.dev.ui.section.HomeSection
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.rememberDeviceState
@@ -118,6 +119,7 @@ fun HomeContent(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 item { HomeSection(onSectionClicked = onSectionClicked) }
+                item { AboutSection() }
             }
         }
     }

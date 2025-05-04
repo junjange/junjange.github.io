@@ -13,4 +13,21 @@
     <string name="follow_github">Follow on Github</string>
     <string name="visit_blog">Visit my Blog</string>
 
+
+    <string name="copyright"> 2024 (c) Yeojun Yoon All rights reserved.</string>
+    <string name="email">me@yjyoon.dev</string>
+
+    <string name="language">KOR</string>
+
+    <!--About-->
+    <string name="about_me">안드로이드 신입 개발자 조준장입니다. 일상 속 문제를 소프트웨어로 해결할 수 있다는 점에 매력을 느껴 개발자의 길을 걷게 되었습니다. 지금까지 10개 이상의 프로젝트에 참여하며, 실제 사용자에게 도움이 되는 앱을 만드는 데 집중해왔습니다. Kotlin을 활용한 안드로이드 개발에 몰입하고 있으며, 사용자 중심의 설계와 안정적인 구현을 중요하게 생각합니다. 최근에는 Kotlin Multiplatform에도 관심이 생겨 학습을 이어가고 있고, 이 웹사이트 역시 Kotlin/Wasm과 Compose Multiplatform으로 직접 만들었습니다.</string>
+    <string name="i_build_with">I Build With</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="android">Android</string>
+    <string name="compose">Compose</string>
+    <string name="ktor">Ktor</string>
+    <string name="flutter">Flutter</string>
+    <string name="dart">Dart</string>
+
 </resources>
