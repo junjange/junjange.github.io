@@ -32,7 +32,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.LocalScreenSize
@@ -43,9 +42,9 @@ import junjange.dev.ui.PC_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.component.AnimatedArrow
 import junjange.dev.ui.component.HEADER_HEIGHT
 import junjange.dev.ui.component.defaultEnterAnim
-import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.state.DeviceState
+import junjange.dev.ui.state.fontSize
 import junjange.dev.ui.state.isMobile
 import junjange.dev.ui.state.rememberDeviceState
 import junjange.dev.ui.toDpSize
@@ -103,7 +102,7 @@ private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
     buildAnnotatedString {
         withStyle(
             SpanStyle(
-                fontSize = getFontSize(deviceState),
+                fontSize = deviceState.fontSize(),
                 fontWeight = FontWeight.Black,
             ),
         ) {
@@ -115,13 +114,6 @@ private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
                 append(stringResource(Res.string.jojunjang))
             }
         }
-    }
-
-@Composable
-private fun getFontSize(deviceState: DeviceState): TextUnit =
-    when (deviceState.value) {
-        Device.PC -> 72.sp
-        Device.MOBILE -> 48.sp
     }
 
 @Composable
