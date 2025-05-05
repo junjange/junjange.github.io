@@ -30,4 +30,13 @@
     <string name="flutter">Flutter</string>
     <string name="dart">Dart</string>
 
+    <!--Career-->
+    <string name="android_developer">Android Developer</string>
+    <string name="mobile_app_developer">Mobile App Developer</string>
+
+    <string name="career_lio_team">프리랜서 모바일 개발자</string>
+    <string name="career_matrios_team">프리랜서 안드로이드 개발자</string>
+
+    <string name="career_lio_desc"> - 노년층 감정 분석 안드로이드 앱 개발\n - 농작물 직거래 플러터 앱 개발\n - 대량 자동 발신 전화 안드로이드 앱 개발</string>
+    <string name="career_matrios_desc"> - 시선 추적 AI 안드로이드 앱 개발\n - 사용자 인증 및 로그인 기능 구현\n - 사용자 활동 모니터링 기능 개발\n - 신규 사용자 온보딩 튜토리얼 페이지 구현</string>
 </resources>

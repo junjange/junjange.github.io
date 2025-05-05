@@ -23,6 +23,7 @@ import junjange.dev.ui.component.HomeDrawer
 import junjange.dev.ui.component.HomeTopBar
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.section.AboutSection
+import junjange.dev.ui.section.CareerSection
 import junjange.dev.ui.section.HomeSection
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.rememberDeviceState
@@ -120,6 +121,7 @@ fun HomeContent(
             ) {
                 item { HomeSection(onSectionClicked = onSectionClicked) }
                 item { AboutSection() }
+                item { CareerSection() }
             }
         }
     }
