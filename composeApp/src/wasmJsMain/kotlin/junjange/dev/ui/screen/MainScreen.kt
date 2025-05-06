@@ -60,7 +60,7 @@ fun MainScreen(
             },
             drawerState = drawerState,
         ) {
-            HomeContent(
+            MainContent(
                 listState = listState,
                 deviceState = deviceState,
                 modifier = modifier,
@@ -86,7 +86,7 @@ fun MainScreen(
 }
 
 @Composable
-fun HomeContent(
+fun MainContent(
     listState: LazyListState,
     deviceState: DeviceState,
     modifier: Modifier = Modifier,
