@@ -87,7 +87,7 @@ private fun CareerPcStep(
         verticalAlignment = Alignment.Top,
     ) {
         TagText(
-            text = career.date,
+            text = stringResource(career.dateRes),
             textColor = MaterialTheme.colorScheme.onPrimary,
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
@@ -166,7 +166,7 @@ private fun CareerMobileStep(
                 )
                 Spacer(Modifier.width(24.dp))
                 TagText(
-                    text = career.date,
+                    text = stringResource(career.dateRes),
                     textColor = MaterialTheme.colorScheme.onPrimary,
                     fontWeight = FontWeight.Medium,
                     fontSize = 13.sp,
