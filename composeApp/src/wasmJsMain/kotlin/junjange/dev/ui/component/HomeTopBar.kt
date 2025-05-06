@@ -74,6 +74,7 @@ fun MobileTopBar(
 
     TopAppBar(
         title = {
+            LogoImage(onClick = onTitleClick)
         },
         actions = {
             IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
@@ -123,6 +124,7 @@ fun PcTopBar(
                     .height(HEADER_HEIGHT.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            LogoImage(onClick = { onSectionClicked(Section.Home) })
             Spacer(Modifier.weight(1f))
             Row(
                 horizontalArrangement = Arrangement.spacedBy(48.dp),
