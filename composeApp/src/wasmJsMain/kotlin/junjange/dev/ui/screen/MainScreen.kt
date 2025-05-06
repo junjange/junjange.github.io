@@ -26,6 +26,7 @@ import junjange.dev.ui.section.AboutSection
 import junjange.dev.ui.section.CareerSection
 import junjange.dev.ui.section.ExperienceSection
 import junjange.dev.ui.section.HomeSection
+import junjange.dev.ui.section.SideProjectSection
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.rememberDeviceState
 import kotlinx.coroutines.launch
@@ -124,6 +125,7 @@ fun MainContent(
                 item { AboutSection() }
                 item { CareerSection() }
                 item { ExperienceSection() }
+                item { SideProjectSection() }
             }
         }
     }

@@ -61,4 +61,19 @@
     <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영진</string>
     <string name="etc_gdsc_kr_winter_cup_date">2023.01 - 2023.02</string>
 
+    <!--Side Project-->
+    <string name="side_project_lover">Side Project</string>
+
+    <string name="side_friendogly">반갑개</string>
+    <string name="side_move_move">뭅뭅</string>
+    <string name="side_whatnow">왔나</string>
+    <string name="side_oh_soon_taxi">오순택</string>
+    <string name="side_knocknock">낙낙</string>
+    <string name="side_kordle">훈들</string>
+    <string name="side_comaplain">Comaplain</string>
+    <string name="side_recycleCycle">RecycleCycle</string>
+    <string name="side_camping_tour">캠핑투어</string>
+    <string name="side_lucky_lottery">행운복권</string>
+
+
 </resources>
