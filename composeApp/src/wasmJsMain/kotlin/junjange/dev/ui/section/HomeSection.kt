@@ -1,8 +1,5 @@
 package junjange.dev.ui.section
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,7 +19,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
@@ -41,7 +37,6 @@ import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.PC_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.component.AnimatedArrow
 import junjange.dev.ui.component.HEADER_HEIGHT
-import junjange.dev.ui.component.defaultEnterAnim
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.fontSize
@@ -64,18 +59,11 @@ fun HomeSection(
     modifier: Modifier = Modifier,
     onSectionClicked: (Section) -> Unit,
 ) {
-    val visibleState =
-        rememberSaveable {
-            MutableTransitionState(false).apply {
-                targetState = true
-            }
-        }
     val deviceState = rememberDeviceState()
     val nicknameString = buildNicknameString(deviceState = deviceState)
 
     HomePcSection(
         nicknameString = nicknameString,
-        visibleState = visibleState,
         modifier =
             modifier.then(
                 if (deviceState.isMobile) {
@@ -90,7 +78,6 @@ fun HomeSection(
     if (deviceState.isMobile) {
         HomeMobileSection(
             nicknameString = nicknameString,
-            visibleState = visibleState,
             modifier = modifier,
             onSectionClicked = onSectionClicked,
         )
@@ -119,7 +106,6 @@ private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
 @Composable
 private fun HomeMobileSection(
     nicknameString: AnnotatedString,
-    visibleState: MutableTransitionState<Boolean>,
     modifier: Modifier = Modifier,
     onSectionClicked: (Section) -> Unit,
 ) {
@@ -136,60 +122,38 @@ private fun HomeMobileSection(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            AnimatedVisibility(
-                visibleState = visibleState,
-                enter =
-                    defaultEnterAnim(
-                        delayMillis = 500,
-                        orientation = Orientation.Horizontal,
-                        inverseSlide = true,
-                    ),
-                modifier = Modifier.padding(bottom = 12.dp),
-            ) {
-                Column(
-                    modifier =
-                        Modifier
-                            .padding(top = MOBILE_CONTENT_VERTICAL_PADDING.dp)
-                            .padding(horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp),
-                ) {
-                    Text(
-                        text = nicknameString,
-                        lineHeight = 76.sp,
-                    )
-                }
-            }
-            AnimatedVisibility(
-                visibleState = visibleState,
-                enter = defaultEnterAnim(delayMillis = 500),
-                modifier = Modifier.padding(bottom = 36.dp),
+            Column(
+                modifier =
+                    Modifier
+                        .padding(top = MOBILE_CONTENT_VERTICAL_PADDING.dp)
+                        .padding(horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp),
             ) {
                 Text(
-                    text = stringResource(Res.string.intro),
-                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.5f),
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp,
-                    textAlign = TextAlign.Center,
+                    text = nicknameString,
+                    lineHeight = 76.sp,
                 )
             }
 
-            AnimatedVisibility(
-                visibleState = visibleState,
-                enter =
-                    defaultEnterAnim(
-                        delayMillis = 500,
-                        inverseSlide = true,
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(
+                text = stringResource(Res.string.intro),
+                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.5f),
+                fontSize = 16.sp,
+                lineHeight = 24.sp,
+                textAlign = TextAlign.Center,
+            )
+
+            Spacer(modifier = Modifier.height(36.dp))
+
+            Column(
+                modifier =
+                    Modifier.padding(
+                        horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp,
                     ),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                Column(
-                    modifier =
-                        Modifier.padding(
-                            horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp,
-                        ),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    GithubButton(modifier = Modifier.fillMaxWidth())
-                    BlogButton(modifier = Modifier.fillMaxWidth())
-                }
+                GithubButton(modifier = Modifier.fillMaxWidth())
+                BlogButton(modifier = Modifier.fillMaxWidth())
             }
         }
 
@@ -206,7 +170,6 @@ private fun HomeMobileSection(
 @Composable
 private fun HomePcSection(
     nicknameString: AnnotatedString,
-    visibleState: MutableTransitionState<Boolean>,
     modifier: Modifier = Modifier,
     onSectionClicked: (Section) -> Unit,
 ) {
@@ -225,42 +188,26 @@ private fun HomePcSection(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            AnimatedVisibility(
-                visibleState = visibleState,
-                enter = defaultEnterAnim(delayMillis = 500, inverseSlide = true),
-                modifier = Modifier.padding(bottom = 12.dp),
+            Text(text = nicknameString, lineHeight = 92.sp)
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = stringResource(Res.string.intro),
+                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.5f),
+                fontSize = 16.sp,
+                lineHeight = 24.sp,
+                textAlign = TextAlign.Center,
+            )
+
+            Spacer(modifier = Modifier.height(36.dp))
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                Text(text = nicknameString, lineHeight = 92.sp)
-            }
-            AnimatedVisibility(
-                visibleState = visibleState,
-                enter = defaultEnterAnim(delayMillis = 500),
-                modifier = Modifier.padding(bottom = 36.dp),
-            ) {
-                Text(
-                    text = stringResource(Res.string.intro),
-                    color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.5f),
-                    fontSize = 16.sp,
-                    lineHeight = 24.sp,
-                    textAlign = TextAlign.Center,
-                )
-            }
-            AnimatedVisibility(
-                visibleState = visibleState,
-                enter =
-                    defaultEnterAnim(
-                        orientation = Orientation.Horizontal,
-                        inverseSlide = true,
-                        delayMillis = 500,
-                    ),
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    GithubButton()
-                    BlogButton()
-                }
+                GithubButton()
+                BlogButton()
             }
         }
 
