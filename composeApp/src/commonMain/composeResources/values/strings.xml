@@ -38,5 +38,27 @@
     <string name="career_matrios_team">프리랜서 안드로이드 개발자</string>
 
     <string name="career_lio_desc"> - 노년층 감정 분석 안드로이드 앱 개발\n - 농작물 직거래 플러터 앱 개발\n - 대량 자동 발신 전화 안드로이드 앱 개발</string>
+    <string name="career_lio_date">2022.03 - 2022.10</string>
+
     <string name="career_matrios_desc"> - 시선 추적 AI 안드로이드 앱 개발\n - 사용자 인증 및 로그인 기능 구현\n - 사용자 활동 모니터링 기능 개발\n - 신규 사용자 온보딩 튜토리얼 페이지 구현</string>
+    <string name="career_matrios_date">2021.07 - 2021.11</string>
+
+    <!--Experience-->
+    <string name="experience">Experience</string>
+    <string name="experience_development">Development</string>
+    <string name="experience_etc">ETC</string>
+
+    <string name="club_woowacourse">우아한테크코스</string>
+    <string name="club_boost_camp">부스트캠프 웹・모바일</string>
+    <string name="club_dpm">디프만(Depromeet)</string>
+    <string name="club_gdg_on_campus">GDG on Campus</string>
+    <string name="club_gdg_on_campus_position">Lead</string>
+
+    <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
+    <string name="etc_kusitms_date">2024.09 - 2024.12</string>
+    <string name="etc_gdsc_sch_x_skhy_hack">GDSC SCH X SKHU Hack 운영진</string>
+    <string name="etc_gdsc_sch_x_skhy_hack_date">2023.05</string>
+    <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영진</string>
+    <string name="etc_gdsc_kr_winter_cup_date">2023.01 - 2023.02</string>
+
 </resources>

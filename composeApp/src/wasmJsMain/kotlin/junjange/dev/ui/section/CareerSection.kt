@@ -1,8 +1,5 @@
 package junjange.dev.ui.section
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,7 +11,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -24,7 +20,6 @@ import junjange.dev.ui.PC_CONTENT_WIDTH
 import junjange.dev.ui.component.LogoButton
 import junjange.dev.ui.component.Stepper
 import junjange.dev.ui.component.TagText
-import junjange.dev.ui.component.defaultEnterAnim
 import junjange.dev.ui.model.Career
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.isPc
@@ -36,12 +31,6 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun CareerSection(modifier: Modifier = Modifier) {
     val deviceState = rememberDeviceState()
-    val visibleState =
-        remember {
-            MutableTransitionState(false).apply {
-                targetState = true
-            }
-        }
 
     Column(
         modifier =
@@ -50,49 +39,36 @@ fun CareerSection(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        AnimatedVisibility(
-            visibleState = visibleState,
-            enter = defaultEnterAnim(orientation = Orientation.Horizontal, inverseSlide = true),
-            modifier = Modifier.padding(bottom = 48.dp),
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start,
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Start,
-            ) {
-                Text(
-                    stringResource(Res.string.section_career),
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontSize = 36.sp,
-                )
-            }
+            Text(
+                stringResource(Res.string.section_career),
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 36.sp,
+            )
         }
+
+        Spacer(modifier = Modifier.height(48.dp))
+
         Column(modifier = Modifier.width((PC_CONTENT_WIDTH / 2).dp)) {
             if (deviceState.isPc) {
                 Career.entries.forEachIndexed { index, career ->
-                    AnimatedVisibility(
-                        visibleState = visibleState,
-                        enter = defaultEnterAnim(delayMillis = (index + 1) * 300),
-                    ) {
-                        CareerPcStep(
-                            career = career,
-                            isFirst = index == 0,
-                            isLast = index == Career.entries.lastIndex,
-                        )
-                    }
+                    CareerPcStep(
+                        career = career,
+                        isFirst = index == 0,
+                        isLast = index == Career.entries.lastIndex,
+                    )
                 }
             } else {
                 Career.entries.forEachIndexed { index, career ->
-                    AnimatedVisibility(
-                        visibleState = visibleState,
-                        enter = defaultEnterAnim(delayMillis = (index + 1) * 300),
-                    ) {
-                        CareerMobileStep(
-                            career = career,
-                            isFirst = index == 0,
-                            isLast = index == Career.entries.lastIndex,
-                        )
-                    }
+                    CareerMobileStep(
+                        career = career,
+                        isFirst = index == 0,
+                        isLast = index == Career.entries.lastIndex,
+                    )
                 }
             }
         }
@@ -111,7 +87,7 @@ private fun CareerPcStep(
         verticalAlignment = Alignment.Top,
     ) {
         TagText(
-            text = career.date,
+            text = stringResource(career.dateRes),
             textColor = MaterialTheme.colorScheme.onPrimary,
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
@@ -190,7 +166,7 @@ private fun CareerMobileStep(
                 )
                 Spacer(Modifier.width(24.dp))
                 TagText(
-                    text = career.date,
+                    text = stringResource(career.dateRes),
                     textColor = MaterialTheme.colorScheme.onPrimary,
                     fontWeight = FontWeight.Medium,
                     fontSize = 13.sp,

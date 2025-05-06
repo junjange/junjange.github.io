@@ -24,6 +24,7 @@ import junjange.dev.ui.component.HomeTopBar
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.section.AboutSection
 import junjange.dev.ui.section.CareerSection
+import junjange.dev.ui.section.ExperienceSection
 import junjange.dev.ui.section.HomeSection
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.rememberDeviceState
@@ -60,7 +61,7 @@ fun MainScreen(
             },
             drawerState = drawerState,
         ) {
-            HomeContent(
+            MainContent(
                 listState = listState,
                 deviceState = deviceState,
                 modifier = modifier,
@@ -86,7 +87,7 @@ fun MainScreen(
 }
 
 @Composable
-fun HomeContent(
+fun MainContent(
     listState: LazyListState,
     deviceState: DeviceState,
     modifier: Modifier = Modifier,
@@ -122,6 +123,7 @@ fun HomeContent(
                 item { HomeSection(onSectionClicked = onSectionClicked) }
                 item { AboutSection() }
                 item { CareerSection() }
+                item { ExperienceSection() }
             }
         }
     }

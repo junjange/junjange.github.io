@@ -1,7 +1,5 @@
 package junjange.dev.ui.section
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.MutableTransitionState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,7 +22,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
@@ -34,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.component.CenteredImage
-import junjange.dev.ui.component.defaultEnterAnim
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.Skill
 import junjange.dev.ui.state.contentPadding
@@ -48,12 +44,6 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun AboutSection(modifier: Modifier = Modifier) {
     val deviceState = rememberDeviceState()
-    val visibleState =
-        remember {
-            MutableTransitionState(false).apply {
-                targetState = true
-            }
-        }
 
     Column(
         modifier =
@@ -62,76 +52,63 @@ fun AboutSection(modifier: Modifier = Modifier) {
                 .padding(deviceState.contentPadding()),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        AnimatedVisibility(
-            visibleState = visibleState,
-            enter = defaultEnterAnim(),
-            modifier = Modifier.padding(bottom = 36.dp),
-        ) {
-            Text(
-                stringResource(Res.string.section_about),
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                fontWeight = FontWeight.ExtraBold,
-                fontSize = 36.sp,
-                textAlign = TextAlign.Center,
-            )
-        }
-        AnimatedVisibility(
-            visibleState = visibleState,
-            enter = defaultEnterAnim(delayMillis = 400),
-            modifier = Modifier.padding(bottom = 72.dp),
-        ) {
-            val horizontalPadding =
-                when (deviceState.value) {
-                    Device.MOBILE -> 0.dp
-                    Device.PC -> (PC_CONTENT_HORIZONTAL_PADDING / 2).dp
-                }
-            Text(
-                stringResource(Res.string.about_me),
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                fontSize = 16.sp,
-                textAlign = TextAlign.Center,
-                lineHeight = 28.sp,
-                modifier = Modifier.padding(horizontal = horizontalPadding),
-            )
-        }
-        AnimatedVisibility(
-            visibleState = visibleState,
-            enter = defaultEnterAnim(delayMillis = 800),
-            modifier = Modifier.padding(bottom = 36.dp),
-        ) {
-            Text(
-                stringResource(Res.string.i_build_with),
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                fontWeight = FontWeight.Bold,
-                fontSize = 24.sp,
-                textAlign = TextAlign.Center,
-            )
-        }
-        AnimatedVisibility(
-            visibleState = visibleState,
-            enter = defaultEnterAnim(delayMillis = 1200),
-        ) {
-            val (gridColumns, gridModifier, gridSpacing) =
-                when (deviceState.value) {
-                    Device.MOBILE -> {
-                        Triple(2, Modifier.fillMaxWidth().aspectRatio(2 / 3f), 12.dp)
-                    }
+        Text(
+            stringResource(Res.string.section_about),
+            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 36.sp,
+            textAlign = TextAlign.Center,
+        )
 
-                    Device.PC -> {
-                        Triple(3, Modifier.width(720.dp).aspectRatio(3 / 2f), 12.dp)
-                    }
+        Spacer(modifier.height(36.dp))
+
+        val horizontalPadding =
+            when (deviceState.value) {
+                Device.MOBILE -> 0.dp
+                Device.PC -> (PC_CONTENT_HORIZONTAL_PADDING / 2).dp
+            }
+
+        Text(
+            stringResource(Res.string.about_me),
+            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            fontSize = 16.sp,
+            textAlign = TextAlign.Center,
+            lineHeight = 28.sp,
+            modifier = Modifier.padding(horizontal = horizontalPadding),
+        )
+
+        Spacer(modifier.height(72.dp))
+
+        Text(
+            stringResource(Res.string.i_build_with),
+            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp,
+            textAlign = TextAlign.Center,
+        )
+
+        Spacer(modifier.height(36.dp))
+
+        val (gridColumns, gridModifier, gridSpacing) =
+            when (deviceState.value) {
+                Device.MOBILE -> {
+                    Triple(2, Modifier.fillMaxWidth().aspectRatio(2 / 3f), 12.dp)
                 }
 
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(gridColumns),
-                contentPadding = PaddingValues(4.dp),
-                horizontalArrangement = Arrangement.spacedBy(gridSpacing),
-                verticalArrangement = Arrangement.spacedBy(gridSpacing),
-                modifier = gridModifier,
-            ) {
-                items(Skill.entries) {
-                    SkillCard(it)
+                Device.PC -> {
+                    Triple(3, Modifier.width(720.dp).aspectRatio(3 / 2f), 12.dp)
                 }
+            }
+
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(gridColumns),
+            contentPadding = PaddingValues(4.dp),
+            horizontalArrangement = Arrangement.spacedBy(gridSpacing),
+            verticalArrangement = Arrangement.spacedBy(gridSpacing),
+            modifier = gridModifier,
+        ) {
+            items(Skill.entries) {
+                SkillCard(it)
             }
         }
     }
