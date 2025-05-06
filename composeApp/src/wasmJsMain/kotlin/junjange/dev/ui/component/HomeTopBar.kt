@@ -74,20 +74,21 @@ fun MobileTopBar(
 
     TopAppBar(
         title = {
+            LogoImage(onClick = onTitleClick)
         },
         actions = {
             IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
                 Icon(
                     painter = painterResource(themeMode.iconRes),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(24.dp),
                 )
             }
             IconButton(onClick = onMenuClick) {
                 Icon(
                     imageVector = Icons.Default.Menu,
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     contentDescription = null,
                 )
             }
@@ -123,6 +124,7 @@ fun PcTopBar(
                     .height(HEADER_HEIGHT.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            LogoImage(onClick = { onSectionClicked(Section.Home) })
             Spacer(Modifier.weight(1f))
             Row(
                 horizontalArrangement = Arrangement.spacedBy(48.dp),
@@ -133,7 +135,7 @@ fun PcTopBar(
                     ) {
                         Text(
                             text = stringResource(it.title),
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer,
                             fontSize = 16.sp,
                         )
                     }
@@ -144,7 +146,7 @@ fun PcTopBar(
                 Icon(
                     painter = painterResource(themeMode.iconRes),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(24.dp),
                 )
             }

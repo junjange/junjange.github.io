@@ -107,7 +107,6 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
                 Spacer(Modifier.height(4.dp))
             }
         }
-        Spacer(modifier = Modifier.height(32.dp))
     }
 }
 
