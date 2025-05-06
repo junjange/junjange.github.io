@@ -81,14 +81,14 @@ fun MobileTopBar(
                 Icon(
                     painter = painterResource(themeMode.iconRes),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(24.dp),
                 )
             }
             IconButton(onClick = onMenuClick) {
                 Icon(
                     imageVector = Icons.Default.Menu,
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     contentDescription = null,
                 )
             }
@@ -135,7 +135,7 @@ fun PcTopBar(
                     ) {
                         Text(
                             text = stringResource(it.title),
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            color = MaterialTheme.colorScheme.onSecondaryContainer,
                             fontSize = 16.sp,
                         )
                     }
@@ -146,7 +146,7 @@ fun PcTopBar(
                 Icon(
                     painter = painterResource(themeMode.iconRes),
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(24.dp),
                 )
             }
