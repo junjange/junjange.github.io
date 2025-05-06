@@ -57,7 +57,7 @@ fun AppButton(
                 Modifier
                     .size(size)
                     .shadow(
-                        elevation = 24.dp,
+                        elevation = 12.dp,
                         shape = RoundedCornerShape(cornerRadius),
                         clip = false,
                         ambientColor = DarkGray.copy(0.01f),
@@ -71,7 +71,7 @@ fun AppButton(
                     .fillMaxSize()
                     .background(color = MaterialTheme.colorScheme.primaryContainer)
                     .clip(RoundedCornerShape(cornerRadius))
-                    .clickable { sideProject.url?.let { uriHandler.openUri(it) } },
+                    .clickable { uriHandler.openUri(sideProject.url) },
             contentAlignment = Alignment.Center,
         ) {
             Image(
