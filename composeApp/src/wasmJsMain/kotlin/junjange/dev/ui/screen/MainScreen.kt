@@ -24,6 +24,7 @@ import junjange.dev.ui.component.HomeTopBar
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.section.AboutSection
 import junjange.dev.ui.section.CareerSection
+import junjange.dev.ui.section.ContactSection
 import junjange.dev.ui.section.ExperienceSection
 import junjange.dev.ui.section.HomeSection
 import junjange.dev.ui.section.SideProjectSection
@@ -126,6 +127,7 @@ fun MainContent(
                 item { CareerSection() }
                 item { ExperienceSection() }
                 item { SideProjectSection() }
+                item { ContactSection() }
             }
         }
     }
