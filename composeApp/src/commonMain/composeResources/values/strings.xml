@@ -46,14 +46,25 @@
 
     <!--Experience-->
     <string name="experience">Experience</string>
-    <string name="experience_development">Development</string>
+    <string name="experience_education">Education</string>
+    <string name="experience_community">Community</string>
     <string name="experience_etc">ETC</string>
 
-    <string name="club_woowacourse">우아한테크코스</string>
-    <string name="club_boost_camp">부스트캠프 웹・모바일</string>
-    <string name="club_dpm">디프만(Depromeet)</string>
-    <string name="club_gdg_on_campus">GDG on Campus</string>
-    <string name="club_gdg_on_campus_position">Lead</string>
+    <string name="edu_woowacourse">우아한테크코스</string>
+    <string name="edu_woowacourse_desc">우아한형제들 교육 프로그램</string>
+    <string name="edu_woowacourse_period">2024.02 - 2024.11</string>
+
+    <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
+    <string name="edu_boost_camp_desc">네이버 교육 프로그램</string>
+    <string name="edu_boost_camp_period">2023.07 - 2023.12</string>
+
+    <string name="community_dpm">디프만(Depromeet)</string>
+    <string name="community_dpm_desc">디자이너와 프로그래머가 만나는 IT 연합 동아리</string>
+    <string name="community_dpm_period">2022.09 - 2023.07</string>
+
+    <string name="community_gdg_on_campus">GDG on Campus</string>
+    <string name="community_gdg_desc">구글 대학생 개발자 커뮤니티</string>
+    <string name="community_gdg_period">2021.08 - 2023.08</string>
 
     <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
     <string name="etc_kusitms_date">2024.09 - 2024.12</string>
@@ -84,6 +95,7 @@
     <string name="role">역할</string>
     <string name="techStack">기술 스택</string>
     <string name="contributions">주요 기여</string>
+
 
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
     <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
