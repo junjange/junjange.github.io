@@ -15,7 +15,12 @@
 
 
     <!--About-->
-    <string name="about_me">안드로이드 신입 개발자 조준장입니다. 일상 속 문제를 소프트웨어로 해결할 수 있다는 점에 매력을 느껴 개발자의 길을 걷게 되었습니다. 지금까지 10개 이상의 프로젝트에 참여하며, 실제 사용자에게 도움이 되는 앱을 만드는 데 집중해왔습니다. Kotlin을 활용한 안드로이드 개발에 몰입하고 있으며, 사용자 중심의 설계와 안정적인 구현을 중요하게 생각합니다. 최근에는 Kotlin Multiplatform에도 관심이 생겨 학습을 이어가고 있고, 이 웹사이트 역시 Kotlin/Wasm과 Compose Multiplatform으로 직접 만들었습니다.</string>
+    <string name="question1">Q. 안드로이드 개발을 선택한 이유는 무엇인가요?</string>
+    <string name="question1_answer">디지털 기술로 일상의 문제를 해결할 수 있다는 점에서 큰 매력을 느꼈습니다. 복잡한 과정을 단순하게 만들고, 사용자에게 의미 있는 경험을 주기 위해 사용자 중심 개발을 추구해왔습니다. Kotlin, Jetpack Compose 기반의 앱 개발을 지속하며, 실용성과 완성도를 함께 고민하고 있습니다.</string>
+    <string name="question2">Q. 프로젝트를 진행하면서 가장 중요하게 생각하는 것은?</string>
+    <string name="question2_answer">문제의 본질을 파악하고, 명확한 기준을 세우는 것입니다. 구현보다 먼저 "왜 이 기능이 필요한가?"를 고민하며, 반복되는 기능도 최대한 구조적으로 접근하려 노력합니다. 또한, 협업에서는 의사소통과 코드 리뷰를 가장 중요하게 생각합니다.</string>
+    <string name="question3">Q. 기술 외에 자신이 가진 강점이 있다면?</string>
+    <string name="question3_answer">지속적인 개선을 두려워하지 않는 태도입니다. 코드가 완벽하다고 생각하지 않고, 언제든 더 나은 방식이 있다면 적용하려 노력합니다. 블로그 글을 통해 경험을 정리하고, 다양한 커뮤니티 활동도 꾸준히 이어가고 있습니다.</string>
     <string name="i_build_with">I Build With</string>
     <string name="kotlin">Kotlin</string>
     <string name="java">Java</string>
