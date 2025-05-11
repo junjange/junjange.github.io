@@ -160,6 +160,7 @@ private fun HomeMobileSection(
         AnimatedArrow(
             modifier =
                 Modifier
+                    .size(128.dp)
                     .align(Alignment.BottomCenter)
                     .padding(bottom = 20.dp),
             onClick = { onSectionClicked(Section.AboutMe) },
@@ -214,6 +215,7 @@ private fun HomePcSection(
         AnimatedArrow(
             modifier =
                 Modifier
+                    .size(128.dp)
                     .align(Alignment.BottomCenter)
                     .padding(bottom = 20.dp),
             onClick = { onSectionClicked(Section.AboutMe) },
