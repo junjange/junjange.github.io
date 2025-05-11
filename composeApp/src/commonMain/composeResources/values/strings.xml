@@ -96,6 +96,7 @@
     <string name="techStack">기술 스택</string>
     <string name="contributions">주요 기여</string>
 
+
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
     <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
     <string name="project_lucky_lottery_period">2020.11 - 진행중</string>
