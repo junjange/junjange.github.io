@@ -125,8 +125,8 @@ fun MainContent(
                 item { HomeSection(onSectionClicked = onSectionClicked) }
                 item { AboutSection() }
                 item { CareerSection() }
-                item { ExperienceSection() }
                 item { SideProjectSection() }
+                item { ExperienceSection() }
                 item { ContactSection() }
             }
         }

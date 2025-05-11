@@ -160,6 +160,7 @@ private fun HomeMobileSection(
         AnimatedArrow(
             modifier =
                 Modifier
+                    .size(128.dp)
                     .align(Alignment.BottomCenter)
                     .padding(bottom = 20.dp),
             onClick = { onSectionClicked(Section.AboutMe) },
@@ -214,6 +215,7 @@ private fun HomePcSection(
         AnimatedArrow(
             modifier =
                 Modifier
+                    .size(128.dp)
                     .align(Alignment.BottomCenter)
                     .padding(bottom = 20.dp),
             onClick = { onSectionClicked(Section.AboutMe) },
@@ -231,16 +233,16 @@ private fun GithubButton(modifier: Modifier = Modifier) {
         modifier = modifier.then(Modifier.height(56.dp)),
         contentPadding = PaddingValues(vertical = 12.dp, horizontal = 24.dp),
     ) {
-        Text(
-            text = stringResource(Res.string.follow_github),
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 16.sp,
-        )
-        Spacer(Modifier.width(8.dp))
         Icon(
             painterResource(Res.drawable.ic_github),
             contentDescription = null,
             modifier = Modifier.size(24.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(
+            text = stringResource(Res.string.follow_github),
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 16.sp,
         )
     }
 }
@@ -260,16 +262,16 @@ private fun BlogButton(modifier: Modifier = Modifier) {
             ),
         contentPadding = PaddingValues(vertical = 12.dp, horizontal = 24.dp),
     ) {
-        Text(
-            text = stringResource(Res.string.visit_blog),
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 16.sp,
-        )
-        Spacer(Modifier.width(8.dp))
         Icon(
             painter = painterResource(Res.drawable.ic_open_in_new),
             contentDescription = null,
             modifier = Modifier.size(24.dp),
+        )
+        Spacer(Modifier.width(8.dp))
+        Text(
+            text = stringResource(Res.string.visit_blog),
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 16.sp,
         )
     }
 }
