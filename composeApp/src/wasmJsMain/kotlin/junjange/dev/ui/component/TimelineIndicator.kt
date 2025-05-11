@@ -1,11 +1,14 @@
 package junjange.dev.ui.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -15,30 +18,30 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Stepper(
-    dotSize: Dp,
+fun TimelineIndicator(
+    isFirst: Boolean,
     frontHeight: Dp,
-    rearHeight: Dp,
-    isHead: Boolean = false,
-    thickness: Dp = 2.dp,
+    dotSize: Dp,
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier.width(80.dp),
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Box(
             modifier =
                 Modifier
+                    .width(2.dp)
+                    .height(frontHeight)
                     .background(
-                        color = MaterialTheme.colorScheme.primary.copy(if (isHead) 0f else 0.2f),
+                        color = MaterialTheme.colorScheme.primary.copy(if (isFirst) 0f else 0.2f),
                         shape = CircleShape,
-                    ).size(
-                        width = thickness,
-                        height = frontHeight,
                     ),
         )
+
         Spacer(Modifier.height(8.dp))
+
         Box(
             modifier =
                 Modifier
@@ -56,13 +59,16 @@ fun Stepper(
             )
         }
         Spacer(Modifier.height(8.dp))
+
         Box(
             modifier =
                 Modifier
+                    .width(2.dp)
+                    .fillMaxHeight()
                     .background(
                         color = MaterialTheme.colorScheme.primary.copy(0.2f),
                         shape = CircleShape,
-                    ).size(width = thickness, height = rearHeight),
+                    ),
         )
     }
 }
