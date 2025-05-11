@@ -24,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -32,13 +33,15 @@ import androidx.compose.ui.unit.sp
 import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.component.CenteredImage
 import junjange.dev.ui.model.Device
+import junjange.dev.ui.model.Interview
 import junjange.dev.ui.model.Skill
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
+import junjange.dev.ui.theme.DarkGray
 import junjange_dev.composeapp.generated.resources.Res
-import junjange_dev.composeapp.generated.resources.about_me
 import junjange_dev.composeapp.generated.resources.i_build_with
 import junjange_dev.composeapp.generated.resources.section_about
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -48,6 +51,7 @@ fun AboutSection(modifier: Modifier = Modifier) {
     Column(
         modifier =
             modifier
+                .fillMaxSize()
                 .background(MaterialTheme.colorScheme.secondaryContainer)
                 .padding(deviceState.contentPadding()),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -68,19 +72,19 @@ fun AboutSection(modifier: Modifier = Modifier) {
                 Device.PC -> (PC_CONTENT_HORIZONTAL_PADDING / 2).dp
             }
 
-        Text(
-            stringResource(Res.string.about_me),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center,
-            lineHeight = 28.sp,
-            modifier = Modifier.padding(horizontal = horizontalPadding),
-        )
+        Interview.entries.forEach { interview ->
+            InterviewCard(
+                question = interview.question,
+                answer = interview.answer,
+                modifier = Modifier.padding(horizontal = horizontalPadding),
+            )
+            Spacer(modifier.height(24.dp))
+        }
 
         Spacer(modifier.height(72.dp))
 
         Text(
-            stringResource(Res.string.i_build_with),
+            text = stringResource(Res.string.i_build_with),
             color = MaterialTheme.colorScheme.onSecondaryContainer,
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
@@ -111,6 +115,47 @@ fun AboutSection(modifier: Modifier = Modifier) {
                 SkillCard(it)
             }
         }
+    }
+}
+
+@Composable
+fun InterviewCard(
+    question: StringResource,
+    answer: StringResource,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .shadow(
+                    elevation = 4.dp,
+                    shape = RoundedCornerShape(12.dp),
+                    ambientColor = DarkGray.copy(0.01f),
+                    spotColor = DarkGray.copy(0.01f),
+                    clip = false,
+                ).background(
+                    color = MaterialTheme.colorScheme.primaryContainer,
+                    shape = RoundedCornerShape(12.dp),
+                ).padding(20.dp),
+    ) {
+        Text(
+            text = stringResource(question),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSecondaryContainer,
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = stringResource(answer),
+            fontSize = 16.sp,
+            lineHeight = 22.sp,
+            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }
 
