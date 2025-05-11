@@ -30,7 +30,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import junjange.dev.ui.model.SideProject
+import junjange.dev.ui.model.Project
 import junjange.dev.ui.theme.Black
 import junjange.dev.ui.theme.DarkGray
 import junjange.dev.ui.theme.White
@@ -39,7 +39,7 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun AppButton(
-    sideProject: SideProject,
+    project: Project,
     modifier: Modifier = Modifier,
     size: Dp = 92.dp,
     cornerRadius: Dp = 24.dp,
@@ -71,11 +71,11 @@ fun AppButton(
                     .fillMaxSize()
                     .background(color = MaterialTheme.colorScheme.primaryContainer)
                     .clip(RoundedCornerShape(cornerRadius))
-                    .clickable { uriHandler.openUri(sideProject.url) },
+                    .clickable { uriHandler.openUri(project.url) },
             contentAlignment = Alignment.Center,
         ) {
             Image(
-                painter = painterResource(sideProject.logoRes),
+                painter = painterResource(project.logoRes),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
             )
@@ -93,7 +93,7 @@ fun AppButton(
                     contentAlignment = Alignment.Center,
                 ) {
                     Text(
-                        text = stringResource(sideProject.titleRes),
+                        text = stringResource(project.titleRes),
                         color = White,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(8.dp),
