@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,7 +23,6 @@ import junjange.dev.ui.component.TimelineIndicator
 import junjange.dev.ui.model.Career
 import junjange.dev.ui.model.CareerProject
 import junjange.dev.ui.state.contentPadding
-import junjange.dev.ui.state.isPc
 import junjange.dev.ui.state.rememberDeviceState
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.section_career
@@ -49,26 +48,17 @@ fun CareerSection(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(48.dp))
 
-        if (deviceState.isPc) {
-            Career.entries.forEachIndexed { index, career ->
-                CareerPcStep(
-                    career = career,
-                    isFirst = index == 0,
-                )
-            }
-        } else {
-            Career.entries.forEachIndexed { index, career ->
-                CareerMobileStep(
-                    career = career,
-                    isFirst = index == 0,
-                )
-            }
+        Career.entries.forEachIndexed { index, career ->
+            CareerContent(
+                career = career,
+                isFirst = index == 0,
+            )
         }
     }
 }
 
 @Composable
-private fun CareerPcStep(
+private fun CareerContent(
     career: Career,
     isFirst: Boolean,
     modifier: Modifier = Modifier,
@@ -76,102 +66,7 @@ private fun CareerPcStep(
     Row(
         modifier =
             modifier
-                .height(IntrinsicSize.Min),
-        verticalAlignment = Alignment.Top,
-    ) {
-        TimelineIndicator(
-            isFirst = isFirst,
-            frontHeight = ((CAREER_LOGO_SIZE - CAREER_DOT_SIZE) / 2) - 8.dp,
-            dotSize = CAREER_DOT_SIZE,
-        )
-
-        Spacer(Modifier.width(24.dp))
-
-        Column(
-            modifier = Modifier.weight(2f),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start,
-        ) {
-            CardImage(
-                logo = career.logoRes,
-                size = CAREER_LOGO_SIZE,
-                cornerRadius = 32.dp,
-                elevation = 24.dp,
-                contentPadding = PaddingValues(12.dp),
-            )
-            Spacer(Modifier.height(24.dp))
-            Text(
-                text = stringResource(career.nameRes),
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-            )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(career.teamRes),
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-                fontWeight = FontWeight.Medium,
-                fontSize = 15.sp,
-            )
-            Text(
-                text = stringResource(career.dateRes),
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-                fontWeight = FontWeight.Medium,
-                fontSize = 15.sp,
-            )
-        }
-
-        Column(
-            modifier = Modifier.weight(8f),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start,
-        ) {
-            career.project.forEach { careerProject ->
-                CareerProjectItem(careerProject = careerProject)
-                Spacer(Modifier.height(24.dp))
-            }
-            Spacer(Modifier.height(24.dp))
-        }
-    }
-}
-
-@Composable
-private fun CareerProjectItem(careerProject: CareerProject) {
-    Text(
-        text = stringResource(careerProject.titleRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer,
-        fontWeight = FontWeight.Bold,
-        fontSize = 15.sp,
-    )
-    Text(
-        text = stringResource(careerProject.periodRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-        fontWeight = FontWeight.Normal,
-        fontSize = 15.sp,
-    )
-    Text(
-        text = stringResource(careerProject.techStackRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-        fontWeight = FontWeight.Normal,
-        fontSize = 15.sp,
-    )
-    Text(
-        text = stringResource(careerProject.contributionsRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-        fontWeight = FontWeight.Normal,
-        fontSize = 15.sp,
-    )
-}
-
-@Composable
-private fun CareerMobileStep(
-    career: Career,
-    isFirst: Boolean,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        modifier =
-            modifier
+                .fillMaxWidth()
                 .height(IntrinsicSize.Min),
         verticalAlignment = Alignment.Top,
     ) {
@@ -234,6 +129,34 @@ private fun CareerMobileStep(
             Spacer(Modifier.height(24.dp))
         }
     }
+}
+
+@Composable
+private fun CareerProjectItem(careerProject: CareerProject) {
+    Text(
+        text = stringResource(careerProject.titleRes),
+        color = MaterialTheme.colorScheme.onPrimaryContainer,
+        fontWeight = FontWeight.Bold,
+        fontSize = 15.sp,
+    )
+    Text(
+        text = stringResource(careerProject.periodRes),
+        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+    )
+    Text(
+        text = stringResource(careerProject.techStackRes),
+        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+    )
+    Text(
+        text = stringResource(careerProject.contributionsRes),
+        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
+        fontWeight = FontWeight.Normal,
+        fontSize = 15.sp,
+    )
 }
 
 private val CAREER_DOT_SIZE = 24.dp

@@ -157,56 +157,74 @@ fun ExperienceItem(
 ) {
     val uriHandler = LocalUriHandler.current
 
-    Row(modifier = modifier) {
-        CardImage(
-            logo = experience.logoRes,
-            size = 92.dp,
-        )
-
-        Spacer(modifier = Modifier.width(20.dp))
-
-        Column(verticalArrangement = Arrangement.Center) {
-            Text(
-                text = stringResource(experience.titleRes),
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-            )
-            Text(
-                text = stringResource(experience.descriptionRes),
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-            )
-            Text(
-                text = stringResource(experience.periodRes),
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+    Column(modifier = modifier) {
+        Row {
+            CardImage(
+                logo = experience.logoRes,
+                size = 92.dp,
             )
 
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center,
+            Spacer(modifier = Modifier.width(20.dp))
+
+            Column(
+                verticalArrangement = Arrangement.Center,
             ) {
-                experience.links.forEachIndexed { index, (label, url) ->
-                    Text(
-                        text = stringResource(label),
-                        fontSize = 14.sp,
-                        modifier = Modifier.clickable { uriHandler.openUri(url) },
-                        style =
-                            MaterialTheme.typography.bodySmall.copy(
-                                textDecoration = TextDecoration.Underline,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-                            ),
-                    )
-                    if (index != experience.links.lastIndex) {
+                Text(
+                    text = stringResource(experience.titleRes),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+                Text(
+                    text = stringResource(experience.subtitleRes),
+                    fontSize = 14.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+                )
+                Text(
+                    text = stringResource(experience.periodRes),
+                    fontSize = 14.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+                )
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center,
+                ) {
+                    experience.links.forEachIndexed { index, (label, url) ->
                         Text(
-                            text = " | ",
+                            text = stringResource(label),
                             fontSize = 14.sp,
-                            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+                            modifier = Modifier.clickable { uriHandler.openUri(url) },
+                            style =
+                                MaterialTheme.typography.bodySmall.copy(
+                                    textDecoration = TextDecoration.Underline,
+                                    color =
+                                        MaterialTheme.colorScheme.onSecondaryContainer.copy(
+                                            alpha = 0.8f,
+                                        ),
+                                ),
                         )
+                        if (index != experience.links.lastIndex) {
+                            Text(
+                                text = " | ",
+                                fontSize = 14.sp,
+                                color =
+                                    MaterialTheme.colorScheme.onSecondaryContainer.copy(
+                                        alpha = 0.8f,
+                                    ),
+                            )
+                        }
                     }
                 }
             }
         }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Text(
+            text = stringResource(experience.descriptionRes),
+            fontSize = 14.sp,
+            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+        )
     }
 }
