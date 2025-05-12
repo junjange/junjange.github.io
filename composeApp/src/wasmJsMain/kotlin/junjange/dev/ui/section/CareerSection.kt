@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.PC_CONTENT_WIDTH
 import junjange.dev.ui.component.CardImage
 import junjange.dev.ui.component.TimelineIndicator
 import junjange.dev.ui.model.Career
@@ -50,21 +49,19 @@ fun CareerSection(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(48.dp))
 
-        Column(modifier = Modifier.width((PC_CONTENT_WIDTH).dp)) {
-            if (deviceState.isPc) {
-                Career.entries.forEachIndexed { index, career ->
-                    CareerPcStep(
-                        career = career,
-                        isFirst = index == 0,
-                    )
-                }
-            } else {
-                Career.entries.forEachIndexed { index, career ->
-                    CareerMobileStep(
-                        career = career,
-                        isFirst = index == 0,
-                    )
-                }
+        if (deviceState.isPc) {
+            Career.entries.forEachIndexed { index, career ->
+                CareerPcStep(
+                    career = career,
+                    isFirst = index == 0,
+                )
+            }
+        } else {
+            Career.entries.forEachIndexed { index, career ->
+                CareerMobileStep(
+                    career = career,
+                    isFirst = index == 0,
+                )
             }
         }
     }
