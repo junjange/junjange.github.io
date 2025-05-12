@@ -19,7 +19,6 @@ enum class Career(
     val dateRes: StringResource,
     val nameRes: StringResource,
     val teamRes: StringResource,
-    val url: String,
     val project: List<CareerProject>,
 ) {
     Lio(
@@ -27,7 +26,6 @@ enum class Career(
         dateRes = Res.string.career_lio_date,
         nameRes = Res.string.career_lio,
         teamRes = Res.string.career_lio_team,
-        url = "https://www.lio.team",
         project = LIO_PROJECTS,
     ),
     Matrios(
@@ -35,7 +33,6 @@ enum class Career(
         dateRes = Res.string.career_matrios_date,
         nameRes = Res.string.career_matrios,
         teamRes = Res.string.career_matrios_team,
-        url = "https://www.matriosonline.com",
         project = MATRIOS_PROJECTS,
     ),
 }
