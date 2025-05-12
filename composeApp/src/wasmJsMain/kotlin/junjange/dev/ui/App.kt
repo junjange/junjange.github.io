@@ -13,9 +13,11 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.unit.Constraints
-import junjange.dev.ui.screen.LocalScreenSize
+import junjange.dev.ui.model.LocalScreenSize
+import junjange.dev.ui.model.LocalThemeMode
+import junjange.dev.ui.model.ScreenSize
+import junjange.dev.ui.model.ThemeMode
 import junjange.dev.ui.screen.MainScreen
-import junjange.dev.ui.screen.ScreenSize
 import junjange.dev.ui.theme.JUNJNAGETheme
 
 @Composable

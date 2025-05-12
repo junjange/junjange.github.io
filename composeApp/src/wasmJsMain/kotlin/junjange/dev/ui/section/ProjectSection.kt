@@ -34,12 +34,12 @@ import androidx.compose.ui.unit.sp
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.component.AppButton
 import junjange.dev.ui.component.CardImage
-import junjange.dev.ui.device.contentPadding
-import junjange.dev.ui.device.isMobile
-import junjange.dev.ui.device.isPc
-import junjange.dev.ui.device.rememberDeviceState
+import junjange.dev.ui.model.LocalScreenSize
 import junjange.dev.ui.model.Project
-import junjange.dev.ui.screen.LocalScreenSize
+import junjange.dev.ui.state.contentPadding
+import junjange.dev.ui.state.isMobile
+import junjange.dev.ui.state.isPc
+import junjange.dev.ui.state.rememberDeviceState
 import junjange.dev.ui.theme.DarkGray
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.contributions

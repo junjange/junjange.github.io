@@ -18,18 +18,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
-import junjange.dev.ui.ThemeMode
 import junjange.dev.ui.component.HomeDrawer
 import junjange.dev.ui.component.HomeTopBar
-import junjange.dev.ui.device.DeviceState
-import junjange.dev.ui.device.rememberDeviceState
 import junjange.dev.ui.model.Section
+import junjange.dev.ui.model.ThemeMode
 import junjange.dev.ui.section.AboutSection
 import junjange.dev.ui.section.CareerSection
 import junjange.dev.ui.section.ContactSection
 import junjange.dev.ui.section.ExperienceSection
 import junjange.dev.ui.section.HomeSection
 import junjange.dev.ui.section.ProjectSection
+import junjange.dev.ui.state.DeviceState
+import junjange.dev.ui.state.rememberDeviceState
 import kotlinx.coroutines.launch
 
 @Composable
