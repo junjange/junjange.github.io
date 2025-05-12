@@ -109,7 +109,7 @@ fun PcTopBar(
 
     Row(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
                 .height(HEADER_HEIGHT.dp)
                 .padding(horizontal = 24.dp, vertical = 12.dp),
