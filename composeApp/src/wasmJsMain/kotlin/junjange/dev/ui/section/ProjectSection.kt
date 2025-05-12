@@ -153,8 +153,6 @@ fun ProjectCard(
         CardImage(
             logo = project.logoRes,
             size = 92.dp,
-            cornerRadius = 12.dp,
-            elevation = 6.dp,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
 
