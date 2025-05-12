@@ -114,44 +114,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun EtcText(
-    etc: Etc,
-    modifier: Modifier = Modifier,
-) {
-    val text =
-        buildAnnotatedString {
-            withStyle(
-                SpanStyle(
-                    fontSize = 16.sp,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.8f),
-                ),
-            ) {
-                withStyle(
-                    SpanStyle(
-                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.25f),
-                    ),
-                ) {
-                    append(" • ")
-                }
-
-                append(stringResource(etc.titleRes))
-                append(" ")
-
-                withStyle(
-                    SpanStyle(
-                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.5f),
-                        fontSize = 12.sp,
-                    ),
-                ) {
-                    append(stringResource(etc.dateRes))
-                }
-            }
-        }
-    Text(text = text, modifier = modifier)
-}
-
-@Composable
-fun ExperienceItem(
+private fun ExperienceItem(
     experience: Experience,
     modifier: Modifier = Modifier,
 ) {
@@ -227,4 +190,41 @@ fun ExperienceItem(
             color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
         )
     }
+}
+
+@Composable
+private fun EtcText(
+    etc: Etc,
+    modifier: Modifier = Modifier,
+) {
+    val text =
+        buildAnnotatedString {
+            withStyle(
+                SpanStyle(
+                    fontSize = 16.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.8f),
+                ),
+            ) {
+                withStyle(
+                    SpanStyle(
+                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.25f),
+                    ),
+                ) {
+                    append(" • ")
+                }
+
+                append(stringResource(etc.titleRes))
+                append(" ")
+
+                withStyle(
+                    SpanStyle(
+                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.5f),
+                        fontSize = 12.sp,
+                    ),
+                ) {
+                    append(stringResource(etc.dateRes))
+                }
+            }
+        }
+    Text(text = text, modifier = modifier)
 }

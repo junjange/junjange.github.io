@@ -69,7 +69,7 @@ fun AboutSection(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ContentCard(
+private fun ContentCard(
     title: StringResource,
     description: StringResource,
     modifier: Modifier = Modifier,

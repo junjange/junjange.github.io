@@ -127,7 +127,7 @@ fun ProjectSection(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ProjectCard(
+private fun ProjectCard(
     project: Project,
     modifier: Modifier = Modifier,
 ) {
