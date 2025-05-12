@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.component.CenteredImage
+import junjange.dev.ui.model.AboutMe
 import junjange.dev.ui.model.Device
-import junjange.dev.ui.model.Interview
 import junjange.dev.ui.model.Skill
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
@@ -72,10 +72,10 @@ fun AboutSection(modifier: Modifier = Modifier) {
                 Device.PC -> (PC_CONTENT_HORIZONTAL_PADDING / 2).dp
             }
 
-        Interview.entries.forEach { interview ->
-            InterviewCard(
-                question = interview.question,
-                answer = interview.answer,
+        AboutMe.entries.forEach { interview ->
+            ContentCard(
+                title = interview.titleRes,
+                description = interview.descriptionRes,
                 modifier = Modifier.padding(horizontal = horizontalPadding),
             )
             Spacer(modifier.height(24.dp))
@@ -119,9 +119,9 @@ fun AboutSection(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun InterviewCard(
-    question: StringResource,
-    answer: StringResource,
+fun ContentCard(
+    title: StringResource,
+    description: StringResource,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -140,7 +140,7 @@ fun InterviewCard(
                 ).padding(20.dp),
     ) {
         Text(
-            text = stringResource(question),
+            text = stringResource(title),
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onSecondaryContainer,
@@ -149,7 +149,7 @@ fun InterviewCard(
         Spacer(modifier = Modifier.height(20.dp))
 
         Text(
-            text = stringResource(answer),
+            text = stringResource(description),
             fontSize = 16.sp,
             lineHeight = 22.sp,
             color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
