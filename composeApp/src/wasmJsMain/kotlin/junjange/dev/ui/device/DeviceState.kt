@@ -1,4 +1,4 @@
-package junjange.dev.ui.utils
+package junjange.dev.ui.device
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
@@ -15,6 +15,7 @@ import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.PC_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.model.Device
+import junjange.dev.ui.screen.LocalScreenSize
 
 typealias DeviceState = State<Device>
 

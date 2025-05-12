@@ -19,11 +19,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING
+import junjange.dev.ui.device.contentPadding
+import junjange.dev.ui.device.rememberDeviceState
 import junjange.dev.ui.model.AboutMe
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.theme.DarkGray
-import junjange.dev.ui.utils.contentPadding
-import junjange.dev.ui.utils.rememberDeviceState
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.section_about
 import org.jetbrains.compose.resources.StringResource

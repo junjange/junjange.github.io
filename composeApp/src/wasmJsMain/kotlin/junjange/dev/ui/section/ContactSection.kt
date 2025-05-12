@@ -23,10 +23,10 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.device.contentPadding
+import junjange.dev.ui.device.isPc
+import junjange.dev.ui.device.rememberDeviceState
 import junjange.dev.ui.model.Contact
-import junjange.dev.ui.utils.contentPadding
-import junjange.dev.ui.utils.isPc
-import junjange.dev.ui.utils.rememberDeviceState
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.copyright
 import junjange_dev.composeapp.generated.resources.ic_logo

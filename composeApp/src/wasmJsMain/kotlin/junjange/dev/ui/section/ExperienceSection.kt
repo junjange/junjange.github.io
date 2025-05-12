@@ -25,12 +25,12 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.component.CardImage
+import junjange.dev.ui.device.contentPadding
+import junjange.dev.ui.device.rememberDeviceState
 import junjange.dev.ui.model.Community
 import junjange.dev.ui.model.Education
 import junjange.dev.ui.model.Etc
 import junjange.dev.ui.model.Experience
-import junjange.dev.ui.utils.contentPadding
-import junjange.dev.ui.utils.rememberDeviceState
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.experience
 import junjange_dev.composeapp.generated.resources.experience_community

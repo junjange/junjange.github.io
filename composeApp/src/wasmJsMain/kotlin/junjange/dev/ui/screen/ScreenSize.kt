@@ -1,4 +1,4 @@
-package junjange.dev.ui.utils
+package junjange.dev.ui.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
