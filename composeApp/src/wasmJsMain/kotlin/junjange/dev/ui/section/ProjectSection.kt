@@ -31,10 +31,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.LocalScreenSize
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.component.AppButton
 import junjange.dev.ui.component.CardImage
+import junjange.dev.ui.model.LocalScreenSize
 import junjange.dev.ui.model.Project
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.isMobile
@@ -127,7 +127,7 @@ fun ProjectSection(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ProjectCard(
+private fun ProjectCard(
     project: Project,
     modifier: Modifier = Modifier,
 ) {
