@@ -2,12 +2,10 @@ package junjange.dev.ui.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.LocalThemeMode
-import junjange.dev.ui.PC_CONTENT_WIDTH
 import junjange.dev.ui.ThemeMode
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.state.DeviceState
@@ -112,36 +109,28 @@ fun PcTopBar(
 
     Row(
         modifier =
-            modifier
+            Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 32.dp),
-        horizontalArrangement = Arrangement.Center,
+                .height(HEADER_HEIGHT.dp)
+                .padding(horizontal = 24.dp, vertical = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
+        LogoImage(onClick = { onSectionClicked(Section.Home) })
         Row(
-            modifier =
-                Modifier
-                    .width(PC_CONTENT_WIDTH.dp)
-                    .height(HEADER_HEIGHT.dp),
-            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(24.dp),
         ) {
-            LogoImage(onClick = { onSectionClicked(Section.Home) })
-            Spacer(Modifier.weight(1f))
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(48.dp),
-            ) {
-                Section.entries.forEach {
-                    TextButton(
-                        onClick = { onSectionClicked(it) },
-                    ) {
-                        Text(
-                            text = stringResource(it.title),
-                            color = MaterialTheme.colorScheme.onSecondaryContainer,
-                            fontSize = 16.sp,
-                        )
-                    }
+            Section.entries.forEach {
+                TextButton(
+                    onClick = { onSectionClicked(it) },
+                ) {
+                    Text(
+                        text = stringResource(it.title),
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                        fontSize = 16.sp,
+                    )
                 }
             }
-            Spacer(Modifier.weight(1f))
             IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
                 Icon(
                     painter = painterResource(themeMode.iconRes),
