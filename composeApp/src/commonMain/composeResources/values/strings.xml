@@ -69,19 +69,23 @@
     <string name="experience_etc">ETC</string>
 
     <string name="edu_woowacourse">우아한테크코스</string>
-    <string name="edu_woowacourse_desc">우아한형제들 교육 프로그램</string>
+    <string name="edu_woowacourse_subtitle">우아한형제들 교육 프로그램</string>
+    <string name="edu_woowacourse_desc">- 문제를 정의하지 않은 기술은 의미 없다는 것을 배웠고, 설계를 통해 '문제 해결의 언어'를 익혔습니다. \n- 도메인 객체로 추상적인 값을 구체화하며, 가독성과 유지보수성을 높이는 개발 습관을 만들었습니다.\n- 코드 리뷰와 페어 프로그래밍을 통해 '혼자 잘하는 개발자'에서 '함께 성장하는 개발자'로 변화했습니다.\n- 기능 구현보다 서비스 맥락을 우선하며, 테스트 코드로 신뢰받는 소프트웨어를 만드는 법을 체득했습니다.</string>
     <string name="edu_woowacourse_period">2024.02 - 2024.11</string>
 
     <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
-    <string name="edu_boost_camp_desc">네이버 교육 프로그램</string>
+    <string name="edu_boost_camp_subtitle">네이버 교육 프로그램</string>
+    <string name="edu_boost_camp_desc">- Android와 Kotlin을 기반으로 모바일 앱 개발 역량을 체계적으로 강화했습니다.\n- 자기 주도적 학습을 통해 원리를 이해하고, 유지보수까지 고려한 지속 가능한 개발 방식을 익혔습니다.\n- 컴퓨터 공학 기초 지식을 실무 코드에 적용하며 논리적 사고와 문제 해결 능력을 높였습니다.\n- 피드백과 코드 리뷰를 통해 협업 역량을 기르고, 코드 품질을 꾸준히 개선하는 습관을 체득했습니다.</string>
     <string name="edu_boost_camp_period">2023.07 - 2023.12</string>
 
     <string name="community_dpm">디프만(Depromeet)</string>
-    <string name="community_dpm_desc">디자이너와 프로그래머가 만나는 IT 연합 동아리</string>
+    <string name="community_dpm_subtitle">IT 연합 동아리</string>
+    <string name="community_dpm_desc">- 디프만 13기 안드로이드 개발자 | 23.04 ~ 23.07\n- 디프만 12기 안드로이드 개발자 | 22.09 ~ 23.01</string>
     <string name="community_dpm_period">2022.09 - 2023.07</string>
 
     <string name="community_gdg_on_campus">GDG on Campus</string>
-    <string name="community_gdg_desc">구글 대학생 개발자 커뮤니티</string>
+    <string name="community_gdg_subtitle">구글 대학생 개발자 커뮤니티</string>
+    <string name="community_gdg_desc">- 4기 Lead(회장) | 22.08 ~ 23.08\n- 3기 Core Member(운영진) | 21.08 ~ 22.08\n- Flutter 스터디를 진행한 후, 관련 블로그 글과 유튜브 영상을 업로드</string>
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
     <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
