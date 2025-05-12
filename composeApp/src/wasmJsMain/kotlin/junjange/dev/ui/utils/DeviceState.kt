@@ -20,19 +20,22 @@ typealias DeviceState = State<Device>
 
 @Composable
 fun rememberDeviceState(): DeviceState {
-    val screenWidthInDp = with(LocalDensity.current) { LocalScreenSize.current.width.toDp() }
-    return remember(screenWidthInDp) { derivedStateOf { Device.fromWidth(screenWidthInDp) } }
+    val screenWidthDp = with(LocalDensity.current) { LocalScreenSize.current.width.toDp() }
+    return remember(screenWidthDp) {
+        derivedStateOf { Device.fromWidth(screenWidthDp) }
+    }
 }
 
-val DeviceState.isMobile
+val DeviceState.isMobile: Boolean
     get() = value == Device.MOBILE
-val DeviceState.isPc
+
+val DeviceState.isPc: Boolean
     get() = value == Device.PC
 
 @Composable
 @ReadOnlyComposable
 fun DeviceState.fontSize(): TextUnit =
-    when (this.value) {
+    when (value) {
         Device.PC -> 72.sp
         Device.MOBILE -> 48.sp
     }
@@ -40,18 +43,18 @@ fun DeviceState.fontSize(): TextUnit =
 @Composable
 @ReadOnlyComposable
 fun DeviceState.contentPadding(): PaddingValues =
-    when (this.value) {
-        Device.MOBILE -> mobileSectionPaddingValues
-        Device.PC -> pcSectionPaddingValues
+    when (value) {
+        Device.PC -> PcContentPadding
+        Device.MOBILE -> MobileContentPadding
     }
 
-private val pcSectionPaddingValues =
+private val PcContentPadding =
     PaddingValues(
         horizontal = PC_CONTENT_HORIZONTAL_PADDING.dp,
         vertical = PC_CONTENT_VERTICAL_PADDING.dp,
     )
 
-private val mobileSectionPaddingValues =
+private val MobileContentPadding =
     PaddingValues(
         horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp,
         vertical = MOBILE_CONTENT_VERTICAL_PADDING.dp,
