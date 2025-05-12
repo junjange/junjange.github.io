@@ -39,10 +39,10 @@ import junjange.dev.ui.component.HEADER_HEIGHT
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.utils.DeviceState
 import junjange.dev.ui.utils.LocalScreenSize
+import junjange.dev.ui.utils.asDp
 import junjange.dev.ui.utils.fontSize
 import junjange.dev.ui.utils.isMobile
 import junjange.dev.ui.utils.rememberDeviceState
-import junjange.dev.ui.utils.toDpSize
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.blue_chip
 import junjange_dev.composeapp.generated.resources.follow_github
@@ -109,7 +109,7 @@ private fun HomeMobileSection(
     modifier: Modifier = Modifier,
     onSectionClicked: (Section) -> Unit,
 ) {
-    val screenSize = LocalScreenSize.current.toDpSize()
+    val screenSize = LocalScreenSize.current.asDp()
 
     Box(
         modifier =
@@ -174,7 +174,7 @@ private fun HomePcSection(
     modifier: Modifier = Modifier,
     onSectionClicked: (Section) -> Unit,
 ) {
-    val screenSize = LocalScreenSize.current.toDpSize()
+    val screenSize = LocalScreenSize.current.asDp()
 
     Box(
         modifier =
