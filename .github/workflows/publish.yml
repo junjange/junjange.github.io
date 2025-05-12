@@ -1,7 +1,7 @@
 name: Publish Application on GitHub Pages
-on: [push, pull_request]
+on:
+    workflow_dispatch:
 jobs:
-    # Build job
     build:
         name: Build Kotlin/Wasm
         runs-on: ubuntu-latest
@@ -10,24 +10,24 @@ jobs:
               uses: actions/setup-java@v2
               with:
                   distribution: 'adopt'
-                  java-version: '11'
+                  java-version: '17'
 
             - name: Checkout code
               uses: actions/checkout@v3
 
             - name: Run Gradle Tasks
-              run: ./gradlew jsBrowserDistribution --no-configuration-cache
+              run: ./gradlew wasmJsBrowserDistribution --no-configuration-cache
 
             - name: Fix permissions
               run: |
-                  chmod -v -R +rX "composeApp/build/dist/js/productionExecutable/" | while read line; do
+                  chmod -v -R +rX "composeApp/build/dist/wasmJs/productionExecutable/" | while read line; do
                     echo "::warning title=Invalid file permissions automatically fixed::$line"
                   done
 
             - name: Upload Pages artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: composeApp/build/dist/js/productionExecutable/
+                  path: composeApp/build/dist/wasmJs/productionExecutable/
 
     deploy:
         # Add a dependency to the build job
