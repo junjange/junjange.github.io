@@ -1,4 +1,4 @@
-package junjange.dev.ui.state
+package junjange.dev.ui.utils
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
@@ -10,7 +10,6 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.LocalScreenSize
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING

@@ -15,6 +15,10 @@ import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.unit.Constraints
 import junjange.dev.ui.screen.MainScreen
 import junjange.dev.ui.theme.JUNJNAGETheme
+import junjange.dev.ui.utils.LocalScreenSize
+import junjange.dev.ui.utils.LocalThemeMode
+import junjange.dev.ui.utils.ScreenSize
+import junjange.dev.ui.utils.ThemeMode
 
 @Composable
 fun App() {

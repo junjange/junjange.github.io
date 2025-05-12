@@ -22,8 +22,8 @@ import junjange.dev.ui.component.CardImage
 import junjange.dev.ui.component.TimelineIndicator
 import junjange.dev.ui.model.Career
 import junjange.dev.ui.model.CareerProject
-import junjange.dev.ui.state.contentPadding
-import junjange.dev.ui.state.rememberDeviceState
+import junjange.dev.ui.utils.contentPadding
+import junjange.dev.ui.utils.rememberDeviceState
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.section_career
 import org.jetbrains.compose.resources.stringResource

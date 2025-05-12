@@ -30,7 +30,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.LocalScreenSize
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.MOBILE_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
@@ -38,11 +37,12 @@ import junjange.dev.ui.PC_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.component.AnimatedArrow
 import junjange.dev.ui.component.HEADER_HEIGHT
 import junjange.dev.ui.model.Section
-import junjange.dev.ui.state.DeviceState
-import junjange.dev.ui.state.fontSize
-import junjange.dev.ui.state.isMobile
-import junjange.dev.ui.state.rememberDeviceState
-import junjange.dev.ui.toDpSize
+import junjange.dev.ui.utils.DeviceState
+import junjange.dev.ui.utils.LocalScreenSize
+import junjange.dev.ui.utils.fontSize
+import junjange.dev.ui.utils.isMobile
+import junjange.dev.ui.utils.rememberDeviceState
+import junjange.dev.ui.utils.toDpSize
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.blue_chip
 import junjange_dev.composeapp.generated.resources.follow_github

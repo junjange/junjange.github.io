@@ -1,4 +1,4 @@
-package junjange.dev.ui
+package junjange.dev.ui.utils
 
 import androidx.compose.runtime.compositionLocalOf
 import junjange_dev.composeapp.generated.resources.Res
