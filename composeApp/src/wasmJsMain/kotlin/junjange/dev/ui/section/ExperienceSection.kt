@@ -93,7 +93,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(24.dp))
         }
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = stringResource(Res.string.experience_etc),
