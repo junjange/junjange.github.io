@@ -84,6 +84,8 @@
     <string name="etc_gdsc_sch_x_skhy_hack_date">2023.05</string>
     <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영진</string>
     <string name="etc_gdsc_kr_winter_cup_date">2023.01 - 2023.02</string>
+    <string name="etc_devfest_campus_korea">Devfest Korea 2021 Flutter 릴레이 코딩 운영</string>
+    <string name="etc_devfest_campus_korea_date">2021.11</string>
 
     <!--Project-->
     <string name="project">Project</string>
