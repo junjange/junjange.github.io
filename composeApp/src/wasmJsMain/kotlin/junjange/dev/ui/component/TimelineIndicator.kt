@@ -1,6 +1,7 @@
 package junjange.dev.ui.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,7 +36,7 @@ fun TimelineIndicator(
                     .width(2.dp)
                     .height(frontHeight)
                     .background(
-                        color = MaterialTheme.colorScheme.primary.copy(if (isFirst) 0f else 0.2f),
+                        color = MaterialTheme.colorScheme.primary.copy(if (isFirst) 0f else 0.5f),
                         shape = CircleShape,
                     ),
         )
@@ -45,8 +46,9 @@ fun TimelineIndicator(
         Box(
             modifier =
                 Modifier
-                    .background(
-                        color = MaterialTheme.colorScheme.primary.copy(0.33f),
+                    .border(
+                        width = 2.dp,
+                        color = MaterialTheme.colorScheme.primary.copy(0.5f),
                         shape = CircleShape,
                     ).size(dotSize),
             contentAlignment = Alignment.Center,
@@ -55,7 +57,7 @@ fun TimelineIndicator(
                 modifier =
                     Modifier
                         .background(color = MaterialTheme.colorScheme.primary, shape = CircleShape)
-                        .size(12.dp),
+                        .size(6.dp),
             )
         }
         Spacer(Modifier.height(8.dp))
@@ -66,7 +68,7 @@ fun TimelineIndicator(
                     .width(2.dp)
                     .fillMaxHeight()
                     .background(
-                        color = MaterialTheme.colorScheme.primary.copy(0.2f),
+                        color = MaterialTheme.colorScheme.primary.copy(0.5f),
                         shape = CircleShape,
                     ),
         )
