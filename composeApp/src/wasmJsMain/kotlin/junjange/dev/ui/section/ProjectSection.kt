@@ -97,7 +97,9 @@ fun ProjectSection(modifier: Modifier = Modifier) {
                 }
             }
         } else {
-            Row {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(24.dp),
+            ) {
                 Project.featuredProjects.forEach { project ->
                     ProjectCard(
                         modifier =
@@ -105,7 +107,6 @@ fun ProjectSection(modifier: Modifier = Modifier) {
                                 .weight(1f),
                         project = project,
                     )
-                    Spacer(modifier = Modifier.width(24.dp))
                 }
             }
         }
