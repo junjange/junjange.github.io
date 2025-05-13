@@ -65,7 +65,7 @@
 
     <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
     <string name="edu_boost_camp_subtitle">네이버 교육 프로그램</string>
-    <string name="edu_boost_camp_desc">- Android와 Kotlin을 기반으로 모바일 앱 개발 역량을 체계적으로 강화했습니다.\n- 자기 주도적 학습을 통해 원리를 이해하고, 유지보수까지 고려한 지속 가능한 개발 방식을 익혔습니다.\n- 컴퓨터 공학 기초 지식을 실무 코드에 적용하며 논리적 사고와 문제 해결 능력을 높였습니다.\n- 피드백과 코드 리뷰를 통해 협업 역량을 기르고, 코드 품질을 꾸준히 개선하는 습관을 체득했습니다.</string>
+    <string name="edu_boost_camp_desc">- 페어 프로그래밍과 코드 리뷰를 통해 함께 더 나은 해답을 찾는 협업 역량을 쌓았습니다.\n- 기능 구현보다 사용자 경험을 중요시하며, 실제 사용자의 문제를 예측하고 해결하는 개발 태도를 익혔습니다.\n- 외부 라이브러리를 무조건 도입하기보다, 기술 선택의 기준과 맥락을 명확히 이해하고 적용하는 경험을 쌓았습니다.\n- 메모리 누수 이슈를 해결하며 컴퓨터 공학 기초를 실무 코드에 적용하는 설계 역량을 키웠습니다.</string>
     <string name="edu_boost_camp_period">2023.07 - 2023.12</string>
 
     <string name="community_dpm">디프만(Depromeet)</string>
