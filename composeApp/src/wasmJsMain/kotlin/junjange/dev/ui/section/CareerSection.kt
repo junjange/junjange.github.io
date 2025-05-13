@@ -46,7 +46,7 @@ fun CareerSection(modifier: Modifier = Modifier) {
             fontSize = 36.sp,
         )
 
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(36.dp))
 
         Career.entries.forEachIndexed { index, career ->
             CareerContent(
@@ -121,7 +121,8 @@ private fun CareerContent(
                 }
             }
 
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(24.dp))
+
             career.project.forEach { careerProject ->
                 CareerProjectItem(careerProject = careerProject)
                 Spacer(Modifier.height(24.dp))
