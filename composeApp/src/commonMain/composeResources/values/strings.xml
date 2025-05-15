@@ -22,8 +22,8 @@
     <string name="about_me_description3">혼자 성장하는 데 한계를 느끼고, 개발 커뮤니티에서 스터디를 운영하며 데브톡 발표를 통해 지식과 경험을 나눈 경험이 있습니다. 개발자 커뮤니티와 IT 연합 동아리를 통해 다양한 분야의 사람들과 소통하며, 좋은 코드를 접하고 배울 기회를 꾸준히 만들어가고 있습니다.</string>
 
     <!--Career-->
-    <string name="android_developer">Android Developer</string>
-    <string name="mobile_app_developer">Mobile App Developer</string>
+    <string name="android_developer">안드로이드 개발자</string>
+    <string name="flutter_developer">플러터 개발자</string>
 
     <string name="career_lio">리오(lio)</string>
     <string name="career_lio_team">프리랜서 모바일 개발자</string>
@@ -89,42 +89,119 @@
 
     <!--Project-->
     <string name="project">Project</string>
+    <string name="from_junjange">from JunJangE</string>
 
-    <string name="project_junjange_dev">junjange.dev</string>
-    <string name="project_friendogly">반갑개</string>
-    <string name="project_move_move">뭅뭅</string>
-    <string name="project_whatnow">왔나</string>
-    <string name="project_oh_soon_taxi">오순택</string>
-    <string name="project_knocknock">낙낙</string>
-    <string name="project_kordle">훈들</string>
-    <string name="project_camping_tour">캠핑투어</string>
+    <string name="project_more">프로젝트 더보기</string>
+    <string name="project_collapse">프로젝트 접기</string>
+
     <string name="project_lucky_lottery">행운복권</string>
+    <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
+    <string name="project_lucky_lottery_period">2020.11 - 진행중</string>
+    <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
+    <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Jetpack Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 500건 이상의 다운로드를 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
+    <string name="project_lucky_lottery_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- MVVM 도입으로 뷰와 비즈니스 로직 분리\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- Room DB로 회차별 복권 번호 저장 기능 개발\n- Jetpack Compose로 UI 마이그레이션 및 색상 통합</string>
+
+    <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
+    <string name="project_junjange_dev_subtitle">Kotlin Multiplatform 포트폴리오</string>
+    <string name="project_junjange_dev_period">2025.05 - 진행중</string>
+    <string name="project_junjange_dev_techStack">Kotlin, Kotlin Multiplatform, Compose, Wasm</string>
+    <string name="project_junjange_dev_description">'저평가 우량주 포트폴리오'는 Kotlin Multiplatform과 Compose Multiplatform을 활용해 개발한 웹 포트폴리오 사이트입니다. Kotlin/Wasm 타겟을 통해 브라우저 환경에서도 실행할 수 있도록 빌드하고, Android Compose 개발 경험을 웹으로 확장하는 데 집중했습니다. 반응형 레이아웃과 일관된 디자인 시스템을 적용하여, 다양한 해상도에서도 자연스럽고 일관된 사용자 경험(UX)을 제공하도록 설계했습니다.</string>
+    <string name="project_junjange_dev_contributions">- Kotlin Multiplatform 기반으로 웹 포트폴리오를 구현\n- Compose Multiplatform를 활용해 반응형 레이아웃과 일관된 디자인 시스템을 구축\n- 모바일/웹 환경 모두에서 최적화된 UI 구현</string>
+
+    <string name="project_friendogly">반갑개</string>
+    <string name="project_friendogly_subtitle">내 반려견의 행복을 위한 친구 찾기 서비스</string>
+    <string name="project_friendogly_period">2024.07 - 2025.01</string>
+    <string name="project_friendogly_techStack">Android, Kotlin, Coroutines + Flow, Hilt</string>
+    <string name="project_friendogly_description">‘반갑개’는 강아지들이 산책 중 새로운 친구를 만날 수 있도록 도와주는 소셜 서비스입니다. 산책 장소와 일정을 공유하고, 주변 강아지들과 자연스럽게 교류할 수 있는 기회를 제공합니다. 강아지의 사회성과 행복을 위한 동네 친구 찾기를 쉽고 즐겁게 만들어줍니다.</string>
+    <string name="project_friendogly_contributions">- 공통 로직, 로그인, 사용자 기능 개발\n- 네트워크 통신 에러 핸들링 및 인증 실패 시 사용자 경험을 고려한 예외 처리 플로우 설계\n- Firebase Analytics 및 Crashlytics를 활용한 사용자 행동 데이터 수집 및 오류 모니터링 체계 구축\n- Google Play Store 배포 자동화 구축으로 배포 효율성 및 품질 향상</string>
+
+    <string name="project_move_move">뭅뭅</string>
+    <string name="project_move_move_subtitle">짧은 댄스 영상을 업로드하고 시청하는 서비스</string>
+    <string name="project_move_move_period">2023.11 - 2023.12</string>
+    <string name="project_move_move_techStack">Android, Kotlin, Compose, Ktor, ExoPlayer</string>
+    <string name="project_move_move_description">'뭅뭅'은 네이버 부스트 캠프에서 진행한 프로젝트로, 짧은 개발 기간 동안 기술적 도전을 극복하며 완성한 댄스 숏폼 비디오 플랫폼입니다. 숏폼 비디오 플랫폼의 급성장과 댄스 콘텐츠의 높은 수요를 바탕으로 기획된 서비스로, 사용자가 댄스 영상을 시청하고 업로드할 수 있는 기능을 제공합니다.</string>
+    <string name="project_move_move_contributions">- 홈, 스트리밍, 프로필 등 핵심 기능 개발\n- ExoPlayer 최적화로 CPU 57% 절감 및 끊김 없는 재생\n- MVI 도입으로 업로드 및 스트리밍 안정성 향상\n- 백그라운드 전환 시 ExoPlayer를 자동 중단되도록 구성</string>
+
+    <string name="project_whatnow">왔나</string>
+    <string name="project_whatnow_subtitle">약속 실시간 위치 공유 서비스</string>
+    <string name="project_whatnow_period">2023.04 - 2023.07</string>
+    <string name="project_whatnow_techStack">Android, Kotlin, Compose, Coroutines + Flow</string>
+    <string name="project_whatnow_description">'왔나'는 약속 시간에 지각을 막기보다는, 기다리는 시간을 친구들과 함께 즐기는 share-play 서비스입니다. 설문조사를 통해 지각의 원인을 분석하고, 패널티 대신 즐거운 커뮤니케이션 경험으로 부정적 감정을 줄이는 방향으로 기획했습니다. 지각 상황을 유쾌하게 전환하여, 약속을 기다리는 시간조차 즐겁게 만들고자 했습니다.</string>
+    <string name="project_whatnow_contributions">- 홈, 지도, 사진 보내기 등 주요 화면 기능을 개발했습니다.\n- 사용자의 현재 위치를 공유 기능 구현\n- UI 개발 프로세스 최적화를 목표로 디자이너와 협업하여 디자인 시스템 구축\n- Jetpack Compose를 활용해 UI를 개발하고, 컴포넌트 단위로 모듈화를 진행</string>
+
+    <string name="project_oh_soon_taxi">오순택</string>
+    <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>
+    <string name="project_oh_soon_taxi_period">2022.08 - 2023.12</string>
+    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, Coroutines + Flow, STOMP</string>
+    <string name="project_oh_soon_taxi_description">'오순택'은 학생 간 택시 동승을 지원하는 서비스로, 구글 대학생 개발자 커뮤니티에서 팀원들과 함께 개발한 프로젝트입니다. 셔틀버스가 운행되지 않는 야간과 주말 시간대에 택시를 함께 이용할 수 있도록 매칭 기능을 제공하여 금전적 부담과 대기 시간을 줄이는 것을 목표로 했습니다. 이 앱은 100건 이상의 다운로드를 기록했으며, 만족도 조사에서 학생들의 만족도가 40% 이상 향상되었습니다. 또한, 교내 신문에 게재되는 성과를 거두었습니다.</string>
+    <string name="project_oh_soon_taxi_contributions">- 최근 검색어를 로컬 DB에 저장해 재사용 가능하도록 구현\n- STOMP 기반 실시간 채팅으로 학생 간 원활한 소통 지원\n- 소셜 로그인으로 사용자 정보 보호 및 신뢰도 강화\n- 학교 이메일 및 학번 기반 인증으로 실명제 부담 완화</string>
+
+    <string name="project_knocknock">낙낙</string>
+    <string name="project_knocknock_subtitle">푸시 알림 커스텀 서비스</string>
+    <string name="project_knocknock_period">2022.09 - 2023.01</string>
+    <string name="project_knocknock_techStack">Android, Kotlin, Coroutines + Flow, Hilt</string>
+    <string name="project_knocknock_description">'낙낙'은 사용자가 원하는 정보만 선택적으로 받고, 사람의 손길이 묻어나는 커스텀 메시지를 제공하는 푸시 알림 서비스입니다. 관심 없는 광고성 알림과 메신저 답장의 피로감을 줄이기 위해, 구독형 맞춤 메시지와 리액션 기능, 소통 부담 없는 알림방을 설계했습니다. 유저가 받고 싶은 정보만 자연스럽게 전달하는 새로운 커뮤니케이션 경험을 목표로 했습니다.</string>
+    <string name="project_knocknock_contributions">- 알림 메시지 생성, 알림 미리보기, 알림방 페이지 등 주요 화면 기능 개발\n- Data Binding과 Binding Adapter를 활용해 XML 기반 선언형 UI 구현\n- 중첩 RecyclerView를 이용해 날짜별로 그룹화된 알림 메시지를 표시하는 기능 구현\n- 멀티 모듈 아키텍처를 적용하여 관심사를 분리하고, Hilt 기반 의존성 주입으로 모듈 간 결합도를 낮춤</string>
+
+    <string name="project_kordle">훈들</string>
+    <string name="project_kordle_subtitle">Wordle의 한국어 버전 서비스</string>
+    <string name="project_kordle_period">2022.06 - 2022.08</string>
+    <string name="project_kordle_techStack">Android, Kotlin, LiveData, Room</string>
+    <string name="project_kordle_description">'훈들'은 Wordle을 한국어 단어 맞추기 게임으로 구현한 프로젝트입니다. 국립국어원, KLUE vocab, NIADic 기반의 어휘를 활용해 여섯 번의 시도 안에 한글 단어를 맞추는 게임이며, 자모 단위로 풀어쓴 입력 방식과 색상 피드백을 통해 직관적인 플레이 경험을 제공합니다. 오픈소스 기반으로 제작되어 다양한 언어로 확장 가능하도록 구현했습니다.</string>
+    <string name="project_kordle_contributions">- Wordle 한국어 버전을 위한 자모 단위 단어 매칭 알고리즘 구현\n- 커스텀 키보드 및 게임 인터랙션 UI 구현\n- 게임 결과 저장 및 통계(연승, 성공률, 도전 분포) 관리 기능 구현\n- UI Timer 및 남은 시간 계산 기능 개발</string>
+
+    <string name="project_pbp">Public Poll</string>
+    <string name="project_pbp_subtitle">언택트 투표 서비스</string>
+    <string name="project_pbp_period">2022.05 - 2022.06</string>
+    <string name="project_pbp_techStack">Android, Kotlin</string>
+    <string name="project_pbp_description">'Public Poll'은 언택트 투표 서비스입니다. 공개 게시판에 익명, 실명 구분을 통해 카테고리별로 투표를 할 수 있습니다. 카테고리는 빠른 투표, 일반 투표, 이미지 투표 등이 있으며 제일 핫한 투표를 확인할 수도 있습니다. 투표를 하게 되면 통계를 통해 현재 투표율을 확인할 수 있습니다. 검색은 해시 태그를 통해 효과적으로 본인이 원하는 투표를 찾을 수 있습니다.</string>
+    <string name="project_pbp_contributions">- 투표 뷰, 검색, 댓글 기능 개발\n- 투표 기능 개발\n- 해시태그 기반의 검색 기능 구현으로 사용성 개선\n- 댓글 작성, 수정, 삭제 기능 개발</string>
+
+    <string name="project_pmd_key">PMD Key</string>
+    <string name="project_pmd_key_subtitle">PMD 주행에 도움이 되는 서비스</string>
+    <string name="project_pmd_key_period">2022.04</string>
+    <string name="project_pmd_key_techStack">Android, Kotlin, Compose, Ktor, ExoPlayer</string>
+    <string name="project_pmd_key_description">'PMD KEY'는 PMD(개인형 이동수단) 주행 시 필요한 필수 기능을 지원하는 안드로이드 애플리케이션입니다. 주행 시작과 종료 시 현재 위치를 지도에 마커로 표시하여 내 PMD의 위치를 쉽게 확인할 수 있으며, 주행 전 안전수칙 4가지를 이미지로 제공해 안전한 사용을 유도합니다. 또한, 오늘의 날씨 정보를 통해 주행 여부를 스스로 판단할 수 있도록 지원하고, 원하는 목적지를 검색해 경로를 안내하는 내비게이션 기능도 함께 제공합니다.</string>
+    <string name="project_pmd_key_contributions">- PMD 주행 시작/종료 시 위치를 지도에 마커로 표시하는 위치 추적 기능 개발\n- 주행 전 필수 안전수칙 4가지를 알림으로 제공하는 안전 가이드 기능 구현\n- 기상 정보를 연동하여 주행 전 날씨를 안내하는 환경 정보 제공 기능 개발\n- 목적지 검색 후 외부 내비게이션 앱으로 경로를 안내하는 연동 기능 구현</string>
+
+    <string name="project_comaplain">Comaplain</string>
+    <string name="project_comaplain_subtitle">우리 주변의 위험하거나 불편한 것을 소통하여 신고하고 해결하는 서비스</string>
+    <string name="project_comaplain_period">2022.02 - 2022.03</string>
+    <string name="project_comaplain_techStack">Flutter, Dart, Google Map API</string>
+    <string name="project_comaplain_description">`Comaplain`은 사용자의 위치를 기반으로 반경 10km 이내의 제보 현황을 한눈에 확인할 수 있는 지역 제보 플랫폼입니다. 지도와 리스트 뷰를 통해 제보된 문제와 해결 현황을 확인하고, 사진·카테고리·설명으로 제보를 등록할 수 있습니다. 댓글 기능, 카테고리 필터, 내 제보 관리 등 사용자 편의 기능을 제공하여 지역 커뮤니티 참여를 쉽게 돕습니다.</string>
+    <string name="project_comaplain_contributions">- 게시글 작성, 수정, 삭제, 댓글, 좋아요 등 핵심 기능 구현\n- BLoC 패턴을 적용하여 게시판 전반의 상태 관리 및 로직을 구조화\n- 게시글 목록, 검색, 유저별 게시글 리스트 등 게시판 리스트 기능 개발\n- 하단 네비게이션 바를 통한 화면 전환 및 탐색 기능 구현</string>
+
+    <string name="project_bium">Bium</string>
+    <string name="project_bium_subtitle">일상생활에서 음식물 쓰레기를 최소화하기 위한 실천을 장려하는 서비스</string>
+    <string name="project_bium_period">2022.02</string>
+    <string name="project_bium_techStack">Flutter, Dart, Firebase</string>
+    <string name="project_bium_description">`Bium`은 유통기한이 임박한 식재료를 효율적으로 관리하고, 지역 기반 거래 및 레시피 추천까지 지원하는 식재료 관리 플랫폼입니다. 사용자는 상품과 유통기한을 등록해 식재료를 관리할 수 있으며, 필요시 지역 커뮤니티를 통한 판매와 댓글 거래가 가능합니다. 또한, 등록된 식재료를 활용한 레시피 추천 기능을 제공해 식자재 활용도를 높이고 낭비를 줄이는 경험을 제공합니다.</string>
+    <string name="project_bium_contributions">- 커뮤니티 기능 전반(게시글, 댓글) 개발 및 데이터 연동 담당\n- Firebase를 활용한 게시글 및 댓글 CRUD 기능 개발\n- GetX 기반 MVC 패턴 적용 및 상태 관리 구조화\n- 다중 이미지 업로드 기능 개발 및 사용자 경험 개선</string>
+
+    <string name="project_recycle_cycle">RecycleCycle</string>
+    <string name="project_recycle_cycle_subtitle">재활용 쓰레기 이미지를 분류하여 사용자의 분리수거를 도와주는 서비스</string>
+    <string name="project_recycle_cycle_period">2022.01</string>
+    <string name="project_recycle_cycle_techStack">Flutter, Dart, TensorFlow Lite</string>
+    <string name="project_recycle_cycle_description">`RecycleCycle`은 이미지 분류를 통해 사용자의 분리수거를 돕는 재활용 관리 서비스입니다. 촬영하거나 갤러리에서 선택한 쓰레기 이미지를 분류하여 최근 분리수거 내역과 항목별 비율을 시각화해 제공합니다. 분리수거 활동에 따라 경험치를 얻고 레벨업할 수 있으며, 레벨이 오를수록 새싹이 나무로 자라는 성장형 인터페이스로 친환경 활동을 유도합니다.</string>
+    <string name="project_recycle_cycle_contributions">- 분리수거 쓰레기 분류 페이지 개발\n- TensorFlow Lite를 활용한 재활용 쓰레기 이미지 분류 기능 개발\n- 분류된 쓰레기 정보를 Firebase로 연동하여 실시간 데이터 관리</string>
+
+    <string name="project_camping_tour">캠핑투어</string>
+    <string name="project_camping_tour_subtitle">주변 캠핑장과 추천 캠핑장 정보를 제공 후 예약할 수 있게 도움을 주는 서비스</string>
+    <string name="project_camping_tour_period">2021.08</string>
+    <string name="project_camping_tour_techStack">Android, Kotlin, Room, AWS Amplify, AWS Cognito</string>
+    <string name="project_camping_tour_description">`캠핑투어`는 주변 캠핑장과 추천 캠핑장 정보를 제공 후 예약할 수 있게 도움을 주는 서비스입니다. 관광지, 계곡, 산, 바다, 숲 등 키워드 기반 검색과 글램핑, 카라반 등 다양한 유형의 캠핑장 정보를 지원하며, 전화문의 기능을 통해 추가 정보를 확인할 수 있습니다. 지역별, 주변 캠핑장 상세 검색을 통해 사용자가 원하는 캠핑지를 쉽고 빠르게 찾을 수 있도록 설계했습니다.</string>
+    <string name="project_camping_tour_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- 공공 데이터 포털 오픈 API를 활용한 캠핑장 정보 조회 기능 개발\n- AWS Amplify와 Cognito를 활용한 사용자 인증(로그인/회원가입) 기능 구현\n- Room을 활용한 추천 캠핑장 로컬 데이터베이스 설계 및 캐싱 기능 개발</string>
 
     <string name="google_play_store">구글 플레이 스토어</string>
     <string name="github">깃허브</string>
-    <string name="notion">노션 설명</string>
+    <string name="notion">노션</string>
     <string name="web_site">웹사이트</string>
 
+    <string name="project_intro">소개</string>
     <string name="link">관련 링크</string>
     <string name="role">역할</string>
     <string name="techStack">기술 스택</string>
     <string name="contributions">주요 기여</string>
-
-
-    <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
-    <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
-    <string name="project_lucky_lottery_period">2020.11 - 진행중</string>
-    <string name="project_lucky_lottery_contributions">- MVVM 도입으로 뷰와 비즈니스 로직 분리\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- Room DB로 회차별 복권 번호 저장 기능 개발\n- Jetpack Compose로 UI 마이그레이션 및 색상 통합</string>
-
-    <string name="project_move_move_subtitle">짧은 댄스 영상을 업로드하고 시청하는 서비스</string>
-    <string name="project_move_move_techStack">Android, Kotlin, Compose, Ktor, ExoPlayer</string>
-    <string name="project_move_move_period">2023.11 - 2023.12</string>
-    <string name="project_move_move_contributions">- 홈, 스트리밍, 프로필 등 핵심 기능 개발\n- ExoPlayer 최적화로 CPU 57% 절감 및 끊김 없는 재생\n- MVI 도입으로 업로드 및 스트리밍 안정성 향상\n- 백그라운드 전환 시 ExoPlayer를 자동 중단되도록 구성</string>
-
-    <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>
-    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, STOMP</string>
-    <string name="project_oh_soon_taxi_period">2022.08 - 2023.12</string>
-    <string name="project_oh_soon_taxi_contributions">- 최근 검색어를 로컬 DB에 저장해 재사용 가능하도록 구현\n- STOMP 기반 실시간 채팅으로 학생 간 원활한 소통 지원\n- 소셜 로그인으로 사용자 정보 보호 및 신뢰도 강화\n- 학교 이메일 및 학번 기반 인증으로 실명제 부담 완화</string>
 
     <!--Contact Section-->
     <string name="copyright">Copyright (c) 2025 JunJangE.All Rights Reserved</string>
