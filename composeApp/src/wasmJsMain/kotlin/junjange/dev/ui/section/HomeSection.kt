@@ -162,7 +162,7 @@ private fun HomeMobileSection(
                 Modifier
                     .size(128.dp)
                     .align(Alignment.BottomCenter)
-                    .padding(bottom = 20.dp),
+                    .padding(bottom = 24.dp),
             onClick = { onSectionClicked(Section.AboutMe) },
         )
     }
@@ -217,7 +217,7 @@ private fun HomePcSection(
                 Modifier
                     .size(128.dp)
                     .align(Alignment.BottomCenter)
-                    .padding(bottom = 20.dp),
+                    .padding(bottom = 24.dp),
             onClick = { onSectionClicked(Section.AboutMe) },
         )
     }

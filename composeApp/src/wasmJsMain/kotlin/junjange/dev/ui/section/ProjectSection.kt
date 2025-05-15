@@ -87,7 +87,7 @@ fun ProjectSection(modifier: Modifier = Modifier) {
             modifier = Modifier.padding(horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp),
         )
 
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(36.dp))
 
         if (deviceState.isMobile) {
             Column {
@@ -97,14 +97,10 @@ fun ProjectSection(modifier: Modifier = Modifier) {
                 }
             }
         } else {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(24.dp),
-            ) {
+            Row(horizontalArrangement = Arrangement.spacedBy(24.dp)) {
                 Project.featuredProjects.forEach { project ->
                     ProjectCard(
-                        modifier =
-                            Modifier
-                                .weight(1f),
+                        modifier = Modifier.weight(1f),
                         project = project,
                     )
                 }
@@ -134,8 +130,8 @@ private fun ProjectCard(
 ) {
     project.info ?: return
     val uriHandler = LocalUriHandler.current
-    val deviceState = rememberDeviceState()
     val screenSize = LocalScreenSize.current
+    val deviceState = rememberDeviceState()
 
     Column(
         modifier =

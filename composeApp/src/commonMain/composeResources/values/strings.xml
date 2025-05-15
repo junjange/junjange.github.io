@@ -60,12 +60,12 @@
 
     <string name="edu_woowacourse">우아한테크코스</string>
     <string name="edu_woowacourse_subtitle">우아한형제들 교육 프로그램</string>
-    <string name="edu_woowacourse_desc">- 문제를 정의하지 않은 기술은 의미 없다는 것을 배웠고, 설계를 통해 '문제 해결의 언어'를 익혔습니다. \n- 도메인 객체로 추상적인 값을 구체화하며, 가독성과 유지보수성을 높이는 개발 습관을 만들었습니다.\n- 코드 리뷰와 페어 프로그래밍을 통해 '혼자 잘하는 개발자'에서 '함께 성장하는 개발자'로 변화했습니다.\n- 기능 구현보다 서비스 맥락을 우선하며, 테스트 코드로 신뢰받는 소프트웨어를 만드는 법을 체득했습니다.</string>
+    <string name="edu_woowacourse_desc">- 도메인 객체 설계를 통해 추상적이던 비즈니스 로직을 구체화하고, 가독성과 유지보수성을 높였습니다.\n- 테스트 코드를 작성하며 기능 구현을 넘어, 예외 상황까지 검증하는 신뢰성 높은 개발 습관을 체득했습니다.\n- MVC → MVP → MVVM 아키텍처로 단계적 마이그레이션을 진행하며, 요구사항에 맞는 구조적 접근법을 익혔습니다.\n- DI 라이브러리를 직접 구현하며 복잡한 의존 관계를 체계적으로 관리하고, 유연한 코드 구조를 설계하는 경험을 쌓았습니다.</string>
     <string name="edu_woowacourse_period">2024.02 - 2024.11</string>
 
     <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
     <string name="edu_boost_camp_subtitle">네이버 교육 프로그램</string>
-    <string name="edu_boost_camp_desc">- Android와 Kotlin을 기반으로 모바일 앱 개발 역량을 체계적으로 강화했습니다.\n- 자기 주도적 학습을 통해 원리를 이해하고, 유지보수까지 고려한 지속 가능한 개발 방식을 익혔습니다.\n- 컴퓨터 공학 기초 지식을 실무 코드에 적용하며 논리적 사고와 문제 해결 능력을 높였습니다.\n- 피드백과 코드 리뷰를 통해 협업 역량을 기르고, 코드 품질을 꾸준히 개선하는 습관을 체득했습니다.</string>
+    <string name="edu_boost_camp_desc">- 페어 프로그래밍과 코드 리뷰를 통해 함께 더 나은 해답을 찾는 협업 역량을 쌓았습니다.\n- 기능 구현보다 사용자 경험을 중요시하며, 실제 사용자의 문제를 예측하고 해결하는 개발 태도를 익혔습니다.\n- 외부 라이브러리를 무조건 도입하기보다, 기술 선택의 기준과 맥락을 명확히 이해하고 적용하는 경험을 쌓았습니다.\n- 메모리 누수 이슈를 해결하며 컴퓨터 공학 기초를 실무 코드에 적용하는 설계 역량을 키웠습니다.</string>
     <string name="edu_boost_camp_period">2023.07 - 2023.12</string>
 
     <string name="community_dpm">디프만(Depromeet)</string>
@@ -75,7 +75,7 @@
 
     <string name="community_gdg_on_campus">GDG on Campus</string>
     <string name="community_gdg_subtitle">구글 대학생 개발자 커뮤니티</string>
-    <string name="community_gdg_desc">- 4기 Lead(회장) | 22.08 ~ 23.08\n- 3기 Core Member(운영진) | 21.08 ~ 22.08\n- Flutter 스터디를 진행한 후, 관련 블로그 글과 유튜브 영상을 업로드</string>
+    <string name="community_gdg_desc">- 4기 Lead(회장) | 22.08 ~ 23.08\n- 3기 Core Member(운영진) | 21.08 ~ 22.08\n- Flutter 데브톡을 발표 후, 블로그와 유튜브로 공유했습니다.</string>
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
     <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
@@ -84,6 +84,8 @@
     <string name="etc_gdsc_sch_x_skhy_hack_date">2023.05</string>
     <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영진</string>
     <string name="etc_gdsc_kr_winter_cup_date">2023.01 - 2023.02</string>
+    <string name="etc_devfest_campus_korea">Devfest Korea 2021 Flutter 릴레이 코딩 운영</string>
+    <string name="etc_devfest_campus_korea_date">2021.11</string>
 
     <!--Project-->
     <string name="project">Project</string>

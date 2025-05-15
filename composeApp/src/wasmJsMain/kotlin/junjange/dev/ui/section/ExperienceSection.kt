@@ -76,7 +76,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(24.dp))
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         Text(
             text = stringResource(Res.string.experience_community),
@@ -93,7 +93,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(24.dp))
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         Text(
             text = stringResource(Res.string.experience_etc),
@@ -102,6 +102,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             fontSize = 24.sp,
             textAlign = TextAlign.Center,
         )
+
         Spacer(modifier = Modifier.height(12.dp))
 
         Column {
@@ -127,7 +128,7 @@ private fun ExperienceItem(
                 size = 92.dp,
             )
 
-            Spacer(modifier = Modifier.width(20.dp))
+            Spacer(modifier = Modifier.width(12.dp))
 
             Column(
                 verticalArrangement = Arrangement.Center,
