@@ -10,7 +10,7 @@ import junjange_dev.composeapp.generated.resources.ic_bium_grapic
 import junjange_dev.composeapp.generated.resources.ic_camping_tour_graphic
 import junjange_dev.composeapp.generated.resources.ic_comaplain_graphic
 import junjange_dev.composeapp.generated.resources.ic_friendogly_grahic
-import junjange_dev.composeapp.generated.resources.ic_junjage_dev_graphic
+import junjange_dev.composeapp.generated.resources.ic_junjange_dev_graphic
 import junjange_dev.composeapp.generated.resources.ic_knocknock_graphic
 import junjange_dev.composeapp.generated.resources.ic_kordle_graphic
 import junjange_dev.composeapp.generated.resources.ic_lucky_lottery_graphic
@@ -138,7 +138,7 @@ enum class Project(
     JUNJANGE_DEV(
         titleRes = Res.string.project_junjange_dev,
         subtitleRes = Res.string.project_junjange_dev_subtitle,
-        graphicRes = drawable.ic_junjage_dev_graphic,
+        graphicRes = drawable.ic_junjange_dev_graphic,
         periodRes = Res.string.project_junjange_dev_period,
         descriptionRes = Res.string.project_junjange_dev_description,
         roleRes = Res.string.android_developer,
