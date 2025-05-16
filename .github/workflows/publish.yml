@@ -1,5 +1,11 @@
 name: Publish Application on GitHub Pages
-on: [push, pull_request]
+on:
+    push:
+        branches:
+            - develop
+    pull_request:
+        branches:
+            - develop
 jobs:
     build:
         name: Build Kotlin/Wasm
