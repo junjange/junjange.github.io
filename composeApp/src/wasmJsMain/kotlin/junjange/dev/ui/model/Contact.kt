@@ -11,20 +11,20 @@ enum class Contact(
     val iconRes: DrawableResource,
     val url: String,
 ) {
-    Github(
+    GITHUB(
         iconRes = Res.drawable.ic_github,
         url = "https://github.com/junjange",
     ),
-    Tistory(
+    TISTORY(
         iconRes = Res.drawable.ic_tistory,
         url = "https://fre2-dom.tistory.com",
     ),
-    LinkedIn(
+    LINKEDIN(
         iconRes = Res.drawable.ic_linkedin,
         url = "https://www.linkedin.com/in/junjange",
     ),
 
-    Email(
+    EMAIL(
         iconRes = Res.drawable.ic_email,
         url = "mailto:wnswkd486@gmail.com",
     ),

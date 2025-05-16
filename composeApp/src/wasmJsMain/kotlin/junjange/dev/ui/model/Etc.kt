@@ -15,7 +15,7 @@ enum class Etc(
     val titleRes: StringResource,
     val periodRes: StringResource,
 ) {
-    Kusitms(
+    KUSITMS(
         titleRes = Res.string.etc_kusitms,
         periodRes = Res.string.etc_kusitms_period,
     ),
