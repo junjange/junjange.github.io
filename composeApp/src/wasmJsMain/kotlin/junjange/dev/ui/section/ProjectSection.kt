@@ -1,72 +1,85 @@
 package junjange.dev.ui.section
 
-import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.LocalScreenSize
-import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
-import junjange.dev.ui.component.AppButton
-import junjange.dev.ui.component.CardImage
+import junjange.dev.ui.component.DefaultOutlinedButton
+import junjange.dev.ui.component.ProjectDialog
+import junjange.dev.ui.model.Device
+import junjange.dev.ui.model.LocalScreenSize
 import junjange.dev.ui.model.Project
+import junjange.dev.ui.model.Section
+import junjange.dev.ui.model.asDp
+import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.contentPadding
-import junjange.dev.ui.state.isMobile
-import junjange.dev.ui.state.isPc
 import junjange.dev.ui.state.rememberDeviceState
 import junjange.dev.ui.theme.DarkGray
 import junjange_dev.composeapp.generated.resources.Res
-import junjange_dev.composeapp.generated.resources.contributions
-import junjange_dev.composeapp.generated.resources.link
+import junjange_dev.composeapp.generated.resources.from_junjange
 import junjange_dev.composeapp.generated.resources.project
-import junjange_dev.composeapp.generated.resources.role
-import junjange_dev.composeapp.generated.resources.techStack
+import junjange_dev.composeapp.generated.resources.project_collapse
+import junjange_dev.composeapp.generated.resources.project_more
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import kotlin.math.ceil
 
 @Composable
-fun ProjectSection(modifier: Modifier = Modifier) {
+fun ProjectSection(
+    onSectionClicked: (Section) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     val deviceState = rememberDeviceState()
-    val listState = rememberLazyListState()
+    val screenSize = LocalScreenSize.current
+    var count by rememberSaveable { mutableStateOf(INIT_PROJECT_COUNT) }
+    val displayedProjects = Project.entries.take(count)
+    var selectedProject by remember { mutableStateOf<Project?>(null) }
+    val columnCount = getProjectColumnCount(device = deviceState.value)
 
-    LaunchedEffect(Unit) {
-        while (true) {
-            listState.animateScrollBy(
-                value = if (deviceState.isMobile) 3f else 1f,
-                animationSpec =
-                    tween(
-                        durationMillis = 10,
-                        delayMillis = 0,
-                        easing = LinearEasing,
-                    ),
-            )
-        }
-    }
+    val (projectHeight, totalHeight) =
+        calculateProjectGridDimensions(
+            screenWidth = screenSize.asDp().width,
+            columnCount = columnCount,
+            displayedProjectsSize = displayedProjects.size,
+            deviceState = deviceState,
+        )
 
     Column(
         modifier =
@@ -84,195 +97,192 @@ fun ProjectSection(modifier: Modifier = Modifier) {
             fontSize = 36.sp,
             textAlign = TextAlign.Center,
             lineHeight = 42.sp,
-            modifier = Modifier.padding(horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp),
         )
 
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
-        if (deviceState.isMobile) {
-            Column {
-                Project.featuredProjects.forEach { project ->
-                    ProjectCard(project = project)
-                    Spacer(modifier = Modifier.height(24.dp))
+        Text(
+            text = stringResource(Res.string.from_junjange),
+            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+        )
+
+        Spacer(modifier = Modifier.height(36.dp))
+
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .height(totalHeight.dp),
+        ) {
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(columnCount),
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(PROJECT_CARD_SPACED_BY_PADDING.dp),
+                horizontalArrangement = Arrangement.spacedBy(PROJECT_CARD_SPACED_BY_PADDING.dp),
+                userScrollEnabled = false,
+            ) {
+                items(displayedProjects) { project ->
+                    ProjectCard(
+                        project = project,
+                        onClick = { selectedProject = project },
+                    )
                 }
             }
-        } else {
-            Row {
-                Project.featuredProjects.forEach { project ->
-                    ProjectCard(
-                        modifier =
-                            Modifier
-                                .weight(1f),
-                        project = project,
-                    )
-                    Spacer(modifier = Modifier.width(24.dp))
-                }
+            if (count < Project.entries.size) {
+                ProjectMoreButton(
+                    modifier = Modifier.height((projectHeight + PROJECT_CARD_SPACED_BY_PADDING).dp),
+                    onClick = {
+                        count += getProjectCountIncrement(device = deviceState.value)
+                    },
+                )
+            }
+
+            if (selectedProject != null) {
+                ProjectDialog(
+                    project = selectedProject!!,
+                    onDismissRequest = { selectedProject = null },
+                )
             }
         }
-    }
 
-    LazyRow(
-        state = listState,
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        userScrollEnabled = false,
-        modifier =
-            Modifier
-                .background(color = MaterialTheme.colorScheme.secondaryContainer)
-                .padding(bottom = 64.dp),
-    ) {
-        items(List(100) { Project.entries }.flatten()) { project ->
-            AppButton(project = project)
+        if (count >= Project.entries.size) {
+            DefaultOutlinedButton(
+                text = stringResource(Res.string.project_collapse),
+                modifier = modifier,
+                onClick = {
+                    count = INIT_PROJECT_COUNT
+                    onSectionClicked(Section.Project)
+                },
+            )
         }
     }
 }
 
 @Composable
-fun ProjectCard(
+private fun ProjectCard(
     project: Project,
     modifier: Modifier = Modifier,
+    cornerRadius: Dp = 24.dp,
+    onClick: () -> Unit,
 ) {
-    project.info ?: return
-    val uriHandler = LocalUriHandler.current
-    val deviceState = rememberDeviceState()
-    val screenSize = LocalScreenSize.current
-
-    Column(
+    Surface(
+        shape = RoundedCornerShape(cornerRadius),
+        color = MaterialTheme.colorScheme.primaryContainer,
         modifier =
-            modifier
-                .shadow(
-                    elevation = 4.dp,
-                    shape = RoundedCornerShape(12.dp),
-                    ambientColor = DarkGray.copy(0.01f),
-                    spotColor = DarkGray.copy(0.01f),
-                    clip = false,
-                ).background(
-                    color = MaterialTheme.colorScheme.primaryContainer,
-                    shape = RoundedCornerShape(12.dp),
-                ).padding(20.dp),
+            modifier.then(
+                Modifier
+                    .aspectRatio(1f)
+                    .shadow(
+                        elevation = 12.dp,
+                        shape = RoundedCornerShape(cornerRadius),
+                        clip = false,
+                        ambientColor = DarkGray.copy(0.01f),
+                        spotColor = DarkGray.copy(0.01f),
+                    ).clip(RoundedCornerShape(cornerRadius))
+                    .clickable { onClick() },
+            ),
     ) {
-        CardImage(
-            logo = project.logoRes,
-            size = 92.dp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        Column(
+            modifier =
+                Modifier
+                    .fillMaxSize(),
+        ) {
+            Image(
+                modifier = Modifier.weight(IMAGE_WEIGHT),
+                painter = painterResource(project.graphicRes),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+            )
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Text(
-            text = stringResource(project.titleRes),
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-        )
-
-        Text(
-            text = stringResource(project.info.subtitleRes),
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            fontSize = 14.sp,
-            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-        )
-
-        Text(
-            text = stringResource(project.info.periodRes),
-            fontSize = 14.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-        )
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        HorizontalDivider(thickness = 1.dp)
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Text(
-            text = stringResource(Res.string.link),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
-        )
-
-        if (deviceState.isPc && screenSize.width <= 2300) {
-            Column(verticalArrangement = Arrangement.Center) {
-                project.info.links.forEach { (label, url) ->
-                    Text(
-                        text = stringResource(label),
-                        fontSize = 14.sp,
-                        modifier = Modifier.clickable { uriHandler.openUri(url) },
-                        style =
-                            MaterialTheme.typography.bodySmall.copy(
-                                textDecoration = TextDecoration.Underline,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-                            ),
-                    )
-                }
-            }
-        } else {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                project.info.links.forEachIndexed { index, (label, url) ->
-                    Text(
-                        text = stringResource(label),
-                        fontSize = 14.sp,
-                        modifier = Modifier.clickable { uriHandler.openUri(url) },
-                        style =
-                            MaterialTheme.typography.bodySmall.copy(
-                                textDecoration = TextDecoration.Underline,
-                                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-                            ),
-                    )
-                    if (index != project.info.links.lastIndex) {
-                        Text(
-                            text = " | ",
-                            fontSize = 14.sp,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-                        )
-                    }
-                }
+            Column(
+                modifier =
+                    Modifier
+                        .weight(TEXT_WEIGHT)
+                        .padding(16.dp),
+            ) {
+                Text(
+                    text = stringResource(project.titleRes),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(project.subtitleRes),
+                    fontSize = 14.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
             }
         }
+    }
+}
 
-        Spacer(modifier = Modifier.height(4.dp))
-
-        Text(
-            text = stringResource(Res.string.techStack),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
-        )
-        Text(
-            text = stringResource(project.info.techStackRes),
-            fontSize = 14.sp,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-        )
-
-        Spacer(modifier = Modifier.height(4.dp))
-
-        Text(
-            text = stringResource(Res.string.role),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
-        )
-        Text(
-            text = stringResource(project.info.roleRes),
-            fontSize = 14.sp,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-        )
-
-        Spacer(modifier = Modifier.height(4.dp))
-
-        Text(
-            text = stringResource(Res.string.contributions),
-            fontSize = 14.sp,
-            fontWeight = FontWeight.Bold,
-        )
-        Text(
-            fontSize = 14.sp,
-            text = stringResource(project.info.contributionsRes),
-            style = MaterialTheme.typography.bodySmall,
-            lineHeight = 18.sp,
-            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+@Composable
+private fun BoxScope.ProjectMoreButton(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+) {
+    Box(
+        modifier =
+            modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .background(
+                    brush =
+                        Brush.verticalGradient(
+                            colors =
+                                listOf(
+                                    Color.Transparent,
+                                    MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.8f),
+                                    MaterialTheme.colorScheme.secondaryContainer,
+                                ),
+                        ),
+                ).clickable(enabled = false, onClick = {}),
+    ) {
+        DefaultOutlinedButton(
+            text = stringResource(Res.string.project_more),
+            modifier =
+                Modifier
+                    .align(Alignment.Center),
+            onClick = onClick,
         )
     }
 }
+
+@Composable
+private fun calculateProjectGridDimensions(
+    screenWidth: Int,
+    columnCount: Int,
+    displayedProjectsSize: Int,
+    deviceState: DeviceState,
+): Pair<Float, Float> {
+    val horizontalPadding =
+        deviceState.contentPadding().calculateStartPadding(LayoutDirection.Ltr) +
+            deviceState.contentPadding().calculateEndPadding(LayoutDirection.Ltr)
+
+    val rowCount = ceil(displayedProjectsSize / columnCount.toFloat()).toInt()
+    val projectHeight =
+        (screenWidth - horizontalPadding.value - ((columnCount - 1) * PROJECT_CARD_SPACED_BY_PADDING)) / columnCount
+    val totalHeight = (projectHeight + PROJECT_CARD_SPACED_BY_PADDING) * rowCount
+
+    return Pair(projectHeight, totalHeight)
+}
+
+private fun getProjectColumnCount(device: Device): Int =
+    when (device) {
+        Device.MOBILE -> 2
+        Device.PC -> 3
+    }
+
+private fun getProjectCountIncrement(device: Device): Int =
+    when (device) {
+        Device.PC -> 3
+        Device.MOBILE -> 4
+    }
+
+private const val INIT_PROJECT_COUNT = 6
+private const val IMAGE_WEIGHT = 6f
+private const val TEXT_WEIGHT = 4f
+private const val PROJECT_CARD_SPACED_BY_PADDING = 32

@@ -57,10 +57,10 @@ fun AboutSection(modifier: Modifier = Modifier) {
                 Device.PC -> (PC_CONTENT_HORIZONTAL_PADDING / 2).dp
             }
 
-        AboutMe.entries.forEach { interview ->
+        AboutMe.entries.forEach { aboutMe ->
             ContentCard(
-                title = interview.titleRes,
-                description = interview.descriptionRes,
+                title = aboutMe.titleRes,
+                description = aboutMe.descriptionRes,
                 modifier = Modifier.padding(horizontal = horizontalPadding),
             )
             Spacer(modifier.height(24.dp))
@@ -69,7 +69,7 @@ fun AboutSection(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun ContentCard(
+private fun ContentCard(
     title: StringResource,
     description: StringResource,
     modifier: Modifier = Modifier,
@@ -104,7 +104,5 @@ fun ContentCard(
             lineHeight = 22.sp,
             color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
         )
-
-        Spacer(modifier = Modifier.height(8.dp))
     }
 }

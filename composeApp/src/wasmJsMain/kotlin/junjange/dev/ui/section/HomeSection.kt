@@ -1,5 +1,6 @@
 package junjange.dev.ui.section
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +22,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -30,23 +32,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.LocalScreenSize
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.MOBILE_CONTENT_MIN_HEIGHT
-import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.PC_CONTENT_MIN_HEIGHT
+import junjange.dev.ui.PC_CONTENT_WIDTH
 import junjange.dev.ui.component.AnimatedArrow
 import junjange.dev.ui.component.HEADER_HEIGHT
+import junjange.dev.ui.model.LocalScreenSize
 import junjange.dev.ui.model.Section
+import junjange.dev.ui.model.asDp
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.fontSize
 import junjange.dev.ui.state.isMobile
 import junjange.dev.ui.state.rememberDeviceState
-import junjange.dev.ui.toDpSize
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.blue_chip
 import junjange_dev.composeapp.generated.resources.follow_github
 import junjange_dev.composeapp.generated.resources.ic_github
+import junjange_dev.composeapp.generated.resources.ic_home_graphic
 import junjange_dev.composeapp.generated.resources.ic_open_in_new
 import junjange_dev.composeapp.generated.resources.intro
 import junjange_dev.composeapp.generated.resources.jojunjang
@@ -79,7 +82,6 @@ fun HomeSection(
         HomeMobileSection(
             nicknameString = nicknameString,
             modifier = modifier,
-            onSectionClicked = onSectionClicked,
         )
     }
 }
@@ -107,9 +109,8 @@ private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
 private fun HomeMobileSection(
     nicknameString: AnnotatedString,
     modifier: Modifier = Modifier,
-    onSectionClicked: (Section) -> Unit,
 ) {
-    val screenSize = LocalScreenSize.current.toDpSize()
+    val screenSize = LocalScreenSize.current.asDp()
 
     Box(
         modifier =
@@ -122,17 +123,23 @@ private fun HomeMobileSection(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
-            Column(
+            Image(
+                painter = painterResource(Res.drawable.ic_home_graphic),
+                contentDescription = null,
+                contentScale = ContentScale.FillHeight,
                 modifier =
-                    Modifier
-                        .padding(top = MOBILE_CONTENT_VERTICAL_PADDING.dp)
-                        .padding(horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp),
-            ) {
-                Text(
-                    text = nicknameString,
-                    lineHeight = 76.sp,
-                )
-            }
+                    Modifier.height(
+                        maxOf(
+                            MOBILE_CONTENT_MIN_HEIGHT,
+                            screenSize.height,
+                        ).dp / 3f,
+                    ),
+            )
+
+            Text(
+                text = nicknameString,
+                lineHeight = 76.sp,
+            )
 
             Spacer(modifier = Modifier.height(12.dp))
             Text(
@@ -156,15 +163,6 @@ private fun HomeMobileSection(
                 BlogButton(modifier = Modifier.fillMaxWidth())
             }
         }
-
-        AnimatedArrow(
-            modifier =
-                Modifier
-                    .size(128.dp)
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 20.dp),
-            onClick = { onSectionClicked(Section.AboutMe) },
-        )
     }
 }
 
@@ -174,18 +172,32 @@ private fun HomePcSection(
     modifier: Modifier = Modifier,
     onSectionClicked: (Section) -> Unit,
 ) {
-    val screenSize = LocalScreenSize.current.toDpSize()
+    val screenSize = LocalScreenSize.current.asDp()
 
     Box(
         modifier =
             modifier.then(
                 Modifier
                     .width(screenSize.width.dp)
-                    .height((maxOf(PC_CONTENT_MIN_HEIGHT, screenSize.height) - HEADER_HEIGHT).dp),
+                    .height((maxOf(PC_CONTENT_MIN_HEIGHT, screenSize.height) - HEADER_HEIGHT).dp)
+                    .padding(horizontal = 24.dp),
             ),
     ) {
+        Image(
+            painter = painterResource(Res.drawable.ic_home_graphic),
+            contentDescription = null,
+            contentScale = ContentScale.FillWidth,
+            modifier =
+                Modifier
+                    .width(PC_CONTENT_WIDTH.dp / 2)
+                    .align(Alignment.CenterEnd),
+        )
+
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier =
+                Modifier
+                    .width((PC_CONTENT_WIDTH.dp / 1.5f))
+                    .align(Alignment.CenterStart),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
@@ -217,7 +229,7 @@ private fun HomePcSection(
                 Modifier
                     .size(128.dp)
                     .align(Alignment.BottomCenter)
-                    .padding(bottom = 20.dp),
+                    .padding(bottom = 24.dp),
             onClick = { onSectionClicked(Section.AboutMe) },
         )
     }

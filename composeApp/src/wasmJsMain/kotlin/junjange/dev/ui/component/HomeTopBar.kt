@@ -21,9 +21,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.LocalThemeMode
-import junjange.dev.ui.ThemeMode
+import junjange.dev.ui.model.LocalThemeMode
 import junjange.dev.ui.model.Section
+import junjange.dev.ui.model.ThemeMode
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.isPc
 import org.jetbrains.compose.resources.painterResource
@@ -109,7 +109,7 @@ fun PcTopBar(
 
     Row(
         modifier =
-            Modifier
+            modifier
                 .fillMaxWidth()
                 .height(HEADER_HEIGHT.dp)
                 .padding(horizontal = 24.dp, vertical = 12.dp),

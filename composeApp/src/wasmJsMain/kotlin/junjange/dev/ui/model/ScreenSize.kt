@@ -1,4 +1,4 @@
-package junjange.dev.ui
+package junjange.dev.ui.model
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
@@ -11,14 +11,14 @@ data class ScreenSize(
     val height: Int = 0,
 )
 
+val LocalScreenSize = compositionLocalOf { ScreenSize() }
+
 @Composable
 @ReadOnlyComposable
-fun ScreenSize.toDpSize(): ScreenSize {
+fun ScreenSize.asDp(): ScreenSize {
     val density = LocalDensity.current.density
-    val widthInDp = (this.width / density).roundToInt()
-    val heightInDp = (this.height / density).roundToInt()
-
-    return ScreenSize(widthInDp, heightInDp)
+    return ScreenSize(
+        width = (width / density).roundToInt(),
+        height = (height / density).roundToInt(),
+    )
 }
-
-val LocalScreenSize = compositionLocalOf { ScreenSize() }
