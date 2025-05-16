@@ -34,6 +34,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.MOBILE_CONTENT_MIN_HEIGHT
+import junjange.dev.ui.MOBILE_CONTENT_MIN_WIDTH
+import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.PC_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.PC_CONTENT_WIDTH
 import junjange.dev.ui.component.AnimatedArrow
@@ -89,6 +91,8 @@ fun HomeSection(
 @Composable
 private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
     buildAnnotatedString {
+        val screenSize = LocalScreenSize.current
+
         withStyle(
             SpanStyle(
                 fontSize = deviceState.fontSize(),
@@ -100,6 +104,11 @@ private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
             }
 
             withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                if (screenSize.width <= MOBILE_CONTENT_MIN_WIDTH) {
+                    append("\n")
+                } else {
+                    append(" ")
+                }
                 append(stringResource(Res.string.jojunjang))
             }
         }
@@ -115,8 +124,11 @@ private fun HomeMobileSection(
     Box(
         modifier =
             modifier
-                .width(screenSize.width.dp)
-                .height((maxOf(MOBILE_CONTENT_MIN_HEIGHT, screenSize.height) - HEADER_HEIGHT).dp),
+                .fillMaxSize()
+                .padding(
+                    vertical = MOBILE_CONTENT_VERTICAL_PADDING.dp,
+                    horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp,
+                ),
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -139,6 +151,7 @@ private fun HomeMobileSection(
             Text(
                 text = nicknameString,
                 lineHeight = 76.sp,
+                textAlign = TextAlign.Center,
             )
 
             Spacer(modifier = Modifier.height(12.dp))
