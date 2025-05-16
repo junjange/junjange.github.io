@@ -113,7 +113,7 @@ private fun CareerContent(
                         fontSize = 15.sp,
                     )
                     Text(
-                        text = stringResource(career.dateRes),
+                        text = stringResource(career.periodRes),
                         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
                         fontWeight = FontWeight.Medium,
                         fontSize = 15.sp,

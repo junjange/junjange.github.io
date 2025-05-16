@@ -15,7 +15,7 @@
 
     <!--About me-->
     <string name="about_me_title1">사용자의 편의를 최우선으로 생각합니다.</string>
-    <string name="about_me_description1">아버지의 불편함을 해결하기 위해 로또와 연금 복권을 동시에 확인할 수 있는 '행운복권' 앱을 개발하여 출시했습니다. 이 앱은 500건 이상의 다운로드를 기록하며 사용자들로부터 "실용적이다"는 긍정적인 반응을 얻었습니다. 평소에도 주변에서 발생할 수 있는 문제를 소프트웨어적으로 해결하기 위해 지속적으로 노력하고 있습니다.</string>
+    <string name="about_me_description1">아버지의 불편함을 해결하기 위해 로또와 연금 복권을 동시에 확인할 수 있는 '행운복권' 앱을 개발하여 출시했습니다. 이 앱은 900건 이상의 다운로드를 기록하며 사용자들로부터 "실용적이다"는 긍정적인 반응을 얻었습니다. 평소에도 주변에서 발생할 수 있는 문제를 소프트웨어적으로 해결하기 위해 지속적으로 노력하고 있습니다.</string>
     <string name="about_me_title2">주도적으로 문제를 해결하려고 노력합니다.</string>
     <string name="about_me_description2">영상 숏폼 플랫폼 개발 중, 비디오 스크롤 시 여러 비디오가 동시에 스트리밍되는 문제를 발견했습니다. 이를 해결하기 위해 미디어 플레이어 문서와 디자인 패턴을 학습한 후, 객체 풀 패턴을 적용하여 3개의 비디오 플레이어를 재활용하는 방식을 도입했습니다. 결과적으로 사용자에게 향상된 시청 경험을 제공하고 CPU 사용량을 57% 줄일 수 있었습니다. 문제를 직면했을 때, 기술적 문제를 분석하고 해결책을 모색하며, 사용자 경험을 향상시키기 위해 지속적으로 노력하고 있습니다.</string>
     <string name="about_me_title3">함께 성장하기 위해 노력합니다.</string>
@@ -27,7 +27,7 @@
 
     <string name="career_lio">리오(lio)</string>
     <string name="career_lio_team">프리랜서 모바일 개발자</string>
-    <string name="career_lio_date">2022.03 - 2022.10</string>
+    <string name="career_lio_period">2022.03 - 2022.10</string>
 
     <string name="career_lio_project3_title">노년층 감정 분석 안드로이드 앱</string>
     <string name="career_lio_project3_period">2022.08 - 2022.10</string>
@@ -46,7 +46,7 @@
 
     <string name="career_matrios">매트리오즈(Matrios)</string>
     <string name="career_matrios_team">프리랜서 안드로이드 개발자</string>
-    <string name="career_matrios_date">2021.07 - 2021.11</string>
+    <string name="career_matrios_period">2021.07 - 2021.11</string>
     <string name="career_matrios_project1_title">온라인 수업 집중도 모니터링 안드로이드 앱</string>
     <string name="career_matrios_project1_period">2021.07 - 2021.11</string>
     <string name="career_matrios_project1_tech_stack">Android, Java</string>
@@ -79,13 +79,13 @@
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
     <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
-    <string name="etc_kusitms_date">2024.09 - 2024.12</string>
+    <string name="etc_kusitms_period">2024.09 - 2024.12</string>
     <string name="etc_gdsc_sch_x_skhy_hack">GDSC SCH X SKHU Hack 운영진</string>
-    <string name="etc_gdsc_sch_x_skhy_hack_date">2023.05</string>
+    <string name="etc_gdsc_sch_x_skhy_hack_period">2023.05</string>
     <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영진</string>
-    <string name="etc_gdsc_kr_winter_cup_date">2023.01 - 2023.02</string>
+    <string name="etc_gdsc_kr_winter_cup_period">2023.01 - 2023.02</string>
     <string name="etc_devfest_campus_korea">Devfest Korea 2021 Flutter 릴레이 코딩 운영</string>
-    <string name="etc_devfest_campus_korea_date">2021.11</string>
+    <string name="etc_devfest_campus_korea_period">2021.11</string>
 
     <!--Project-->
     <string name="project">Project</string>
@@ -98,7 +98,7 @@
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
     <string name="project_lucky_lottery_period">2020.11 - 진행중</string>
     <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
-    <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Jetpack Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 500건 이상의 다운로드를 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
+    <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Jetpack Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 900건 이상의 다운로드를 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
     <string name="project_lucky_lottery_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- MVVM 도입으로 뷰와 비즈니스 로직 분리\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- Room DB로 회차별 복권 번호 저장 기능 개발\n- Jetpack Compose로 UI 마이그레이션 및 색상 통합</string>
 
     <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
@@ -106,7 +106,7 @@
     <string name="project_junjange_dev_period">2025.05 - 진행중</string>
     <string name="project_junjange_dev_techStack">Kotlin, Kotlin Multiplatform, Compose, Wasm</string>
     <string name="project_junjange_dev_description">'저평가 우량주 포트폴리오'는 Kotlin Multiplatform과 Compose Multiplatform을 활용해 개발한 웹 포트폴리오 사이트입니다. Kotlin/Wasm 타겟을 통해 브라우저 환경에서도 실행할 수 있도록 빌드하고, Android Compose 개발 경험을 웹으로 확장하는 데 집중했습니다. 반응형 레이아웃과 일관된 디자인 시스템을 적용하여, 다양한 해상도에서도 자연스럽고 일관된 사용자 경험(UX)을 제공하도록 설계했습니다.</string>
-    <string name="project_junjange_dev_contributions">- Kotlin Multiplatform 기반으로 웹 포트폴리오를 구현\n- Compose Multiplatform를 활용해 반응형 레이아웃과 일관된 디자인 시스템을 구축\n- 모바일/웹 환경 모두에서 최적화된 UI 구현</string>
+    <string name="project_junjange_dev_contributions">- Kotlin Multiplatform 기반 웹 포트폴리오 구현\n- Compose Multiplatform을 활용해 반응형 레이아웃과 디자인 시스템 구축\n- 모바일/웹 환경 모두에서 최적화된 UI 구현</string>
 
     <string name="project_friendogly">반갑개</string>
     <string name="project_friendogly_subtitle">내 반려견의 행복을 위한 친구 찾기 서비스</string>
@@ -127,7 +127,7 @@
     <string name="project_whatnow_period">2023.04 - 2023.07</string>
     <string name="project_whatnow_techStack">Android, Kotlin, Compose, Coroutines + Flow</string>
     <string name="project_whatnow_description">'왔나'는 약속 시간에 지각을 막기보다는, 기다리는 시간을 친구들과 함께 즐기는 share-play 서비스입니다. 설문조사를 통해 지각의 원인을 분석하고, 패널티 대신 즐거운 커뮤니케이션 경험으로 부정적 감정을 줄이는 방향으로 기획했습니다. 지각 상황을 유쾌하게 전환하여, 약속을 기다리는 시간조차 즐겁게 만들고자 했습니다.</string>
-    <string name="project_whatnow_contributions">- 홈, 지도, 사진 보내기 등 주요 화면 기능을 개발했습니다.\n- 사용자의 현재 위치를 공유 기능 구현\n- UI 개발 프로세스 최적화를 목표로 디자이너와 협업하여 디자인 시스템 구축\n- Jetpack Compose를 활용해 UI를 개발하고, 컴포넌트 단위로 모듈화를 진행</string>
+    <string name="project_whatnow_contributions">- 홈, 지도, 사진 보내기 등 주요 화면 기능 개발\n- 사용자의 현재 위치를 공유 기능 구현\n- UI 개발 프로세스 최적화를 목표로 디자이너와 협업하여 디자인 시스템 구축\n- Jetpack Compose를 활용해 UI를 개발하고, 컴포넌트 단위로 모듈화를 진행</string>
 
     <string name="project_oh_soon_taxi">오순택</string>
     <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>

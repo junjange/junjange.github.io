@@ -223,7 +223,7 @@ private fun EtcText(
                         fontSize = 12.sp,
                     ),
                 ) {
-                    append(stringResource(etc.dateRes))
+                    append(stringResource(etc.periodRes))
                 }
             }
         }
