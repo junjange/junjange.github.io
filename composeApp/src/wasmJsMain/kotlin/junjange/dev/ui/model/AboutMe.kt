@@ -13,15 +13,15 @@ enum class AboutMe(
     val titleRes: StringResource,
     val descriptionRes: StringResource,
 ) {
-    Content1(
+    CONTENT1(
         titleRes = Res.string.about_me_title1,
         descriptionRes = Res.string.about_me_description1,
     ),
-    Content2(
+    CONTENT2(
         titleRes = Res.string.about_me_title2,
         descriptionRes = Res.string.about_me_description2,
     ),
-    Content3(
+    CONTENT3(
         titleRes = Res.string.about_me_title3,
         descriptionRes = Res.string.about_me_description3,
     ),
