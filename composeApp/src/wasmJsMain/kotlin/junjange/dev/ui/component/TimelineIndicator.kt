@@ -26,7 +26,7 @@ fun TimelineIndicator(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier.width(80.dp),
+        modifier = modifier,
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
