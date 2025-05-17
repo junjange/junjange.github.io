@@ -275,14 +275,14 @@ private fun calculateProjectGridDimensions(
 
 private fun getProjectColumnCount(device: Device): Int =
     when (device) {
-        Device.MOBILE -> 2
-        Device.PC -> 3
+        Device.DESKTOP -> 3
+        else -> 2
     }
 
 private fun getProjectCountIncrement(device: Device): Int =
     when (device) {
-        Device.PC -> 3
-        Device.MOBILE -> 4
+        Device.DESKTOP -> 3
+        else -> 4
     }
 
 private const val INIT_PROJECT_COUNT = 6

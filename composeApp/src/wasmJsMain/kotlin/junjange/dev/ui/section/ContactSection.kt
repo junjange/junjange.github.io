@@ -24,8 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.model.Contact
+import junjange.dev.ui.model.Device
 import junjange.dev.ui.state.contentPadding
-import junjange.dev.ui.state.isPc
 import junjange.dev.ui.state.rememberDeviceState
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.copyright
@@ -45,16 +45,16 @@ fun ContactSection(modifier: Modifier = Modifier) {
                 .padding(deviceState.contentPadding()),
         contentAlignment = Alignment.Center,
     ) {
-        if (deviceState.isPc) {
-            ContactPcContent()
-        } else {
-            ContactMobileContent()
+        when (deviceState.value) {
+            Device.DESKTOP -> ContactDesktopContent()
+            Device.MOBILE, Device.TABLET -> ContactMobileContent()
+            Device.UNKNOWN -> {}
         }
     }
 }
 
 @Composable
-private fun ContactPcContent(modifier: Modifier = Modifier) {
+private fun ContactDesktopContent(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
