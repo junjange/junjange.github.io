@@ -99,8 +99,6 @@ fun HomeSection(
 @Composable
 private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
     buildAnnotatedString {
-        val screenSize = LocalScreenSize.current
-
         withStyle(
             SpanStyle(
                 fontSize = deviceState.titleFontSize(),
@@ -112,11 +110,6 @@ private fun buildNicknameString(deviceState: DeviceState): AnnotatedString =
             }
 
             withStyle(SpanStyle(color = MaterialTheme.colorScheme.primary)) {
-                if (screenSize.width <= MOBILE_CONTENT_MIN_WIDTH) {
-                    append("\n")
-                } else {
-                    append(" ")
-                }
                 append(stringResource(Res.string.jojunjang))
             }
         }
