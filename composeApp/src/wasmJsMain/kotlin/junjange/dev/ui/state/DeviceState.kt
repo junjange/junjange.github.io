@@ -10,10 +10,12 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.DESKTOP_CONTENT_HORIZONTAL_PADDING
+import junjange.dev.ui.DESKTOP_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
-import junjange.dev.ui.PC_CONTENT_HORIZONTAL_PADDING
-import junjange.dev.ui.PC_CONTENT_VERTICAL_PADDING
+import junjange.dev.ui.TABLET_CONTENT_HORIZONTAL_PADDING
+import junjange.dev.ui.TABLET_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.LocalScreenSize
 
@@ -27,32 +29,34 @@ fun rememberDeviceState(): DeviceState {
     }
 }
 
-val DeviceState.isMobile: Boolean
-    get() = value == Device.MOBILE
-
-val DeviceState.isPc: Boolean
-    get() = value == Device.PC
-
 @Composable
 @ReadOnlyComposable
-fun DeviceState.fontSize(): TextUnit =
+fun DeviceState.titleFontSize(): TextUnit =
     when (value) {
-        Device.PC -> 72.sp
-        Device.MOBILE -> 48.sp
+        Device.DESKTOP -> 72.sp
+        Device.TABLET -> 48.sp
+        else -> 36.sp
     }
 
 @Composable
 @ReadOnlyComposable
 fun DeviceState.contentPadding(): PaddingValues =
     when (value) {
-        Device.PC -> PcContentPadding
-        Device.MOBILE -> MobileContentPadding
+        Device.DESKTOP -> DesktopContentPadding
+        Device.TABLET -> TabletContentPadding
+        else -> MobileContentPadding
     }
 
-private val PcContentPadding =
+private val DesktopContentPadding =
     PaddingValues(
-        horizontal = PC_CONTENT_HORIZONTAL_PADDING.dp,
-        vertical = PC_CONTENT_VERTICAL_PADDING.dp,
+        horizontal = DESKTOP_CONTENT_HORIZONTAL_PADDING.dp,
+        vertical = DESKTOP_CONTENT_VERTICAL_PADDING.dp,
+    )
+
+private val TabletContentPadding =
+    PaddingValues(
+        horizontal = TABLET_CONTENT_HORIZONTAL_PADDING.dp,
+        vertical = TABLET_CONTENT_VERTICAL_PADDING.dp,
     )
 
 private val MobileContentPadding =

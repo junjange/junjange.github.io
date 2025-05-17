@@ -21,41 +21,40 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.LocalThemeMode
 import junjange.dev.ui.model.Section
 import junjange.dev.ui.model.ThemeMode
 import junjange.dev.ui.state.DeviceState
-import junjange.dev.ui.state.isPc
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun HomeTopBar(
     deviceState: DeviceState,
+    modifier: Modifier = Modifier,
     onThemeChanged: (ThemeMode) -> Unit,
     onTitleClick: () -> Unit,
     onSectionClicked: (Section) -> Unit,
     onMenuClick: () -> Unit,
 ) {
-    MobileTopBar(
-        modifier =
-            Modifier.then(
-                if (deviceState.isPc) {
-                    Modifier.height(0.dp)
-                } else {
-                    Modifier
-                },
-            ),
-        onTitleClick = onTitleClick,
-        onMenuClick = onMenuClick,
-        onThemeChanged = onThemeChanged,
-    )
+    when (deviceState.value) {
+        Device.DESKTOP ->
+            DesktopTopBar(
+                modifier = modifier,
+                onThemeChanged = onThemeChanged,
+                onSectionClicked = onSectionClicked,
+            )
 
-    if (deviceState.isPc) {
-        PcTopBar(
-            onThemeChanged = onThemeChanged,
-            onSectionClicked = onSectionClicked,
-        )
+        Device.TABLET, Device.MOBILE ->
+            MobileTopBar(
+                modifier = modifier,
+                onTitleClick = onTitleClick,
+                onMenuClick = onMenuClick,
+                onThemeChanged = onThemeChanged,
+            )
+
+        Device.UNKNOWN -> {}
     }
 }
 
@@ -100,7 +99,7 @@ fun MobileTopBar(
 }
 
 @Composable
-fun PcTopBar(
+fun DesktopTopBar(
     modifier: Modifier = Modifier,
     onThemeChanged: (ThemeMode) -> Unit,
     onSectionClicked: (Section) -> Unit,
