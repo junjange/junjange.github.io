@@ -3,6 +3,8 @@ package junjange.dev.ui.model
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.etc_devfest_campus_korea
 import junjange_dev.composeapp.generated.resources.etc_devfest_campus_korea_period
+import junjange_dev.composeapp.generated.resources.etc_droid_knights_2025
+import junjange_dev.composeapp.generated.resources.etc_droid_knights_2025_period
 import junjange_dev.composeapp.generated.resources.etc_gdsc_kr_winter_cup
 import junjange_dev.composeapp.generated.resources.etc_gdsc_kr_winter_cup_period
 import junjange_dev.composeapp.generated.resources.etc_gdsc_sch_x_skhy_hack
@@ -15,6 +17,10 @@ enum class Etc(
     val titleRes: StringResource,
     val periodRes: StringResource,
 ) {
+    DROID_KNIGHTS_2025(
+        titleRes = Res.string.etc_droid_knights_2025,
+        Res.string.etc_droid_knights_2025_period,
+    ),
     KUSITMS(
         titleRes = Res.string.etc_kusitms,
         periodRes = Res.string.etc_kusitms_period,

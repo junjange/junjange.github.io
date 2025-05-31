@@ -78,6 +78,9 @@
     <string name="community_gdg_desc">- 4기 Lead(회장) | 22.08 ~ 23.08\n- 3기 Core Member(운영진) | 21.08 ~ 22.08\n- Flutter 데브톡을 발표 후, 블로그와 유튜브로 공유했습니다.</string>
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
+
+    <string name="etc_droid_knights_2025">DroidKnights 2025 Contributor 페이지 기여</string>
+    <string name="etc_droid_knights_2025_period">2025.06</string>
     <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
     <string name="etc_kusitms_period">2024.09 - 2024.12</string>
     <string name="etc_gdsc_sch_x_skhy_hack">GDSC SCH X SKHU Hack 운영진</string>
