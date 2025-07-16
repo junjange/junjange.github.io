@@ -25,6 +25,9 @@
     <string name="android_developer">안드로이드 개발자</string>
     <string name="flutter_developer">플러터 개발자</string>
 
+    <string name="career_paytalab">페이타랩</string>
+    <string name="career_paytalab_period">2025.07 - ing</string>
+
     <string name="career_lio">리오(lio)</string>
     <string name="career_lio_team">프리랜서 모바일 개발자</string>
     <string name="career_lio_period">2022.03 - 2022.10</string>
