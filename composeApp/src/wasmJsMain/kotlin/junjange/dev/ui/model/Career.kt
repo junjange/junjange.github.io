@@ -2,6 +2,7 @@ package junjange.dev.ui.model
 
 import junjange.dev.ui.model.CareerProject.Companion.LIO_PROJECTS
 import junjange.dev.ui.model.CareerProject.Companion.MATRIOS_PROJECTS
+import junjange.dev.ui.model.CareerProject.Companion.PAYTALAB_PROJECTS
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.android_developer
 import junjange_dev.composeapp.generated.resources.career_lio
@@ -29,7 +30,7 @@ enum class Career(
         periodRes = Res.string.career_paytalab_period,
         nameRes = Res.string.career_paytalab,
         teamRes = Res.string.android_developer,
-        project = emptyList(),
+        project = PAYTALAB_PROJECTS,
     ),
     Lio(
         logoRes = Res.drawable.ic_lio,
