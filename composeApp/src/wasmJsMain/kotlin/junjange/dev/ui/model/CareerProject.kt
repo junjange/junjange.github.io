@@ -17,6 +17,10 @@ import junjange_dev.composeapp.generated.resources.career_matrios_project1_contr
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_period
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_tech_stack
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_project1_contributions
+import junjange_dev.composeapp.generated.resources.career_paytalab_project1_period
+import junjange_dev.composeapp.generated.resources.career_paytalab_project1_tech_stack
+import junjange_dev.composeapp.generated.resources.career_paytalab_project1_title
 import org.jetbrains.compose.resources.StringResource
 
 data class CareerProject(
@@ -26,6 +30,16 @@ data class CareerProject(
     val contributionsRes: StringResource,
 ) {
     companion object {
+        val PAYTALAB_PROJECTS =
+            listOf(
+                CareerProject(
+                    titleRes = Res.string.career_paytalab_project1_title,
+                    periodRes = Res.string.career_paytalab_project1_period,
+                    techStackRes = Res.string.career_paytalab_project1_tech_stack,
+                    contributionsRes = Res.string.career_paytalab_project1_contributions,
+                ),
+            )
+
         val LIO_PROJECTS =
             listOf(
                 CareerProject(
