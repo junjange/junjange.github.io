@@ -105,6 +105,15 @@
     <string name="project_more">프로젝트 더보기</string>
     <string name="project_collapse">프로젝트 접기</string>
 
+    <string name="project_link_letter">링크레터</string>
+    <string name="project_link_letter_subtitle">Kotlin Multiplatform 블로그 구독 알림 서비스</string>
+    <string name="project_link_letter_period">2025.06 – 2025.07</string>
+    <string name="project_link_letter_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room</string>
+    <string name="project_link_letter_description">여러분의 관심사, 한곳에서 만나보세요. 인터넷을 돌아다니다 보면 팔로우하고 싶은 블로그와 콘텐츠가 너무 많아, 정작 놓치는 정보가 많으시죠? 링크레터는 흩어져 있는 블로그를을 한곳으로 모아, 좋아하는 크리에이터의 새 글을 실시간 알림으로 신속하고 편리하게 전달해드립니다. 이제는 일일이 방문하지 않아도, 원하는 소식을 빠짐없이 받아보세요!</string>
+    <string name="project_link_letter_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- Android/iOS 코드 80% 이상 공유로 단일 코드베이스 기반의 효율적 개발\n- Core 모듈을 통한 계층별 분리 및 Koin 의존성 주입으로 유지보수성 향상\n- MVI 아키텍처 도입으로 상태 관리 안정성 향상\n- RSS URL을 메모리에 캐싱하여 네트워크 요청 최소화 및 속도 개선\n- 일일 스케줄링 자동 실행 및 백그라운드 새 포스트 감지 푸시 알림 구현</string>
+
+
+
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
     <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
