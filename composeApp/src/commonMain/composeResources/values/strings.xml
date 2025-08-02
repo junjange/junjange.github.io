@@ -114,7 +114,7 @@
 
     <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
     <string name="project_junjange_dev_subtitle">Kotlin Multiplatform 포트폴리오</string>
-    <string name="project_junjange_dev_period">2025.05 - 진행중</string>
+    <string name="project_junjange_dev_period">2025.05(개발) / 2025.06 - 현재(유지보수 중)</string>
     <string name="project_junjange_dev_techStack">Kotlin, Kotlin Multiplatform, Compose, Wasm</string>
     <string name="project_junjange_dev_description">'저평가 우량주 포트폴리오'는 Kotlin Multiplatform과 Compose Multiplatform을 활용해 개발한 웹 포트폴리오 사이트입니다. Kotlin/Wasm 타겟을 통해 브라우저 환경에서도 실행할 수 있도록 빌드하고, Android Compose 개발 경험을 웹으로 확장하는 데 집중했습니다. 반응형 레이아웃과 일관된 디자인 시스템을 적용하여, 다양한 해상도에서도 자연스럽고 일관된 사용자 경험(UX)을 제공하도록 설계했습니다.</string>
     <string name="project_junjange_dev_contributions">- Kotlin Multiplatform 기반 웹 포트폴리오 구현\n- Compose Multiplatform을 활용해 반응형 레이아웃과 디자인 시스템 구축\n- 모바일/웹 환경 모두에서 최적화된 UI 구현</string>
