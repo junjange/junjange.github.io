@@ -107,7 +107,7 @@
 
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
-    <string name="project_lucky_lottery_period">2020.11 - 진행중</string>
+    <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
     <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
     <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Jetpack Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 1,000건 이상의 다운로드를 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
     <string name="project_lucky_lottery_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- MVVM 도입으로 뷰와 비즈니스 로직 분리\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- Room DB로 회차별 복권 번호 저장 기능 개발\n- Jetpack Compose로 UI 마이그레이션 및 색상 통합</string>
