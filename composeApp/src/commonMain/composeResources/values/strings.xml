@@ -105,16 +105,25 @@
     <string name="project_more">프로젝트 더보기</string>
     <string name="project_collapse">프로젝트 접기</string>
 
+    <string name="project_link_letter">링크레터</string>
+    <string name="project_link_letter_subtitle">Kotlin Multiplatform 블로그 구독 알림 서비스</string>
+    <string name="project_link_letter_period">2025.06 – 2025.07</string>
+    <string name="project_link_letter_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room</string>
+    <string name="project_link_letter_description">여러분의 관심사, 한곳에서 만나보세요. 인터넷을 돌아다니다 보면 팔로우하고 싶은 블로그와 콘텐츠가 너무 많아, 정작 놓치는 정보가 많으시죠? 링크레터는 흩어져 있는 블로그를을 한곳으로 모아, 좋아하는 크리에이터의 새 글을 실시간 알림으로 신속하고 편리하게 전달해드립니다. 이제는 일일이 방문하지 않아도, 원하는 소식을 빠짐없이 받아보세요!</string>
+    <string name="project_link_letter_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- Android/iOS 코드 80% 이상 공유로 단일 코드베이스 기반의 효율적 개발\n- Core 모듈을 통한 계층별 분리 및 Koin 의존성 주입으로 유지보수성 향상\n- MVI 아키텍처 도입으로 상태 관리 안정성 향상\n- RSS URL을 메모리에 캐싱하여 네트워크 요청 최소화 및 속도 개선\n- 일일 스케줄링 자동 실행 및 백그라운드 새 포스트 감지 푸시 알림 구현</string>
+
+
+
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
-    <string name="project_lucky_lottery_period">2020.11 - 진행중</string>
+    <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
     <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
     <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Jetpack Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 1,000건 이상의 다운로드를 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
     <string name="project_lucky_lottery_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- MVVM 도입으로 뷰와 비즈니스 로직 분리\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- Room DB로 회차별 복권 번호 저장 기능 개발\n- Jetpack Compose로 UI 마이그레이션 및 색상 통합</string>
 
     <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
     <string name="project_junjange_dev_subtitle">Kotlin Multiplatform 포트폴리오</string>
-    <string name="project_junjange_dev_period">2025.05 - 진행중</string>
+    <string name="project_junjange_dev_period">2025.05(개발) / 2025.06 - 현재(유지보수 중)</string>
     <string name="project_junjange_dev_techStack">Kotlin, Kotlin Multiplatform, Compose, Wasm</string>
     <string name="project_junjange_dev_description">'저평가 우량주 포트폴리오'는 Kotlin Multiplatform과 Compose Multiplatform을 활용해 개발한 웹 포트폴리오 사이트입니다. Kotlin/Wasm 타겟을 통해 브라우저 환경에서도 실행할 수 있도록 빌드하고, Android Compose 개발 경험을 웹으로 확장하는 데 집중했습니다. 반응형 레이아웃과 일관된 디자인 시스템을 적용하여, 다양한 해상도에서도 자연스럽고 일관된 사용자 경험(UX)을 제공하도록 설계했습니다.</string>
     <string name="project_junjange_dev_contributions">- Kotlin Multiplatform 기반 웹 포트폴리오 구현\n- Compose Multiplatform을 활용해 반응형 레이아웃과 디자인 시스템 구축\n- 모바일/웹 환경 모두에서 최적화된 UI 구현</string>

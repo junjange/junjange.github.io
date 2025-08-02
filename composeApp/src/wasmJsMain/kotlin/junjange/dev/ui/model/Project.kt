@@ -13,6 +13,7 @@ import junjange_dev.composeapp.generated.resources.ic_friendogly_grahic
 import junjange_dev.composeapp.generated.resources.ic_junjange_dev_graphic
 import junjange_dev.composeapp.generated.resources.ic_knocknock_graphic
 import junjange_dev.composeapp.generated.resources.ic_kordle_graphic
+import junjange_dev.composeapp.generated.resources.ic_link_letter_graphic
 import junjange_dev.composeapp.generated.resources.ic_lucky_lottery_graphic
 import junjange_dev.composeapp.generated.resources.ic_move_move_graphic
 import junjange_dev.composeapp.generated.resources.ic_oh_soon_taxi_graphic
@@ -63,6 +64,12 @@ import junjange_dev.composeapp.generated.resources.project_kordle_description
 import junjange_dev.composeapp.generated.resources.project_kordle_period
 import junjange_dev.composeapp.generated.resources.project_kordle_subtitle
 import junjange_dev.composeapp.generated.resources.project_kordle_techStack
+import junjange_dev.composeapp.generated.resources.project_link_letter
+import junjange_dev.composeapp.generated.resources.project_link_letter_contributions
+import junjange_dev.composeapp.generated.resources.project_link_letter_description
+import junjange_dev.composeapp.generated.resources.project_link_letter_period
+import junjange_dev.composeapp.generated.resources.project_link_letter_subtitle
+import junjange_dev.composeapp.generated.resources.project_link_letter_techStack
 import junjange_dev.composeapp.generated.resources.project_lucky_lottery
 import junjange_dev.composeapp.generated.resources.project_lucky_lottery_contributions
 import junjange_dev.composeapp.generated.resources.project_lucky_lottery_description
@@ -119,6 +126,34 @@ enum class Project(
     val links: List<Link>,
     val contributionsRes: StringResource,
 ) {
+    LINK_LETTER(
+        titleRes = Res.string.project_link_letter,
+        subtitleRes = Res.string.project_link_letter_subtitle,
+        graphicRes = drawable.ic_link_letter_graphic,
+        periodRes = Res.string.project_link_letter_period,
+        descriptionRes = Res.string.project_link_letter_description,
+        roleRes = Res.string.android_developer,
+        techStackRes = Res.string.project_link_letter_techStack,
+        links =
+            listOf(
+                Res.string.github to "https://github.com/junjange/linkletter-client",
+            ),
+        contributionsRes = Res.string.project_link_letter_contributions,
+    ),
+    JUNJANGE_DEV(
+        titleRes = Res.string.project_junjange_dev,
+        subtitleRes = Res.string.project_junjange_dev_subtitle,
+        graphicRes = drawable.ic_junjange_dev_graphic,
+        periodRes = Res.string.project_junjange_dev_period,
+        descriptionRes = Res.string.project_junjange_dev_description,
+        roleRes = Res.string.android_developer,
+        techStackRes = Res.string.project_junjange_dev_techStack,
+        links =
+            listOf(
+                Res.string.github to "https://github.com/junjange/junjange.github.io",
+            ),
+        contributionsRes = Res.string.project_junjange_dev_contributions,
+    ),
     LUCKY_LOTTERY(
         titleRes = Res.string.project_lucky_lottery,
         subtitleRes = Res.string.project_lucky_lottery_subtitle,
@@ -134,20 +169,6 @@ enum class Project(
                 Res.string.notion to "https://www.notion.so/e3c739fdf1ce4613ad005dfae45f88a1",
             ),
         contributionsRes = Res.string.project_lucky_lottery_contributions,
-    ),
-    JUNJANGE_DEV(
-        titleRes = Res.string.project_junjange_dev,
-        subtitleRes = Res.string.project_junjange_dev_subtitle,
-        graphicRes = drawable.ic_junjange_dev_graphic,
-        periodRes = Res.string.project_junjange_dev_period,
-        descriptionRes = Res.string.project_junjange_dev_description,
-        roleRes = Res.string.android_developer,
-        techStackRes = Res.string.project_junjange_dev_techStack,
-        links =
-            listOf(
-                Res.string.github to "https://github.com/junjange/junjange.github.io",
-            ),
-        contributionsRes = Res.string.project_junjange_dev_contributions,
     ),
     FRIENDOGLY(
         titleRes = Res.string.project_friendogly,
