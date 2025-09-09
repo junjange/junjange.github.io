@@ -46,7 +46,7 @@ fun CareerSection(modifier: Modifier = Modifier) {
             fontSize = 36.sp,
         )
 
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(48.dp))
 
         Career.entries.forEachIndexed { index, career ->
             CareerContent(

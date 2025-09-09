@@ -110,7 +110,7 @@ fun ProjectSection(
             textAlign = TextAlign.Center,
         )
 
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(48.dp))
 
         Box(
             Modifier

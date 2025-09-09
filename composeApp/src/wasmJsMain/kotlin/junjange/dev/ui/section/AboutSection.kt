@@ -50,7 +50,7 @@ fun AboutSection(modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center,
         )
 
-        Spacer(modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(48.dp))
 
         val horizontalPadding =
             when (deviceState.value) {
@@ -99,7 +99,7 @@ private fun ContentCard(
             color = MaterialTheme.colorScheme.onSecondaryContainer,
         )
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = stringResource(description),
