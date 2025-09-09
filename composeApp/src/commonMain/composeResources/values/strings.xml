@@ -31,10 +31,10 @@
     <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 패스오더</string>
     <string name="career_paytalab_period">2025.07 - ing</string>
 
-    <string name="career_paytalab_project1_title">패스오더 '선물하기' 기능 개발</string>
+    <string name="career_paytalab_project1_title">패스오더 선물하기 Squad</string>
     <string name="career_paytalab_project1_period">2025.07 - ing</string>
     <string name="career_paytalab_project1_tech_stack">Android, Kotlin, Jetpack Compose</string>
-    <string name="career_paytalab_project1_contributions">- 선물하기 프로모션 기능 설계 및 구현\n- 선물하기 UI 개선 및 사용자 경험 향상</string>
+    <string name="career_paytalab_project1_contributions">- 선물하기 지원금 기능 설계 및 구현\n- 선물하기 UI 개선 및 사용자 경험 향상</string>
 
 
     <string name="career_lio">리오(lio)</string>
