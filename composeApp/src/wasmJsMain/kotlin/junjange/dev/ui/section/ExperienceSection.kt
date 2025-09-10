@@ -59,7 +59,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center,
         )
 
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(48.dp))
 
         Text(
             text = stringResource(Res.string.experience_education),
@@ -69,14 +69,14 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center,
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         Education.entries.forEach { experience ->
             ExperienceItem(experience = experience)
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(36.dp))
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = stringResource(Res.string.experience_community),
@@ -86,14 +86,14 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center,
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
         Community.entries.forEach { experience ->
             ExperienceItem(experience = experience)
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(36.dp))
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = stringResource(Res.string.experience_etc),

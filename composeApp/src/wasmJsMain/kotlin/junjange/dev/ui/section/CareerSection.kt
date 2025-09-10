@@ -46,7 +46,7 @@ fun CareerSection(modifier: Modifier = Modifier) {
             fontSize = 36.sp,
         )
 
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(48.dp))
 
         Career.entries.forEachIndexed { index, career ->
             CareerContent(
@@ -105,18 +105,23 @@ private fun CareerContent(
                         fontWeight = FontWeight.Bold,
                         fontSize = 20.sp,
                     )
-                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = stringResource(career.introRes),
+                        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 14.sp,
+                    )
                     Text(
                         text = stringResource(career.teamRes),
                         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
                         fontWeight = FontWeight.Medium,
-                        fontSize = 15.sp,
+                        fontSize = 14.sp,
                     )
                     Text(
                         text = stringResource(career.periodRes),
                         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
                         fontWeight = FontWeight.Medium,
-                        fontSize = 15.sp,
+                        fontSize = 14.sp,
                     )
                 }
             }
@@ -138,25 +143,25 @@ private fun CareerProjectItem(careerProject: CareerProject) {
         text = stringResource(careerProject.titleRes),
         color = MaterialTheme.colorScheme.onPrimaryContainer,
         fontWeight = FontWeight.Bold,
-        fontSize = 15.sp,
+        fontSize = 16.sp,
     )
     Text(
         text = stringResource(careerProject.periodRes),
         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
         fontWeight = FontWeight.Normal,
-        fontSize = 15.sp,
+        fontSize = 14.sp,
     )
     Text(
         text = stringResource(careerProject.techStackRes),
         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
         fontWeight = FontWeight.Normal,
-        fontSize = 15.sp,
+        fontSize = 14.sp,
     )
     Text(
         text = stringResource(careerProject.contributionsRes),
         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
         fontWeight = FontWeight.Normal,
-        fontSize = 15.sp,
+        fontSize = 14.sp,
     )
 }
 
