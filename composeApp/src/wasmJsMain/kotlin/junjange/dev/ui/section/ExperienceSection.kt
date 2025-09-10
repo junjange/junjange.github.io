@@ -73,10 +73,10 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
 
         Education.entries.forEach { experience ->
             ExperienceItem(experience = experience)
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(36.dp))
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = stringResource(Res.string.experience_community),
@@ -90,10 +90,10 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
 
         Community.entries.forEach { experience ->
             ExperienceItem(experience = experience)
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(36.dp))
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
         Text(
             text = stringResource(Res.string.experience_etc),
