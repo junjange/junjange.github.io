@@ -145,12 +145,14 @@ private fun CareerProjectItem(careerProject: CareerProject) {
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
     )
-    Text(
-        text = stringResource(careerProject.periodRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-    )
+    careerProject.periodRes?.let {
+         Text(
+            text = stringResource(careerProject.periodRes),
+            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+        )
+    }
     Text(
         text = stringResource(careerProject.techStackRes),
         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),

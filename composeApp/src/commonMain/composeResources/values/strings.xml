@@ -32,10 +32,8 @@
     <string name="career_paytalab_period">2025.07 - ing</string>
 
     <string name="career_paytalab_project1_title">패스오더 선물하기 Squad</string>
-    <string name="career_paytalab_project1_period">2025.07 - ing</string>
     <string name="career_paytalab_project1_tech_stack">Android, Kotlin, Jetpack Compose</string>
-    <string name="career_paytalab_project1_contributions">- 선물하기 지원금 기능 설계 및 구현\n- 선물하기 UI 개선 및 사용자 경험 향상</string>
-
+    <string name="career_paytalab_project1_contributions">- `선물하기 지원금` 신규 기능을 설계 및 구현하여 선물 이용률 항상에 기여\n- 레거시 환경에서 신규 기능을 안정적으로 개발하고 UI/UX 개선으로 사용자 경험 강화\n- 결제 오류 대응 UX 개선을 통해 이탈 방지 및 서비스 신뢰도 향상\n- MVI 아키텍처를 자체 설계 및 적용하여 상태 관리 일관성과 확장성 확보</string>
 
     <string name="career_lio">리오(lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
