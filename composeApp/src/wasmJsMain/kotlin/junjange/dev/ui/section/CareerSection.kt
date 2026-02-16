@@ -15,7 +15,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.component.CardImage
@@ -139,6 +142,9 @@ private fun CareerContent(
 
 @Composable
 private fun CareerProjectItem(careerProject: CareerProject) {
+    val highlightColor = MaterialTheme.colorScheme.onPrimaryContainer
+    val baseColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f)
+
     Text(
         text = stringResource(careerProject.titleRes),
         color = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -148,23 +154,41 @@ private fun CareerProjectItem(careerProject: CareerProject) {
     careerProject.periodRes?.let {
          Text(
             text = stringResource(careerProject.periodRes),
-            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
+            color = baseColor,
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
         )
     }
-    Text(
-        text = stringResource(careerProject.techStackRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-    )
-    Text(
-        text = stringResource(careerProject.contributionsRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-    )
+    careerProject.techStackRes?.let {
+        Text(
+            text = stringResource(careerProject.techStackRes),
+            color = baseColor,
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+        )
+    }
+
+    careerProject.contributions.forEach { contribution ->
+        val annotatedString = buildAnnotatedString {
+            append("• ")
+            contribution.segments.forEach { segment ->
+                withStyle(
+                    style = SpanStyle(
+                        color = if (segment.isHighlighted) highlightColor else baseColor,
+                        fontWeight = if (segment.isHighlighted) FontWeight.Bold else FontWeight.Normal,
+                    )
+                ) {
+                    append(segment.text)
+                }
+            }
+        }
+
+        Text(
+            text = annotatedString,
+            fontSize = 14.sp,
+            lineHeight = 20.sp,
+        )
+    }
 }
 
 private val CAREER_DOT_SIZE = 24.dp

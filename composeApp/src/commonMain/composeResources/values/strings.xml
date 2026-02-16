@@ -31,9 +31,16 @@
     <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 패스오더</string>
     <string name="career_paytalab_period">2025.07 - ing</string>
 
-    <string name="career_paytalab_project1_title">패스오더 선물하기 Squad</string>
-    <string name="career_paytalab_project1_tech_stack">Android, Kotlin, Jetpack Compose</string>
-    <string name="career_paytalab_project1_contributions">- `선물하기 지원금` 신규 기능을 설계 및 구현하여 선물 이용률 항상에 기여\n- 레거시 환경에서 신규 기능을 안정적으로 개발하고 UI/UX 개선으로 사용자 경험 강화\n- 결제 오류 대응 UX 개선을 통해 이탈 방지 및 서비스 신뢰도 향상\n- MVI 아키텍처를 자체 설계 및 적용하여 상태 관리 일관성과 확장성 확보</string>
+    <string name="career_paytalab_project4_title">선물하기 Squad</string>
+    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Jetpack Compose</string>
+
+    <string name="career_paytalab_project3_title">결제 시스템 Squad</string>
+    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Jetpack Compose</string>
+
+    <string name="career_paytalab_project2_title">UX/UI 개선 Squad</string>
+    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Jetpack Compose</string>
+
+    <string name="career_paytalab_project1_title">Android Part 공통</string>
 
     <string name="career_lio">리오(lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
@@ -42,17 +49,14 @@
     <string name="career_lio_project3_title">노년층 감정 분석 안드로이드 앱</string>
     <string name="career_lio_project3_period">2022.08 - 2022.10</string>
     <string name="career_lio_project3_tech_stack">Android, Kotlin</string>
-    <string name="career_lio_project3_contributions">- TTS 기능을 적용해 어르신들이 설문에 쉽게 접근할 수 있도록 지원\n- 온보딩 UI를 구현해 서비스 이용 흐름을 직관적으로 안내\n- 감정 분석 결과를 그래프로 시각화해 사용자 이해도 향상</string>
 
     <string name="career_lio_project2_title">농작물 직거래 하이브리드 앱</string>
     <string name="career_lio_project2_period">2022.06 - 2022.07</string>
     <string name="career_lio_project2_tech_stack">Flutter, Dart</string>
-    <string name="career_lio_project2_contributions">- BLoC 패턴을 적용해 확장성과 유지보수성을 고려한 아키텍처 설계\n- Firebase Storage를 활용해 사업자 정보를 안전하게 저장 기능 구현\n- Firebase Cloud Messaging으로 실시간 알림 기능 개발\n- Google Play와 Apple App Store에 앱 배포</string>
 
     <string name="career_lio_project1_title">대량 자동 발신 전화 안드로이드 앱</string>
     <string name="career_lio_project1_period">2022.03 - 2022.04</string>
     <string name="career_lio_project1_tech_stack">Android, Kotlin</string>
-    <string name="career_lio_project1_contributions">- 예약 전화를 위한 파일 탐색기 UI를 직접 설계 및 구현\n- 전화번호를 추출하여 Room DB에 저장하는 기능 개발\n- 저장된 예약 번호를 기반으로 자동 발신 기능 구현\n- Service를 활용해 자동 발신 중인 전화를 종료하는 기능 개발</string>
 
     <string name="career_matrios">매트리오즈(Matrios)</string>
     <string name="career_matrios_period">2021.07 - 2021.11</string>
@@ -61,7 +65,6 @@
     <string name="career_matrios_project1_title">온라인 수업 집중도 모니터링 안드로이드 앱</string>
     <string name="career_matrios_project1_period">2021.07 - 2021.11</string>
     <string name="career_matrios_project1_tech_stack">Android, Java</string>
-    <string name="career_matrios_project1_contributions">- 화상 강의 중에도 앱을 원활히 이용할 수 있도록 Service 기반 Floating Widget 구현\n- AWS Cognito를 활용한 인증 시스템 구축으로 보안 강화 및 회원가입·로그인 절차 간소화\n- UsageStatsManager를 적용해 외부 앱 사용 여부를 실시간 모니터링, 사용자 활동 분석 지원\n- 튜토리얼 페이지를 통해 신규 사용자 온보딩 개발 및 서비스 이해도 및 만족도 향상</string>
 
     <!--Experience-->
     <string name="experience">Experience</string>
