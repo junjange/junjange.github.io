@@ -153,12 +153,14 @@ private fun CareerProjectItem(careerProject: CareerProject) {
             fontSize = 14.sp,
         )
     }
-    Text(
-        text = stringResource(careerProject.techStackRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-    )
+    careerProject.techStackRes?.let {
+        Text(
+            text = stringResource(careerProject.techStackRes),
+            color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+        )
+    }
     Text(
         text = stringResource(careerProject.contributionsRes),
         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),

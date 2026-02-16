@@ -31,9 +31,20 @@
     <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 패스오더</string>
     <string name="career_paytalab_period">2025.07 - ing</string>
 
-    <string name="career_paytalab_project1_title">패스오더 선물하기 Squad</string>
-    <string name="career_paytalab_project1_tech_stack">Android, Kotlin, Jetpack Compose</string>
-    <string name="career_paytalab_project1_contributions">- `선물하기 지원금` 신규 기능을 설계 및 구현하여 선물 이용률 항상에 기여\n- 레거시 환경에서 신규 기능을 안정적으로 개발하고 UI/UX 개선으로 사용자 경험 강화\n- 결제 오류 대응 UX 개선을 통해 이탈 방지 및 서비스 신뢰도 향상\n- MVI 아키텍처를 자체 설계 및 적용하여 상태 관리 일관성과 확장성 확보</string>
+    <string name="career_paytalab_project4_title">선물하기 Squad</string>
+    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project4_contributions">- 레거시 환경에서 '선물하기 지원금' 기능을 안정적으로 설계 및 구현하여 서비스 성장 기반을 마련함\n- 기능 배포 후 일평균 선물 발송 건수 398%, 신규 가입자 567% 증가라는 지표 성장을 견인함\n- 선물 수신자의 이용 흐름과 UI/UX 최적화를 통해 신규 유저가 서비스에 원활하게 안착하도록 기여함</string>
+
+    <string name="career_paytalab_project3_title">결제 시스템 Squad</string>
+    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project3_contributions">- OCR 카드 등록 프로세스를 고도화하여 스캔 확인 단계 유저의 최종 등록 완료율 87%를 달성함\n- 카드 등록 과정의 UX 디테일을 개선하여 결제 진입 장벽을 낮추고 유저 전환 경험을 강화함\n- 법인카드 결제 수단을 신규 추가하여 서비스 결제 범위를 B2B 영역으로 확장하고 유저 니즈를 충족함</string>
+
+    <string name="career_paytalab_project2_title">UX/UI 개선 Squad</string>
+    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project2_contributions">- 'Passorder Design System'을 구축하여 서비스 전반의 UI 요소를 컴포넌트화하고 코드 일관성을 확보함\n- '장바구니 유지' 기능을 구현하여 앱 재접속 시 유저의 주문 내역을 보존하고 결제 진입 과정의 이탈을 방지함\n- 사용자 편의 중심의 인터페이스 고도화 등 다수의 개선 과제를 수행하여 서비스 전반의 사용성을 최적화함</string>
+
+    <string name="career_paytalab_project1_title">Android Part 공통</string>
+    <string name="career_paytalab_project1_contributions">- 외부 라이브러리 의존성 없는 자체 MVI 아키텍처를 직접 설계 및 도입하여 팀 내 유지보수 효율을 높임\n- 네트워크 에러 시 '재시도 프로세스' 구현을 선제적으로 제안하여 결제 단계에서의 유저 이탈을 방지함\n- 비즈니스 로직 및 Hotfix 대응 건에 대한 테스트 코드 작성 원칙을 수립하여 코드 안정성과 배포 신뢰성을 확보함</string>
 
     <string name="career_lio">리오(lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
