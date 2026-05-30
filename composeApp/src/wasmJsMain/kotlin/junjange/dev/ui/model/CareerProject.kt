@@ -82,6 +82,14 @@ data class CareerProject(
                             ContributionItem(
                                 segments =
                                     listOf(
+                                        TextSegment("NICE 간편 결제 프로세스 킬 이슈를 해결하여 결제 실패율을 "),
+                                        TextSegment("76% 감소", true),
+                                        TextSegment("시키고 서비스 안정성을 강화함"),
+                                    ),
+                            ),
+                            ContributionItem(
+                                segments =
+                                    listOf(
                                         TextSegment("카드 등록 과정의 "),
                                         TextSegment("UX 디테일 개선", true),
                                         TextSegment("으로 결제 진입 장벽을 낮추고 유저 전환 경험을 강화함"),
@@ -113,6 +121,14 @@ data class CareerProject(
                             ContributionItem(
                                 segments =
                                     listOf(
+                                        TextSegment("매장 상세 화면을 "),
+                                        TextSegment("XML에서 Compose로 마이그레이션", true),
+                                        TextSegment("하고 전체 아키텍처를 개선하여 코드 간결성과 성능을 최적화함"),
+                                    ),
+                            ),
+                            ContributionItem(
+                                segments =
+                                    listOf(
                                         TextSegment("장바구니 유지", true),
                                         TextSegment(" 기능을 구현하여 앱 재접속 시 유저의 주문 내역을 보존하고 결제 진입 과정의 이탈을 방지함"),
                                     ),
@@ -139,6 +155,13 @@ data class CareerProject(
                                         TextSegment("외부 라이브러리 의존성 없는 "),
                                         TextSegment("자체 MVI 아키텍처", true),
                                         TextSegment("를 직접 설계 및 도입하여 팀 내 유지보수 효율을 높임"),
+                                    ),
+                            ),
+                            ContributionItem(
+                                segments =
+                                    listOf(
+                                        TextSegment("AI 주도 개발 프로세스", true),
+                                        TextSegment("를 도입하여 반복 작업 자동화 및 개발 생산성을 향상시킴"),
                                     ),
                             ),
                             ContributionItem(
