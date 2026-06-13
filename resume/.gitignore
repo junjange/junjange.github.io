@@ -1,0 +1,6 @@
+node_modules/
+output/*.pdf
+package-lock.json
+
+# 자동 생성물 (KMP 모델 → export-from-kmp.js). 진실은 KMP, extra, manifest.
+data/resume.json

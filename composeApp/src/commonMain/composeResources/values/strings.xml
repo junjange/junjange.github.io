@@ -29,7 +29,7 @@
 
     <string name="career_paytalab">페이타랩</string>
     <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 패스오더</string>
-    <string name="career_paytalab_period">2025.07 - ing</string>
+    <string name="career_paytalab_period">2025.07 - 재직 중</string>
 
     <string name="career_paytalab_project4_title">선물하기 Squad</string>
     <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Jetpack Compose</string>
@@ -42,7 +42,7 @@
 
     <string name="career_paytalab_project1_title">Android Part 공통</string>
 
-    <string name="career_lio">리오(lio)</string>
+    <string name="career_lio">리오(Lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
     <string name="career_lio_period">2022.03 - 2022.10</string>
 

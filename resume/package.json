@@ -1,0 +1,22 @@
+{
+  "name": "resume-generator",
+  "version": "1.0.0",
+  "description": "조준장 이력서 PDF 생성기",
+  "main": "scripts/generate-pdf.js",
+  "scripts": {
+    "fonts": "node scripts/download-fonts.js",
+    "export": "node scripts/export-from-kmp.js",
+    "generate": "node scripts/generate-pdf.js",
+    "resume": "npm run export && npm run generate"
+  },
+  "keywords": [
+    "resume",
+    "pdf",
+    "generator"
+  ],
+  "author": "조준장",
+  "license": "MIT",
+  "devDependencies": {
+    "puppeteer": "^23.0.0"
+  }
+}
