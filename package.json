@@ -1,0 +1,13 @@
+{
+  "name": "junjange-github-io",
+  "version": "1.0.0",
+  "description": "조준장 포트폴리오 & 이력서",
+  "private": true,
+  "scripts": {
+    "resume": "npm --prefix resume run resume",
+    "resume:fonts": "npm --prefix resume run fonts",
+    "resume:install": "npm --prefix resume install"
+  },
+  "author": "조준장",
+  "license": "MIT"
+}

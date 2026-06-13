@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조준장 이력서</title>
+    <!-- @font-face (Pretendard) is injected by generate-pdf.js -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', 'Pretendard Variable', -apple-system, 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+            font-size: 9pt;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: white;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .project-page-break {
+            page-break-before: always;
+        }
+
+        /* ===== 이름 / 연락처 ===== */
+        .name {
+            font-size: 21pt;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .contact-info {
+            font-size: 8.5pt;
+            line-height: 1.55;
+            margin-bottom: 4px;
+        }
+
+        .contact-item .contact-label {
+            font-weight: bold;
+        }
+
+        .contact-item .contact-link {
+            text-decoration: underline;
+        }
+
+        /* ===== 섹션 헤더 ===== */
+        h2 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 14px;
+            margin-bottom: 7px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #d9d9d9;
+        }
+
+        .page-break > h2:first-child {
+            margin-top: 0;
+        }
+
+        /* ===== 자기소개 ===== */
+        .intro-block {
+            margin-bottom: 7px;
+        }
+
+        .intro-title {
+            font-size: 9.5pt;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .intro-text {
+            font-size: 9pt;
+            line-height: 1.45;
+            color: #333;
+        }
+
+        /* ===== 2단 레이아웃 (경력 / 교육 / 커뮤니티) ===== */
+        .two-col {
+            display: flex;
+            margin-bottom: 9px;
+        }
+
+        .two-col .left {
+            width: 200px;
+            flex-shrink: 0;
+            padding-right: 16px;
+        }
+
+        .two-col .right {
+            flex: 1;
+        }
+
+        .left .org-name {
+            font-size: 10.5pt;
+            font-weight: bold;
+            line-height: 1.35;
+            margin-bottom: 2px;
+        }
+
+        .left .org-sub {
+            font-size: 8.5pt;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 1px;
+        }
+
+        .left .org-period {
+            font-size: 8.5pt;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        .left .org-link {
+            font-size: 8.5pt;
+            color: #555;
+            margin-top: 3px;
+        }
+
+        .left .org-link .contact-link {
+            text-decoration: underline;
+        }
+
+        /* 우측 내부 서브 그룹(리오처럼 여러 프로젝트) */
+        .sub-group {
+            margin-bottom: 8px;
+        }
+
+        .sub-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .sub-title {
+            font-size: 9pt;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        /* ===== bullet 리스트 ===== */
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 9pt;
+            line-height: 1.4;
+            color: #333;
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 2px;
+        }
+
+        ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        ul li:before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #333;
+        }
+
+        /* ===== 프로젝트 ===== */
+        .project-block {
+            margin-bottom: 24px;
+        }
+
+        .project-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .project-description {
+            font-size: 9pt;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .meta-line {
+            font-size: 9pt;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .meta-line .meta-label {
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .meta-line .contact-link {
+            text-decoration: underline;
+        }
+
+        .block-label {
+            font-size: 9pt;
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 4px;
+        }
+
+        /* ===== 기술 역량 (3열) ===== */
+        .tech-grid {
+            display: flex;
+            gap: 24px;
+        }
+
+        .tech-col {
+            flex: 1;
+        }
+
+        .tech-col .tech-cat {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* ===== 그 외 활동 ===== */
+        .activity-list li {
+            margin-bottom: 6px;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="resume-content"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('resume-content').innerHTML = generateResumeHTML(resumeData);
+        });
+
+        // 메타 라인 헬퍼
+        function metaLine(label, value) {
+            return `<div class="meta-line"><span class="meta-label">${label} :</span> ${value}</div>`;
+        }
+
+        function bullets(items, extraClass = '') {
+            return `<ul class="${extraClass}">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
+        }
+
+        function generateResumeHTML(data) {
+            return `
+                ${page1(data)}
+                ${projectsSection(data)}
+                ${lastSection(data)}
+            `;
+        }
+
+        /* ========== 1페이지: 이름 / 자기소개 / 경력 ========== */
+        function page1(data) {
+            const p = data.personalInfo;
+            return `
+                <div class="name">${p.name}</div>
+                <div class="contact-info">
+                    <div class="contact-item"><span class="contact-label">Github :</span> <span class="contact-link">${p.github}</span></div>
+                    <div class="contact-item"><span class="contact-label">블로그 :</span> <span class="contact-link">${p.blog}</span></div>
+                    <div class="contact-item"><span class="contact-label">포트폴리오 :</span> <span class="contact-link">${p.portfolio}</span></div>
+                    <div class="contact-item"><span class="contact-label">이메일 :</span> ${p.email}</div>
+                    <div class="contact-item"><span class="contact-label">연락처 :</span> ${p.phone}</div>
+                </div>
+
+                <h2>자기소개</h2>
+                ${data.introductions.map(intro => `
+                    <div class="intro-block">
+                        <div class="intro-title">${intro.title}</div>
+                        <div class="intro-text">${intro.description.split('\n\n').join('<br>')}</div>
+                    </div>
+                `).join('')}
+
+                <h2>경력</h2>
+                ${data.careers.map(c => careerRow(c)).join('')}
+            `;
+        }
+
+        function careerRow(c) {
+            // 우측: squad(단일) 또는 projects(서브그룹 배열)
+            let rightHtml = '';
+            if (c.squad) {
+                rightHtml = `
+                    <div class="sub-group">
+                        <div class="sub-title">${c.squad}</div>
+                        ${bullets(c.projects)}
+                    </div>
+                `;
+            } else {
+                rightHtml = c.projects.map(proj => `
+                    <div class="sub-group">
+                        <div class="sub-title">${proj.name}${proj.period ? ` (${proj.period})` : ''}</div>
+                        ${bullets(proj.details)}
+                    </div>
+                `).join('');
+            }
+
+            return `
+                <div class="two-col">
+                    <div class="left">
+                        <div class="org-name">${c.company}</div>
+                        <div class="org-sub">${c.description}</div>
+                        <div class="org-sub">${c.position}</div>
+                        <div class="org-period">${c.period}</div>
+                    </div>
+                    <div class="right">
+                        ${rightHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        /* ========== 프로젝트 섹션 ========== */
+        // 원본 PDF와 동일한 페이지 분할: 2p(행운복권·반갑개) / 3p(뭅뭅·오순택)
+        // → 인덱스 2(뭅뭅) 앞에서 페이지를 강제로 나눈다.
+        const PROJECT_PAGE_BREAK_BEFORE = [2];
+
+        function projectsSection(data) {
+            return `
+                <div class="page-break">
+                    <h2>프로젝트</h2>
+                    ${data.projects.map((pr, i) => projectBlock(pr, PROJECT_PAGE_BREAK_BEFORE.includes(i))).join('')}
+                </div>
+            `;
+        }
+
+        function projectBlock(pr, breakBefore) {
+            const linksHtml = pr.links.map(l => `<span class="contact-link">${l}</span>`).join(' | ');
+            return `
+                <div class="project-block${breakBefore ? ' project-page-break' : ''}">
+                    <div class="project-title">${pr.subtitle}, ${pr.name}</div>
+                    ${pr.description ? `<div class="project-description">${pr.description.split('\n\n').join('<br>')}</div>` : ''}
+
+                    ${metaLine('관련 링크', linksHtml)}
+                    ${pr.period ? metaLine('개발 기간', pr.period) : ''}
+                    ${pr.team ? metaLine('팀 구성', pr.team) : ''}
+                    ${pr.role ? metaLine('역할', pr.role) : ''}
+                    ${pr.architecture ? metaLine('아키텍처', pr.architecture) : ''}
+
+                    <div class="block-label">기술 스택</div>
+                    ${bullets(techStackItems(pr))}
+
+                    <div class="block-label">주요 성과 및 기여</div>
+                    ${bullets(pr.achievements)}
+                </div>
+            `;
+        }
+
+        function techStackItems(pr) {
+            const items = [pr.techStack];
+            if (pr.name === '행운복권') {
+                items.push('Compose - 기존 Android View 기반에서 Jetpack Compose로 마이그레이션하여 선언적 UI 개발 방식으로 전환했습니다.');
+            } else if (pr.name === '뭅뭅') {
+                items.push('Coil - Glide 대신 도입하여 이미지 로딩을 최적화하고 Jetpack Compose와의 호환성을 강화하며 성능을 개선했습니다.');
+                items.push('Ktor - Retrofit 대신 도입하여 비동기 네트워크 통신을 최적화하고 Ktor의 DSL을 활용해 코드 가독성과 개발 효율성을 향상시켰습니다.');
+            } else if (pr.name === '오순택') {
+                items.push('STOMP - Pub-Sub 모델을 활용해 채팅방 단위의 메시지 구독을 구현하고, 자동 재연결 및 안정성을 확보하기 위해 도입');
+            }
+            return items;
+        }
+
+        /* ========== 마지막 페이지: 기술 역량 / 교육 / 커뮤니티 / 그 외 활동 ========== */
+        function lastSection(data) {
+            return `
+                <div class="page-break">
+                    <h2>기술 역량</h2>
+                    <div class="tech-grid">
+                        ${data.techSkills.map(s => `
+                            <div class="tech-col">
+                                <div class="tech-cat">${s.category}</div>
+                                ${bullets(s.skills)}
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <h2>교육</h2>
+                    ${data.educations.map(e => eduRow(e)).join('')}
+                    ${schoolRow(data.school)}
+
+                    <h2>커뮤니티</h2>
+                    ${data.communities.map(c => communityRow(c)).join('')}
+
+                    <h2>그 외 활동</h2>
+                    ${bullets(data.activities.map(a => `${a.title} <span style="color:#888;">${a.period}</span>`), 'activity-list')}
+                </div>
+            `;
+        }
+
+        function eduRow(e) {
+            return `
+                <div class="two-col">
+                    <div class="left">
+                        <div class="org-name">${e.name}</div>
+                        <div class="org-sub">${e.subtitle}</div>
+                        <div class="org-period">${e.period}</div>
+                        <div class="org-link"><span class="contact-label">관련 링크 :</span> <span class="contact-link">웹 사이트</span> | <span class="contact-link">깃허브</span></div>
+                    </div>
+                    <div class="right">
+                        ${bullets(e.achievements)}
+                    </div>
+                </div>
+            `;
+        }
+
+        function schoolRow(s) {
+            return `
+                <div class="two-col">
+                    <div class="left">
+                        <div class="org-name">${s.name}</div>
+                        <div class="org-sub">주전공 : ${s.major}</div>
+                        ${s.doubleMajor ? `<div class="org-sub">복수전공 : ${s.doubleMajor}</div>` : ''}
+                        <div class="org-period">${s.period}</div>
+                    </div>
+                    <div class="right">
+                        ${bullets(s.achievements)}
+                    </div>
+                </div>
+            `;
+        }
+
+        function communityRow(c) {
+            return `
+                <div class="two-col">
+                    <div class="left">
+                        <div class="org-name">${c.name}</div>
+                        <div class="org-sub">${c.role}</div>
+                        <div class="org-link"><span class="contact-label">관련 링크 :</span> <span class="contact-link">웹 사이트</span> | <span class="contact-link">깃허브</span></div>
+                    </div>
+                    <div class="right">
+                        ${bullets(c.activities)}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
