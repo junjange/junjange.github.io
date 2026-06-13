@@ -223,6 +223,19 @@ function parseEnumSimple(file, enumName, fields) {
     return result;
 }
 
+// Career.kt: 회사 enum → teamRes 키 (직책/프리랜서 판단용)
+function parseCareerTeam() {
+    const src = readModel('Career.kt');
+    const result = {};
+    // Paytalab( ... teamRes = Res.string.android_developer, ... )
+    const re = /([A-Z][A-Za-z0-9]*)\(\s*[\s\S]*?teamRes\s*=\s*Res\.string\.([A-Za-z0-9_]+)/g;
+    let m;
+    while ((m = re.exec(src)) !== null) {
+        result[m[1].toLowerCase()] = m[2];
+    }
+    return result;
+}
+
 // Contact.kt: enum 상수명 → url
 function parseContacts() {
     const src = readModel('Contact.kt');
@@ -243,9 +256,17 @@ function splitDashList(text) {
         .filter(Boolean);
 }
 
-// description의 \n\n 단락은 그대로 유지(렌더러가 처리), 단일 \n은 공백 정리
+// description을 문장 단위 단락으로 분리해 가독성을 높임.
+// KMP 설명은 "...습니다. ...입니다." 처럼 한 덩어리이므로, 종결어미+공백에서 단락(\n\n)으로 나눈다.
+// 이미 \n\n이 있으면 그대로 둔다.
 function normalizeDescription(text) {
-    return text.trim();
+    const t = text.trim();
+    if (t.includes('\n\n')) return t;
+    // "다. " / "요. " / "다." 끝 뒤에 공백이 오면 그 지점에서 분리
+    return t
+        .replace(/(다\.|요\.)\s+/g, '$1\n\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
 }
 
 // ───────────────────────── 6. 조립 ─────────────────────────
@@ -255,6 +276,7 @@ function build() {
     const manifest = JSON.parse(stripJsonComments(fs.readFileSync(MANIFEST_PATH, 'utf-8')));
 
     const careerProjects = parseCareerProjects();
+    const careerTeam = parseCareerTeam();
     const projectMeta = parseProjectLinks();
     const educationMeta = parseEnumSimple('Experience.kt', 'Education', ['titleRes', 'subtitleRes', 'descriptionRes', 'periodRes']);
     const communityMeta = parseEnumSimple('Experience.kt', 'Community', ['titleRes', 'subtitleRes', 'descriptionRes', 'periodRes']);
@@ -304,10 +326,13 @@ function build() {
             techStack: p.techKey ? s(strings, p.techKey) : null,
             details: p.contributions,
         }));
+        // 직책: KMP teamRes가 freelance면 (프리랜서) 표기
+        const isFreelance = (careerTeam[key] || '').includes('freelance');
+        const position = isFreelance ? '안드로이드 개발자 (프리랜서)' : '안드로이드 개발자';
         return {
             company,
             description,
-            position: '안드로이드 개발자',
+            position,
             period,
             projects,
         };
