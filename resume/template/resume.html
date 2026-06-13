@@ -338,7 +338,7 @@
         }
 
         function projectBlock(pr, breakBefore) {
-            const linksHtml = pr.links.map(l => `<span class="contact-link">${l}</span>`).join(' | ');
+            const linksHtml = pr.links.map(l => `<span class="contact-link">${l.label}</span>`).join(' | ');
             return `
                 <div class="project-block${breakBefore ? ' project-page-break' : ''}">
                     <div class="project-title">${pr.subtitle}, ${pr.name}</div>
@@ -399,6 +399,12 @@
             `;
         }
 
+        function orgLinks(links) {
+            if (!links || !links.length) return '';
+            const html = links.map(l => `<span class="contact-link">${l.label}</span>`).join(' | ');
+            return `<div class="org-link"><span class="contact-label">관련 링크 :</span> ${html}</div>`;
+        }
+
         function eduRow(e) {
             return `
                 <div class="two-col">
@@ -406,7 +412,7 @@
                         <div class="org-name">${e.name}</div>
                         <div class="org-sub">${e.subtitle}</div>
                         <div class="org-period">${e.period}</div>
-                        <div class="org-link"><span class="contact-label">관련 링크 :</span> <span class="contact-link">웹 사이트</span> | <span class="contact-link">깃허브</span></div>
+                        ${orgLinks(e.links)}
                     </div>
                     <div class="right">
                         ${bullets(e.achievements)}
@@ -437,7 +443,7 @@
                     <div class="left">
                         <div class="org-name">${c.name}</div>
                         <div class="org-sub">${c.role}</div>
-                        <div class="org-link"><span class="contact-label">관련 링크 :</span> <span class="contact-link">웹 사이트</span> | <span class="contact-link">깃허브</span></div>
+                        ${orgLinks(c.links)}
                     </div>
                     <div class="right">
                         ${bullets(c.activities)}

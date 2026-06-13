@@ -5,8 +5,9 @@
   "main": "scripts/generate-pdf.js",
   "scripts": {
     "fonts": "node scripts/download-fonts.js",
+    "export": "node scripts/export-from-kmp.js",
     "generate": "node scripts/generate-pdf.js",
-    "resume": "npm run generate"
+    "resume": "npm run export && npm run generate"
   },
   "keywords": [
     "resume",

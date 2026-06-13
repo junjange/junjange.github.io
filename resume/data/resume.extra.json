@@ -1,0 +1,35 @@
+{
+  "_comment": "KMP 모델(strings.xml + model/*.kt)에 없는 이력서 전용 보강 데이터. export 시 KMP 데이터와 머지됩니다.",
+
+  "personalInfo": {
+    "phone": "010-3303-2391",
+    "blogLabel": "조준장 개발자 생존기",
+    "portfolioLabel": "KMP 웹/앱 포트폴리오"
+  },
+
+  "school": {
+    "name": "순천향대학교",
+    "major": "스마트자동차학과",
+    "doubleMajor": "스마트휴먼인터페이스전공",
+    "period": "2018.03 - 2024.02 (졸업)",
+    "achievements": [
+      "데이터 구조 및 알고리즘을 체계적으로 학습해 문제 해결 능력 향상",
+      "UI/UX 디자인 원칙과 실무 기술을 학습해 사용자 중심의 인터페이스 설계 역량 강화"
+    ]
+  },
+
+  "techSkills": [
+    {
+      "category": "Android",
+      "skills": ["Java", "Kotlin", "Compose", "Coroutine+Flow"]
+    },
+    {
+      "category": "Kotlin Multiplatform",
+      "skills": ["Compose Multiplatform", "Android/iOS", "Web (Wasm)"]
+    },
+    {
+      "category": "Flutter",
+      "skills": ["Dart"]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "_comment": "이력서에 포함할 KMP 항목과 순서를 정의합니다. 값은 model/*.kt의 enum 상수 이름입니다.",
+
+  "careers": ["Paytalab", "Lio", "Matrios"],
+
+  "projects": ["LUCKY_LOTTERY", "FRIENDOGLY", "MOVE_MOVE", "OH_SOON_TAXI"],
+
+  "educations": ["Woowacourse", "BoostCamp"],
+
+  "communities": ["Depromeet", "GDGOnCampus"],
+
+  "activities": ["DROID_KNIGHTS_2025", "KUSITMS", "GDSC_SCH_X_SKHU_HACK", "GDSC_KR_WINTER_CUP", "DEVFEST_CAMPUS_KOREA"]
+}
