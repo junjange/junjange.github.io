@@ -223,6 +223,18 @@ function parseEnumSimple(file, enumName, fields) {
     return result;
 }
 
+// Contact.kt: enum 상수명 → url
+function parseContacts() {
+    const src = readModel('Contact.kt');
+    const result = {};
+    const constRe = /([A-Z][A-Z0-9_]+)\(\s*[\s\S]*?url\s*=\s*"([^"]+)"/g;
+    let m;
+    while ((m = constRe.exec(src)) !== null) {
+        result[m[1]] = m[2];
+    }
+    return result;
+}
+
 // 평문 contributions("- a\n- b") → 배열
 function splitDashList(text) {
     return text
@@ -251,14 +263,20 @@ function build() {
     // 링크 표시 텍스트: strings.xml의 해당 키
     const linkLabel = (titleKey) => s(strings, titleKey);
 
-    // personalInfo: Contact는 URL 위주라 라벨은 extra + strings 조합
+    // personalInfo: 라벨은 extra/strings, URL은 Contact.kt에서
+    const contacts = parseContacts();
+    const emailUrl = contacts.EMAIL || 'mailto:wnswkd486@gmail.com';
     const personalInfo = {
         name: '조준장',
         github: 'junjange',
+        githubUrl: contacts.GITHUB || 'https://github.com/junjange',
         blog: extra.personalInfo.blogLabel,
+        blogUrl: contacts.TISTORY || extra.personalInfo.blogUrl || '',
         portfolio: extra.personalInfo.portfolioLabel,
+        portfolioUrl: extra.personalInfo.portfolioUrl || '',
         phone: extra.personalInfo.phone,
-        email: 'wnswkd486@gmail.com',
+        email: emailUrl.replace(/^mailto:/, ''),
+        emailUrl,
     };
 
     // 자기소개

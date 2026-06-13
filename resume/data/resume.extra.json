@@ -4,7 +4,8 @@
   "personalInfo": {
     "phone": "010-3303-2391",
     "blogLabel": "조준장 개발자 생존기",
-    "portfolioLabel": "KMP 웹/앱 포트폴리오"
+    "portfolioLabel": "KMP 웹/앱 포트폴리오",
+    "portfolioUrl": "https://junjange.github.io"
   },
 
   "school": {

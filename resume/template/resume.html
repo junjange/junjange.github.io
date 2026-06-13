@@ -21,6 +21,13 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* 하이퍼링크: 본문색 유지 + 밑줄 (이력서 톤) */
+        a {
+            color: inherit;
+            text-decoration: underline;
+            text-underline-offset: 1.5px;
+        }
+
         .page-break {
             page-break-before: always;
         }
@@ -255,6 +262,12 @@
             return `<ul class="${extraClass}">${items.map(i => `<li>${i}</li>`).join('')}</ul>`;
         }
 
+        // url이 있으면 클릭 가능한 하이퍼링크, 없으면 일반 텍스트
+        function link(url, label) {
+            if (!url) return `<span class="contact-link">${label}</span>`;
+            return `<a class="contact-link" href="${url}">${label}</a>`;
+        }
+
         function generateResumeHTML(data) {
             return `
                 ${page1(data)}
@@ -269,10 +282,10 @@
             return `
                 <div class="name">${p.name}</div>
                 <div class="contact-info">
-                    <div class="contact-item"><span class="contact-label">Github :</span> <span class="contact-link">${p.github}</span></div>
-                    <div class="contact-item"><span class="contact-label">블로그 :</span> <span class="contact-link">${p.blog}</span></div>
-                    <div class="contact-item"><span class="contact-label">포트폴리오 :</span> <span class="contact-link">${p.portfolio}</span></div>
-                    <div class="contact-item"><span class="contact-label">이메일 :</span> ${p.email}</div>
+                    <div class="contact-item"><span class="contact-label">Github :</span> ${link(p.githubUrl, p.github)}</div>
+                    <div class="contact-item"><span class="contact-label">블로그 :</span> ${link(p.blogUrl, p.blog)}</div>
+                    <div class="contact-item"><span class="contact-label">포트폴리오 :</span> ${link(p.portfolioUrl, p.portfolio)}</div>
+                    <div class="contact-item"><span class="contact-label">이메일 :</span> ${link(p.emailUrl, p.email)}</div>
                     <div class="contact-item"><span class="contact-label">연락처 :</span> ${p.phone}</div>
                 </div>
 
@@ -338,7 +351,7 @@
         }
 
         function projectBlock(pr, breakBefore) {
-            const linksHtml = pr.links.map(l => `<span class="contact-link">${l.label}</span>`).join(' | ');
+            const linksHtml = pr.links.map(l => link(l.url, l.label)).join(' | ');
             return `
                 <div class="project-block${breakBefore ? ' project-page-break' : ''}">
                     <div class="project-title">${pr.subtitle}, ${pr.name}</div>
@@ -401,7 +414,7 @@
 
         function orgLinks(links) {
             if (!links || !links.length) return '';
-            const html = links.map(l => `<span class="contact-link">${l.label}</span>`).join(' | ');
+            const html = links.map(l => link(l.url, l.label)).join(' | ');
             return `<div class="org-link"><span class="contact-label">관련 링크 :</span> ${html}</div>`;
         }
 
