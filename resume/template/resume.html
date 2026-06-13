@@ -28,12 +28,9 @@
             text-underline-offset: 1.5px;
         }
 
-        .page-break {
-            page-break-before: always;
-        }
-
-        .project-page-break {
-            page-break-before: always;
+        /* 섹션은 자연스럽게 이어짐. 항목 단위로만 페이지 경계를 보호한다. */
+        .section {
+            /* 자연 흐름 */
         }
 
         /* ===== 이름 / 연락처 ===== */
@@ -61,13 +58,15 @@
         h2 {
             font-size: 13pt;
             font-weight: bold;
-            margin-top: 14px;
+            margin-top: 18px;
             margin-bottom: 7px;
             padding-bottom: 5px;
             border-bottom: 1px solid #d9d9d9;
+            break-after: avoid;          /* 헤더가 페이지 끝에 외톨이로 남지 않게 */
         }
 
-        .page-break > h2:first-child {
+        /* 문서 첫 섹션 헤더(자기소개)는 위 여백 제거 */
+        #resume-content > h2:first-of-type {
             margin-top: 0;
         }
 
@@ -92,6 +91,11 @@
         .two-col {
             display: flex;
             margin-bottom: 9px;
+        }
+
+        /* 작은 항목(교육·커뮤니티)은 경계에서 잘리지 않게 보호 */
+        .two-col.keep {
+            break-inside: avoid;
         }
 
         .two-col .left {
@@ -137,6 +141,7 @@
         /* 우측 내부 서브 그룹(리오처럼 여러 프로젝트) */
         .sub-group {
             margin-bottom: 8px;
+            break-inside: avoid;         /* squad/프로젝트 단위는 안 잘리게 (경력이 나뉠 때 squad 경계에서) */
         }
 
         .sub-group:last-child {
@@ -185,6 +190,7 @@
             font-size: 12pt;
             font-weight: bold;
             margin-bottom: 6px;
+            break-after: avoid;          /* 제목만 페이지 끝에 남지 않게 */
         }
 
         .project-description {
@@ -220,6 +226,7 @@
         .tech-grid {
             display: flex;
             gap: 24px;
+            break-inside: avoid;
         }
 
         .tech-col {
@@ -271,6 +278,7 @@
         function generateResumeHTML(data) {
             return `
                 ${page1(data)}
+                ${careerSection(data)}
                 ${projectsSection(data)}
                 ${lastSection(data)}
             `;
@@ -296,9 +304,15 @@
                         <div class="intro-text">${intro.description.split('\n\n').join('<br>')}</div>
                     </div>
                 `).join('')}
+            `;
+        }
 
-                <h2>경력</h2>
-                ${data.careers.map(c => careerRow(c)).join('')}
+        function careerSection(data) {
+            return `
+                <div class="section">
+                    <h2>경력</h2>
+                    ${data.careers.map(c => careerRow(c)).join('')}
+                </div>
             `;
         }
 
@@ -337,23 +351,19 @@
         }
 
         /* ========== 프로젝트 섹션 ========== */
-        // 원본 PDF와 동일한 페이지 분할: 2p(행운복권·반갑개) / 3p(뭅뭅·오순택)
-        // → 인덱스 2(뭅뭅) 앞에서 페이지를 강제로 나눈다.
-        const PROJECT_PAGE_BREAK_BEFORE = [2];
-
         function projectsSection(data) {
             return `
-                <div class="page-break">
+                <div class="section">
                     <h2>프로젝트</h2>
-                    ${data.projects.map((pr, i) => projectBlock(pr, PROJECT_PAGE_BREAK_BEFORE.includes(i))).join('')}
+                    ${data.projects.map((pr) => projectBlock(pr)).join('')}
                 </div>
             `;
         }
 
-        function projectBlock(pr, breakBefore) {
+        function projectBlock(pr) {
             const linksHtml = pr.links.map(l => link(l.url, l.label)).join(' | ');
             return `
-                <div class="project-block${breakBefore ? ' project-page-break' : ''}">
+                <div class="project-block">
                     <div class="project-title">${pr.subtitle}, ${pr.name}</div>
                     ${pr.description ? `<div class="project-description">${pr.description.split('\n\n').join('<br>')}</div>` : ''}
 
@@ -388,7 +398,7 @@
         /* ========== 마지막 페이지: 기술 역량 / 교육 / 커뮤니티 / 그 외 활동 ========== */
         function lastSection(data) {
             return `
-                <div class="page-break">
+                <div class="section">
                     <h2>기술 역량</h2>
                     <div class="tech-grid">
                         ${data.techSkills.map(s => `
@@ -420,7 +430,7 @@
 
         function eduRow(e) {
             return `
-                <div class="two-col">
+                <div class="two-col keep">
                     <div class="left">
                         <div class="org-name">${e.name}</div>
                         <div class="org-sub">${e.subtitle}</div>
@@ -436,7 +446,7 @@
 
         function schoolRow(s) {
             return `
-                <div class="two-col">
+                <div class="two-col keep">
                     <div class="left">
                         <div class="org-name">${s.name}</div>
                         <div class="org-sub">주전공 : ${s.major}</div>
@@ -452,7 +462,7 @@
 
         function communityRow(c) {
             return `
-                <div class="two-col">
+                <div class="two-col keep">
                     <div class="left">
                         <div class="org-name">${c.name}</div>
                         <div class="org-sub">${c.role}</div>
