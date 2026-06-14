@@ -43,7 +43,7 @@
         .contact-info {
             font-size: 8.5pt;
             line-height: 1.55;
-            margin-bottom: 4px;
+            margin-bottom: 16px;
         }
 
         .contact-item .contact-label {
@@ -151,6 +151,14 @@
         .sub-title {
             font-size: 9pt;
             font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        /* squad 한 줄 설명 */
+        .sub-desc {
+            font-size: 8.5pt;
+            color: #555;
+            line-height: 1.4;
             margin-bottom: 3px;
         }
 
@@ -330,6 +338,7 @@
                 rightHtml = c.projects.map(proj => `
                     <div class="sub-group">
                         <div class="sub-title">${proj.name}${proj.period ? ` (${proj.period})` : ''}</div>
+                        ${proj.desc ? `<div class="sub-desc">${proj.desc}</div>` : ''}
                         ${bullets(proj.details)}
                     </div>
                 `).join('');
@@ -354,7 +363,7 @@
         function projectsSection(data) {
             return `
                 <div class="section">
-                    <h2>프로젝트</h2>
+                    <h2>사이드 프로젝트</h2>
                     ${data.projects.map((pr) => projectBlock(pr)).join('')}
                 </div>
             `;
@@ -385,9 +394,9 @@
         function techStackItems(pr) {
             const items = [pr.techStack];
             if (pr.name === '행운복권') {
-                items.push('Compose - 기존 Android View 기반에서 Jetpack Compose로 마이그레이션하여 선언적 UI 개발 방식으로 전환했습니다.');
+                items.push('Compose - 기존 Android View 기반에서 Compose로 마이그레이션하여 선언적 UI 개발 방식으로 전환했습니다.');
             } else if (pr.name === '뭅뭅') {
-                items.push('Coil - Glide 대신 도입하여 이미지 로딩을 최적화하고 Jetpack Compose와의 호환성을 강화하며 성능을 개선했습니다.');
+                items.push('Coil - Glide 대신 도입하여 이미지 로딩을 최적화하고 Compose와의 호환성을 강화하며 성능을 개선했습니다.');
                 items.push('Ktor - Retrofit 대신 도입하여 비동기 네트워크 통신을 최적화하고 Ktor의 DSL을 활용해 코드 가독성과 개발 효율성을 향상시켰습니다.');
             } else if (pr.name === '오순택') {
                 items.push('STOMP - Pub-Sub 모델을 활용해 채팅방 단위의 메시지 구독을 구현하고, 자동 재연결 및 안정성을 확보하기 위해 도입');

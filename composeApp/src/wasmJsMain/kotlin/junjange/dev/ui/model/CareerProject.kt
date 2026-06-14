@@ -13,11 +13,15 @@ import junjange_dev.composeapp.generated.resources.career_lio_project3_title
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_period
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_tech_stack
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_project1_desc
 import junjange_dev.composeapp.generated.resources.career_paytalab_project1_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_project2_desc
 import junjange_dev.composeapp.generated.resources.career_paytalab_project2_tech_stack
 import junjange_dev.composeapp.generated.resources.career_paytalab_project2_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_project3_desc
 import junjange_dev.composeapp.generated.resources.career_paytalab_project3_tech_stack
 import junjange_dev.composeapp.generated.resources.career_paytalab_project3_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_project4_desc
 import junjange_dev.composeapp.generated.resources.career_paytalab_project4_tech_stack
 import junjange_dev.composeapp.generated.resources.career_paytalab_project4_title
 import org.jetbrains.compose.resources.StringResource
@@ -26,73 +30,37 @@ data class CareerProject(
     val titleRes: StringResource,
     val periodRes: StringResource?,
     val techStackRes: StringResource?,
+    val descRes: StringResource? = null,
     val contributions: List<ContributionItem>,
 ) {
     companion object {
         val PAYTALAB_PROJECTS =
             listOf(
                 CareerProject(
-                    titleRes = string.career_paytalab_project4_title,
-                    periodRes = null,
-                    techStackRes = string.career_paytalab_project4_tech_stack,
-                    contributions =
-                        listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("레거시 환경에서 "),
-                                        TextSegment("선물하기 지원금", true),
-                                        TextSegment(" 기능을 안정적으로 설계 및 구현하여 서비스 성장 기반을 마련함"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("기능 배포 후 일평균 선물 발송 건수 "),
-                                        TextSegment("398%", true),
-                                        TextSegment(", 신규 가입자 "),
-                                        TextSegment("567% 증가", true),
-                                        TextSegment("라는 지표 성장을 견인함"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("선물 수신자의 이용 흐름과 "),
-                                        TextSegment("UI/UX 최적화", true),
-                                        TextSegment("를 통해 신규 유저가 서비스에 원활하게 안착하도록 기여함"),
-                                    ),
-                            ),
-                        ),
-                ),
-                CareerProject(
                     titleRes = string.career_paytalab_project3_title,
                     periodRes = null,
                     techStackRes = string.career_paytalab_project3_tech_stack,
+                    descRes = string.career_paytalab_project3_desc,
                     contributions =
                         listOf(
+                            ContributionItem(
+                                segments =
+                                    listOf(
+                                        TextSegment("결제 중 OS의 "),
+                                        TextSegment("프로세스 강제 종료", true),
+                                        TextSegment("로 결제가 끊기던 NICE 간편 결제 킬 이슈를, 재생성 시 "),
+                                        TextSegment("WebView 상태와 결제 단계를 보존·복원", true),
+                                        TextSegment("하도록 설계해 결제 실패율을 "),
+                                        TextSegment("76% 감소", true),
+                                        TextSegment("시킴"),
+                                    ),
+                            ),
                             ContributionItem(
                                 segments =
                                     listOf(
                                         TextSegment("OCR 카드 등록 프로세스를 고도화하여 스캔 확인 단계 유저의 최종 등록 "),
                                         TextSegment("완료율 87%", true),
                                         TextSegment("를 달성함"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("NICE 간편 결제 프로세스 킬 이슈를 해결하여 결제 실패율을 "),
-                                        TextSegment("76% 감소", true),
-                                        TextSegment("시키고 서비스 안정성을 강화함"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("카드 등록 과정의 "),
-                                        TextSegment("UX 디테일 개선", true),
-                                        TextSegment("으로 결제 진입 장벽을 낮추고 유저 전환 경험을 강화함"),
                                     ),
                             ),
                             ContributionItem(
@@ -109,36 +77,67 @@ data class CareerProject(
                     titleRes = string.career_paytalab_project2_title,
                     periodRes = null,
                     techStackRes = string.career_paytalab_project2_tech_stack,
+                    descRes = string.career_paytalab_project2_desc,
                     contributions =
                         listOf(
                             ContributionItem(
                                 segments =
                                     listOf(
-                                        TextSegment("Passorder Design System", true),
-                                        TextSegment("을 구축하여 서비스 전반의 UI 요소를 컴포넌트화하고 코드 일관성을 확보함"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("매장 상세 화면을 "),
-                                        TextSegment("XML에서 Compose로 마이그레이션", true),
-                                        TextSegment("하고 전체 아키텍처를 개선하여 코드 간결성과 성능을 최적화함"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
                                         TextSegment("장바구니 유지", true),
-                                        TextSegment(" 기능을 구현하여 앱 재접속 시 유저의 주문 내역을 보존하고 결제 진입 과정의 이탈을 방지함"),
+                                        TextSegment(" 기능을 구현하여 앱 재접속 시 주문 내역을 보존하고 플로팅 버튼·앱푸시 퍼널로 이탈 유저의 결제 복귀 흐름을 설계하여, 기여 매출의 "),
+                                        TextSegment("약 70%가 순증분 매출", true),
+                                        TextSegment("로 측정되며 결제 전환에 유의미하게 기여함"),
                                     ),
                             ),
                             ContributionItem(
                                 segments =
                                     listOf(
-                                        TextSegment("사용자 편의 중심의 "),
-                                        TextSegment("인터페이스 고도화", true),
-                                        TextSegment(" 등 다수의 개선 과제를 수행하여 서비스 전반의 사용성을 최적화함"),
+                                        TextSegment("가장 복잡한 핵심 화면인 매장 상세를 "),
+                                        TextSegment("XML에서 Compose로 점진적 마이그레이션", true),
+                                        TextSegment("하며 상태 관리·레이어 구조까지 재설계하여 코드 복잡도와 렌더링·스크롤 성능을 개선함"),
+                                    ),
+                            ),
+                            ContributionItem(
+                                segments =
+                                    listOf(
+                                        TextSegment("Passorder Design System", true),
+                                        TextSegment(" 구축을 주도하여 UI를 컴포넌트화하고, 디자인-개발 공통 언어로 UI 일관성과 개발 속도를 확보함"),
+                                    ),
+                            ),
+                        ),
+                ),
+                CareerProject(
+                    titleRes = string.career_paytalab_project4_title,
+                    periodRes = null,
+                    techStackRes = string.career_paytalab_project4_tech_stack,
+                    descRes = string.career_paytalab_project4_desc,
+                    contributions =
+                        listOf(
+                            ContributionItem(
+                                segments =
+                                    listOf(
+                                        TextSegment("선물하기 지원금", true),
+                                        TextSegment(" 신규 기능을 레거시 코드베이스 위에서 설계·구현하고, 기존 Fragment 화면을 "),
+                                        TextSegment("Compose", true),
+                                        TextSegment("와 조합해 점진적으로 전환하며 상태 관리를 개선함"),
+                                    ),
+                            ),
+                            ContributionItem(
+                                segments =
+                                    listOf(
+                                        TextSegment("기능 배포 후 일평균 선물 발송 건수 "),
+                                        TextSegment("398%", true),
+                                        TextSegment(", 신규 가입자 "),
+                                        TextSegment("567% 증가", true),
+                                        TextSegment("라는 지표 성장을 견인함"),
+                                    ),
+                            ),
+                            ContributionItem(
+                                segments =
+                                    listOf(
+                                        TextSegment("입사 후 첫 프로젝트임에도 배포 후 "),
+                                        TextSegment("크래시·VOC 0건", true),
+                                        TextSegment("으로 안정적으로 출시함"),
                                     ),
                             ),
                         ),
@@ -147,6 +146,7 @@ data class CareerProject(
                     titleRes = string.career_paytalab_project1_title,
                     periodRes = null,
                     techStackRes = null,
+                    descRes = string.career_paytalab_project1_desc,
                     contributions =
                         listOf(
                             ContributionItem(
@@ -160,8 +160,11 @@ data class CareerProject(
                             ContributionItem(
                                 segments =
                                     listOf(
-                                        TextSegment("AI 주도 개발 프로세스", true),
-                                        TextSegment("를 도입하여 반복 작업 자동화 및 개발 생산성을 향상시킴"),
+                                        TextSegment("Android 하네스에 "),
+                                        TextSegment("AI 기반 테스트 자산화 워크플로우", true),
+                                        TextSegment("를 구축하고, "),
+                                        TextSegment("Activity intent factory 등 팀 컨벤션을 워크플로우 룰로 자동 강제", true),
+                                        TextSegment("하여 반복 작업 자동화와 코드 일관성을 확보함"),
                                     ),
                             ),
                             ContributionItem(
@@ -202,13 +205,6 @@ data class CareerProject(
                             ContributionItem(
                                 segments =
                                     listOf(
-                                        TextSegment("온보딩 UI", true),
-                                        TextSegment("를 구현해 서비스 이용 흐름을 직관적으로 안내"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
                                         TextSegment("감정 분석 결과를 "),
                                         TextSegment("그래프 시각화", true),
                                         TextSegment("로 제공해 사용자 이해도 향상"),
@@ -243,13 +239,6 @@ data class CareerProject(
                                         TextSegment("으로 실시간 알림 기능 개발"),
                                     ),
                             ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("Google Play와 Apple App Store", true),
-                                        TextSegment("에 앱 배포"),
-                                    ),
-                            ),
                         ),
                 ),
                 CareerProject(
@@ -261,17 +250,10 @@ data class CareerProject(
                             ContributionItem(
                                 segments =
                                     listOf(
-                                        TextSegment("예약 전화를 위한 "),
                                         TextSegment("파일 탐색기 UI", true),
-                                        TextSegment("를 직접 설계 및 구현"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("전화번호를 추출하여 "),
-                                        TextSegment("Room DB", true),
-                                        TextSegment("에 저장하는 기능 개발"),
+                                        TextSegment("를 직접 설계·구현하고, 선택한 파일에서 "),
+                                        TextSegment("전화번호를 추출", true),
+                                        TextSegment("하는 기능 개발"),
                                     ),
                             ),
                             ContributionItem(
@@ -321,13 +303,6 @@ data class CareerProject(
                                     listOf(
                                         TextSegment("UsageStatsManager", true),
                                         TextSegment("를 적용해 외부 앱 사용 여부를 실시간 모니터링하고 사용자 활동 분석 지원"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("튜토리얼 페이지", true),
-                                        TextSegment("를 통해 신규 사용자 온보딩 개발 및 서비스 이해도·만족도 향상"),
                                     ),
                             ),
                         ),

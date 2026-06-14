@@ -4,7 +4,7 @@
     <string name="section_about">About me</string>
     <string name="section_career">Career</string>
     <string name="section_experience">Experience</string>
-    <string name="section_project">Project</string>
+    <string name="section_project">Side Project</string>
 
     <!--Home-->
     <string name="blue_chip">저평가 우량주</string>
@@ -15,11 +15,11 @@
 
     <!--About me-->
     <string name="about_me_title1">사용자를 최우선으로 생각합니다.</string>
-    <string name="about_me_description1">아버지의 불편함을 해결하기 위해 로또와 연금 복권을 동시에 확인할 수 있는 '행운복권' 앱을 개발하여 출시했습니다. 이 앱은 1,000건 이상의 다운로드를 기록하며 사용자들로부터 "실용적이다"는 긍정적인 반응을 얻었습니다. 평소에도 주변에서 발생할 수 있는 문제를 소프트웨어적으로 해결하기 위해 지속적으로 노력하고 있습니다.</string>
+    <string name="about_me_description1">패스오더에서 장바구니 유지 기능을 구현해 이탈한 유저의 결제 복귀를 도왔고, 이 기능은 기여 매출의 약 70%가 순증분 매출로 측정되며 사용자 경험이 곧 지표로 이어짐을 확인했습니다. 아버지의 불편함에서 출발해 1,600명 이상의 다운로드를 기록한 '행운복권' 앱처럼, 실제 사용자의 문제를 책임지고 해결하는 태도를 실무에서도 이어가고 있습니다.</string>
     <string name="about_me_title2">문제를 주도적으로 해결합니다.</string>
-    <string name="about_me_description2">영상 숏폼 플랫폼 개발 중, 비디오 스크롤 시 여러 비디오가 동시에 스트리밍되는 문제를 발견했습니다. 이를 해결하기 위해 미디어 플레이어 문서와 디자인 패턴을 학습한 후, 객체 풀 패턴을 적용하여 3개의 비디오 플레이어를 재활용하는 방식을 도입했습니다. 결과적으로 사용자에게 향상된 시청 경험을 제공하고 CPU 사용량을 57% 줄일 수 있었습니다. 문제를 직면했을 때, 기술적 문제를 분석하고 해결책을 모색하며, 사용자 경험을 향상시키기 위해 지속적으로 노력하고 있습니다.</string>
-    <string name="about_me_title3">함께 성장하기 위해 노력합니다.</string>
-    <string name="about_me_description3">혼자 성장하는 데 한계를 느끼고, 개발 커뮤니티에서 스터디를 운영하며 데브톡 발표를 통해 지식과 경험을 나눈 경험이 있습니다. 개발자 커뮤니티와 IT 연합 동아리를 통해 다양한 분야의 사람들과 소통하며, 좋은 코드를 접하고 배울 기회를 꾸준히 만들어가고 있습니다.</string>
+    <string name="about_me_description2">재현이 일정하지 않아 원인을 특정하기 어려운 결제 실패 이슈를 맡은 적이 있습니다. 단순 재시도로 덮는 대신 로그와 생명주기를 따라가 OS의 프로세스 강제 종료가 원인임을 규명했고, 재생성 시 WebView 상태와 결제 단계를 보존·복원하도록 설계해 결제 실패율을 76% 낮췄습니다. 이처럼 어떤 문제든 증상에 머무르지 않고 근본 원인을 끝까지 파고드는 것을 원칙으로 합니다.</string>
+    <string name="about_me_title3">팀의 생산성을 높이기 위해 노력합니다.</string>
+    <string name="about_me_description3">AI 기반 테스트 자산화 워크플로우와 자체 MVI 아키텍처를 도입해 팀의 개발 생산성과 코드 일관성을 높였습니다. 특히 팀이 반복해서 겪는 문제를 컨벤션과 워크플로우 룰로 자동화해, 한 사람의 노하우가 아니라 누구나 일관된 코드를 작성할 수 있는 구조로 남기는 데 집중합니다.</string>
 
     <!--Career-->
     <string name="android_developer">Android Developer</string>
@@ -32,15 +32,19 @@
     <string name="career_paytalab_period">2025.07 - 재직 중</string>
 
     <string name="career_paytalab_project4_title">선물하기 Squad</string>
-    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Compose</string>
+    <string name="career_paytalab_project4_desc">선물하기 도메인의 신규 기능을 설계·구현하며 서비스 성장을 이끌었습니다.</string>
 
     <string name="career_paytalab_project3_title">결제 시스템 Squad</string>
-    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Compose</string>
+    <string name="career_paytalab_project3_desc">결제 수단·결제 플로우의 안정성을 높이고 결제 범위를 확장했습니다.</string>
 
     <string name="career_paytalab_project2_title">UX/UI 개선 Squad</string>
-    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Compose</string>
+    <string name="career_paytalab_project2_desc">Compose 전환과 디자인 시스템 구축으로 UI 레이어 구조와 사용성을 개선했습니다.</string>
 
     <string name="career_paytalab_project1_title">Android Part 공통</string>
+    <string name="career_paytalab_project1_desc">Android 파트의 공통 아키텍처와 개발 프로세스를 주도해 팀 생산성과 코드 안정성을 높였습니다.</string>
 
     <string name="career_lio">리오(Lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
@@ -74,7 +78,7 @@
 
     <string name="edu_woowacourse">우아한테크코스</string>
     <string name="edu_woowacourse_subtitle">우아한형제들 교육 프로그램</string>
-    <string name="edu_woowacourse_desc">- 도메인 객체 설계를 통해 추상적이던 비즈니스 로직을 구체화하고, 가독성과 유지보수성을 높였습니다.\n- 테스트 코드를 작성하며 기능 구현을 넘어, 예외 상황까지 검증하는 신뢰성 높은 개발 습관을 체득했습니다.\n- MVC → MVP → MVVM 아키텍처로 단계적 마이그레이션을 진행하며, 요구사항에 맞는 구조적 접근법을 익혔습니다.\n- DI 라이브러리를 직접 구현하며 복잡한 의존 관계를 체계적으로 관리하고, 유연한 코드 구조를 설계하는 경험을 쌓았습니다.</string>
+    <string name="edu_woowacourse_desc">- 도메인 객체 설계를 통해 추상적이던 비즈니스 로직을 구체화하고, 가독성과 유지보수성을 높였습니다.\n- 테스트 코드를 작성하며 기능 구현을 넘어, 예외 상황까지 검증하는 신뢰성 높은 개발 습관을 체득했습니다.\n- MVC → MVP → MVVM 아키텍처로 단계적 마이그레이션을 진행하며, 요구사항에 맞는 구조적 접근법을 익혔습니다.\n- DI 라이브러리를 직접 구현하며 복잡한 의존 관계를 체계적으로 관리하고, 유연한 코드 구조를 설계하는 경험을 쌓았습니다.\n- 'UI 이벤트 처리', 'inline function' 등 여러 주제로 기술 발표를 진행하며 학습한 내용을 정리하고 공유했습니다.</string>
     <string name="edu_woowacourse_period">2024.02 - 2024.11</string>
 
     <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
@@ -93,6 +97,8 @@
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
 
+    <string name="etc_paytalab_blog">페이타랩 팀 블로그 글 작성 - '페이타랩에서 첫 단추를 꿰었다'</string>
+    <string name="etc_paytalab_blog_period">2025.11</string>
     <string name="etc_droid_knights_2025">DroidKnights 2025 Contributor 페이지 기여</string>
     <string name="etc_droid_knights_2025_period">2025.06</string>
     <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
@@ -105,7 +111,7 @@
     <string name="etc_devfest_campus_korea_period">2021.11</string>
 
     <!--Project-->
-    <string name="project">Project</string>
+    <string name="project">Side Project</string>
     <string name="from_junjange">from JunJangE</string>
 
     <string name="project_more">프로젝트 더보기</string>
@@ -122,9 +128,9 @@
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
     <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
-    <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
-    <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Jetpack Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 1,000건 이상의 다운로드를 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
-    <string name="project_lucky_lottery_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- MVVM 도입으로 뷰와 비즈니스 로직 분리\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- Room DB로 회차별 복권 번호 저장 기능 개발\n- Jetpack Compose로 UI 마이그레이션 및 색상 통합</string>
+    <string name="project_lucky_lottery_techStack">Android, Kotlin, Room DB</string>
+    <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 1,600명 이상의 다운로드와 월간 활성 사용자(MAU) 142명을 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
+    <string name="project_lucky_lottery_contributions">- 출시 후 1,600명 이상 다운로드 및 월간 활성 사용자(MAU) 142명 달성\n- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- 기존 Android View 기반에서 Compose로 UI 마이그레이션 및 색상 통합</string>
 
     <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
     <string name="project_junjange_dev_subtitle">Kotlin Multiplatform 포트폴리오</string>
@@ -137,29 +143,29 @@
     <string name="project_friendogly_subtitle">내 반려견의 행복을 위한 친구 찾기 서비스</string>
     <string name="project_friendogly_period">2024.07 - 2025.01</string>
     <string name="project_friendogly_techStack">Android, Kotlin, Coroutines + Flow, Hilt</string>
-    <string name="project_friendogly_description">‘반갑개’는 강아지들이 산책 중 새로운 친구를 만날 수 있도록 도와주는 소셜 서비스입니다. 산책 장소와 일정을 공유하고, 주변 강아지들과 자연스럽게 교류할 수 있는 기회를 제공합니다. 강아지의 사회성과 행복을 위한 동네 친구 찾기를 쉽고 즐겁게 만들어줍니다.</string>
-    <string name="project_friendogly_contributions">- 공통 로직, 로그인, 사용자 기능 개발\n- 네트워크 통신 에러 핸들링 및 인증 실패 시 사용자 경험을 고려한 예외 처리 플로우 설계\n- Firebase Analytics 및 Crashlytics를 활용한 사용자 행동 데이터 수집 및 오류 모니터링 체계 구축\n- Google Play Store 배포 자동화 구축으로 배포 효율성 및 품질 향상</string>
+    <string name="project_friendogly_description">‘반갑개’는 강아지들이 산책 중 새로운 친구를 만날 수 있도록 도와주는 소셜 서비스입니다. 산책 장소와 일정을 공유하고, 주변 강아지들과 자연스럽게 교류할 수 있는 기회를 제공합니다.</string>
+    <string name="project_friendogly_contributions">- 소셜 로그인·인증 플로우와 공통 모듈·아키텍처를 구축해 팀 개발의 기반을 마련\n- DataSource에서 예외를 던지는 대신 결과 객체로 에러를 전달하는 공통 에러 핸들링 구조를 설계해 앱 안정성을 향상\n- Firebase Analytics·Crashlytics로 사용자 행동 데이터 수집 및 오류 모니터링 체계를 구축\n- CI/CD로 배포 자동화를 구축해 배포 효율과 품질을 개선</string>
 
     <string name="project_move_move">뭅뭅</string>
     <string name="project_move_move_subtitle">짧은 댄스 영상을 업로드하고 시청하는 서비스</string>
     <string name="project_move_move_period">2023.11 - 2023.12</string>
-    <string name="project_move_move_techStack">Android, Kotlin, Compose, Ktor, ExoPlayer</string>
+    <string name="project_move_move_techStack">Android, Kotlin, Compose, ExoPlayer</string>
     <string name="project_move_move_description">'뭅뭅'은 네이버 부스트 캠프에서 진행한 프로젝트로, 짧은 개발 기간 동안 기술적 도전을 극복하며 완성한 댄스 숏폼 비디오 플랫폼입니다. 숏폼 비디오 플랫폼의 급성장과 댄스 콘텐츠의 높은 수요를 바탕으로 기획된 서비스로, 사용자가 댄스 영상을 시청하고 업로드할 수 있는 기능을 제공합니다.</string>
-    <string name="project_move_move_contributions">- 홈, 스트리밍, 프로필 등 핵심 기능 개발\n- ExoPlayer 최적화로 CPU 57% 절감 및 끊김 없는 재생\n- MVI 도입으로 업로드 및 스트리밍 안정성 향상\n- 백그라운드 전환 시 ExoPlayer를 자동 중단되도록 구성</string>
+    <string name="project_move_move_contributions">- ExoPlayer를 최적화해 CPU 사용량을 57% 절감하고 끊김 없는 재생을 구현\n- 객체 풀 패턴으로 비디오 플레이어를 재활용해 스크롤 시 동시 스트리밍 문제를 해결\n- MVI를 도입해 업로드·스트리밍 상태 관리의 안정성을 확보\n- 홈·스트리밍·프로필 등 핵심 화면을 개발</string>
 
     <string name="project_whatnow">왔나</string>
     <string name="project_whatnow_subtitle">약속 실시간 위치 공유 서비스</string>
     <string name="project_whatnow_period">2023.04 - 2023.07</string>
     <string name="project_whatnow_techStack">Android, Kotlin, Compose, Coroutines + Flow</string>
     <string name="project_whatnow_description">'왔나'는 약속 시간에 지각을 막기보다는, 기다리는 시간을 친구들과 함께 즐기는 share-play 서비스입니다. 설문조사를 통해 지각의 원인을 분석하고, 패널티 대신 즐거운 커뮤니케이션 경험으로 부정적 감정을 줄이는 방향으로 기획했습니다. 지각 상황을 유쾌하게 전환하여, 약속을 기다리는 시간조차 즐겁게 만들고자 했습니다.</string>
-    <string name="project_whatnow_contributions">- 홈, 지도, 사진 보내기 등 주요 화면 기능 개발\n- 사용자의 현재 위치를 공유 기능 구현\n- UI 개발 프로세스 최적화를 목표로 디자이너와 협업하여 디자인 시스템 구축\n- Jetpack Compose를 활용해 UI를 개발하고, 컴포넌트 단위로 모듈화를 진행</string>
+    <string name="project_whatnow_contributions">- 홈, 지도, 사진 보내기 등 주요 화면 기능 개발\n- 사용자의 현재 위치를 공유 기능 구현\n- UI 개발 프로세스 최적화를 목표로 디자이너와 협업하여 디자인 시스템 구축\n- Compose를 활용해 UI를 개발하고, 컴포넌트 단위로 모듈화를 진행</string>
 
     <string name="project_oh_soon_taxi">오순택</string>
     <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>
     <string name="project_oh_soon_taxi_period">2022.08 - 2023.12</string>
-    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, Coroutines + Flow, STOMP</string>
-    <string name="project_oh_soon_taxi_description">'오순택'은 학생 간 택시 동승을 지원하는 서비스로, 구글 대학생 개발자 커뮤니티에서 팀원들과 함께 개발한 프로젝트입니다. 셔틀버스가 운행되지 않는 야간과 주말 시간대에 택시를 함께 이용할 수 있도록 매칭 기능을 제공하여 금전적 부담과 대기 시간을 줄이는 것을 목표로 했습니다. 이 앱은 100건 이상의 다운로드를 기록했으며, 만족도 조사에서 학생들의 만족도가 40% 이상 향상되었습니다. 또한, 교내 신문에 게재되는 성과를 거두었습니다.</string>
-    <string name="project_oh_soon_taxi_contributions">- 최근 검색어를 로컬 DB에 저장해 재사용 가능하도록 구현\n- STOMP 기반 실시간 채팅으로 학생 간 원활한 소통 지원\n- 소셜 로그인으로 사용자 정보 보호 및 신뢰도 강화\n- 학교 이메일 및 학번 기반 인증으로 실명제 부담 완화</string>
+    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, Coroutines + Flow</string>
+    <string name="project_oh_soon_taxi_description">'오순택'은 학생 간 택시 동승을 지원하는 서비스로, 구글 대학생 개발자 커뮤니티에서 팀원들과 함께 개발한 프로젝트입니다. 셔틀버스가 운행되지 않는 야간과 주말 시간대에 택시를 함께 이용할 수 있도록 매칭 기능을 제공하여 금전적 부담과 대기 시간을 줄이는 것을 목표로 했습니다.</string>
+    <string name="project_oh_soon_taxi_contributions">- 출시 후 100건 이상 다운로드, 만족도 조사 40% 이상 향상 및 교내 신문 게재 성과를 달성\n- STOMP 기반 실시간 채팅을 구현해 학생 간 동승 매칭 소통을 지원\n- 학교 이메일·학번 기반 인증을 도입해 실명제 부담을 낮추고 신뢰도를 확보\n- 소셜 로그인을 적용해 사용자 정보 보호와 가입 편의성을 강화</string>
 
     <string name="project_knocknock">낙낙</string>
     <string name="project_knocknock_subtitle">푸시 알림 커스텀 서비스</string>
