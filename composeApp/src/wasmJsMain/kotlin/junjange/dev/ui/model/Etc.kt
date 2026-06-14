@@ -11,12 +11,18 @@ import junjange_dev.composeapp.generated.resources.etc_gdsc_sch_x_skhy_hack
 import junjange_dev.composeapp.generated.resources.etc_gdsc_sch_x_skhy_hack_period
 import junjange_dev.composeapp.generated.resources.etc_kusitms
 import junjange_dev.composeapp.generated.resources.etc_kusitms_period
+import junjange_dev.composeapp.generated.resources.etc_paytalab_blog
+import junjange_dev.composeapp.generated.resources.etc_paytalab_blog_period
 import org.jetbrains.compose.resources.StringResource
 
 enum class Etc(
     val titleRes: StringResource,
     val periodRes: StringResource,
 ) {
+    PAYTALAB_BLOG(
+        titleRes = Res.string.etc_paytalab_blog,
+        periodRes = Res.string.etc_paytalab_blog_period,
+    ),
     DROID_KNIGHTS_2025(
         titleRes = Res.string.etc_droid_knights_2025,
         Res.string.etc_droid_knights_2025_period,
