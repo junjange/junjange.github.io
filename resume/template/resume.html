@@ -43,7 +43,7 @@
         .contact-info {
             font-size: 8.5pt;
             line-height: 1.55;
-            margin-bottom: 4px;
+            margin-bottom: 16px;
         }
 
         .contact-item .contact-label {
@@ -151,6 +151,14 @@
         .sub-title {
             font-size: 9pt;
             font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        /* squad 한 줄 설명 */
+        .sub-desc {
+            font-size: 8.5pt;
+            color: #555;
+            line-height: 1.4;
             margin-bottom: 3px;
         }
 
@@ -330,6 +338,7 @@
                 rightHtml = c.projects.map(proj => `
                     <div class="sub-group">
                         <div class="sub-title">${proj.name}${proj.period ? ` (${proj.period})` : ''}</div>
+                        ${proj.desc ? `<div class="sub-desc">${proj.desc}</div>` : ''}
                         ${bullets(proj.details)}
                     </div>
                 `).join('');

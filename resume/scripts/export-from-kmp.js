@@ -97,8 +97,10 @@ function parseCareerProjects() {
 
             const periodMatch = seg.match(/periodRes\s*=\s*(string\.[A-Za-z0-9_]+|null)/);
             const techMatch = seg.match(/techStackRes\s*=\s*(string\.[A-Za-z0-9_]+|null)/);
+            const descMatch = seg.match(/descRes\s*=\s*(string\.[A-Za-z0-9_]+|null)/);
             const periodKey = periodMatch && periodMatch[1] !== 'null' ? stripStringRef(periodMatch[1]) : null;
             const techKey = techMatch && techMatch[1] !== 'null' ? stripStringRef(techMatch[1]) : null;
+            const descKey = descMatch && descMatch[1] !== 'null' ? stripStringRef(descMatch[1]) : null;
 
             // contributions: ContributionItem 단위로, 그 안의 TextSegment("..."[, true]) text만 이어붙임
             const contributions = [];
@@ -122,6 +124,7 @@ function parseCareerProjects() {
                 titleKey: indices[i].titleKey,
                 periodKey,
                 techKey,
+                descKey,
                 contributions,
             });
         }
@@ -324,6 +327,7 @@ function build() {
             name: p.titleKey ? s(strings, p.titleKey) : '',
             period: p.periodKey ? s(strings, p.periodKey) : null,
             techStack: p.techKey ? s(strings, p.techKey) : null,
+            desc: p.descKey ? s(strings, p.descKey) : null,
             details: p.contributions,
         }));
         // 직책: KMP teamRes가 freelance면 (프리랜서) 표기
