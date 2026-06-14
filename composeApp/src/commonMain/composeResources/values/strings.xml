@@ -4,7 +4,7 @@
     <string name="section_about">About me</string>
     <string name="section_career">Career</string>
     <string name="section_experience">Experience</string>
-    <string name="section_project">Project</string>
+    <string name="section_project">Side Project</string>
 
     <!--Home-->
     <string name="blue_chip">저평가 우량주</string>
@@ -109,7 +109,7 @@
     <string name="etc_devfest_campus_korea_period">2021.11</string>
 
     <!--Project-->
-    <string name="project">Project</string>
+    <string name="project">Side Project</string>
     <string name="from_junjange">from JunJangE</string>
 
     <string name="project_more">프로젝트 더보기</string>
@@ -126,9 +126,9 @@
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
     <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
-    <string name="project_lucky_lottery_techStack">Android, Kotlin, Compose, Room DB</string>
-    <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Jetpack Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 1,000건 이상의 다운로드를 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
-    <string name="project_lucky_lottery_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- MVVM 도입으로 뷰와 비즈니스 로직 분리\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- Room DB로 회차별 복권 번호 저장 기능 개발\n- Jetpack Compose로 UI 마이그레이션 및 색상 통합</string>
+    <string name="project_lucky_lottery_techStack">Android, Kotlin, Room DB</string>
+    <string name="project_lucky_lottery_description">'행운복권'은 로또와 연금복권의 당첨 번호를 회차별로 확인하고, QR코드 스캔을 통해 빠르게 당첨 여부를 확인할 수 있는 서비스입니다. 이 앱은 아버지께서 로또와 연금복권 당첨 번호를 매번 번거롭게 확인하는 불편함을 해소하기 위해 개발한 프로젝트입니다. Kotlin을 처음 배우며 안드로이드 앱을 개발하고 배포한 후, 앱의 성능과 유지보수성을 개선하기 위해 아키텍처 개선과 Compose로의 마이그레이션을 진행했습니다. 그 결과, 앱은 1,600명 이상의 다운로드와 월간 활성 사용자(MAU) 142명을 기록하며 사용자들로부터 긍정적인 반응을 얻었습니다.</string>
+    <string name="project_lucky_lottery_contributions">- 출시 후 1,600명 이상 다운로드 및 월간 활성 사용자(MAU) 142명 달성\n- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- QR코드 스캐너 구현으로 사용자 편의성 향상\n- 기존 Android View 기반에서 Compose로 UI 마이그레이션 및 색상 통합</string>
 
     <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
     <string name="project_junjange_dev_subtitle">Kotlin Multiplatform 포트폴리오</string>
@@ -141,29 +141,29 @@
     <string name="project_friendogly_subtitle">내 반려견의 행복을 위한 친구 찾기 서비스</string>
     <string name="project_friendogly_period">2024.07 - 2025.01</string>
     <string name="project_friendogly_techStack">Android, Kotlin, Coroutines + Flow, Hilt</string>
-    <string name="project_friendogly_description">‘반갑개’는 강아지들이 산책 중 새로운 친구를 만날 수 있도록 도와주는 소셜 서비스입니다. 산책 장소와 일정을 공유하고, 주변 강아지들과 자연스럽게 교류할 수 있는 기회를 제공합니다. 강아지의 사회성과 행복을 위한 동네 친구 찾기를 쉽고 즐겁게 만들어줍니다.</string>
-    <string name="project_friendogly_contributions">- 공통 로직, 로그인, 사용자 기능 개발\n- 네트워크 통신 에러 핸들링 및 인증 실패 시 사용자 경험을 고려한 예외 처리 플로우 설계\n- Firebase Analytics 및 Crashlytics를 활용한 사용자 행동 데이터 수집 및 오류 모니터링 체계 구축\n- Google Play Store 배포 자동화 구축으로 배포 효율성 및 품질 향상</string>
+    <string name="project_friendogly_description">‘반갑개’는 강아지들이 산책 중 새로운 친구를 만날 수 있도록 도와주는 소셜 서비스입니다. 산책 장소와 일정을 공유하고, 주변 강아지들과 자연스럽게 교류할 수 있는 기회를 제공합니다.</string>
+    <string name="project_friendogly_contributions">- 소셜 로그인·인증 플로우와 공통 모듈·아키텍처를 구축해 팀 개발의 기반을 마련\n- DataSource에서 예외를 던지는 대신 결과 객체로 에러를 전달하는 공통 에러 핸들링 구조를 설계해 앱 안정성을 향상\n- Firebase Analytics·Crashlytics로 사용자 행동 데이터 수집 및 오류 모니터링 체계를 구축\n- CI/CD로 배포 자동화를 구축해 배포 효율과 품질을 개선</string>
 
     <string name="project_move_move">뭅뭅</string>
     <string name="project_move_move_subtitle">짧은 댄스 영상을 업로드하고 시청하는 서비스</string>
     <string name="project_move_move_period">2023.11 - 2023.12</string>
-    <string name="project_move_move_techStack">Android, Kotlin, Compose, Ktor, ExoPlayer</string>
+    <string name="project_move_move_techStack">Android, Kotlin, Compose, ExoPlayer</string>
     <string name="project_move_move_description">'뭅뭅'은 네이버 부스트 캠프에서 진행한 프로젝트로, 짧은 개발 기간 동안 기술적 도전을 극복하며 완성한 댄스 숏폼 비디오 플랫폼입니다. 숏폼 비디오 플랫폼의 급성장과 댄스 콘텐츠의 높은 수요를 바탕으로 기획된 서비스로, 사용자가 댄스 영상을 시청하고 업로드할 수 있는 기능을 제공합니다.</string>
-    <string name="project_move_move_contributions">- 홈, 스트리밍, 프로필 등 핵심 기능 개발\n- ExoPlayer 최적화로 CPU 57% 절감 및 끊김 없는 재생\n- MVI 도입으로 업로드 및 스트리밍 안정성 향상\n- 백그라운드 전환 시 ExoPlayer를 자동 중단되도록 구성</string>
+    <string name="project_move_move_contributions">- ExoPlayer를 최적화해 CPU 사용량을 57% 절감하고 끊김 없는 재생을 구현\n- 객체 풀 패턴으로 비디오 플레이어를 재활용해 스크롤 시 동시 스트리밍 문제를 해결\n- MVI를 도입해 업로드·스트리밍 상태 관리의 안정성을 확보\n- 홈·스트리밍·프로필 등 핵심 화면을 개발</string>
 
     <string name="project_whatnow">왔나</string>
     <string name="project_whatnow_subtitle">약속 실시간 위치 공유 서비스</string>
     <string name="project_whatnow_period">2023.04 - 2023.07</string>
     <string name="project_whatnow_techStack">Android, Kotlin, Compose, Coroutines + Flow</string>
     <string name="project_whatnow_description">'왔나'는 약속 시간에 지각을 막기보다는, 기다리는 시간을 친구들과 함께 즐기는 share-play 서비스입니다. 설문조사를 통해 지각의 원인을 분석하고, 패널티 대신 즐거운 커뮤니케이션 경험으로 부정적 감정을 줄이는 방향으로 기획했습니다. 지각 상황을 유쾌하게 전환하여, 약속을 기다리는 시간조차 즐겁게 만들고자 했습니다.</string>
-    <string name="project_whatnow_contributions">- 홈, 지도, 사진 보내기 등 주요 화면 기능 개발\n- 사용자의 현재 위치를 공유 기능 구현\n- UI 개발 프로세스 최적화를 목표로 디자이너와 협업하여 디자인 시스템 구축\n- Jetpack Compose를 활용해 UI를 개발하고, 컴포넌트 단위로 모듈화를 진행</string>
+    <string name="project_whatnow_contributions">- 홈, 지도, 사진 보내기 등 주요 화면 기능 개발\n- 사용자의 현재 위치를 공유 기능 구현\n- UI 개발 프로세스 최적화를 목표로 디자이너와 협업하여 디자인 시스템 구축\n- Compose를 활용해 UI를 개발하고, 컴포넌트 단위로 모듈화를 진행</string>
 
     <string name="project_oh_soon_taxi">오순택</string>
     <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>
     <string name="project_oh_soon_taxi_period">2022.08 - 2023.12</string>
-    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, Coroutines + Flow, STOMP</string>
-    <string name="project_oh_soon_taxi_description">'오순택'은 학생 간 택시 동승을 지원하는 서비스로, 구글 대학생 개발자 커뮤니티에서 팀원들과 함께 개발한 프로젝트입니다. 셔틀버스가 운행되지 않는 야간과 주말 시간대에 택시를 함께 이용할 수 있도록 매칭 기능을 제공하여 금전적 부담과 대기 시간을 줄이는 것을 목표로 했습니다. 이 앱은 100건 이상의 다운로드를 기록했으며, 만족도 조사에서 학생들의 만족도가 40% 이상 향상되었습니다. 또한, 교내 신문에 게재되는 성과를 거두었습니다.</string>
-    <string name="project_oh_soon_taxi_contributions">- 최근 검색어를 로컬 DB에 저장해 재사용 가능하도록 구현\n- STOMP 기반 실시간 채팅으로 학생 간 원활한 소통 지원\n- 소셜 로그인으로 사용자 정보 보호 및 신뢰도 강화\n- 학교 이메일 및 학번 기반 인증으로 실명제 부담 완화</string>
+    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, Coroutines + Flow</string>
+    <string name="project_oh_soon_taxi_description">'오순택'은 학생 간 택시 동승을 지원하는 서비스로, 구글 대학생 개발자 커뮤니티에서 팀원들과 함께 개발한 프로젝트입니다. 셔틀버스가 운행되지 않는 야간과 주말 시간대에 택시를 함께 이용할 수 있도록 매칭 기능을 제공하여 금전적 부담과 대기 시간을 줄이는 것을 목표로 했습니다.</string>
+    <string name="project_oh_soon_taxi_contributions">- 출시 후 100건 이상 다운로드, 만족도 조사 40% 이상 향상 및 교내 신문 게재 성과를 달성\n- STOMP 기반 실시간 채팅을 구현해 학생 간 동승 매칭 소통을 지원\n- 학교 이메일·학번 기반 인증을 도입해 실명제 부담을 낮추고 신뢰도를 확보\n- 소셜 로그인을 적용해 사용자 정보 보호와 가입 편의성을 강화</string>
 
     <string name="project_knocknock">낙낙</string>
     <string name="project_knocknock_subtitle">푸시 알림 커스텀 서비스</string>
