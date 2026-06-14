@@ -32,15 +32,19 @@
     <string name="career_paytalab_period">2025.07 - 재직 중</string>
 
     <string name="career_paytalab_project4_title">선물하기 Squad</string>
-    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Compose</string>
+    <string name="career_paytalab_project4_desc">선물하기 도메인의 신규 기능을 설계·구현하며 서비스 성장을 이끌었습니다.</string>
 
     <string name="career_paytalab_project3_title">결제 시스템 Squad</string>
-    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Compose</string>
+    <string name="career_paytalab_project3_desc">결제 수단·결제 플로우의 안정성을 높이고 결제 범위를 확장했습니다.</string>
 
     <string name="career_paytalab_project2_title">UX/UI 개선 Squad</string>
-    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Jetpack Compose</string>
+    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Compose</string>
+    <string name="career_paytalab_project2_desc">Compose 전환과 디자인 시스템 구축으로 UI 레이어 구조와 사용성을 개선했습니다.</string>
 
     <string name="career_paytalab_project1_title">Android Part 공통</string>
+    <string name="career_paytalab_project1_desc">Android 파트의 공통 아키텍처와 개발 프로세스를 주도해 팀 생산성과 코드 안정성을 높였습니다.</string>
 
     <string name="career_lio">리오(Lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
