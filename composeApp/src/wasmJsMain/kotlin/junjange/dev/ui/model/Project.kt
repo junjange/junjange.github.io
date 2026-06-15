@@ -20,8 +20,11 @@ import junjange_dev.composeapp.generated.resources.ic_oh_soon_taxi_graphic
 import junjange_dev.composeapp.generated.resources.ic_pmd_key_graphic
 import junjange_dev.composeapp.generated.resources.ic_public_poll_graphic
 import junjange_dev.composeapp.generated.resources.ic_recycle_cycle_graphic
+import junjange_dev.composeapp.generated.resources.ic_today_drive_graphic
+import junjange_dev.composeapp.generated.resources.ic_tohaeng_lottery_graphic
 import junjange_dev.composeapp.generated.resources.ic_whatnow_graphic
 import junjange_dev.composeapp.generated.resources.notion
+import junjange_dev.composeapp.generated.resources.problem_solver
 import junjange_dev.composeapp.generated.resources.project_bium
 import junjange_dev.composeapp.generated.resources.project_bium_contributions
 import junjange_dev.composeapp.generated.resources.project_bium_description
@@ -106,12 +109,25 @@ import junjange_dev.composeapp.generated.resources.project_recycle_cycle_descrip
 import junjange_dev.composeapp.generated.resources.project_recycle_cycle_period
 import junjange_dev.composeapp.generated.resources.project_recycle_cycle_subtitle
 import junjange_dev.composeapp.generated.resources.project_recycle_cycle_techStack
+import junjange_dev.composeapp.generated.resources.project_today_drive
+import junjange_dev.composeapp.generated.resources.project_today_drive_contributions
+import junjange_dev.composeapp.generated.resources.project_today_drive_description
+import junjange_dev.composeapp.generated.resources.project_today_drive_period
+import junjange_dev.composeapp.generated.resources.project_today_drive_subtitle
+import junjange_dev.composeapp.generated.resources.project_today_drive_techStack
+import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery
+import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_contributions
+import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_description
+import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_period
+import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_subtitle
+import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_techStack
 import junjange_dev.composeapp.generated.resources.project_whatnow
 import junjange_dev.composeapp.generated.resources.project_whatnow_contributions
 import junjange_dev.composeapp.generated.resources.project_whatnow_description
 import junjange_dev.composeapp.generated.resources.project_whatnow_period
 import junjange_dev.composeapp.generated.resources.project_whatnow_subtitle
 import junjange_dev.composeapp.generated.resources.project_whatnow_techStack
+import junjange_dev.composeapp.generated.resources.toss_mini_app
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 
@@ -126,33 +142,19 @@ enum class Project(
     val links: List<Link>,
     val contributionsRes: StringResource,
 ) {
-    LINK_LETTER(
-        titleRes = Res.string.project_link_letter,
-        subtitleRes = Res.string.project_link_letter_subtitle,
-        graphicRes = drawable.ic_link_letter_graphic,
-        periodRes = Res.string.project_link_letter_period,
-        descriptionRes = Res.string.project_link_letter_description,
-        roleRes = Res.string.android_developer,
-        techStackRes = Res.string.project_link_letter_techStack,
+    TOHAENG_LOTTERY(
+        titleRes = Res.string.project_tohaeng_lottery,
+        subtitleRes = Res.string.project_tohaeng_lottery_subtitle,
+        graphicRes = drawable.ic_tohaeng_lottery_graphic,
+        periodRes = Res.string.project_tohaeng_lottery_period,
+        descriptionRes = Res.string.project_tohaeng_lottery_description,
+        roleRes = Res.string.problem_solver,
+        techStackRes = Res.string.project_tohaeng_lottery_techStack,
         links =
             listOf(
-                Res.string.github to "https://github.com/junjange/linkletter-client",
+                Res.string.toss_mini_app to "https://minion.toss.im/lhXqGEFx",
             ),
-        contributionsRes = Res.string.project_link_letter_contributions,
-    ),
-    JUNJANGE_DEV(
-        titleRes = Res.string.project_junjange_dev,
-        subtitleRes = Res.string.project_junjange_dev_subtitle,
-        graphicRes = drawable.ic_junjange_dev_graphic,
-        periodRes = Res.string.project_junjange_dev_period,
-        descriptionRes = Res.string.project_junjange_dev_description,
-        roleRes = Res.string.android_developer,
-        techStackRes = Res.string.project_junjange_dev_techStack,
-        links =
-            listOf(
-                Res.string.github to "https://github.com/junjange/junjange.github.io",
-            ),
-        contributionsRes = Res.string.project_junjange_dev_contributions,
+        contributionsRes = Res.string.project_tohaeng_lottery_contributions,
     ),
     LUCKY_LOTTERY(
         titleRes = Res.string.project_lucky_lottery,
@@ -169,6 +171,48 @@ enum class Project(
                 Res.string.notion to "https://www.notion.so/e3c739fdf1ce4613ad005dfae45f88a1",
             ),
         contributionsRes = Res.string.project_lucky_lottery_contributions,
+    ),
+    JUNJANGE_DEV(
+        titleRes = Res.string.project_junjange_dev,
+        subtitleRes = Res.string.project_junjange_dev_subtitle,
+        graphicRes = drawable.ic_junjange_dev_graphic,
+        periodRes = Res.string.project_junjange_dev_period,
+        descriptionRes = Res.string.project_junjange_dev_description,
+        roleRes = Res.string.android_developer,
+        techStackRes = Res.string.project_junjange_dev_techStack,
+        links =
+            listOf(
+                Res.string.github to "https://github.com/junjange/junjange.github.io",
+            ),
+        contributionsRes = Res.string.project_junjange_dev_contributions,
+    ),
+    TODAY_DRIVE(
+        titleRes = Res.string.project_today_drive,
+        subtitleRes = Res.string.project_today_drive_subtitle,
+        graphicRes = drawable.ic_today_drive_graphic,
+        periodRes = Res.string.project_today_drive_period,
+        descriptionRes = Res.string.project_today_drive_description,
+        roleRes = Res.string.android_developer,
+        techStackRes = Res.string.project_today_drive_techStack,
+        links =
+            listOf(
+                Res.string.google_play_store to "https://play.google.com/store/apps/details?id=com.todaydrive.client",
+            ),
+        contributionsRes = Res.string.project_today_drive_contributions,
+    ),
+    LINK_LETTER(
+        titleRes = Res.string.project_link_letter,
+        subtitleRes = Res.string.project_link_letter_subtitle,
+        graphicRes = drawable.ic_link_letter_graphic,
+        periodRes = Res.string.project_link_letter_period,
+        descriptionRes = Res.string.project_link_letter_description,
+        roleRes = Res.string.android_developer,
+        techStackRes = Res.string.project_link_letter_techStack,
+        links =
+            listOf(
+                Res.string.github to "https://github.com/junjange/linkletter-client",
+            ),
+        contributionsRes = Res.string.project_link_letter_contributions,
     ),
     FRIENDOGLY(
         titleRes = Res.string.project_friendogly,
