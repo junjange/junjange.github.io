@@ -16,16 +16,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.component.CardImage
 import junjange.dev.ui.model.Community
+import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.Education
 import junjange.dev.ui.model.Etc
 import junjange.dev.ui.model.Experience
@@ -41,6 +44,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun ExperienceSection(modifier: Modifier = Modifier) {
     val deviceState = rememberDeviceState()
+    val isDesktop = deviceState.value == Device.DESKTOP
 
     Column(
         modifier =
@@ -72,7 +76,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Education.entries.forEach { experience ->
-            ExperienceItem(experience = experience)
+            ExperienceItem(experience = experience, isDesktop = isDesktop)
             Spacer(modifier = Modifier.height(36.dp))
         }
 
@@ -89,7 +93,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(24.dp))
 
         Community.entries.forEach { experience ->
-            ExperienceItem(experience = experience)
+            ExperienceItem(experience = experience, isDesktop = isDesktop)
             Spacer(modifier = Modifier.height(36.dp))
         }
 
@@ -117,79 +121,142 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
 @Composable
 private fun ExperienceItem(
     experience: Experience,
+    isDesktop: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val uriHandler = LocalUriHandler.current
-
-    Column(modifier = modifier) {
-        Row {
-            CardImage(
-                logo = experience.logoRes,
-                size = 92.dp,
+    if (isDesktop) {
+        // 데스크탑: 좌(기관 정보) / 우(설명) 2단
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.Top,
+        ) {
+            ExperienceHeader(
+                experience = experience,
+                modifier = Modifier.width(EXPERIENCE_INFO_COLUMN_WIDTH),
             )
 
-            Spacer(modifier = Modifier.width(12.dp))
+            Spacer(modifier = Modifier.width(32.dp))
 
-            Column(
-                verticalArrangement = Arrangement.Center,
-            ) {
-                Text(
-                    text = stringResource(experience.titleRes),
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                )
-                Text(
-                    text = stringResource(experience.subtitleRes),
-                    fontSize = 14.sp,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-                )
-                Text(
-                    text = stringResource(experience.periodRes),
-                    fontSize = 14.sp,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-                )
+            ExperienceDescription(
+                description = stringResource(experience.descriptionRes),
+                modifier = Modifier.weight(1f),
+            )
+        }
+    } else {
+        // 모바일/태블릿: 기존 1단
+        Column(modifier = modifier) {
+            ExperienceHeader(experience = experience)
 
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center,
+            Spacer(modifier = Modifier.height(12.dp))
+
+            ExperienceDescription(
+                description = stringResource(experience.descriptionRes),
+            )
+        }
+    }
+}
+
+// "- a\n- b" 형식 설명을 • bullet + 행잉 인덴트로 렌더링
+@Composable
+private fun ExperienceDescription(
+    description: String,
+    modifier: Modifier = Modifier,
+) {
+    val baseColor = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f)
+    val lines =
+        description
+            .split("\n")
+            .map { it.trim().removePrefix("-").trim() }
+            .filter { it.isNotEmpty() }
+
+    val annotated =
+        buildAnnotatedString {
+            lines.forEachIndexed { index, line ->
+                withStyle(
+                    style = ParagraphStyle(textIndent = TextIndent(restLine = 14.sp)),
                 ) {
-                    experience.links.forEachIndexed { index, (label, url) ->
-                        Text(
-                            text = stringResource(label),
-                            fontSize = 14.sp,
-                            modifier = Modifier.clickable { uriHandler.openUri(url) },
-                            style =
-                                MaterialTheme.typography.bodySmall.copy(
-                                    textDecoration = TextDecoration.Underline,
-                                    color =
-                                        MaterialTheme.colorScheme.onSecondaryContainer.copy(
-                                            alpha = 0.8f,
-                                        ),
-                                ),
-                        )
-                        if (index != experience.links.lastIndex) {
-                            Text(
-                                text = " | ",
-                                fontSize = 14.sp,
-                                color =
-                                    MaterialTheme.colorScheme.onSecondaryContainer.copy(
-                                        alpha = 0.8f,
-                                    ),
-                            )
-                        }
-                    }
+                    append("• ")
+                    append(line)
                 }
             }
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+    Text(
+        modifier = modifier,
+        text = annotated,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+        color = baseColor,
+    )
+}
 
-        Text(
-            text = stringResource(experience.descriptionRes),
-            fontSize = 14.sp,
-            color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+// 기관 로고 + 제목/부제/기간/링크
+@Composable
+private fun ExperienceHeader(
+    experience: Experience,
+    modifier: Modifier = Modifier,
+) {
+    val uriHandler = LocalUriHandler.current
+
+    Row(modifier = modifier) {
+        CardImage(
+            logo = experience.logoRes,
+            size = 92.dp,
         )
+
+        Spacer(modifier = Modifier.width(12.dp))
+
+        Column(
+            verticalArrangement = Arrangement.Center,
+        ) {
+            Text(
+                text = stringResource(experience.titleRes),
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Text(
+                text = stringResource(experience.subtitleRes),
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+            )
+            Text(
+                text = stringResource(experience.periodRes),
+                fontSize = 14.sp,
+                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
+            )
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                experience.links.forEachIndexed { index, (label, url) ->
+                    Text(
+                        text = stringResource(label),
+                        fontSize = 14.sp,
+                        modifier = Modifier.clickable { uriHandler.openUri(url) },
+                        style =
+                            MaterialTheme.typography.bodySmall.copy(
+                                textDecoration = TextDecoration.Underline,
+                                color =
+                                    MaterialTheme.colorScheme.onSecondaryContainer.copy(
+                                        alpha = 0.8f,
+                                    ),
+                            ),
+                    )
+                    if (index != experience.links.lastIndex) {
+                        Text(
+                            text = " | ",
+                            fontSize = 14.sp,
+                            color =
+                                MaterialTheme.colorScheme.onSecondaryContainer.copy(
+                                    alpha = 0.8f,
+                                ),
+                        )
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -229,3 +296,5 @@ private fun EtcText(
         }
     Text(text = text, modifier = modifier)
 }
+
+private val EXPERIENCE_INFO_COLUMN_WIDTH = 360.dp

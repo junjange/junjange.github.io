@@ -25,6 +25,7 @@
     <string name="android_developer">Android Developer</string>
     <string name="flutter_developer">Flutter Developer</string>
     <string name="mobile_developer">Mobile Developer</string>
+    <string name="problem_solver">Problem Solver</string>
     <string name="android_developer_freelance">Android Developer (Freelance)</string>
 
     <string name="career_paytalab">페이타랩</string>
@@ -124,6 +125,20 @@
     <string name="project_link_letter_description">여러분의 관심사, 한곳에서 만나보세요. 인터넷을 돌아다니다 보면 팔로우하고 싶은 블로그와 콘텐츠가 너무 많아, 정작 놓치는 정보가 많으시죠? 링크레터는 흩어져 있는 블로그를을 한곳으로 모아, 좋아하는 크리에이터의 새 글을 실시간 알림으로 신속하고 편리하게 전달해드립니다. 이제는 일일이 방문하지 않아도, 원하는 소식을 빠짐없이 받아보세요!</string>
     <string name="project_link_letter_contributions">- 기획, 개발, 디자인 전 과정을 담당하며 서비스 전체를 주도적으로 설계 및 구현\n- Android/iOS 코드 80% 이상 공유로 단일 코드베이스 기반의 효율적 개발\n- Core 모듈을 통한 계층별 분리 및 Koin 의존성 주입으로 유지보수성 향상\n- MVI 아키텍처 도입으로 상태 관리 안정성 향상\n- RSS URL을 메모리에 캐싱하여 네트워크 요청 최소화 및 속도 개선\n- 일일 스케줄링 자동 실행 및 백그라운드 새 포스트 감지 푸시 알림 구현</string>
 
+
+    <string name="project_tohaeng_lottery">토행복권</string>
+    <string name="project_tohaeng_lottery_subtitle">매주 번호를 맞추고 토스 포인트를 받는 미니앱</string>
+    <string name="project_tohaeng_lottery_period">2026.05(개발) / 2026.06 – 현재(유지보수 중)</string>
+    <string name="project_tohaeng_lottery_techStack">React Native, Granite, Apps in Toss, TDS, Supabase, TypeScript</string>
+    <string name="project_tohaeng_lottery_description">'토행복권'은 매주 번호를 맞추고 토스 포인트를 받는 토스 인앱 미니앱입니다. 토스 인앱에 동작하는 React Native 기반 미니앱으로, 회차별 번호 추첨부터 당첨 판정, 포인트 지급까지의 흐름을 직접 설계·구현했습니다.</string>
+    <string name="project_tohaeng_lottery_contributions">- 앱인토스 전용 AI 개발 하네스를 직접 구축하고, 이를 활용해 기획부터 프론트엔드·백엔드까지 1인 개발로 진행\n- React Native와 Granite로 토스 인앱에서 동작하는 미니앱을 개발하고 Apps in Toss 플랫폼에 배포\n- Supabase를 백엔드로 활용해 회차별 번호 추첨과 당첨 판정, 토스 포인트 지급 로직을 구현\n- 토스 디자인 시스템(TDS)을 적용해 토스 인앱과 일관된 사용자 경험을 제공</string>
+
+    <string name="project_today_drive">오늘의운행</string>
+    <string name="project_today_drive_subtitle">운송 기사를 위한 운행 일지·정산 앱</string>
+    <string name="project_today_drive_period">2025.12 – 2026.01 / 2026.03 – 현재(유지보수 중)</string>
+    <string name="project_today_drive_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room, Apache POI</string>
+    <string name="project_today_drive_description">'오늘의운행'은 운송 기사가 거래처·금액 등 하루 운행을 빠르게 기록하고, 정산에 필요한 엑셀까지 한 번에 출력할 수 있는 운행 일지 앱입니다. 운송업에 종사하는 아버지가 매일 수기로 장부를 작성하는 불편함을 해소하기 위해 개발했고, 같은 고민을 가진 기사들을 위해 플레이스토어에 배포했습니다. 멀티모듈과 클린 아키텍처로 설계해 유지보수성과 확장성을 확보했습니다.</string>
+    <string name="project_today_drive_contributions">- Apache POI로 기간과 거래처별 운행 기록을 엑셀로 출력하는 정산 기능을 구현하고, 출력 항목과 순서를 사용자가 직접 지정할 수 있게 함\n- 박스 수량과 단가, 여유율을 기반으로 공박스 금액을 자동 계산하는 로직을 구현해 수기 계산을 자동화함\n- 자주 쓰는 거래처와 요금을 미리 등록해 작성 시 바로 불러오는 기능을 구현함\n- 모든 기록을 백업하고 복원해 기기를 바꿔도 데이터를 옮길 수 있는 로컬 우선 데이터 구조를 설계함</string>
 
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">회차별 로또 당첨번호를 확인하는 서비스</string>
@@ -226,6 +241,7 @@
     <string name="google_play_store">구글 플레이 스토어</string>
     <string name="github">깃허브</string>
     <string name="notion">노션</string>
+    <string name="toss_mini_app">토스 미니앱</string>
     <string name="web_site">웹사이트</string>
 
     <string name="project_intro">소개</string>

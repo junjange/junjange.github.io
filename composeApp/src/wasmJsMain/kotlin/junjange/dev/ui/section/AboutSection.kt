@@ -18,10 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.DESKTOP_CONTENT_HORIZONTAL_PADDING
-import junjange.dev.ui.TABLET_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.model.AboutMe
-import junjange.dev.ui.model.Device
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
 import junjange.dev.ui.theme.DarkGray
@@ -52,19 +49,10 @@ fun AboutSection(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(48.dp))
 
-        val horizontalPadding =
-            when (deviceState.value) {
-                Device.UNKNOWN -> 0.dp
-                Device.MOBILE -> 0.dp
-                Device.TABLET -> (TABLET_CONTENT_HORIZONTAL_PADDING / 2).dp
-                Device.DESKTOP -> (DESKTOP_CONTENT_HORIZONTAL_PADDING / 2).dp
-            }
-
         AboutMe.entries.forEach { aboutMe ->
             ContentCard(
                 title = aboutMe.titleRes,
                 description = aboutMe.descriptionRes,
-                modifier = Modifier.padding(horizontal = horizontalPadding),
             )
             Spacer(modifier.height(24.dp))
         }
