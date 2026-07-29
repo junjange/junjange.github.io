@@ -38,3 +38,7 @@ output.json
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 xcuserdata
+
+# 이력서·포트폴리오 산출물 (회사·개인 상세 정보 포함 — 저장소에서 제외)
+/portfolio/
+/resume/
