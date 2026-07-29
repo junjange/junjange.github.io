@@ -6,7 +6,9 @@
   "scripts": {
     "resume": "npm --prefix resume run resume",
     "resume:fonts": "npm --prefix resume run fonts",
-    "resume:install": "npm --prefix resume install"
+    "resume:install": "npm --prefix resume install",
+    "portfolio": "npm --prefix portfolio run portfolio",
+    "portfolio:install": "npm --prefix portfolio install"
   },
   "author": "조준장",
   "license": "MIT"
