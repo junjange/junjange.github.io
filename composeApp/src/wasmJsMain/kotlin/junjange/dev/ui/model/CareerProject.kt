@@ -46,35 +46,33 @@ data class CareerProject(
                             ContributionItem(
                                 segments =
                                     listOf(
-                                        TextSegment("결제 중 OS의 "),
-                                        TextSegment("프로세스 강제 종료", true),
-                                        TextSegment("로 결제가 끊기던 NICE 간편 결제 킬 이슈를, 재생성 시 "),
-                                        TextSegment("WebView 상태와 결제 단계를 보존·복원", true),
-                                        TextSegment("하도록 설계해 결제 실패율을 "),
-                                        TextSegment("76% 감소", true),
-                                        TextSegment("시킴"),
-                                    ),
-                                webCompact =
-                                    listOf(
                                         TextSegment("결제 도중 OS가 "),
                                         TextSegment("프로세스를 강제 종료", true),
                                         TextSegment("하면 결제가 끊기던 NICE 간편 결제 킬 이슈를 해결하기 위해, 재생성 시점에 "),
                                         TextSegment("WebView 상태와 결제 단계를 보존·복원", true),
-                                        TextSegment("하도록 설계하여 중단된 결제를 끊김 없이 이어가도록 개선함"),
+                                        TextSegment("하도록 설계하여 중단된 결제를 끊김 없이 이어가도록 개선하고 결제 "),
+                                        TextSegment("성공률을 90.3% → 91.1%", true),
+                                        TextSegment("로 높임 (남은 실패의 약 8% 제거)"),
                                     ),
                             ),
                             ContributionItem(
                                 segments =
                                     listOf(
-                                        TextSegment("OCR 카드 등록 프로세스를 고도화하여 스캔 확인 단계 유저의 최종 등록 "),
-                                        TextSegment("완료율 87%", true),
-                                        TextSegment("를 달성함"),
+                                        TextSegment("프로세스 종료 후 자동 복구되어 결제 완료에 도달한 건수가 "),
+                                        TextSegment("일평균 약 5건 → 48건(약 9배)", true),
+                                        TextSegment("으로 늘고 관련 "),
+                                        TextSegment("문의(VOC)가 사실상 0건", true),
+                                        TextSegment("이 됨"),
                                     ),
-                                webCompact =
+                            ),
+                            ContributionItem(
+                                segments =
                                     listOf(
                                         TextSegment("스캔 확인 단계에서 유저가 카드 등록을 포기하던 문제를 줄이고자 "),
                                         TextSegment("OCR 카드 등록 프로세스를 고도화", true),
-                                        TextSegment("하여 등록 완주까지의 이탈을 개선함"),
+                                        TextSegment("하여 스캔 확인 단계 진입 유저의 최종 등록 "),
+                                        TextSegment("완료율 87%", true),
+                                        TextSegment("를 달성함"),
                                     ),
                             ),
                         ),
@@ -90,13 +88,6 @@ data class CareerProject(
                                 segments =
                                     listOf(
                                         TextSegment("장바구니 유지", true),
-                                        TextSegment(" 기능을 구현하여 앱 재접속 시 주문 내역을 보존하고 플로팅 버튼·앱푸시 퍼널로 이탈 유저의 결제 복귀 흐름을 설계하여, 기여 매출의 "),
-                                        TextSegment("약 70%가 순증분 매출", true),
-                                        TextSegment("로 측정되며 결제 전환에 유의미하게 기여함"),
-                                    ),
-                                webCompact =
-                                    listOf(
-                                        TextSegment("장바구니 유지", true),
                                         TextSegment(" 기능을 구현하여 앱 재접속 시 주문 내역을 보존하고 플로팅 버튼·앱푸시 퍼널로 이탈 유저의 결제 복귀 흐름을 설계해 결제 전환에 기여함"),
                                     ),
                             ),
@@ -105,7 +96,15 @@ data class CareerProject(
                                     listOf(
                                         TextSegment("가장 복잡한 핵심 화면인 매장 상세를 "),
                                         TextSegment("XML에서 Compose로 점진적 마이그레이션", true),
-                                        TextSegment("하며 상태 관리·레이어 구조까지 재설계하여 코드 복잡도와 렌더링·스크롤 성능을 개선함"),
+                                        TextSegment("하며 상태 관리·레이어 구조까지 재설계하여 코드 복잡도를 개선함"),
+                                    ),
+                            ),
+                            ContributionItem(
+                                segments =
+                                    listOf(
+                                        TextSegment("상태를 잘게 분리하고 불변 파라미터·key를 적용해 화면 전체가 아닌 변경 항목만 리컴포지션되도록 개선하여, 스크롤당 불필요한 "),
+                                        TextSegment("리컴포지션을 88% 감소", true),
+                                        TextSegment("시킴 (Layout Inspector 기준 115회 → 13회)"),
                                     ),
                             ),
                             ContributionItem(
@@ -130,13 +129,6 @@ data class CareerProject(
                                         TextSegment("선물하기 지원금", true),
                                         TextSegment(" 신규 기능을 레거시 코드베이스 위에서 설계·구현하고, 기존 Fragment 화면을 "),
                                         TextSegment("Compose", true),
-                                        TextSegment("와 조합해 점진적으로 전환하며 상태 관리를 개선함"),
-                                    ),
-                                webCompact =
-                                    listOf(
-                                        TextSegment("선물하기 지원금", true),
-                                        TextSegment(" 신규 기능을 레거시 코드베이스 위에서 설계·구현하고, 기존 Fragment 화면을 "),
-                                        TextSegment("Compose", true),
                                         TextSegment("와 조합해 점진적으로 전환하며 상태 관리를 개선하여, 배포 후 "),
                                         TextSegment("선물 발송·신규 가입 지표 성장", true),
                                         TextSegment("을 견인함"),
@@ -144,25 +136,6 @@ data class CareerProject(
                             ),
                             ContributionItem(
                                 segments =
-                                    listOf(
-                                        TextSegment("기능 배포 후 일평균 선물 발송 건수 "),
-                                        TextSegment("398%", true),
-                                        TextSegment(", 신규 가입자 "),
-                                        TextSegment("567% 증가", true),
-                                        TextSegment("라는 지표 성장을 견인함"),
-                                    ),
-                                // 성과 수치 항목: 위 기능 구현 항목의 webCompact에 R(결과)로 흡수시켜 웹에서는 숨긴다.
-                                // segments(원문 수치)는 이력서 PDF에 그대로 유지된다.
-                                webCompact = emptyList(),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("입사 후 첫 프로젝트임에도 배포 후 "),
-                                        TextSegment("크래시·VOC 0건", true),
-                                        TextSegment("으로 안정적으로 출시함"),
-                                    ),
-                                webCompact =
                                     listOf(
                                         TextSegment("입사 후 첫 프로젝트이자 레거시 코드베이스였음에도, 기존 Fragment 화면을 "),
                                         TextSegment("Compose로 점진적으로 전환", true),
@@ -319,7 +292,4 @@ data class TextSegment(
 
 data class ContributionItem(
     val segments: List<TextSegment>,
-    // 웹 전용 컴팩트 버전(정량 수치 제거). null이면 웹도 segments를 그대로 사용한다.
-    // 이력서/포트폴리오 PDF export는 항상 segments(수치 포함 원문)만 파싱한다.
-    val webCompact: List<TextSegment>? = null,
 )
