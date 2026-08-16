@@ -24,7 +24,6 @@
     <!--Career-->
     <string name="android_developer">Android Developer</string>
     <string name="flutter_developer">Flutter Developer</string>
-    <string name="mobile_developer">Mobile Developer</string>
     <string name="problem_solver">Problem Solver</string>
     <string name="android_developer_freelance">Android Developer (Freelance)</string>
 
