@@ -364,9 +364,8 @@ enum class Project(
         techStackRes = Res.string.project_bium_techStack,
         links =
             listOf(
-                Res.string.google_play_store to "https://play.google.com/store/apps/details?id=com.sch.sch_taxi&hl=ko-KR",
-                Res.string.github to "https://github.com/Uttug-Seuja/sch-taxi-android-v2",
-                Res.string.notion to "https://www.notion.so/v2-db3df8de7aa1424db4e23f118df96f68",
+                Res.string.github to "https://github.com/gdscHEO/heoproject",
+                Res.string.notion to "https://hulking-sidewalk-17b.notion.site/Bium-65fee4aeeba247ddba99cb0330f64dc8",
             ),
         contributionsRes = Res.string.project_bium_contributions,
     ),
@@ -380,8 +379,7 @@ enum class Project(
         techStackRes = Res.string.project_recycle_cycle_techStack,
         links =
             listOf(
-                Res.string.github to "https://github.com/gdscHEO/heoproject",
-                Res.string.notion to "https://www.notion.so/Bium-65fee4aeeba247ddba99cb0330f64dc8",
+                Res.string.github to "https://github.com/Recycle-Cycle/Recycle-Cycle",
             ),
         contributionsRes = Res.string.project_recycle_cycle_contributions,
     ),
