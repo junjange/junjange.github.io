@@ -227,9 +227,7 @@ private fun CareerProjectItem(careerProject: CareerProject) {
     }
 
     careerProject.contributions.forEach { contribution ->
-        // 웹은 수치를 뺀 컴팩트 버전이 있으면 그걸 우선 사용한다. (없으면 원문 segments)
-        // webCompact가 빈 리스트면 웹에서 숨기는 항목이므로 렌더하지 않는다. (수치는 PDF에만)
-        val segments = contribution.webCompact ?: contribution.segments
+        val segments = contribution.segments
         if (segments.isEmpty()) return@forEach
         val annotatedString = buildAnnotatedString {
             withStyle(

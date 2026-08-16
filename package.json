@@ -1,15 +1,8 @@
 {
   "name": "junjange-github-io",
   "version": "1.0.0",
-  "description": "조준장 포트폴리오 & 이력서",
+  "description": "저평가 우량주 조준장 웹 포트폴리오 (Kotlin Multiplatform · Compose · Wasm)",
   "private": true,
-  "scripts": {
-    "resume": "npm --prefix resume run resume",
-    "resume:fonts": "npm --prefix resume run fonts",
-    "resume:install": "npm --prefix resume install",
-    "portfolio": "npm --prefix portfolio run portfolio",
-    "portfolio:install": "npm --prefix portfolio install"
-  },
   "author": "조준장",
   "license": "MIT"
 }
