@@ -28,23 +28,15 @@
     <string name="android_developer_freelance">Android Developer (Freelance)</string>
 
     <string name="career_paytalab">페이타랩</string>
-    <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 패스오더</string>
+    <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 &lt;패스오더&gt;</string>
     <string name="career_paytalab_period">2025.07 - 재직 중</string>
 
-    <string name="career_paytalab_project4_title">선물하기 Squad</string>
-    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Compose</string>
-    <string name="career_paytalab_project4_desc">선물하기 도메인 신규 기능 개발</string>
-
-    <string name="career_paytalab_project3_title">결제 시스템 Squad</string>
-    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Compose</string>
-    <string name="career_paytalab_project3_desc">결제 시스템 안정화·결제 범위 확장</string>
-
-    <string name="career_paytalab_project2_title">UX/UI 개선 Squad</string>
-    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Compose</string>
-    <string name="career_paytalab_project2_desc">주문 UX 개선·Compose 전환·디자인 시스템</string>
-
-    <string name="career_paytalab_project1_title">Android Part 공통</string>
-    <string name="career_paytalab_project1_desc">공통 아키텍처·개발 프로세스 주도</string>
+    <string name="career_paytalab_payment_title">결제 시스템 Squad</string>
+    <string name="career_paytalab_ux_title">UX/UI 개선 Squad</string>
+    <string name="career_paytalab_content_title">콘텐츠 Squad</string>
+    <string name="career_paytalab_gift_title">선물하기 Squad</string>
+    <string name="career_paytalab_boss_title">사장님 앱 (점주용 POS·주문 관리)</string>
+    <string name="career_paytalab_common_title">Android 파트 공통</string>
 
     <string name="career_lio">리오(Lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
@@ -52,15 +44,12 @@
 
     <string name="career_lio_project3_title">노년층 감정 분석 안드로이드 앱</string>
     <string name="career_lio_project3_period">2022.08 - 2022.10</string>
-    <string name="career_lio_project3_tech_stack">Android, Kotlin</string>
 
     <string name="career_lio_project2_title">농작물 직거래 하이브리드 앱</string>
     <string name="career_lio_project2_period">2022.06 - 2022.07</string>
-    <string name="career_lio_project2_tech_stack">Flutter, Dart</string>
 
     <string name="career_lio_project1_title">대량 자동 발신 전화 안드로이드 앱</string>
     <string name="career_lio_project1_period">2022.03 - 2022.04</string>
-    <string name="career_lio_project1_tech_stack">Android, Kotlin</string>
 
     <string name="career_matrios">매트리오즈(Matrios)</string>
     <string name="career_matrios_period">2021.07 - 2021.11</string>
@@ -68,7 +57,6 @@
 
     <string name="career_matrios_project1_title">온라인 수업 집중도 모니터링 안드로이드 앱</string>
     <string name="career_matrios_project1_period">2021.07 - 2021.11</string>
-    <string name="career_matrios_project1_tech_stack">Android, Java</string>
 
     <!--Experience-->
     <string name="experience">Experience</string>

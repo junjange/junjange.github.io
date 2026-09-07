@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.ParagraphStyle
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextIndent
@@ -208,7 +207,6 @@ private fun CareerContent(
 
 @Composable
 private fun CareerProjectItem(careerProject: CareerProject) {
-    val highlightColor = MaterialTheme.colorScheme.onPrimaryContainer
     val baseColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f)
 
     Text(
@@ -217,9 +215,9 @@ private fun CareerProjectItem(careerProject: CareerProject) {
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
     )
-    careerProject.periodRes?.let {
-         Text(
-            text = stringResource(careerProject.periodRes),
+    careerProject.periodRes?.let { periodRes ->
+        Text(
+            text = stringResource(periodRes),
             color = baseColor,
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
@@ -227,28 +225,16 @@ private fun CareerProjectItem(careerProject: CareerProject) {
     }
 
     careerProject.contributions.forEach { contribution ->
-        val segments = contribution.segments
-        if (segments.isEmpty()) return@forEach
-        val annotatedString = buildAnnotatedString {
-            withStyle(
-                style = ParagraphStyle(textIndent = TextIndent(restLine = 14.sp)),
-            ) {
-                append("• ")
-                segments.forEach { segment ->
-                    withStyle(
-                        style = SpanStyle(
-                            color = if (segment.isHighlighted) highlightColor else baseColor,
-                            fontWeight = if (segment.isHighlighted) FontWeight.Bold else FontWeight.Normal,
-                        )
-                    ) {
-                        append(segment.text)
-                    }
-                }
-            }
-        }
-
         Text(
-            text = annotatedString,
+            text =
+                buildAnnotatedString {
+                    withStyle(style = ParagraphStyle(textIndent = TextIndent(restLine = 14.sp))) {
+                        append("• ")
+                        append(contribution)
+                    }
+                },
+            color = baseColor,
+            fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
             lineHeight = 20.sp,
         )
