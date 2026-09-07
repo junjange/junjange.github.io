@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.TWO_COLUMN_BLOCK_MAX_WIDTH
 import junjange.dev.ui.component.CardImage
 import junjange.dev.ui.component.TimelineIndicator
 import junjange.dev.ui.model.Career
@@ -55,17 +57,24 @@ fun CareerSection(modifier: Modifier = Modifier) {
 
         val isDesktop = deviceState.value == Device.DESKTOP
 
-        Career.entries.forEachIndexed { index, career ->
-            if (isDesktop) {
-                CareerContentTwoColumn(
-                    career = career,
-                    isFirst = index == 0,
-                )
-            } else {
-                CareerContent(
-                    career = career,
-                    isFirst = index == 0,
-                )
+        Column(
+            modifier =
+                Modifier
+                    .widthIn(max = TWO_COLUMN_BLOCK_MAX_WIDTH.dp)
+                    .fillMaxWidth(),
+        ) {
+            Career.entries.forEachIndexed { index, career ->
+                if (isDesktop) {
+                    CareerContentTwoColumn(
+                        career = career,
+                        isFirst = index == 0,
+                    )
+                } else {
+                    CareerContent(
+                        career = career,
+                        isFirst = index == 0,
+                    )
+                }
             }
         }
     }
@@ -98,18 +107,20 @@ private fun CareerContentTwoColumn(
             modifier = Modifier.width(CAREER_INFO_COLUMN_WIDTH),
         )
 
-        Spacer(Modifier.width(32.dp))
+        Spacer(Modifier.width(CAREER_COLUMN_GAP))
 
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
         ) {
-            career.project.forEach { careerProject ->
+            career.project.forEachIndexed { index, careerProject ->
                 CareerProjectItem(careerProject = careerProject)
-                Spacer(Modifier.height(24.dp))
+                if (index != career.project.lastIndex) {
+                    Spacer(Modifier.height(CAREER_PROJECT_GAP))
+                }
             }
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(CAREER_ITEM_GAP))
         }
     }
 }
@@ -196,11 +207,13 @@ private fun CareerContent(
 
             Spacer(Modifier.height(24.dp))
 
-            career.project.forEach { careerProject ->
+            career.project.forEachIndexed { index, careerProject ->
                 CareerProjectItem(careerProject = careerProject)
-                Spacer(Modifier.height(24.dp))
+                if (index != career.project.lastIndex) {
+                    Spacer(Modifier.height(CAREER_PROJECT_GAP))
+                }
             }
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(CAREER_ITEM_GAP))
         }
     }
 }
@@ -241,6 +254,9 @@ private fun CareerProjectItem(careerProject: CareerProject) {
     }
 }
 
+private val CAREER_COLUMN_GAP = 192.dp
+private val CAREER_PROJECT_GAP = 24.dp
+private val CAREER_ITEM_GAP = 96.dp
 private val CAREER_DOT_SIZE = 24.dp
 private val CAREER_LOGO_SIZE = 128.dp
 private val CAREER_INFO_COLUMN_WIDTH = 420.dp

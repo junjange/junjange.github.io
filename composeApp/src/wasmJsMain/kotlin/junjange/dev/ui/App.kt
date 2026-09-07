@@ -82,6 +82,9 @@ fun AppContent(
 }
 
 const val DESKTOP_CONTENT_WIDTH = 1280
+
+// 좌(기관) / 우(내용) 2단 블록의 최대 폭. 여백 안에서 블록을 가운데로 모은다.
+const val TWO_COLUMN_BLOCK_MAX_WIDTH = 1200
 const val DESKTOP_CONTENT_HORIZONTAL_PADDING = 192
 const val DESKTOP_CONTENT_VERTICAL_PADDING = 72
 const val DESKTOP_CONTENT_MIN_HEIGHT = 768
