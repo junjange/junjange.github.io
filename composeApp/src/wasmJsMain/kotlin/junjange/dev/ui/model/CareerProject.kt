@@ -2,149 +2,76 @@ package junjange.dev.ui.model
 
 import junjange_dev.composeapp.generated.resources.Res.string
 import junjange_dev.composeapp.generated.resources.career_lio_project1_period
-import junjange_dev.composeapp.generated.resources.career_lio_project1_tech_stack
 import junjange_dev.composeapp.generated.resources.career_lio_project1_title
 import junjange_dev.composeapp.generated.resources.career_lio_project2_period
-import junjange_dev.composeapp.generated.resources.career_lio_project2_tech_stack
 import junjange_dev.composeapp.generated.resources.career_lio_project2_title
 import junjange_dev.composeapp.generated.resources.career_lio_project3_period
-import junjange_dev.composeapp.generated.resources.career_lio_project3_tech_stack
 import junjange_dev.composeapp.generated.resources.career_lio_project3_title
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_period
-import junjange_dev.composeapp.generated.resources.career_matrios_project1_tech_stack
 import junjange_dev.composeapp.generated.resources.career_matrios_project1_title
-import junjange_dev.composeapp.generated.resources.career_paytalab_project1_desc
-import junjange_dev.composeapp.generated.resources.career_paytalab_project1_title
-import junjange_dev.composeapp.generated.resources.career_paytalab_project2_desc
-import junjange_dev.composeapp.generated.resources.career_paytalab_project2_tech_stack
-import junjange_dev.composeapp.generated.resources.career_paytalab_project2_title
-import junjange_dev.composeapp.generated.resources.career_paytalab_project3_desc
-import junjange_dev.composeapp.generated.resources.career_paytalab_project3_tech_stack
-import junjange_dev.composeapp.generated.resources.career_paytalab_project3_title
-import junjange_dev.composeapp.generated.resources.career_paytalab_project4_desc
-import junjange_dev.composeapp.generated.resources.career_paytalab_project4_tech_stack
-import junjange_dev.composeapp.generated.resources.career_paytalab_project4_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_boss_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_common_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_content_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_gift_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_payment_title
+import junjange_dev.composeapp.generated.resources.career_paytalab_ux_title
 import org.jetbrains.compose.resources.StringResource
 
 data class CareerProject(
     val titleRes: StringResource,
-    val periodRes: StringResource?,
-    val techStackRes: StringResource?,
-    val descRes: StringResource? = null,
-    val contributions: List<ContributionItem>,
+    val periodRes: StringResource? = null,
+    val contributions: List<String>,
 ) {
     companion object {
         val PAYTALAB_PROJECTS =
             listOf(
                 CareerProject(
-                    titleRes = string.career_paytalab_project3_title,
-                    periodRes = null,
-                    techStackRes = string.career_paytalab_project3_tech_stack,
-                    descRes = string.career_paytalab_project3_desc,
+                    titleRes = string.career_paytalab_payment_title,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("NICE 간편결제 킬 이슈", true),
-                                        TextSegment(" 해결 (프로세스 종료 시 결제 상태 복원) - 결제 성공률 "),
-                                        TextSegment("90.3% → 91.1%", true),
-                                        TextSegment(" 개선(실패율 약 8% 감소), 결제 끊김 관련 VOC 사실상 소멸"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("OCR 카드 등록 프로세스", true),
-                                        TextSegment(" 고도화 - 완료율 "),
-                                        TextSegment("87%", true),
-                                    ),
-                            ),
+                            "OS 프로세스 회수 대비 결제 복원 구조 구축",
+                            "OCR 기반 카드 등록 프로세스 재구축",
                         ),
                 ),
                 CareerProject(
-                    titleRes = string.career_paytalab_project2_title,
-                    periodRes = null,
-                    techStackRes = string.career_paytalab_project2_tech_stack,
-                    descRes = string.career_paytalab_project2_desc,
+                    titleRes = string.career_paytalab_ux_title,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("장바구니 유지 기능", true),
-                                        TextSegment(" 구현 - 이탈 유저 결제 복귀 흐름 설계"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("매장 상세 XML → Compose", true),
-                                        TextSegment(" 점진 마이그레이션"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("스크롤 리컴포지션 "),
-                                        TextSegment("88% 감소", true),
-                                        TextSegment(" (115 → 13회, 상태 분리·불변 파라미터)"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("Passorder Design System", true),
-                                        TextSegment(" 구축 주도"),
-                                    ),
-                            ),
+                            "장바구니 유지 기능 신규 개발",
+                            "매장상세 화면 XML → Compose 점진 마이그레이션 및 레거시 제거",
+                            "Passorder Design System 구축",
                         ),
                 ),
                 CareerProject(
-                    titleRes = string.career_paytalab_project4_title,
-                    periodRes = null,
-                    techStackRes = string.career_paytalab_project4_tech_stack,
-                    descRes = string.career_paytalab_project4_desc,
+                    titleRes = string.career_paytalab_content_title,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("선물하기 지원금 신규 기능", true),
-                                        TextSegment(" 설계·구현 (Fragment + Compose 점진 전환)"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("입사 첫 프로젝트, 레거시 위에서 "),
-                                        TextSegment("크래시·VOC 0건", true),
-                                        TextSegment(" 출시"),
-                                    ),
-                            ),
+                            "레거시 가격 산정 로직의 도메인 분리",
+                            "외부 콘텐츠 탐색 도메인 신규 구축",
                         ),
                 ),
                 CareerProject(
-                    titleRes = string.career_paytalab_project1_title,
-                    periodRes = null,
-                    techStackRes = null,
-                    descRes = string.career_paytalab_project1_desc,
+                    titleRes = string.career_paytalab_gift_title,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("자체 MVI 아키텍처", true),
-                                        TextSegment(" 설계·도입 (외부 의존성 없이 팀 공통 베이스로 정착)"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("AI 기반 테스트 자산화 워크플로우", true),
-                                        TextSegment(" 구축 (테스트 작성 원칙 수립)"),
-                                    ),
-                            ),
+                            "레거시 코드베이스 기반 신규 기능 구현",
+                        ),
+                ),
+                CareerProject(
+                    titleRes = string.career_paytalab_boss_title,
+                    contributions =
+                        listOf(
+                            "주문 수신 Socket 유실로 인한 주문 미수신·자동취소 장애 해결",
+                            "영수증 프린터 제어코드 기반 프로모션 인쇄 구조 구축",
+                        ),
+                ),
+                CareerProject(
+                    titleRes = string.career_paytalab_common_title,
+                    contributions =
+                        listOf(
+                            "라이브러리 없는 MVI 구조 제안·도입 및 파트 표준화",
+                            "AI가 작성한 테스트를 신뢰할 수 있게 만드는 워크플로우 설계",
+                            "계측 검증용 DevTools 실시간 로그 뷰어 구축",
                         ),
                 ),
             )
@@ -154,66 +81,28 @@ data class CareerProject(
                 CareerProject(
                     titleRes = string.career_lio_project3_title,
                     periodRes = string.career_lio_project3_period,
-                    techStackRes = string.career_lio_project3_tech_stack,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("TTS 접근성", true),
-                                        TextSegment(" 지원 (어르신 설문 접근성 개선)"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("감정 분석 결과 그래프 시각화", true),
-                                    ),
-                            ),
+                            "TTS를 적용해 어르신의 설문 접근성 확보",
+                            "감정 분석 결과를 그래프로 시각화",
                         ),
                 ),
                 CareerProject(
                     titleRes = string.career_lio_project2_title,
                     periodRes = string.career_lio_project2_period,
-                    techStackRes = string.career_lio_project2_tech_stack,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("BLoC 패턴", true),
-                                        TextSegment(" 기반 아키텍처 설계"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("Firebase Storage·Cloud Messaging", true),
-                                        TextSegment(" 연동 (정보 저장·실시간 알림)"),
-                                    ),
-                            ),
+                            "Flutter와 BLoC 패턴 기반 단방향 데이터 흐름 아키텍처 설계",
+                            "Firebase Storage·FCM 연동 (사업자 정보·실시간 거래 알림)",
                         ),
                 ),
                 CareerProject(
                     titleRes = string.career_lio_project1_title,
                     periodRes = string.career_lio_project1_period,
-                    techStackRes = string.career_lio_project1_tech_stack,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("파일 탐색기 UI", true),
-                                        TextSegment(" 직접 구현 (파일에서 전화번호 추출)"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("Service 기반 자동 발신", true),
-                                        TextSegment(" 기능 개발"),
-                                    ),
-                            ),
+                            "파일 탐색기 UI 직접 구현 및 선택 파일에서 전화번호 파싱",
+                            "Background Service 기반 자동 발신·통화 종료 제어 플로우 구축",
                         ),
                 ),
             )
@@ -223,41 +112,13 @@ data class CareerProject(
                 CareerProject(
                     titleRes = string.career_matrios_project1_title,
                     periodRes = string.career_matrios_project1_period,
-                    techStackRes = string.career_matrios_project1_tech_stack,
                     contributions =
                         listOf(
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("Service 기반 Floating Widget", true),
-                                        TextSegment(" 구현"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("AWS Cognito 인증 시스템", true),
-                                        TextSegment(" 구축"),
-                                    ),
-                            ),
-                            ContributionItem(
-                                segments =
-                                    listOf(
-                                        TextSegment("UsageStatsManager", true),
-                                        TextSegment(" 외부 앱 사용 모니터링"),
-                                    ),
-                            ),
+                            "화상 강의 화면 위에 겹쳐 동작하는 Floating Widget을 Service 기반으로 구현",
+                            "AWS Cognito 연동 회원가입·로그인 인증 구현",
+                            "UsageStatsManager로 강의 중 외부 앱 사용 여부 실시간 수집",
                         ),
                 ),
             )
     }
 }
-
-data class TextSegment(
-    val text: String,
-    val isHighlighted: Boolean = false,
-)
-
-data class ContributionItem(
-    val segments: List<TextSegment>,
-)

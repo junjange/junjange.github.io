@@ -19,6 +19,6 @@ enum class Device {
             }
 
         private const val MOBILE_MAX_WIDTH_DP = 600
-        private const val DESKTOP_MIN_WIDTH_DP = 840
+        private const val DESKTOP_MIN_WIDTH_DP = 1200
     }
 }

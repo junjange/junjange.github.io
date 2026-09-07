@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -32,6 +33,7 @@ import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.Education
 import junjange.dev.ui.model.Etc
 import junjange.dev.ui.model.Experience
+import junjange.dev.ui.TWO_COLUMN_BLOCK_MAX_WIDTH
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
 import junjange_dev.composeapp.generated.resources.Res
@@ -51,7 +53,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             modifier
                 .fillMaxSize()
                 .padding(deviceState.contentPadding()),
-        horizontalAlignment = Alignment.Start,
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         Text(
@@ -65,6 +67,23 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(48.dp))
 
+        ExperienceBlock(isDesktop = isDesktop)
+    }
+}
+
+// 좌(기관) / 우(내용) 2단 블록. 여백 안에서 가운데로 모이도록 폭을 제한한다.
+@Composable
+private fun ExperienceBlock(
+    isDesktop: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier =
+            modifier
+                .widthIn(max = TWO_COLUMN_BLOCK_MAX_WIDTH.dp)
+                .fillMaxWidth(),
+        horizontalAlignment = Alignment.Start,
+    ) {
         Text(
             text = stringResource(Res.string.experience_education),
             color = MaterialTheme.colorScheme.onSecondaryContainer,
@@ -77,7 +96,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
 
         Education.entries.forEach { experience ->
             ExperienceItem(experience = experience, isDesktop = isDesktop)
-            Spacer(modifier = Modifier.height(36.dp))
+            Spacer(modifier = Modifier.height(EXPERIENCE_ITEM_GAP))
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -94,7 +113,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
 
         Community.entries.forEach { experience ->
             ExperienceItem(experience = experience, isDesktop = isDesktop)
-            Spacer(modifier = Modifier.height(36.dp))
+            Spacer(modifier = Modifier.height(EXPERIENCE_ITEM_GAP))
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -135,7 +154,7 @@ private fun ExperienceItem(
                 modifier = Modifier.width(EXPERIENCE_INFO_COLUMN_WIDTH),
             )
 
-            Spacer(modifier = Modifier.width(32.dp))
+            Spacer(modifier = Modifier.width(EXPERIENCE_COLUMN_GAP))
 
             ExperienceDescription(
                 description = stringResource(experience.descriptionRes),
@@ -297,4 +316,6 @@ private fun EtcText(
     Text(text = text, modifier = modifier)
 }
 
+private val EXPERIENCE_COLUMN_GAP = 192.dp
+private val EXPERIENCE_ITEM_GAP = 48.dp
 private val EXPERIENCE_INFO_COLUMN_WIDTH = 360.dp

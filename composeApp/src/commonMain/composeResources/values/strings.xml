@@ -14,12 +14,12 @@
     <string name="visit_blog">Blog 방문하기</string>
 
     <!--About me-->
-    <string name="about_me_title1">사용자 문제를 실제 지표로 연결합니다.</string>
-    <string name="about_me_description1">사용자 문제를 명확히 정의하고 끝까지 책임져 지표로 증명합니다. 패스오더 장바구니 유지 기능으로 이탈 유저의 결제 복귀를 이끌었고, 아버지의 불편에서 출발한 '행운복권'은 1,600명 이상이 쓰는 앱이 됐습니다.</string>
-    <string name="about_me_title2">증상이 아니라 근본 원인을 해결합니다.</string>
-    <string name="about_me_description2">증상을 덮는 대신 근본 원인을 추적합니다. 재현이 불규칙하던 결제 끊김 이슈를 로그·생명주기로 추적해 OS의 프로세스 강제 종료가 원인임을 규명했고, 재시도 대신 결제 상태를 복원하도록 설계해 결제 성공률을 90.3%에서 91.1%로 높이고 관련 문의를 사실상 0건으로 줄였습니다.</string>
-    <string name="about_me_title3">반복되는 문제는 팀의 자산으로 남깁니다.</string>
-    <string name="about_me_description3">개인의 노하우를 팀 전체가 쓰는 구조로 남깁니다. 자체 MVI 아키텍처와 AI 기반 테스트 자산화 워크플로우를 구축해, 한 사람에게 의존하지 않고 누구나 일관된 품질을 낼 수 있는 환경을 지향합니다.</string>
+    <string name="about_me_title1">근본 원인을 끝까지 추적합니다.</string>
+    <string name="about_me_description1">재현도 되지 않고 문제 시점의 로그조차 남지 않던 결제 끊김 이슈를 끝까지 추적해 해결했습니다. 원인을 모르면 문제가 반복될 것이라 판단하여 앱 생명주기를 역추적했고, 결제 진행 중 OS가 앱 프로세스를 회수하는 것이 원인임을 규명했습니다. 중복 결제 위험이 있는 단순 재시도 방식 대신, 결제 요청은 재전송하지 않고 진행 단계와 상태만 보존·복원하는 구조로 해결했습니다. 이를 통해 결제 성공률을 90.3%에서 91.1%로 끌어올렸습니다(남아 있던 결제 실패의 약 8% 감소). 이 경험을 바탕으로, 급한 장애를 대응할 때도 '증상을 임시 차단하는 일'과 '근본 원인을 규명하는 일'을 분리해 접근합니다.</string>
+    <string name="about_me_title2">AI 활용의 한계를 시스템으로 극복합니다.</string>
+    <string name="about_me_description2">AI에게 기능 구현과 테스트 작성을 동시에 맡겼을 때, 에이전트가 본인의 구현 코드에 맞춰 '절대 실패하지 않는 테스트'를 자가 생성하는 모순을 발견했습니다. 이를 해결하기 위해 테스트 작성 에이전트와 기능 구현 에이전트를 서로 다른 컨텍스트로 격리하고, 사람 간의 코드 리뷰어 시스템처럼 서로를 검증하는 Multi-Agent 워크플로우를 구축했습니다. 3번의 스프린트에 적용하며 검증 단계를 다듬었고, 현재는 파트 전체의 정식 개발 프로세스로 정착시켰습니다. AI를 코드 생성 도구로 쓰는 데 그치지 않고, 개발 속도가 올라가는 만큼 안전장치도 함께 만들어가고 있습니다.</string>
+    <string name="about_me_title3">함께 성장하는 환경을 만듭니다.</string>
+    <string name="about_me_description3">개인의 성장을 넘어 주변과 함께 성장하는 환경을 만들어 왔습니다. GDG on Campus의 운영진과 리드를 맡아 스터디와 해커톤을 기획·운영했고, 우아한테크코스와 네이버 부스트캠프를 거치며 페어 프로그래밍과 코드 리뷰로 제 코드를 설명하고 타인의 코드를 읽는 역량을 다졌습니다. 이러한 방식은 실무에서도 이어지고 있습니다. 복잡한 기능을 구현하기 전에는 요구사항과 아키텍처 설계를 문서로 정리해 팀과 사전에 논의하며 싱크를 맞춥니다. 업무에서 얻은 해결 경험은 사내 위키나 기술 블로그에 기록해 팀이 함께 볼 수 있게 남깁니다.</string>
 
     <!--Career-->
     <string name="android_developer">Android Developer</string>
@@ -28,23 +28,15 @@
     <string name="android_developer_freelance">Android Developer (Freelance)</string>
 
     <string name="career_paytalab">페이타랩</string>
-    <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 패스오더</string>
+    <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 &lt;패스오더&gt;</string>
     <string name="career_paytalab_period">2025.07 - 재직 중</string>
 
-    <string name="career_paytalab_project4_title">선물하기 Squad</string>
-    <string name="career_paytalab_project4_tech_stack">Android, Kotlin, Compose</string>
-    <string name="career_paytalab_project4_desc">선물하기 도메인 신규 기능 개발</string>
-
-    <string name="career_paytalab_project3_title">결제 시스템 Squad</string>
-    <string name="career_paytalab_project3_tech_stack">Android, Kotlin, Compose</string>
-    <string name="career_paytalab_project3_desc">결제 시스템 안정화·결제 범위 확장</string>
-
-    <string name="career_paytalab_project2_title">UX/UI 개선 Squad</string>
-    <string name="career_paytalab_project2_tech_stack">Android, Kotlin, Compose</string>
-    <string name="career_paytalab_project2_desc">주문 UX 개선·Compose 전환·디자인 시스템</string>
-
-    <string name="career_paytalab_project1_title">Android Part 공통</string>
-    <string name="career_paytalab_project1_desc">공통 아키텍처·개발 프로세스 주도</string>
+    <string name="career_paytalab_payment_title">결제 시스템 Squad</string>
+    <string name="career_paytalab_ux_title">UX/UI 개선 Squad</string>
+    <string name="career_paytalab_content_title">콘텐츠 Squad</string>
+    <string name="career_paytalab_gift_title">선물하기 Squad</string>
+    <string name="career_paytalab_boss_title">사장님 앱 (점주용 POS·주문 관리)</string>
+    <string name="career_paytalab_common_title">Android 파트 공통</string>
 
     <string name="career_lio">리오(Lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
@@ -52,15 +44,12 @@
 
     <string name="career_lio_project3_title">노년층 감정 분석 안드로이드 앱</string>
     <string name="career_lio_project3_period">2022.08 - 2022.10</string>
-    <string name="career_lio_project3_tech_stack">Android, Kotlin</string>
 
     <string name="career_lio_project2_title">농작물 직거래 하이브리드 앱</string>
     <string name="career_lio_project2_period">2022.06 - 2022.07</string>
-    <string name="career_lio_project2_tech_stack">Flutter, Dart</string>
 
     <string name="career_lio_project1_title">대량 자동 발신 전화 안드로이드 앱</string>
     <string name="career_lio_project1_period">2022.03 - 2022.04</string>
-    <string name="career_lio_project1_tech_stack">Android, Kotlin</string>
 
     <string name="career_matrios">매트리오즈(Matrios)</string>
     <string name="career_matrios_period">2021.07 - 2021.11</string>
@@ -68,7 +57,6 @@
 
     <string name="career_matrios_project1_title">온라인 수업 집중도 모니터링 안드로이드 앱</string>
     <string name="career_matrios_project1_period">2021.07 - 2021.11</string>
-    <string name="career_matrios_project1_tech_stack">Android, Java</string>
 
     <!--Experience-->
     <string name="experience">Experience</string>
@@ -78,12 +66,12 @@
 
     <string name="edu_woowacourse">우아한테크코스</string>
     <string name="edu_woowacourse_subtitle">우아한형제들 교육 프로그램</string>
-    <string name="edu_woowacourse_desc">- 도메인 객체 설계를 통해 추상적이던 비즈니스 로직을 구체화하고, 가독성과 유지보수성을 높였습니다.\n- 테스트 코드를 작성하며 기능 구현을 넘어, 예외 상황까지 검증하는 신뢰성 높은 개발 습관을 체득했습니다.\n- MVC → MVP → MVVM 아키텍처로 단계적 마이그레이션을 진행하며, 요구사항에 맞는 구조적 접근법을 익혔습니다.\n- DI 라이브러리를 직접 구현하며 복잡한 의존 관계를 체계적으로 관리하고, 유연한 코드 구조를 설계하는 경험을 쌓았습니다.\n- 'UI 이벤트 처리', 'inline function' 등 여러 주제로 기술 발표를 진행하며 학습한 내용을 정리하고 공유했습니다.</string>
+    <string name="edu_woowacourse_desc">- 객체지향 설계·테스트·아키텍처 진화를 다루는 안드로이드 심화 개발 교육 과정 이수\n- 도메인 객체를 분리하고 JUnit·AssertJ 기반 테스트로 비즈니스 로직을 명세화, 테스트를 먼저 쓰고 구현하는 방식(TDD)으로 진행\n- MVC → MVP → MVVM 단계적 마이그레이션을 경험하고, 리플렉션 기반 DI 라이브러리를 직접 구현하며 의존성 주입의 내부 동작 원리 체득\n- UI 이벤트 처리 체계, Kotlin inline function 등을 주제로 기술 발표</string>
     <string name="edu_woowacourse_period">2024.02 - 2024.11</string>
 
     <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
     <string name="edu_boost_camp_subtitle">네이버 교육 프로그램</string>
-    <string name="edu_boost_camp_desc">- 페어 프로그래밍과 코드 리뷰를 통해 함께 더 나은 해답을 찾는 협업 역량을 쌓았습니다.\n- 기능 구현보다 사용자 경험을 중요시하며, 실제 사용자의 문제를 예측하고 해결하는 개발 태도를 익혔습니다.\n- 외부 라이브러리를 무조건 도입하기보다, 기술 선택의 기준과 맥락을 명확히 이해하고 적용하는 경험을 쌓았습니다.\n- 메모리 누수 이슈를 해결하며 컴퓨터 공학 기초를 실무 코드에 적용하는 설계 역량을 키웠습니다.</string>
+    <string name="edu_boost_camp_desc">- 자기주도 학습과 협업 기반 프로젝트 개발 프로세스를 이수\n- 페어 프로그래밍과 상호 코드 리뷰를 수행하며 제3자가 읽기 쉬운 코드 작성과 기술적 의사결정 설득 역량 강화\n- 외부 라이브러리를 무조건 도입하기보다 트레이드오프를 분석해 기술 채택 기준 정립\n- Android Profiler로 미디어 플레이어와 뷰 생명주기 연동에서 발생한 메모리 누수를 규명·해결하며 CS 기초를 실무 코드에 적용</string>
     <string name="edu_boost_camp_period">2023.07 - 2023.12</string>
 
     <string name="community_dpm">디프만(Depromeet)</string>
@@ -97,15 +85,15 @@
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
 
-    <string name="etc_paytalab_blog">페이타랩 팀 블로그 글 작성 - '페이타랩에서 첫 단추를 꿰었다'</string>
+    <string name="etc_paytalab_blog">페이타랩 팀 블로그 작성 - '페이타랩에서 첫 단추를 꿰었다'</string>
     <string name="etc_paytalab_blog_period">2025.11</string>
     <string name="etc_droid_knights_2025">DroidKnights 2025 Contributor 페이지 기여</string>
     <string name="etc_droid_knights_2025_period">2025.06</string>
-    <string name="etc_kusitms">한국대학생IT경영학회 KUSITMS 밋업데이 심사위원</string>
+    <string name="etc_kusitms">KUSITMS 밋업데이 심사위원</string>
     <string name="etc_kusitms_period">2024.09 - 2024.12</string>
-    <string name="etc_gdsc_sch_x_skhy_hack">GDSC SCH X SKHU Hack 운영진</string>
-    <string name="etc_gdsc_sch_x_skhy_hack_period">2023.05</string>
-    <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영진</string>
+    <string name="etc_gdsc_sch_x_skhu_hack">GDSC SCH X SKHU Hack 운영</string>
+    <string name="etc_gdsc_sch_x_skhu_hack_period">2023.05</string>
+    <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영</string>
     <string name="etc_gdsc_kr_winter_cup_period">2023.01 - 2023.02</string>
     <string name="etc_devfest_campus_korea">Devfest Korea 2021 Flutter 릴레이 코딩 운영</string>
     <string name="etc_devfest_campus_korea_period">2021.11</string>

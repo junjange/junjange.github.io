@@ -10,19 +10,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.ParagraphStyle
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.TWO_COLUMN_BLOCK_MAX_WIDTH
 import junjange.dev.ui.component.CardImage
 import junjange.dev.ui.component.TimelineIndicator
 import junjange.dev.ui.model.Career
@@ -56,17 +57,24 @@ fun CareerSection(modifier: Modifier = Modifier) {
 
         val isDesktop = deviceState.value == Device.DESKTOP
 
-        Career.entries.forEachIndexed { index, career ->
-            if (isDesktop) {
-                CareerContentTwoColumn(
-                    career = career,
-                    isFirst = index == 0,
-                )
-            } else {
-                CareerContent(
-                    career = career,
-                    isFirst = index == 0,
-                )
+        Column(
+            modifier =
+                Modifier
+                    .widthIn(max = TWO_COLUMN_BLOCK_MAX_WIDTH.dp)
+                    .fillMaxWidth(),
+        ) {
+            Career.entries.forEachIndexed { index, career ->
+                if (isDesktop) {
+                    CareerContentTwoColumn(
+                        career = career,
+                        isFirst = index == 0,
+                    )
+                } else {
+                    CareerContent(
+                        career = career,
+                        isFirst = index == 0,
+                    )
+                }
             }
         }
     }
@@ -99,18 +107,20 @@ private fun CareerContentTwoColumn(
             modifier = Modifier.width(CAREER_INFO_COLUMN_WIDTH),
         )
 
-        Spacer(Modifier.width(32.dp))
+        Spacer(Modifier.width(CAREER_COLUMN_GAP))
 
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.Start,
         ) {
-            career.project.forEach { careerProject ->
+            career.project.forEachIndexed { index, careerProject ->
                 CareerProjectItem(careerProject = careerProject)
-                Spacer(Modifier.height(24.dp))
+                if (index != career.project.lastIndex) {
+                    Spacer(Modifier.height(CAREER_PROJECT_GAP))
+                }
             }
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(CAREER_ITEM_GAP))
         }
     }
 }
@@ -197,18 +207,19 @@ private fun CareerContent(
 
             Spacer(Modifier.height(24.dp))
 
-            career.project.forEach { careerProject ->
+            career.project.forEachIndexed { index, careerProject ->
                 CareerProjectItem(careerProject = careerProject)
-                Spacer(Modifier.height(24.dp))
+                if (index != career.project.lastIndex) {
+                    Spacer(Modifier.height(CAREER_PROJECT_GAP))
+                }
             }
-            Spacer(Modifier.height(24.dp))
+            Spacer(Modifier.height(CAREER_ITEM_GAP))
         }
     }
 }
 
 @Composable
 private fun CareerProjectItem(careerProject: CareerProject) {
-    val highlightColor = MaterialTheme.colorScheme.onPrimaryContainer
     val baseColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f)
 
     Text(
@@ -217,9 +228,9 @@ private fun CareerProjectItem(careerProject: CareerProject) {
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
     )
-    careerProject.periodRes?.let {
-         Text(
-            text = stringResource(careerProject.periodRes),
+    careerProject.periodRes?.let { periodRes ->
+        Text(
+            text = stringResource(periodRes),
             color = baseColor,
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
@@ -227,34 +238,25 @@ private fun CareerProjectItem(careerProject: CareerProject) {
     }
 
     careerProject.contributions.forEach { contribution ->
-        val segments = contribution.segments
-        if (segments.isEmpty()) return@forEach
-        val annotatedString = buildAnnotatedString {
-            withStyle(
-                style = ParagraphStyle(textIndent = TextIndent(restLine = 14.sp)),
-            ) {
-                append("• ")
-                segments.forEach { segment ->
-                    withStyle(
-                        style = SpanStyle(
-                            color = if (segment.isHighlighted) highlightColor else baseColor,
-                            fontWeight = if (segment.isHighlighted) FontWeight.Bold else FontWeight.Normal,
-                        )
-                    ) {
-                        append(segment.text)
-                    }
-                }
-            }
-        }
-
         Text(
-            text = annotatedString,
+            text =
+                buildAnnotatedString {
+                    withStyle(style = ParagraphStyle(textIndent = TextIndent(restLine = 14.sp))) {
+                        append("• ")
+                        append(contribution)
+                    }
+                },
+            color = baseColor,
+            fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
             lineHeight = 20.sp,
         )
     }
 }
 
+private val CAREER_COLUMN_GAP = 192.dp
+private val CAREER_PROJECT_GAP = 24.dp
+private val CAREER_ITEM_GAP = 96.dp
 private val CAREER_DOT_SIZE = 24.dp
 private val CAREER_LOGO_SIZE = 128.dp
 private val CAREER_INFO_COLUMN_WIDTH = 420.dp
