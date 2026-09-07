@@ -7,8 +7,8 @@ import junjange_dev.composeapp.generated.resources.etc_droid_knights_2025
 import junjange_dev.composeapp.generated.resources.etc_droid_knights_2025_period
 import junjange_dev.composeapp.generated.resources.etc_gdsc_kr_winter_cup
 import junjange_dev.composeapp.generated.resources.etc_gdsc_kr_winter_cup_period
-import junjange_dev.composeapp.generated.resources.etc_gdsc_sch_x_skhy_hack
-import junjange_dev.composeapp.generated.resources.etc_gdsc_sch_x_skhy_hack_period
+import junjange_dev.composeapp.generated.resources.etc_gdsc_sch_x_skhu_hack
+import junjange_dev.composeapp.generated.resources.etc_gdsc_sch_x_skhu_hack_period
 import junjange_dev.composeapp.generated.resources.etc_kusitms
 import junjange_dev.composeapp.generated.resources.etc_kusitms_period
 import junjange_dev.composeapp.generated.resources.etc_paytalab_blog
@@ -32,8 +32,8 @@ enum class Etc(
         periodRes = Res.string.etc_kusitms_period,
     ),
     GDSC_SCH_X_SKHU_HACK(
-        titleRes = Res.string.etc_gdsc_sch_x_skhy_hack,
-        periodRes = Res.string.etc_gdsc_sch_x_skhy_hack_period,
+        titleRes = Res.string.etc_gdsc_sch_x_skhu_hack,
+        periodRes = Res.string.etc_gdsc_sch_x_skhu_hack_period,
     ),
     GDSC_KR_WINTER_CUP(
         titleRes = Res.string.etc_gdsc_kr_winter_cup,
