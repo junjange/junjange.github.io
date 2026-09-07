@@ -33,14 +33,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.DESKTOP_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.DESKTOP_CONTENT_WIDTH
 import junjange.dev.ui.MOBILE_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.MOBILE_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.MOBILE_CONTENT_VERTICAL_PADDING
-import junjange.dev.ui.TABLET_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.TABLET_CONTENT_MIN_HEIGHT
-import junjange.dev.ui.TABLET_CONTENT_VERTICAL_PADDING
 import junjange.dev.ui.component.AnimatedArrow
 import junjange.dev.ui.component.HEADER_HEIGHT
 import junjange.dev.ui.component.LoadingScreen
@@ -195,8 +192,8 @@ private fun HomeTabletSection(
             modifier
                 .fillMaxSize()
                 .padding(
-                    vertical = TABLET_CONTENT_VERTICAL_PADDING.dp,
-                    horizontal = TABLET_CONTENT_HORIZONTAL_PADDING.dp,
+                    vertical = MOBILE_CONTENT_VERTICAL_PADDING.dp,
+                    horizontal = MOBILE_CONTENT_HORIZONTAL_PADDING.dp,
                 ),
     ) {
         Column(
@@ -259,26 +256,23 @@ private fun HomeDesktopSection(
                 Modifier
                     .width(screenSize.width.dp)
                     .height((maxOf(TABLET_CONTENT_MIN_HEIGHT, screenSize.height) - HEADER_HEIGHT).dp)
-                    .padding(horizontal = DESKTOP_CONTENT_HORIZONTAL_PADDING.dp),
+                    .padding(horizontal = 24.dp),
             ),
     ) {
-        // 여백을 뺀 남는 폭이 기준 폭보다 좁아지면 이미지·텍스트도 같은 비율로 줄여 겹침 정도를 유지한다.
-        val availableWidth = (screenSize.width - DESKTOP_CONTENT_HORIZONTAL_PADDING * 2).dp
-
         Image(
             painter = painterResource(Res.drawable.ic_home_graphic),
             contentDescription = null,
             contentScale = ContentScale.FillWidth,
             modifier =
                 Modifier
-                    .width(minOf(DESKTOP_CONTENT_WIDTH.dp / 2, availableWidth * HOME_IMAGE_WIDTH_RATIO))
+                    .width(DESKTOP_CONTENT_WIDTH.dp / 2)
                     .align(Alignment.CenterEnd),
         )
 
         Column(
             modifier =
                 Modifier
-                    .width(minOf(DESKTOP_CONTENT_WIDTH.dp / 1.5f, availableWidth * HOME_TEXT_WIDTH_RATIO))
+                    .width((DESKTOP_CONTENT_WIDTH.dp / 1.5f))
                     .align(Alignment.CenterStart),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -369,6 +363,3 @@ private fun BlogButton(modifier: Modifier = Modifier) {
         )
     }
 }
-
-private const val HOME_IMAGE_WIDTH_RATIO = 0.5f
-private const val HOME_TEXT_WIDTH_RATIO = 0.667f
