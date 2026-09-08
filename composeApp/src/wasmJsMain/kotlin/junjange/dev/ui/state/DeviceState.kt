@@ -33,9 +33,18 @@ fun rememberDeviceState(): DeviceState {
 @ReadOnlyComposable
 fun DeviceState.titleFontSize(): TextUnit =
     when (value) {
-        Device.DESKTOP -> 72.sp
+        Device.DESKTOP -> 64.sp
         Device.TABLET -> 48.sp
         else -> 36.sp
+    }
+
+@Composable
+@ReadOnlyComposable
+fun DeviceState.sectionTitleFontSize(): TextUnit =
+    when (value) {
+        Device.DESKTOP -> 40.sp
+        Device.TABLET -> 32.sp
+        else -> 28.sp
     }
 
 @Composable

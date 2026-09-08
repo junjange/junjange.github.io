@@ -5,27 +5,27 @@
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/c7bf7813-2512-4e9b-8637-0034597707e8" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/e6b0acb8-b1c8-400f-8544-382ee7f0f678" width="100%"/></td>
+    <td><img src="docs/screenshots/home-light.png" width="100%"/></td>
+    <td><img src="docs/screenshots/home-dark.png" width="100%"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/42c49515-e17e-48e3-b2d1-f70bc1204d29" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/8d68d66b-3421-4679-b211-6220ea3474f1" width="100%"/></td>
+    <td><img src="docs/screenshots/about-light.png" width="100%"/></td>
+    <td><img src="docs/screenshots/about-dark.png" width="100%"/></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/97bd9a33-db17-4460-809a-24a09d749509" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/24bcd258-3e6a-4e49-88a7-679daedf5226" width="100%"/></td>
+    <td><img src="docs/screenshots/career-light.png" width="100%"/></td>
+    <td><img src="docs/screenshots/career-dark.png" width="100%"/></td>
   </tr>
-    <tr>
-    <td><img src="https://github.com/user-attachments/assets/a3a8e432-993e-4fd5-b562-2f2ec8dd17b5" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/d8885bac-95e0-4ff9-9779-a05b6453b7dd" width="100%"/></td>
+  <tr>
+    <td><img src="docs/screenshots/project-light.png" width="100%"/></td>
+    <td><img src="docs/screenshots/project-dark.png" width="100%"/></td>
   </tr>
-    <tr>
-    <td><img src="https://github.com/user-attachments/assets/c6c17ed3-25e7-4e20-ba51-4c21a93446ae" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/a97c0dae-bbb3-4b58-a6fd-2489c863cfe1" width="100%"/></td>
+  <tr>
+    <td><img src="docs/screenshots/experience-light.png" width="100%"/></td>
+    <td><img src="docs/screenshots/experience-dark.png" width="100%"/></td>
   </tr>
-     <tr>
-    <td><img src="https://github.com/user-attachments/assets/dc6dfc7c-3b8e-4b57-aa40-b23903dde34e" width="100%"/></td>
-    <td><img src="https://github.com/user-attachments/assets/ff8b31e9-f14c-4b58-a18e-2923ee256a3e" width="100%"/></td>
+  <tr>
+    <td><img src="docs/screenshots/contact-light.png" width="100%"/></td>
+    <td><img src="docs/screenshots/contact-dark.png" width="100%"/></td>
   </tr>
 </table>

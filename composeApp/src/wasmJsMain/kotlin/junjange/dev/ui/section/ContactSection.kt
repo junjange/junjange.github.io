@@ -2,27 +2,27 @@ package junjange.dev.ui.section
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ButtonDefaults
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.component.SectionContainer
 import junjange.dev.ui.model.Contact
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.state.contentPadding
@@ -36,82 +36,61 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun ContactSection(modifier: Modifier = Modifier) {
     val deviceState = rememberDeviceState()
+    val horizontalPadding = deviceState.contentPadding().calculateStartPadding(LayoutDirection.Ltr)
 
-    Box(
-        modifier =
-            modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.secondaryContainer)
-                .padding(deviceState.contentPadding()),
-        contentAlignment = Alignment.Center,
+    SectionContainer(
+        modifier = modifier,
+        background = MaterialTheme.colorScheme.secondaryContainer,
+        contentPadding = PaddingValues(horizontal = horizontalPadding, vertical = FOOTER_VERTICAL_PADDING),
     ) {
         when (deviceState.value) {
-            Device.DESKTOP -> ContactDesktopContent()
-            Device.MOBILE, Device.TABLET -> ContactMobileContent()
+            Device.DESKTOP, Device.TABLET -> ContactWideContent()
+            Device.MOBILE -> ContactMobileContent()
             Device.UNKNOWN -> {}
         }
     }
 }
 
 @Composable
-private fun ContactDesktopContent(modifier: Modifier = Modifier) {
+private fun ContactWideContent(modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        Column(
-            horizontalAlignment = Alignment.Start,
-        ) {
-            Icon(
-                painter = painterResource(Res.drawable.ic_logo),
-                modifier = Modifier.height(28.dp),
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSecondaryContainer,
-            )
-            Text(
-                text = stringResource(Res.string.copyright),
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                fontSize = 14.sp,
-                textAlign = TextAlign.Center,
-            )
-        }
-
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Contact.entries.forEach {
-                ContactButton(it)
-            }
+        Brand()
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Contact.entries.forEach { ContactButton(it) }
         }
     }
 }
 
 @Composable
 private fun ContactMobileContent(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.Start,
-    ) {
+    Column(modifier = modifier.fillMaxWidth()) {
+        Brand()
+        Spacer(Modifier.height(20.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Contact.entries.forEach { ContactButton(it) }
+        }
+    }
+}
+
+@Composable
+private fun Brand() {
+    Column {
         Icon(
             painter = painterResource(Res.drawable.ic_logo),
-            modifier = Modifier.height(28.dp),
+            modifier = Modifier.height(24.dp),
             contentDescription = null,
             tint = MaterialTheme.colorScheme.onSecondaryContainer,
         )
+        Spacer(Modifier.height(10.dp))
         Text(
             text = stringResource(Res.string.copyright),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            fontSize = 14.sp,
-            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontSize = 13.sp,
         )
-
-        Spacer(Modifier.height(12.dp))
-
-        Row {
-            Contact.entries.forEach {
-                ContactButton(it)
-            }
-        }
     }
 }
 
@@ -122,19 +101,20 @@ private fun ContactButton(
 ) {
     val uriHandler = LocalUriHandler.current
 
-    TextButton(
+    IconButton(
         onClick = { uriHandler.openUri(contact.url) },
-        modifier = modifier,
-        colors =
-            ButtonDefaults.outlinedButtonColors(
-                containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-            ),
+        modifier =
+            modifier
+                .size(44.dp)
+                .background(MaterialTheme.colorScheme.outlineVariant, CircleShape),
     ) {
         Icon(
             painterResource(contact.iconRes),
             contentDescription = contact.name,
-            modifier = Modifier.size(36.dp),
+            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.size(20.dp),
         )
     }
 }
+
+private val FOOTER_VERTICAL_PADDING = 48.dp

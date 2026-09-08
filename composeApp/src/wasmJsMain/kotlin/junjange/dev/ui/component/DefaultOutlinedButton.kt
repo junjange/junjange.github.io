@@ -1,9 +1,10 @@
 package junjange.dev.ui.component
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,20 +18,22 @@ fun DefaultOutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    OutlinedButton(
+    Button(
         onClick = onClick,
         modifier = modifier,
+        shape = RoundedCornerShape(12.dp),
         colors =
-            ButtonDefaults.outlinedButtonColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
             ),
-        contentPadding = PaddingValues(vertical = 18.dp, horizontal = 48.dp),
+        elevation = null,
+        contentPadding = PaddingValues(vertical = 16.dp, horizontal = 28.dp),
     ) {
         Text(
             text = text,
             fontWeight = FontWeight.SemiBold,
-            fontSize = 18.sp,
+            fontSize = 16.sp,
         )
     }
 }

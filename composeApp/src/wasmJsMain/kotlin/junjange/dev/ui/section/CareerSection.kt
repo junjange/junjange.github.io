@@ -2,35 +2,32 @@ package junjange.dev.ui.section
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.ParagraphStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextIndent
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import junjange.dev.ui.TWO_COLUMN_BLOCK_MAX_WIDTH
 import junjange.dev.ui.component.CardImage
-import junjange.dev.ui.component.TimelineIndicator
+import junjange.dev.ui.component.Chip
+import junjange.dev.ui.component.SectionContainer
+import junjange.dev.ui.component.SectionHeader
 import junjange.dev.ui.model.Career
 import junjange.dev.ui.model.CareerProject
 import junjange.dev.ui.model.Device
-import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
+import junjange.dev.ui.theme.TITLE_LETTER_SPACING
+import junjange.dev.ui.theme.bodyLineHeight
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.section_career
 import org.jetbrains.compose.resources.stringResource
@@ -38,225 +35,165 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun CareerSection(modifier: Modifier = Modifier) {
     val deviceState = rememberDeviceState()
+    val isDesktop = deviceState.value == Device.DESKTOP
 
-    Column(
-        modifier =
-            modifier
-                .padding(deviceState.contentPadding()),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+    SectionContainer(modifier = modifier) {
+        SectionHeader(title = stringResource(Res.string.section_career))
+
+        Spacer(modifier = Modifier.height(if (isDesktop) 48.dp else 32.dp))
+
+        Career.entries.forEachIndexed { index, career ->
+            if (isDesktop) {
+                CareerRow(career = career)
+            } else {
+                CareerColumn(career = career)
+            }
+            if (index != Career.entries.lastIndex) {
+                Spacer(modifier = Modifier.height(if (isDesktop) ITEM_GAP else 64.dp))
+            }
+        }
+    }
+}
+
+@Composable
+private fun CareerRow(
+    career: Career,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.Top,
     ) {
+        Column(modifier = Modifier.width(HEADLINE_COLUMN_WIDTH)) {
+            CareerLogo(career = career)
+            Spacer(modifier = Modifier.height(20.dp))
+            CareerTitle(career = career)
+        }
+
+        Spacer(modifier = Modifier.width(HEADLINE_COLUMN_GAP))
+
+        Column(modifier = Modifier.weight(1f)) {
+            CareerChips(career = career)
+            Spacer(modifier = Modifier.height(24.dp))
+            CareerProjects(career = career)
+        }
+    }
+}
+
+@Composable
+private fun CareerColumn(
+    career: Career,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier.fillMaxWidth()) {
+        CareerLogo(career = career)
+        Spacer(modifier = Modifier.height(20.dp))
+        CareerChips(career = career)
+        Spacer(modifier = Modifier.height(14.dp))
+        CareerTitle(career = career)
+        Spacer(modifier = Modifier.height(28.dp))
+        CareerProjects(career = career)
+    }
+}
+
+@Composable
+private fun CareerLogo(career: Career) {
+    CardImage(
+        logo = career.logoRes,
+        size = LOGO_SIZE,
+        cornerRadius = 20.dp,
+        contentPadding = PaddingValues(0.dp),
+    )
+}
+
+@Composable
+private fun CareerTitle(
+    career: Career,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier) {
         Text(
-            stringResource(Res.string.section_career),
+            text = stringResource(career.nameRes),
             color = MaterialTheme.colorScheme.onPrimaryContainer,
-            fontWeight = FontWeight.ExtraBold,
-            fontSize = 36.sp,
+            fontWeight = FontWeight.Bold,
+            fontSize = 24.sp,
+            lineHeight = 32.sp,
+            letterSpacing = TITLE_LETTER_SPACING,
         )
-
-        Spacer(modifier = Modifier.height(48.dp))
-
-        val isDesktop = deviceState.value == Device.DESKTOP
-
-        Column(
-            modifier =
-                Modifier
-                    .widthIn(max = TWO_COLUMN_BLOCK_MAX_WIDTH.dp)
-                    .fillMaxWidth(),
-        ) {
-            Career.entries.forEachIndexed { index, career ->
-                if (isDesktop) {
-                    CareerContentTwoColumn(
-                        career = career,
-                        isFirst = index == 0,
-                    )
-                } else {
-                    CareerContent(
-                        career = career,
-                        isFirst = index == 0,
-                    )
-                }
-            }
-        }
+        Spacer(modifier = Modifier.height(6.dp))
+        Text(
+            text = stringResource(career.introRes),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontSize = 16.sp,
+            lineHeight = 16.sp.bodyLineHeight(),
+        )
     }
 }
 
-// 데스크탑: 타임라인 + 좌(회사 정보) / 우(프로젝트 상세) 2단 레이아웃
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun CareerContentTwoColumn(
-    career: Career,
-    isFirst: Boolean,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        modifier =
-            modifier
-                .fillMaxWidth()
-                .height(IntrinsicSize.Min),
-        verticalAlignment = Alignment.Top,
+private fun CareerChips(career: Career) {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        TimelineIndicator(
-            isFirst = isFirst,
-            frontHeight = ((CAREER_LOGO_SIZE - CAREER_DOT_SIZE) / 2) - 8.dp,
-            dotSize = CAREER_DOT_SIZE,
-        )
-
-        Spacer(Modifier.width(24.dp))
-
-        CareerInfo(
-            career = career,
-            modifier = Modifier.width(CAREER_INFO_COLUMN_WIDTH),
-        )
-
-        Spacer(Modifier.width(CAREER_COLUMN_GAP))
-
-        Column(
-            modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start,
-        ) {
-            career.project.forEachIndexed { index, careerProject ->
-                CareerProjectItem(careerProject = careerProject)
-                if (index != career.project.lastIndex) {
-                    Spacer(Modifier.height(CAREER_PROJECT_GAP))
-                }
-            }
-            Spacer(Modifier.height(CAREER_ITEM_GAP))
-        }
+        Chip(text = stringResource(career.teamRes), accent = true)
+        Chip(text = stringResource(career.periodRes))
     }
 }
 
-// 회사 로고 + 이름/소개/직책/기간
 @Composable
-private fun CareerInfo(
+private fun CareerProjects(
     career: Career,
     modifier: Modifier = Modifier,
 ) {
-    Row(
+    Column(
         modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically,
+        verticalArrangement = Arrangement.spacedBy(24.dp),
     ) {
-        CardImage(
-            logo = career.logoRes,
-            size = CAREER_LOGO_SIZE,
-            cornerRadius = 32.dp,
-            elevation = 24.dp,
-            contentPadding = PaddingValues(12.dp),
-        )
-
-        Spacer(Modifier.width(24.dp))
-
-        Column(
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start,
-        ) {
-            Text(
-                text = stringResource(career.nameRes),
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-            )
-            Text(
-                text = stringResource(career.introRes),
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-                fontWeight = FontWeight.Medium,
-                fontSize = 14.sp,
-            )
-            Text(
-                text = stringResource(career.teamRes),
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-                fontWeight = FontWeight.Medium,
-                fontSize = 14.sp,
-            )
-            Text(
-                text = stringResource(career.periodRes),
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f),
-                fontWeight = FontWeight.Medium,
-                fontSize = 14.sp,
-            )
-        }
-    }
-}
-
-// 모바일/태블릿: 기존 타임라인 + 세로 나열
-@Composable
-private fun CareerContent(
-    career: Career,
-    isFirst: Boolean,
-    modifier: Modifier = Modifier,
-) {
-    Row(
-        modifier =
-            modifier
-                .fillMaxWidth()
-                .height(IntrinsicSize.Min),
-        verticalAlignment = Alignment.Top,
-    ) {
-        TimelineIndicator(
-            isFirst = isFirst,
-            frontHeight = ((CAREER_LOGO_SIZE - CAREER_DOT_SIZE) / 2) - 8.dp,
-            dotSize = CAREER_DOT_SIZE,
-        )
-
-        Spacer(Modifier.width(24.dp))
-
-        Column(
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.Start,
-        ) {
-            CareerInfo(career = career)
-
-            Spacer(Modifier.height(24.dp))
-
-            career.project.forEachIndexed { index, careerProject ->
-                CareerProjectItem(careerProject = careerProject)
-                if (index != career.project.lastIndex) {
-                    Spacer(Modifier.height(CAREER_PROJECT_GAP))
-                }
-            }
-            Spacer(Modifier.height(CAREER_ITEM_GAP))
+        career.project.forEach { careerProject ->
+            CareerProjectItem(careerProject = careerProject)
         }
     }
 }
 
 @Composable
 private fun CareerProjectItem(careerProject: CareerProject) {
-    val baseColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(0.8f)
+    val secondary = MaterialTheme.colorScheme.onSurfaceVariant
 
-    Text(
-        text = stringResource(careerProject.titleRes),
-        color = MaterialTheme.colorScheme.onPrimaryContainer,
-        fontWeight = FontWeight.Bold,
-        fontSize = 16.sp,
-    )
-    careerProject.periodRes?.let { periodRes ->
+    Column {
         Text(
-            text = stringResource(periodRes),
-            color = baseColor,
-            fontWeight = FontWeight.Normal,
-            fontSize = 14.sp,
+            text = stringResource(careerProject.titleRes),
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 17.sp,
+            lineHeight = 26.sp,
         )
-    }
+        careerProject.periodRes?.let { periodRes ->
+            Text(
+                text = stringResource(periodRes),
+                color = secondary.copy(alpha = 0.7f),
+                fontSize = 13.sp,
+                lineHeight = 20.sp,
+            )
+        }
 
-    careerProject.contributions.forEach { contribution ->
-        Text(
-            text =
-                buildAnnotatedString {
-                    withStyle(style = ParagraphStyle(textIndent = TextIndent(restLine = 14.sp))) {
-                        append("• ")
-                        append(contribution)
-                    }
-                },
-            color = baseColor,
-            fontWeight = FontWeight.Normal,
-            fontSize = 14.sp,
-            lineHeight = 20.sp,
-        )
+        Spacer(modifier = Modifier.height(6.dp))
+
+        Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            careerProject.contributions.forEach { contribution ->
+                Text(
+                    text = contribution,
+                    color = secondary,
+                    fontSize = 15.sp,
+                    lineHeight = 15.sp.bodyLineHeight(),
+                )
+            }
+        }
     }
 }
 
-private val CAREER_COLUMN_GAP = 192.dp
-private val CAREER_PROJECT_GAP = 24.dp
-private val CAREER_ITEM_GAP = 96.dp
-private val CAREER_DOT_SIZE = 24.dp
-private val CAREER_LOGO_SIZE = 128.dp
-private val CAREER_INFO_COLUMN_WIDTH = 420.dp
+private val ITEM_GAP = 96.dp
+private val HEADLINE_COLUMN_WIDTH = 360.dp
+private val HEADLINE_COLUMN_GAP = 64.dp
+private val LOGO_SIZE = 72.dp

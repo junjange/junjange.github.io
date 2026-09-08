@@ -4,6 +4,9 @@ import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.em
+import androidx.compose.ui.unit.sp
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.pretendard_black
 import junjange_dev.composeapp.generated.resources.pretendard_bold
@@ -52,3 +55,9 @@ fun PretendardTypography() =
             labelSmall = labelSmall.copy(fontFamily = fontFamily),
         )
     }
+
+val TITLE_LETTER_SPACING = (-0.02).em
+
+private const val BODY_LINE_HEIGHT_RATIO = 1.6f
+
+fun TextUnit.bodyLineHeight(): TextUnit = (value * BODY_LINE_HEIGHT_RATIO).sp

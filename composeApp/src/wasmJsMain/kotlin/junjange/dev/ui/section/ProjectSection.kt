@@ -20,7 +20,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,18 +30,25 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.component.DefaultOutlinedButton
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
+import junjange.dev.ui.CONTENT_MAX_WIDTH
+import junjange.dev.ui.component.SectionContainer
+import junjange.dev.ui.component.SectionHeader
+import junjange.dev.ui.component.hoverLift
+import junjange.dev.ui.theme.TITLE_LETTER_SPACING
+import junjange.dev.ui.theme.bodyLineHeight
+import kotlin.math.min
 import junjange.dev.ui.component.ProjectDialog
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.LocalScreenSize
@@ -52,11 +58,11 @@ import junjange.dev.ui.model.asDp
 import junjange.dev.ui.state.DeviceState
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
-import junjange.dev.ui.theme.DarkGray
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.from_junjange
 import junjange_dev.composeapp.generated.resources.project
 import junjange_dev.composeapp.generated.resources.project_collapse
+import junjange_dev.composeapp.generated.resources.project_detail
 import junjange_dev.composeapp.generated.resources.project_more
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -82,35 +88,13 @@ fun ProjectSection(
             deviceState = deviceState,
         )
 
-    Column(
-        modifier =
-            modifier
-                .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.secondaryContainer)
-                .padding(deviceState.contentPadding()),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text(
-            text = stringResource(Res.string.project),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            fontWeight = FontWeight.Bold,
-            fontSize = 36.sp,
-            textAlign = TextAlign.Center,
-            lineHeight = 42.sp,
+    SectionContainer(modifier = modifier) {
+        SectionHeader(
+            title = stringResource(Res.string.project),
+            description = stringResource(Res.string.from_junjange),
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.from_junjange),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
-            textAlign = TextAlign.Center,
-        )
-
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(if (deviceState.value == Device.DESKTOP) 48.dp else 32.dp))
 
         Box(
             Modifier
@@ -149,9 +133,10 @@ fun ProjectSection(
         }
 
         if (count >= Project.entries.size) {
+            Spacer(modifier = Modifier.height(24.dp))
             DefaultOutlinedButton(
                 text = stringResource(Res.string.project_collapse),
-                modifier = modifier,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
                 onClick = {
                     count = INIT_PROJECT_COUNT
                     onSectionClicked(Section.Project)
@@ -165,57 +150,69 @@ fun ProjectSection(
 private fun ProjectCard(
     project: Project,
     modifier: Modifier = Modifier,
-    cornerRadius: Dp = 24.dp,
     onClick: () -> Unit,
 ) {
-    Surface(
-        shape = RoundedCornerShape(cornerRadius),
-        color = MaterialTheme.colorScheme.primaryContainer,
+    val interactionSource = remember { MutableInteractionSource() }
+
+    Column(
         modifier =
             modifier.then(
                 Modifier
-                    .aspectRatio(1f)
-                    .shadow(
-                        elevation = 12.dp,
-                        shape = RoundedCornerShape(cornerRadius),
-                        clip = false,
-                        ambientColor = DarkGray.copy(0.01f),
-                        spotColor = DarkGray.copy(0.01f),
-                    ).clip(RoundedCornerShape(cornerRadius))
-                    .clickable { onClick() },
+                    .aspectRatio(CARD_ASPECT_RATIO)
+                    .hoverLift()
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(MaterialTheme.colorScheme.secondaryContainer)
+                    .pointerHoverIcon(PointerIcon.Hand)
+                    .clickable(interactionSource = interactionSource, indication = null, onClick = onClick)
+                    .padding(16.dp),
             ),
     ) {
+        Image(
+            modifier =
+                Modifier
+                    .weight(IMAGE_WEIGHT)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(16.dp)),
+            painter = painterResource(project.graphicRes),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+        )
+
         Column(
             modifier =
                 Modifier
-                    .fillMaxSize(),
+                    .weight(TEXT_WEIGHT)
+                    .padding(horizontal = 8.dp, vertical = 16.dp),
         ) {
-            Image(
-                modifier = Modifier.weight(IMAGE_WEIGHT),
-                painter = painterResource(project.graphicRes),
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
+            Text(
+                text = stringResource(project.titleRes),
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp,
+                letterSpacing = TITLE_LETTER_SPACING,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
-
-            Column(
-                modifier =
-                    Modifier
-                        .weight(TEXT_WEIGHT)
-                        .padding(16.dp),
-            ) {
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = stringResource(project.subtitleRes),
+                fontSize = 15.sp,
+                lineHeight = 15.sp.bodyLineHeight(),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis,
+            )
+            run {
+                Spacer(modifier = Modifier.weight(1f))
                 Text(
-                    text = stringResource(project.titleRes),
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = stringResource(project.subtitleRes),
-                    fontSize = 14.sp,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    text = stringResource(Res.string.project_detail),
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier =
+                        Modifier
+                            .background(MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(999.dp))
+                            .padding(horizontal = 12.dp, vertical = 6.dp),
                 )
             }
         }
@@ -238,8 +235,8 @@ private fun BoxScope.ProjectMoreButton(
                             colors =
                                 listOf(
                                     Color.Transparent,
-                                    MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.8f),
-                                    MaterialTheme.colorScheme.secondaryContainer,
+                                    MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.85f),
+                                    MaterialTheme.colorScheme.primaryContainer,
                                 ),
                         ),
                 ).clickable(enabled = false, onClick = {}),
@@ -264,10 +261,11 @@ private fun calculateProjectGridDimensions(
     val horizontalPadding =
         deviceState.contentPadding().calculateStartPadding(LayoutDirection.Ltr) +
             deviceState.contentPadding().calculateEndPadding(LayoutDirection.Ltr)
+    val contentWidth = min(screenWidth - horizontalPadding.value, CONTENT_MAX_WIDTH.toFloat())
 
     val rowCount = ceil(displayedProjectsSize / columnCount.toFloat()).toInt()
-    val projectHeight =
-        (screenWidth - horizontalPadding.value - ((columnCount - 1) * PROJECT_CARD_SPACED_BY_PADDING)) / columnCount
+    val projectWidth = (contentWidth - ((columnCount - 1) * PROJECT_CARD_SPACED_BY_PADDING)) / columnCount
+    val projectHeight = projectWidth / CARD_ASPECT_RATIO
     val totalHeight = (projectHeight + PROJECT_CARD_SPACED_BY_PADDING) * rowCount
 
     return Pair(projectHeight, totalHeight)
@@ -276,16 +274,19 @@ private fun calculateProjectGridDimensions(
 private fun getProjectColumnCount(device: Device): Int =
     when (device) {
         Device.DESKTOP -> 3
-        else -> 2
+        Device.TABLET -> 2
+        else -> 1
     }
 
 private fun getProjectCountIncrement(device: Device): Int =
     when (device) {
         Device.DESKTOP -> 3
-        else -> 4
+        Device.TABLET -> 4
+        else -> 3
     }
 
 private const val INIT_PROJECT_COUNT = 6
-private const val IMAGE_WEIGHT = 6f
-private const val TEXT_WEIGHT = 4f
-private const val PROJECT_CARD_SPACED_BY_PADDING = 32
+private const val IMAGE_WEIGHT = 5.4f
+private const val TEXT_WEIGHT = 4.6f
+private const val PROJECT_CARD_SPACED_BY_PADDING = 24
+private const val CARD_ASPECT_RATIO = 0.8f
