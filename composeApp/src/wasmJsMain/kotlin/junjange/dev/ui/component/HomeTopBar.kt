@@ -1,14 +1,18 @@
 package junjange.dev.ui.component
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -19,8 +23,11 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import junjange.dev.ui.CONTENT_MAX_WIDTH
+import junjange.dev.ui.DESKTOP_CONTENT_HORIZONTAL_PADDING
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.LocalThemeMode
 import junjange.dev.ui.model.Section
@@ -68,34 +75,37 @@ fun MobileTopBar(
 ) {
     val themeMode = LocalThemeMode.current
 
-    TopAppBar(
-        title = {
-            LogoImage(onClick = onTitleClick)
-        },
-        actions = {
-            IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
-                Icon(
-                    painter = painterResource(themeMode.iconRes),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.size(24.dp),
-                )
-            }
-            IconButton(onClick = onMenuClick) {
-                Icon(
-                    imageVector = Icons.Default.Menu,
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    contentDescription = null,
-                )
-            }
-        },
-        colors =
-            TopAppBarDefaults.topAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-            ),
-        modifier = modifier.padding(end = 8.dp),
-        expandedHeight = HEADER_HEIGHT.dp,
-    )
+    Column(modifier = modifier) {
+        TopAppBar(
+            title = {
+                LogoImage(onClick = onTitleClick)
+            },
+            actions = {
+                IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
+                    Icon(
+                        painter = painterResource(themeMode.iconRes),
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                        modifier = Modifier.size(24.dp),
+                    )
+                }
+                IconButton(onClick = onMenuClick) {
+                    Icon(
+                        imageVector = Icons.Default.Menu,
+                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                        contentDescription = null,
+                    )
+                }
+            },
+            colors =
+                TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                ),
+            modifier = Modifier.padding(end = 8.dp),
+            expandedHeight = HEADER_HEIGHT.dp,
+        )
+        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+    }
 }
 
 @Composable
@@ -106,37 +116,49 @@ fun DesktopTopBar(
 ) {
     val themeMode = LocalThemeMode.current
 
-    Row(
+    Box(
         modifier =
             modifier
                 .fillMaxWidth()
-                .height(HEADER_HEIGHT.dp)
-                .padding(horizontal = 24.dp, vertical = 12.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
+                .height(HEADER_HEIGHT.dp),
+        contentAlignment = Alignment.Center,
     ) {
-        LogoImage(onClick = { onSectionClicked(Section.Home) })
+        HorizontalDivider(
+            modifier = Modifier.align(Alignment.BottomCenter),
+            color = MaterialTheme.colorScheme.outlineVariant,
+        )
         Row(
-            horizontalArrangement = Arrangement.spacedBy(24.dp),
+            modifier =
+                Modifier
+                    .padding(horizontal = DESKTOP_CONTENT_HORIZONTAL_PADDING.dp, vertical = 12.dp)
+                    .widthIn(max = CONTENT_MAX_WIDTH.dp)
+                    .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
-            Section.entries.forEach {
-                TextButton(
-                    onClick = { onSectionClicked(it) },
-                ) {
-                    Text(
-                        text = stringResource(it.title),
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        fontSize = 16.sp,
+            LogoImage(onClick = { onSectionClicked(Section.Home) })
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(20.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Section.entries.forEach {
+                    TextButton(onClick = { onSectionClicked(it) }) {
+                        Text(
+                            text = stringResource(it.title),
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            fontWeight = FontWeight.Medium,
+                            fontSize = 15.sp,
+                        )
+                    }
+                }
+                IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
+                    Icon(
+                        painter = painterResource(themeMode.iconRes),
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                        modifier = Modifier.size(24.dp),
                     )
                 }
-            }
-            IconButton(onClick = { onThemeChanged(themeMode.toggle()) }) {
-                Icon(
-                    painter = painterResource(themeMode.iconRes),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.size(24.dp),
-                )
             }
         }
     }
