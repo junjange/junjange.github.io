@@ -102,7 +102,7 @@ private fun CareerLogo(career: Career) {
         logo = career.logoRes,
         size = LOGO_SIZE,
         cornerRadius = 20.dp,
-        contentPadding = PaddingValues(6.dp),
+        contentPadding = PaddingValues(0.dp),
     )
 }
 
