@@ -103,6 +103,7 @@
     <string name="from_junjange">from JunJangE</string>
 
     <string name="project_more">프로젝트 더보기</string>
+    <string name="project_detail">자세히 보기</string>
     <string name="project_collapse">프로젝트 접기</string>
 
     <string name="project_link_letter">링크레터</string>
@@ -238,7 +239,7 @@
     <string name="contributions">주요 기여</string>
 
     <!--Contact Section-->
-    <string name="copyright">Copyright (c) 2025 JunJangE.All Rights Reserved</string>
+    <string name="copyright">Copyright (c) 2025 JunJangE. All Rights Reserved</string>
 
 
 </resources>

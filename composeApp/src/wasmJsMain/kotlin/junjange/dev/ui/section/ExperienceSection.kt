@@ -3,39 +3,36 @@ package junjange.dev.ui.section
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.text.ParagraphStyle
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.style.TextIndent
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.component.CardImage
+import junjange.dev.ui.component.Chip
+import junjange.dev.ui.component.SectionContainer
+import junjange.dev.ui.component.SectionHeader
 import junjange.dev.ui.model.Community
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.Education
 import junjange.dev.ui.model.Etc
 import junjange.dev.ui.model.Experience
-import junjange.dev.ui.TWO_COLUMN_BLOCK_MAX_WIDTH
-import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
+import junjange.dev.ui.theme.TITLE_LETTER_SPACING
+import junjange.dev.ui.theme.bodyLineHeight
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.experience
 import junjange_dev.composeapp.generated.resources.experience_community
@@ -48,274 +45,249 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
     val deviceState = rememberDeviceState()
     val isDesktop = deviceState.value == Device.DESKTOP
 
-    Column(
-        modifier =
-            modifier
-                .fillMaxSize()
-                .padding(deviceState.contentPadding()),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        Text(
-            modifier = Modifier.fillMaxWidth(),
-            text = stringResource(Res.string.experience),
-            color = MaterialTheme.colorScheme.onPrimaryContainer,
-            fontWeight = FontWeight.ExtraBold,
-            fontSize = 36.sp,
-            textAlign = TextAlign.Center,
+    SectionContainer(modifier = modifier) {
+        SectionHeader(title = stringResource(Res.string.experience))
+
+        Spacer(modifier = Modifier.height(if (isDesktop) 48.dp else 32.dp))
+
+        ExperienceGroup(
+            title = stringResource(Res.string.experience_education),
+            items = Education.entries,
+            isDesktop = isDesktop,
         )
 
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(GROUP_GAP))
 
-        ExperienceBlock(isDesktop = isDesktop)
+        ExperienceGroup(
+            title = stringResource(Res.string.experience_community),
+            items = Community.entries,
+            isDesktop = isDesktop,
+        )
+
+        Spacer(modifier = Modifier.height(GROUP_GAP))
+
+        GroupTitle(text = stringResource(Res.string.experience_etc))
+        Spacer(modifier = Modifier.height(12.dp))
+        Etc.entries.forEach { etc ->
+            HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+            EtcRow(etc = etc)
+        }
+        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
     }
 }
 
-// 좌(기관) / 우(내용) 2단 블록. 여백 안에서 가운데로 모이도록 폭을 제한한다.
 @Composable
-private fun ExperienceBlock(
+private fun ExperienceGroup(
+    title: String,
+    items: List<Experience>,
     isDesktop: Boolean,
+) {
+    GroupTitle(text = title)
+    Spacer(modifier = Modifier.height(if (isDesktop) 40.dp else 28.dp))
+    items.forEachIndexed { index, experience ->
+        if (isDesktop) {
+            ExperienceRow(experience = experience)
+        } else {
+            ExperienceColumn(experience = experience)
+        }
+        if (index != items.lastIndex) {
+            Spacer(modifier = Modifier.height(if (isDesktop) ITEM_GAP else 56.dp))
+        }
+    }
+}
+
+@Composable
+private fun GroupTitle(
+    text: String,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier =
-            modifier
-                .widthIn(max = TWO_COLUMN_BLOCK_MAX_WIDTH.dp)
-                .fillMaxWidth(),
-        horizontalAlignment = Alignment.Start,
+    Text(
+        modifier = modifier,
+        text = text,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 15.sp,
+        letterSpacing = 0.sp,
+    )
+}
+
+@Composable
+private fun ExperienceRow(
+    experience: Experience,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.Top,
     ) {
-        Text(
-            text = stringResource(Res.string.experience_education),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            fontWeight = FontWeight.Bold,
-            fontSize = 24.sp,
-            textAlign = TextAlign.Center,
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Education.entries.forEach { experience ->
-            ExperienceItem(experience = experience, isDesktop = isDesktop)
-            Spacer(modifier = Modifier.height(EXPERIENCE_ITEM_GAP))
+        Column(modifier = Modifier.width(HEADLINE_COLUMN_WIDTH)) {
+            ExperienceLogo(experience = experience)
+            Spacer(modifier = Modifier.height(20.dp))
+            ExperienceTitle(experience = experience)
         }
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.width(HEADLINE_COLUMN_GAP))
 
-        Text(
-            text = stringResource(Res.string.experience_community),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            fontWeight = FontWeight.Bold,
-            fontSize = 24.sp,
-            textAlign = TextAlign.Center,
-        )
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        Community.entries.forEach { experience ->
-            ExperienceItem(experience = experience, isDesktop = isDesktop)
-            Spacer(modifier = Modifier.height(EXPERIENCE_ITEM_GAP))
+        Column(modifier = Modifier.weight(1f)) {
+            ExperienceChips(experience = experience)
+            Spacer(modifier = Modifier.height(24.dp))
+            ExperienceDescription(description = stringResource(experience.descriptionRes))
         }
+    }
+}
 
-        Spacer(modifier = Modifier.height(12.dp))
+@Composable
+private fun ExperienceColumn(
+    experience: Experience,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier.fillMaxWidth()) {
+        ExperienceLogo(experience = experience)
+        Spacer(modifier = Modifier.height(20.dp))
+        ExperienceChips(experience = experience)
+        Spacer(modifier = Modifier.height(14.dp))
+        ExperienceTitle(experience = experience)
+        Spacer(modifier = Modifier.height(24.dp))
+        ExperienceDescription(description = stringResource(experience.descriptionRes))
+    }
+}
 
+@Composable
+private fun ExperienceLogo(experience: Experience) {
+    CardImage(
+        logo = experience.logoRes,
+        size = LOGO_SIZE,
+        cornerRadius = 20.dp,
+    )
+}
+
+@Composable
+private fun ExperienceTitle(
+    experience: Experience,
+    modifier: Modifier = Modifier,
+) {
+    val uriHandler = LocalUriHandler.current
+
+    Column(modifier = modifier) {
         Text(
-            text = stringResource(Res.string.experience_etc),
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
+            text = stringResource(experience.titleRes),
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
             fontWeight = FontWeight.Bold,
             fontSize = 24.sp,
-            textAlign = TextAlign.Center,
+            lineHeight = 32.sp,
+            letterSpacing = TITLE_LETTER_SPACING,
+        )
+        Spacer(modifier = Modifier.height(6.dp))
+        Text(
+            text = stringResource(experience.subtitleRes),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontSize = 16.sp,
+            lineHeight = 16.sp.bodyLineHeight(),
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
-
-        Column {
-            Etc.entries.forEach { mentor ->
-                EtcText(mentor)
-                Spacer(Modifier.height(4.dp))
+        if (experience.links.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(14.dp))
+            Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
+                experience.links.forEach { (label, url) ->
+                    Text(
+                        text = stringResource(label),
+                        color = MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.SemiBold,
+                        fontSize = 14.sp,
+                        modifier = Modifier.clickable { uriHandler.openUri(url) },
+                    )
+                }
             }
         }
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun ExperienceItem(
-    experience: Experience,
-    isDesktop: Boolean,
-    modifier: Modifier = Modifier,
-) {
-    if (isDesktop) {
-        // 데스크탑: 좌(기관 정보) / 우(설명) 2단
-        Row(
-            modifier = modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.Top,
-        ) {
-            ExperienceHeader(
-                experience = experience,
-                modifier = Modifier.width(EXPERIENCE_INFO_COLUMN_WIDTH),
-            )
-
-            Spacer(modifier = Modifier.width(EXPERIENCE_COLUMN_GAP))
-
-            ExperienceDescription(
-                description = stringResource(experience.descriptionRes),
-                modifier = Modifier.weight(1f),
-            )
-        }
-    } else {
-        // 모바일/태블릿: 기존 1단
-        Column(modifier = modifier) {
-            ExperienceHeader(experience = experience)
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            ExperienceDescription(
-                description = stringResource(experience.descriptionRes),
-            )
-        }
+private fun ExperienceChips(experience: Experience) {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        Chip(text = stringResource(experience.periodRes), accent = true)
     }
 }
 
-// "- a\n- b" 형식 설명을 • bullet + 행잉 인덴트로 렌더링
 @Composable
 private fun ExperienceDescription(
     description: String,
     modifier: Modifier = Modifier,
 ) {
-    val baseColor = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f)
     val lines =
         description
             .split("\n")
             .map { it.trim().removePrefix("-").trim() }
             .filter { it.isNotEmpty() }
 
-    val annotated =
-        buildAnnotatedString {
-            lines.forEachIndexed { index, line ->
-                withStyle(
-                    style = ParagraphStyle(textIndent = TextIndent(restLine = 14.sp)),
-                ) {
-                    append("• ")
-                    append(line)
-                }
-            }
-        }
-
-    Text(
+    Column(
         modifier = modifier,
-        text = annotated,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-        color = baseColor,
-    )
-}
-
-// 기관 로고 + 제목/부제/기간/링크
-@Composable
-private fun ExperienceHeader(
-    experience: Experience,
-    modifier: Modifier = Modifier,
-) {
-    val uriHandler = LocalUriHandler.current
-
-    Row(modifier = modifier) {
-        CardImage(
-            logo = experience.logoRes,
-            size = 92.dp,
-        )
-
-        Spacer(modifier = Modifier.width(12.dp))
-
-        Column(
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Text(
-                text = stringResource(experience.titleRes),
-                fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-            )
-            Text(
-                text = stringResource(experience.subtitleRes),
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-            )
-            Text(
-                text = stringResource(experience.periodRes),
-                fontSize = 14.sp,
-                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f),
-            )
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center,
-            ) {
-                experience.links.forEachIndexed { index, (label, url) ->
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        lines.forEach { line ->
+            val parts = line.split(" | ", limit = 2)
+            if (parts.size == 2) {
+                Row(modifier = Modifier.fillMaxWidth()) {
                     Text(
-                        text = stringResource(label),
-                        fontSize = 14.sp,
-                        modifier = Modifier.clickable { uriHandler.openUri(url) },
-                        style =
-                            MaterialTheme.typography.bodySmall.copy(
-                                textDecoration = TextDecoration.Underline,
-                                color =
-                                    MaterialTheme.colorScheme.onSecondaryContainer.copy(
-                                        alpha = 0.8f,
-                                    ),
-                            ),
+                        text = parts[0],
+                        modifier = Modifier.weight(1f),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 15.sp,
+                        lineHeight = 15.sp.bodyLineHeight(),
                     )
-                    if (index != experience.links.lastIndex) {
-                        Text(
-                            text = " | ",
-                            fontSize = 14.sp,
-                            color =
-                                MaterialTheme.colorScheme.onSecondaryContainer.copy(
-                                    alpha = 0.8f,
-                                ),
-                        )
-                    }
+                    Spacer(modifier = Modifier.width(16.dp))
+                    Text(
+                        text = parts[1],
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+                        fontSize = 14.sp,
+                        lineHeight = 15.sp.bodyLineHeight(),
+                    )
                 }
+            } else {
+                Text(
+                    text = line,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 15.sp,
+                    lineHeight = 15.sp.bodyLineHeight(),
+                )
             }
         }
     }
 }
 
 @Composable
-private fun EtcText(
+private fun EtcRow(
     etc: Etc,
     modifier: Modifier = Modifier,
 ) {
-    val text =
-        buildAnnotatedString {
-            withStyle(
-                SpanStyle(
-                    fontSize = 16.sp,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.8f),
-                ),
-            ) {
-                withStyle(
-                    SpanStyle(
-                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.25f),
-                    ),
-                ) {
-                    append(" • ")
-                }
-
-                append(stringResource(etc.titleRes))
-                append(" ")
-
-                withStyle(
-                    SpanStyle(
-                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(0.5f),
-                        fontSize = 12.sp,
-                    ),
-                ) {
-                    append(stringResource(etc.periodRes))
-                }
-            }
-        }
-    Text(text = text, modifier = modifier)
+    Row(
+        modifier = modifier.fillMaxWidth().padding(vertical = 18.dp),
+        verticalAlignment = Alignment.Top,
+    ) {
+        Text(
+            text = stringResource(etc.titleRes),
+            modifier = Modifier.weight(1f),
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            fontWeight = FontWeight.Medium,
+            fontSize = 16.sp,
+            lineHeight = 16.sp.bodyLineHeight(),
+        )
+        Spacer(modifier = Modifier.width(24.dp))
+        Text(
+            text = stringResource(etc.periodRes),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontSize = 14.sp,
+            lineHeight = 16.sp.bodyLineHeight(),
+        )
+    }
 }
 
-private val EXPERIENCE_COLUMN_GAP = 192.dp
-private val EXPERIENCE_ITEM_GAP = 48.dp
-private val EXPERIENCE_INFO_COLUMN_WIDTH = 360.dp
+private val ITEM_GAP = 80.dp
+private val GROUP_GAP = 72.dp
+private val HEADLINE_COLUMN_WIDTH = 360.dp
+private val HEADLINE_COLUMN_GAP = 64.dp
+private val LOGO_SIZE = 72.dp
