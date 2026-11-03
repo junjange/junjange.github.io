@@ -1,6 +1,8 @@
 package junjange.dev.ui.model
 
 import junjange_dev.composeapp.generated.resources.Res
+import junjange_dev.composeapp.generated.resources.etc_capstone_award
+import junjange_dev.composeapp.generated.resources.etc_capstone_award_period
 import junjange_dev.composeapp.generated.resources.etc_devfest_campus_korea
 import junjange_dev.composeapp.generated.resources.etc_devfest_campus_korea_period
 import junjange_dev.composeapp.generated.resources.etc_droid_knights_2025
@@ -38,6 +40,10 @@ enum class Etc(
     GDSC_KR_WINTER_CUP(
         titleRes = Res.string.etc_gdsc_kr_winter_cup,
         periodRes = Res.string.etc_gdsc_kr_winter_cup_period,
+    ),
+    CAPSTONE_AWARD(
+        titleRes = Res.string.etc_capstone_award,
+        periodRes = Res.string.etc_capstone_award_period,
     ),
     DEVFEST_CAMPUS_KOREA(
         titleRes = Res.string.etc_devfest_campus_korea,

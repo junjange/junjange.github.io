@@ -10,53 +10,59 @@
     <string name="blue_chip">저평가 우량주</string>
     <string name="jojunjang"> 조준장</string>
     <string name="intro">겉보기엔 평범할지 몰라도, 기술적 가능성은 무한한 저평가 우량주 개발자.\nKotlin으로 안드로이드 앱을 개발하며, 사용자 경험을 최우선으로 생각합니다.</string>
+    <string name="stat_tenure">총 경력</string>
+    <string name="stat_projects">사이드 프로젝트</string>
+    <string name="stat_projects_value">%1$d개</string>
+    <string name="stat_communities">교육·커뮤니티</string>
+    <string name="stat_communities_value">%1$d곳</string>
+    <string name="about_headline">이렇게 일해요</string>
+    <string name="career_headline">줄 서지 않는 카페,\n지금은 패스오더를 만들어요</string>
+    <string name="career_previous">이전에는 프리랜서로 일했어요</string>
+    <string name="project_headline">직접 만들어 본\n서비스들이에요</string>
+    <string name="experience_headline">함께 배우고\n함께 나눴어요</string>
+    <string name="contact_headline">더 궁금한 점이 있다면\n편하게 연락 주세요</string>
+    <string name="contact_email">이메일 보내기</string>
     <string name="follow_github">Github 팔로우하기</string>
     <string name="visit_blog">Blog 방문하기</string>
 
     <!--About me-->
-    <string name="about_me_title1">근본 원인을 끝까지 추적합니다.</string>
-    <string name="about_me_description1">재현도 안 되고 로그도 없던 결제 끊김 이슈를 앱 생명주기까지 역추적해, OS가 결제 중 프로세스를 회수하는 것이 원인임을 밝혔습니다. 재시도 대신 진행 상태를 보존·복원하는 구조로 바꿔 결제 성공률을 90.3%에서 91.1%로 올렸습니다. 장애 대응에서도 증상 차단과 원인 규명을 분리해 접근합니다.</string>
-    <string name="about_me_title2">AI 활용의 한계를 시스템으로 극복합니다.</string>
-    <string name="about_me_description2">AI에게 구현과 테스트를 함께 맡기면 '절대 실패하지 않는 테스트'를 스스로 만들어내는 모순을 발견했습니다. 구현 에이전트와 테스트 에이전트를 격리해 서로 검증하는 Multi-Agent 워크플로우를 만들고, 파트 전체의 정식 개발 프로세스로 정착시켰습니다. 개발 속도가 올라가는 만큼 안전장치도 함께 만듭니다.</string>
-    <string name="about_me_title3">함께 성장하는 환경을 만듭니다.</string>
-    <string name="about_me_description3">GDG on Campus 운영진과 리드로 스터디·해커톤을 운영했고, 우아한테크코스와 네이버 부스트캠프에서 페어 프로그래밍과 코드 리뷰로 설명하고 읽는 힘을 다졌습니다. 실무에서도 구현 전에 설계를 문서로 정리해 팀과 싱크를 맞추고, 해결 경험은 위키와 블로그에 남깁니다.</string>
+    <string name="about_me_title1">근본적인 원인을 파악하고 해결합니다.</string>
+    <string name="about_me_description1">급한 장애는 증상을 막는 일과 원인을 찾는 일을 나눠 대응합니다. 재현되지 않고 로그도 남지 않던 결제 끊김도 임시로 덮지 않고, 사용자 행동 기록을 따라가 프로세스 강제 종료로 원인을 재현해 확인한 다음 구조를 바꿨습니다.</string>
+    <string name="about_me_title2">코드를 변경하기 전에 안전장치부터 마련합니다.</string>
+    <string name="about_me_description2">레거시를 고칠 때는 현재 동작을 테스트로 먼저 고정하고, 큰 변경은 점진 배포하며 언제든 롤백할 수 있게 합니다. AI로 개발 속도가 빨라진 뒤에는 AI가 쓴 테스트도 믿을 수 있도록 구현과 검증을 분리한 워크플로우를 만들어 파트에서 쓰고 있습니다.</string>
+    <string name="about_me_title3">구현 전에 팀과 설계를 합의합니다.</string>
+    <string name="about_me_description3">복잡한 기능은 설계 대안을 문서로 비교해 팀과 논의한 뒤 구현하고, 큰 변경은 대안별 트레이드오프를 근거로 팀을 설득해 진행합니다. 해결한 문제는 사내 위키와 기술 블로그에 남겨 팀이 같은 문제를 다시 풀지 않게 합니다.</string>
 
     <!--Career-->
     <string name="android_developer">Android Developer</string>
+    <string name="career_role_android">안드로이드 개발자</string>
     <string name="flutter_developer">Flutter Developer</string>
     <string name="problem_solver">Problem Solver</string>
-    <string name="android_developer_freelance">Android Developer (Freelance)</string>
+    <string name="android_developer_freelance">안드로이드 개발자 (프리랜서)</string>
 
     <string name="career_paytalab">페이타랩</string>
     <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 &lt;패스오더&gt;</string>
     <string name="career_paytalab_period">2025.07 - 재직 중</string>
 
-    <string name="career_paytalab_payment_title">결제 시스템 Squad</string>
-    <string name="career_paytalab_ux_title">UX/UI 개선 Squad</string>
-    <string name="career_paytalab_content_title">콘텐츠 Squad</string>
-    <string name="career_paytalab_gift_title">선물하기 Squad</string>
-    <string name="career_paytalab_boss_title">사장님 앱 (점주용 POS·주문 관리)</string>
+    <string name="career_paytalab_stability_title">결제·주문 안정화</string>
+    <string name="career_paytalab_ui_title">UI 구조 개선</string>
     <string name="career_paytalab_common_title">Android 파트 공통</string>
 
     <string name="career_lio">리오(Lio)</string>
     <string name="career_lio_intro">프리랜서를 위한 아웃소싱 관리 플랫폼</string>
-    <string name="career_lio_period">2022.03 - 2022.10</string>
+    <string name="career_lio_period">2022.03 - 2022.10 (8개월)</string>
 
-    <string name="career_lio_project3_title">노년층 감정 분석 안드로이드 앱</string>
-    <string name="career_lio_project3_period">2022.08 - 2022.10</string>
+    <string name="career_lio_project3_title">노년층 감정 분석 안드로이드 앱 개발</string>
 
-    <string name="career_lio_project2_title">농작물 직거래 하이브리드 앱</string>
-    <string name="career_lio_project2_period">2022.06 - 2022.07</string>
+    <string name="career_lio_project2_title">농작물 직거래 하이브리드 앱 개발</string>
 
-    <string name="career_lio_project1_title">대량 자동 발신 전화 안드로이드 앱</string>
-    <string name="career_lio_project1_period">2022.03 - 2022.04</string>
+    <string name="career_lio_project1_title">대량 자동 발신 전화 안드로이드 앱 개발</string>
 
     <string name="career_matrios">매트리오즈(Matrios)</string>
-    <string name="career_matrios_period">2021.07 - 2021.11</string>
+    <string name="career_matrios_period">2021.07 - 2021.11 (5개월)</string>
     <string name="career_matrios_intro">AI 학습 분석 전문 에듀테크 스타트업</string>
 
-    <string name="career_matrios_project1_title">온라인 수업 집중도 모니터링 안드로이드 앱</string>
-    <string name="career_matrios_project1_period">2021.07 - 2021.11</string>
+    <string name="career_matrios_project1_title">온라인 수업 집중도 모니터링 안드로이드 앱 개발</string>
 
     <!--Experience-->
     <string name="experience">Experience</string>
@@ -71,7 +77,7 @@
 
     <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
     <string name="edu_boost_camp_subtitle">네이버 교육 프로그램</string>
-    <string name="edu_boost_camp_desc">- 자기주도 학습과 협업 기반 프로젝트 개발 프로세스를 이수\n- 페어 프로그래밍과 상호 코드 리뷰를 수행하며 제3자가 읽기 쉬운 코드 작성과 기술적 의사결정 설득 역량 강화\n- 외부 라이브러리를 무조건 도입하기보다 트레이드오프를 분석해 기술 채택 기준 정립\n- Android Profiler로 미디어 플레이어와 뷰 생명주기 연동에서 발생한 메모리 누수를 규명·해결하며 CS 기초를 실무 코드에 적용</string>
+    <string name="edu_boost_camp_desc">- 자기주도 학습과 협업 기반 프로젝트 개발 프로세스를 이수\n- 페어 프로그래밍과 상호 코드 리뷰로 다른 사람이 읽기 쉬운 코드를 쓰는 데 집중\n- 기술을 고를 때는 대안별 장단점을 먼저 정리하고, 성능에 영향을 주는 결정은 Profiler로 측정해 검증한 뒤 근거와 함께 팀 위키에 공유</string>
     <string name="edu_boost_camp_period">2023.07 - 2023.12</string>
 
     <string name="community_dpm">디프만(Depromeet)</string>
@@ -81,7 +87,7 @@
 
     <string name="community_gdg_on_campus">GDG on Campus</string>
     <string name="community_gdg_subtitle">구글 대학생 개발자 커뮤니티</string>
-    <string name="community_gdg_desc">- 4기 Lead(회장) | 2022.08 - 2023.08\n- 3기 Core Member(운영진) | 2021.08 - 2022.08\n- Flutter 데브톡을 발표 후, 블로그와 유튜브로 공유했습니다.</string>
+    <string name="community_gdg_desc">- 4기 Lead(회장) | 2022.08 - 2023.08\n- 3기 Core Member(운영진) | 2021.08 - 2022.08\n- Flutter 데브톡 발표 후 블로그·유튜브로 공유</string>
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
 
@@ -91,6 +97,8 @@
     <string name="etc_droid_knights_2025_period">2025.06</string>
     <string name="etc_kusitms">KUSITMS 밋업데이 심사위원</string>
     <string name="etc_kusitms_period">2024.09 - 2024.12</string>
+    <string name="etc_capstone_award">2022 SW/AI사업단 Grow Up 캡스톤디자인 경진대회 장려상 ('오순택' 단독 개발)</string>
+    <string name="etc_capstone_award_period">2023.01</string>
     <string name="etc_gdsc_sch_x_skhu_hack">GDSC SCH X SKHU Hack 운영</string>
     <string name="etc_gdsc_sch_x_skhu_hack_period">2023.05</string>
     <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영</string>
@@ -100,40 +108,38 @@
 
     <!--Project-->
     <string name="project">Side Project</string>
-    <string name="from_junjange">from JunJangE</string>
 
     <string name="project_more">프로젝트 더보기</string>
-    <string name="project_detail">자세히 보기</string>
     <string name="project_collapse">프로젝트 접기</string>
 
     <string name="project_link_letter">링크레터</string>
     <string name="project_link_letter_subtitle">Kotlin Multiplatform 블로그 구독 알림 서비스</string>
-    <string name="project_link_letter_period">2025.06 – 2025.07</string>
+    <string name="project_link_letter_period">2025.06 - 2025.07</string>
     <string name="project_link_letter_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room</string>
     <string name="project_link_letter_description">'링크레터'는 흩어져 있는 블로그를 한곳에 모아, 좋아하는 크리에이터의 새 글을 실시간 알림으로 받아보는 Kotlin Multiplatform 서비스입니다. 일일이 방문하지 않아도 관심 있는 소식을 빠짐없이 받아볼 수 있습니다.</string>
-    <string name="project_link_letter_contributions">- 기획·개발·디자인 전 과정을 1인 주도\n- Android/iOS 코드 80% 이상 공유로 단일 코드베이스 개발, Core 모듈 계층 분리 + Koin DI\n- MVI 아키텍처로 상태 관리 안정성 확보, RSS URL 메모리 캐싱으로 네트워크 요청 최소화\n- 일일 스케줄링·백그라운드 새 포스트 감지 푸시 알림 구현</string>
+    <string name="project_link_letter_contributions">- 기획·개발·디자인 전 과정을 1인 주도\n- ksoup으로 블로그 HTML 파싱을 commonMain에서 공용 처리, Core 모듈 계층 분리 + Koin DI\n- MVI 아키텍처로 상태 관리 안정성 확보, RSS URL 메모리 캐싱으로 네트워크 요청 최소화\n- 일일 스케줄링·백그라운드 새 포스트 감지 푸시 알림 구현</string>
 
 
-    <string name="project_tohaeng_lottery">토행복권</string>
-    <string name="project_tohaeng_lottery_subtitle">매주 번호를 맞추고 토스 포인트를 받는 미니앱</string>
-    <string name="project_tohaeng_lottery_period">2026.05(개발) / 2026.06 – 현재(유지보수 중)</string>
-    <string name="project_tohaeng_lottery_techStack">React Native, Granite, Apps in Toss, TDS, Supabase, TypeScript</string>
-    <string name="project_tohaeng_lottery_description">'토행복권'은 매주 번호를 맞추고 토스 포인트를 받는 토스 인앱 미니앱입니다. 토스 인앱에 동작하는 React Native 기반 미니앱으로, 회차별 번호 추첨부터 당첨 판정, 포인트 지급까지의 흐름을 직접 설계·구현했습니다.</string>
-    <string name="project_tohaeng_lottery_contributions">- 앱인토스 전용 AI 개발 하네스 직접 구축 → 기획·프론트·백 1인 개발\n- React Native·Granite 미니앱 개발 및 Apps in Toss 배포\n- Supabase 백엔드로 회차별 추첨·당첨 판정·포인트 지급 구현\n- 토스 디자인 시스템(TDS) 적용</string>
+    <string name="project_geunyang_lottery">그냥복권</string>
+    <string name="project_geunyang_lottery_subtitle">매주 번호를 맞추고 토스 포인트를 받는 미니앱</string>
+    <string name="project_geunyang_lottery_period">2026.05(개발) / 2026.06 - 현재(유지보수 중)</string>
+    <string name="project_geunyang_lottery_techStack">React Native, Granite, Apps in Toss, TDS, Supabase, TypeScript</string>
+    <string name="project_geunyang_lottery_description">'그냥복권'은 매주 번호를 맞추고 토스 포인트를 받는 토스 인앱 미니앱입니다. 토스 인앱에 동작하는 React Native 기반 미니앱으로, 회차별 번호 추첨부터 당첨 판정, 포인트 지급까지의 흐름을 직접 설계·구현했습니다.</string>
+    <string name="project_geunyang_lottery_contributions">- 앱인토스 전용 AI 개발 하네스 직접 구축 → 기획·프론트·백 1인 개발\n- React Native·Granite 미니앱 개발 및 Apps in Toss 배포\n- Supabase 백엔드로 회차별 추첨·당첨 판정·포인트 지급 구현\n- 토스 디자인 시스템(TDS) 적용</string>
 
     <string name="project_today_drive">오늘의운행</string>
     <string name="project_today_drive_subtitle">운송 기사를 위한 운행 일지·정산 앱</string>
-    <string name="project_today_drive_period">2025.12 – 2026.01 / 2026.03 – 현재(유지보수 중)</string>
+    <string name="project_today_drive_period">2025.12 - 2026.01 / 2026.03 - 현재(유지보수 중)</string>
     <string name="project_today_drive_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room, Apache POI</string>
     <string name="project_today_drive_description">'오늘의운행'은 운송 기사가 하루 운행을 빠르게 기록하고 정산용 엑셀까지 한 번에 출력하는 운행 일지 앱입니다. 매일 수기로 장부를 쓰시던 아버지의 불편을 해소하기 위해 개발해 플레이스토어에 배포했고, KMP·클린 아키텍처로 설계했습니다.</string>
     <string name="project_today_drive_contributions">- Apache POI 엑셀 정산 출력 (항목·순서 사용자 지정)\n- 공박스 금액 자동 계산 로직으로 수기 계산 자동화\n- 백업·복원 기반 로컬 우선(local-first) 데이터 구조 설계</string>
 
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">로또·연금복권 당첨번호를 확인하는 Kotlin Multiplatform 서비스</string>
-    <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
+    <string name="project_lucky_lottery_period">2020.11 - 2021.01(개발) / 2024.01 - 현재(유지보수 중)</string>
     <string name="project_lucky_lottery_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, MVI, Clean Architecture, Room, Ktor, Koin</string>
     <string name="project_lucky_lottery_description">'행운복권'은 로또·연금복권 당첨 번호를 회차별로 확인하고 OCR·QR 스캔으로 빠르게 당첨 여부를 볼 수 있는 서비스입니다. 아버지의 불편에서 출발한 첫 배포작으로, Android View → Jetpack Compose → Kotlin Multiplatform으로 세 단계에 걸쳐 진화시켜 지금은 Android·iOS를 하나의 코드베이스로 서비스합니다. 1,600명 이상의 다운로드와 MAU 142명을 기록했습니다.</string>
-    <string name="project_lucky_lottery_contributions">- 기획·개발·디자인 1인 주도 - 1,600명 이상 다운로드·MAU 142명\n- KMP 전환 - 화면·ViewModel·UseCase·Repository를 commonMain 공유\n- 계층 분리(클린 아키텍처)로 KMP 전환·local-first 재정의 두 대변경 국소화\n- OCR 번호 인식(Tesseract/Vision)·QR 스캔·로컬 우선 데이터 구조 설계</string>
+    <string name="project_lucky_lottery_contributions">- 기획·개발·디자인 1인 주도 - 1,600명 이상 다운로드·MAU 142명\n- KMP 전환 - 화면·ViewModel·UseCase·Repository를 commonMain 공유 (코드 공유율 약 76%, 파일 수 기준)\n- 클린 아키텍처 계층 분리 - Local-first 전환 때 UseCase 시그니처를 유지한 채 Repository 구현만 교체\n- OCR 번호 인식(Tesseract/Vision)·QR 스캔·로컬 우선 데이터 구조 설계</string>
 
     <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
     <string name="project_junjange_dev_subtitle">Kotlin Multiplatform 포트폴리오</string>
@@ -147,28 +153,28 @@
     <string name="project_friendogly_period">2024.07 - 2025.01</string>
     <string name="project_friendogly_techStack">Android, Kotlin, Coroutines + Flow, Hilt</string>
     <string name="project_friendogly_description">‘반갑개’는 강아지들이 산책 중 새로운 친구를 만날 수 있도록 도와주는 소셜 서비스입니다. 산책 장소와 일정을 공유하고, 주변 강아지들과 자연스럽게 교류할 수 있는 기회를 제공합니다.</string>
-    <string name="project_friendogly_contributions">- 소셜 로그인·인증 플로우 및 공통 모듈·아키텍처 구축\n- 예외 대신 결과 객체로 에러를 전달하는 공통 에러 핸들링 구조 설계\n- Firebase Analytics·Crashlytics 모니터링 체계 구축\n- CI/CD 배포 자동화 구축</string>
+    <string name="project_friendogly_contributions">- 우아한테크코스 Android 4인 팀으로 참여\n- Krossbow(STOMP) 기반 실시간 위치 공유와 Naver Maps 렌더링\n- Google·Kakao·Naver 소셜 로그인, Firebase 모니터링\n- JUnit5·Mockk·Kotest 기반 테스트 작성</string>
 
     <string name="project_move_move">뭅뭅</string>
     <string name="project_move_move_subtitle">짧은 댄스 영상을 업로드하고 시청하는 서비스</string>
     <string name="project_move_move_period">2023.11 - 2023.12</string>
     <string name="project_move_move_techStack">Android, Kotlin, Compose, MVI, Clean Architecture, Media3 ExoPlayer, Coroutines + Flow, Hilt</string>
     <string name="project_move_move_description">'뭅뭅'은 네이버 부스트캠프에서 진행한 프로젝트로, 짧은 개발 기간 동안 기술적 도전을 극복하며 완성한 댄스 숏폼 비디오 플랫폼입니다. 숏폼 비디오 플랫폼의 급성장과 댄스 콘텐츠의 높은 수요를 바탕으로 기획된 서비스로, 사용자가 댄스 영상을 시청하고 업로드할 수 있는 기능을 제공합니다. Android 3명·백엔드 2명으로 협업했고, 저는 다수의 영상을 끊김 없이 재생하는 비디오 스트리밍 성능 최적화를 담당했습니다.</string>
-    <string name="project_move_move_contributions">- ExoPlayer 3-인스턴스 순환 재활용 전략 - 재생 CPU 약 57% 절감\n- DisposableEffect·생명주기 연동으로 플레이어 리소스 누수 방지\n- MVI·클린 아키텍처로 업로드·스트리밍 상태 관리 안정화</string>
+    <string name="project_move_move_contributions">- ExoPlayer 3-인스턴스 순환 재활용 전략 - 재생 CPU 약 57% 절감\n- DisposableEffect·생명주기 연동으로 백그라운드 재생·영상 겹침 버그 수정\n- MVI·클린 아키텍처로 업로드·스트리밍 상태 관리 안정화</string>
 
     <string name="project_whatnow">왔나</string>
     <string name="project_whatnow_subtitle">약속 실시간 위치 공유 서비스</string>
     <string name="project_whatnow_period">2023.04 - 2023.07</string>
     <string name="project_whatnow_techStack">Android, Kotlin, Compose, Coroutines + Flow</string>
     <string name="project_whatnow_description">'왔나'는 약속 시간에 지각을 막기보다는, 기다리는 시간을 친구들과 함께 즐기는 share-play 서비스입니다. 설문조사를 통해 지각의 원인을 분석하고, 패널티 대신 즐거운 커뮤니케이션 경험으로 부정적 감정을 줄이는 방향으로 기획했습니다. 지각 상황을 유쾌하게 전환하여, 약속을 기다리는 시간조차 즐겁게 만들고자 했습니다.</string>
-    <string name="project_whatnow_contributions">- 홈·지도·사진 보내기 등 주요 화면 개발\n- 실시간 위치 공유 기능 구현\n- 디자이너 협업 디자인 시스템 구축·컴포넌트 모듈화</string>
+    <string name="project_whatnow_contributions">- 홈·지도·사진 보내기 등 주요 화면 개발\n- 실시간 위치 공유 - FusedLocationProviderClient로 위치를 수집해 네이버 지도에 표시</string>
 
     <string name="project_oh_soon_taxi">오순택</string>
     <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>
     <string name="project_oh_soon_taxi_period">2022.08 - 2023.12</string>
-    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, MVVM, 멀티모듈 + Clean Architecture, Coroutines + Flow, Retrofit2 + OkHttp, STOMP, DataStore</string>
+    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, MVVM, 멀티모듈 + Clean Architecture, Coroutines + Flow, Retrofit2 + OkHttp, STOMP</string>
     <string name="project_oh_soon_taxi_description">'오순택'은 학생 간 택시 동승을 지원하는 서비스로, 구글 대학생 개발자 커뮤니티에서 백엔드 3명과 함께 개발하며 안드로이드는 제가 혼자 전담한 프로젝트입니다. 셔틀버스가 운행되지 않는 야간과 주말 시간대에 택시를 함께 이용할 수 있도록 매칭 기능을 제공하여 금전적 부담과 대기 시간을 줄이는 것을 목표로 했습니다. 약속방 생성·참여·좌석 선택부터 실시간 채팅, 매너 온도·신고까지 20개가 넘는 화면을 단독으로 구현했습니다.</string>
-    <string name="project_oh_soon_taxi_contributions">- 안드로이드 전 기능 단독 구현 - 100건 이상 다운로드, 교내 신문 게재\n- app/data/domain 3모듈 멀티모듈·클린 아키텍처 설계\n- STOMP 기반 실시간 채팅 구현\n- 검색 Debounce·DataStore 자동 로그인 처리</string>
+    <string name="project_oh_soon_taxi_contributions">- 안드로이드 전 기능 단독 구현 - 100건 이상 다운로드, 교내 신문 게재, 캡스톤디자인 경진대회 장려상\n- 혼자라 계층 위반을 걸러줄 리뷰어가 없어 app/data/domain 3모듈 의존 방향을 빌드 설정으로 강제\n- STOMP 기반 실시간 채팅 구현\n- 검색 입력 Flow debounce 처리</string>
 
     <string name="project_knocknock">낙낙</string>
     <string name="project_knocknock_subtitle">푸시 알림 커스텀 서비스</string>
@@ -181,7 +187,7 @@
     <string name="project_kordle_subtitle">Wordle의 한국어 버전 서비스</string>
     <string name="project_kordle_period">2022.06 - 2022.08</string>
     <string name="project_kordle_techStack">Android, Kotlin, LiveData, Room</string>
-    <string name="project_kordle_description">'훈들'은 Wordle을 한국어 단어 맞추기 게임으로 구현한 프로젝트입니다. 국립국어원, KLUE vocab, NIADic 기반의 어휘를 활용해 여섯 번의 시도 안에 한글 단어를 맞추는 게임이며, 자모 단위로 풀어쓴 입력 방식과 색상 피드백을 통해 직관적인 플레이 경험을 제공합니다. 오픈소스 기반으로 제작되어 다양한 언어로 확장 가능하도록 구현했습니다.</string>
+    <string name="project_kordle_description">'훈들'은 Wordle을 한국어 단어 맞추기 게임으로 구현한 프로젝트입니다. 국립국어원, KLUE vocab, NIADic 기반의 어휘를 활용해 여섯 번의 시도 안에 한글 단어를 맞추는 게임이며, 자모 단위로 풀어쓴 입력 방식과 색상 피드백을 통해 직관적인 플레이 경험을 제공합니다.</string>
     <string name="project_kordle_contributions">- 자모 단위 단어 매칭 알고리즘 구현\n- 커스텀 키보드·게임 인터랙션 UI 구현\n- 게임 통계(연승·성공률·분포) 관리 기능 구현\n- 타이머·남은 시간 계산 기능 개발</string>
 
     <string name="project_pbp">Public Poll</string>
@@ -194,7 +200,7 @@
     <string name="project_pmd_key">PMD Key</string>
     <string name="project_pmd_key_subtitle">PMD 주행에 도움이 되는 서비스</string>
     <string name="project_pmd_key_period">2022.04</string>
-    <string name="project_pmd_key_techStack">Android, Kotlin, Compose, Ktor, ExoPlayer</string>
+    <string name="project_pmd_key_techStack">Android, Kotlin, MVVM, Kakao Map/Navi, Room, Retrofit</string>
     <string name="project_pmd_key_description">'PMD KEY'는 PMD(개인형 이동수단) 주행 시 필요한 필수 기능을 지원하는 안드로이드 애플리케이션입니다. 주행 시작과 종료 시 현재 위치를 지도에 마커로 표시하여 내 PMD의 위치를 쉽게 확인할 수 있으며, 주행 전 안전수칙 4가지를 이미지로 제공해 안전한 사용을 유도합니다. 또한, 오늘의 날씨 정보를 통해 주행 여부를 스스로 판단할 수 있도록 지원하고, 원하는 목적지를 검색해 경로를 안내하는 내비게이션 기능도 함께 제공합니다.</string>
     <string name="project_pmd_key_contributions">- 주행 시작·종료 위치 마커 표시 위치 추적 기능 개발\n- 주행 전 안전수칙 안내 가이드 기능 구현\n- 기상 정보 연동 날씨 안내 기능 개발\n- 목적지 검색·외부 내비 경로 연동 구현</string>
 
@@ -217,14 +223,14 @@
     <string name="project_recycle_cycle_period">2022.01</string>
     <string name="project_recycle_cycle_techStack">Flutter, Dart, TensorFlow Lite</string>
     <string name="project_recycle_cycle_description">`RecycleCycle`은 이미지 분류를 통해 사용자의 분리수거를 돕는 재활용 관리 서비스입니다. 촬영하거나 갤러리에서 선택한 쓰레기 이미지를 분류하여 최근 분리수거 내역과 항목별 비율을 시각화해 제공합니다. 분리수거 활동에 따라 경험치를 얻고 레벨업할 수 있으며, 레벨이 오를수록 새싹이 나무로 자라는 성장형 인터페이스로 친환경 활동을 유도합니다.</string>
-    <string name="project_recycle_cycle_contributions">- 분리수거 쓰레기 분류 페이지 개발\n- TensorFlow Lite 이미지 분류 기능 개발\n- Firebase 연동 실시간 데이터 관리</string>
+    <string name="project_recycle_cycle_contributions">- 팀 프로젝트로 참여\n- 온디바이스 TensorFlow Lite 모델로 쓰레기 이미지 분류\n- 분류 결과 Firebase 저장</string>
 
     <string name="project_camping_tour">캠핑투어</string>
     <string name="project_camping_tour_subtitle">주변 캠핑장과 추천 캠핑장 정보를 제공 후 예약할 수 있게 도움을 주는 서비스</string>
     <string name="project_camping_tour_period">2021.08</string>
-    <string name="project_camping_tour_techStack">Android, Kotlin, Room, AWS Amplify, AWS Cognito</string>
+    <string name="project_camping_tour_techStack">Android, Kotlin, 고캠핑 오픈 API, Glide</string>
     <string name="project_camping_tour_description">`캠핑투어`는 주변 캠핑장과 추천 캠핑장 정보를 제공 후 예약할 수 있게 도움을 주는 서비스입니다. 관광지, 계곡, 산, 바다, 숲 등 키워드 기반 검색과 글램핑, 카라반 등 다양한 유형의 캠핑장 정보를 지원하며, 전화문의 기능을 통해 추가 정보를 확인할 수 있습니다. 지역별, 주변 캠핑장 상세 검색을 통해 사용자가 원하는 캠핑지를 쉽고 빠르게 찾을 수 있도록 설계했습니다.</string>
-    <string name="project_camping_tour_contributions">- 기획·개발·디자인 1인 주도\n- 공공 데이터 오픈 API 캠핑장 정보 조회 기능 개발\n- AWS Amplify·Cognito 사용자 인증 구현\n- Room 로컬 DB 설계·캐싱 기능 개발</string>
+    <string name="project_camping_tour_contributions">- 기획·개발·디자인 1인 주도\n- 한국관광공사 고캠핑 오픈 API 연동 - 키워드 검색·위치 기반 주변 캠핑장 조회\n- Glide 이미지 로딩으로 캠핑장 목록 UI 구현</string>
 
     <string name="google_play_store">구글 플레이 스토어</string>
     <string name="github">깃허브</string>
@@ -233,13 +239,11 @@
     <string name="web_site">웹사이트</string>
 
     <string name="project_intro">소개</string>
-    <string name="link">관련 링크</string>
-    <string name="role">역할</string>
     <string name="techStack">기술 스택</string>
     <string name="contributions">주요 기여</string>
 
     <!--Contact Section-->
-    <string name="copyright">Copyright (c) 2025 JunJangE. All Rights Reserved</string>
+    <string name="copyright">Copyright (c) %1$d JunJangE. All Rights Reserved</string>
 
 
 </resources>
