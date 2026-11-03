@@ -10,6 +10,18 @@
     <string name="blue_chip">저평가 우량주</string>
     <string name="jojunjang"> 조준장</string>
     <string name="intro">겉보기엔 평범할지 몰라도, 기술적 가능성은 무한한 저평가 우량주 개발자.\nKotlin으로 안드로이드 앱을 개발하며, 사용자 경험을 최우선으로 생각합니다.</string>
+    <string name="stat_tenure">총 경력</string>
+    <string name="stat_projects">사이드 프로젝트</string>
+    <string name="stat_projects_value">%1$d개</string>
+    <string name="stat_communities">교육·커뮤니티</string>
+    <string name="stat_communities_value">%1$d곳</string>
+    <string name="about_headline">이렇게 일해요</string>
+    <string name="career_headline">줄 서지 않는 카페,\n지금은 패스오더를 만들어요</string>
+    <string name="career_previous">이전에는 프리랜서로 일했어요</string>
+    <string name="project_headline">직접 만들어 본\n서비스들이에요</string>
+    <string name="experience_headline">함께 배우고\n함께 나눴어요</string>
+    <string name="contact_headline">더 궁금한 점이 있다면\n편하게 연락 주세요</string>
+    <string name="contact_email">이메일 보내기</string>
     <string name="follow_github">Github 팔로우하기</string>
     <string name="visit_blog">Blog 방문하기</string>
 
@@ -31,9 +43,9 @@
     <string name="career_paytalab">페이타랩</string>
     <string name="career_paytalab_intro">대한민국 No.1 카페 주문 앱 &lt;패스오더&gt;</string>
     <string name="career_paytalab_period">2025.07 - 재직 중</string>
+
     <string name="career_paytalab_stability_title">결제·주문 안정화</string>
     <string name="career_paytalab_ui_title">UI 구조 개선</string>
-
     <string name="career_paytalab_common_title">Android 파트 공통</string>
 
     <string name="career_lio">리오(Lio)</string>
@@ -96,10 +108,8 @@
 
     <!--Project-->
     <string name="project">Side Project</string>
-    <string name="from_junjange">from JunJangE</string>
 
     <string name="project_more">프로젝트 더보기</string>
-    <string name="project_detail">자세히 보기</string>
     <string name="project_collapse">프로젝트 접기</string>
 
     <string name="project_link_letter">링크레터</string>
@@ -108,14 +118,14 @@
     <string name="project_link_letter_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room</string>
     <string name="project_link_letter_description">'링크레터'는 흩어져 있는 블로그를 한곳에 모아, 좋아하는 크리에이터의 새 글을 실시간 알림으로 받아보는 Kotlin Multiplatform 서비스입니다. 일일이 방문하지 않아도 관심 있는 소식을 빠짐없이 받아볼 수 있습니다.</string>
     <string name="project_link_letter_contributions">- 기획·개발·디자인 전 과정을 1인 주도\n- ksoup으로 블로그 HTML 파싱을 commonMain에서 공용 처리, Core 모듈 계층 분리 + Koin DI\n- MVI 아키텍처로 상태 관리 안정성 확보, RSS URL 메모리 캐싱으로 네트워크 요청 최소화\n- 일일 스케줄링·백그라운드 새 포스트 감지 푸시 알림 구현</string>
+
+
     <string name="project_geunyang_lottery">그냥복권</string>
     <string name="project_geunyang_lottery_subtitle">매주 번호를 맞추고 토스 포인트를 받는 미니앱</string>
     <string name="project_geunyang_lottery_period">2026.05(개발) / 2026.06 – 현재(유지보수 중)</string>
     <string name="project_geunyang_lottery_techStack">React Native, Granite, Apps in Toss, TDS, Supabase, TypeScript</string>
     <string name="project_geunyang_lottery_description">'그냥복권'은 매주 번호를 맞추고 토스 포인트를 받는 토스 인앱 미니앱입니다. 토스 인앱에 동작하는 React Native 기반 미니앱으로, 회차별 번호 추첨부터 당첨 판정, 포인트 지급까지의 흐름을 직접 설계·구현했습니다.</string>
     <string name="project_geunyang_lottery_contributions">- 앱인토스 전용 AI 개발 하네스 직접 구축 → 기획·프론트·백 1인 개발\n- React Native·Granite 미니앱 개발 및 Apps in Toss 배포\n- Supabase 백엔드로 회차별 추첨·당첨 판정·포인트 지급 구현\n- 토스 디자인 시스템(TDS) 적용</string>
-
-
 
     <string name="project_today_drive">오늘의운행</string>
     <string name="project_today_drive_subtitle">운송 기사를 위한 운행 일지·정산 앱</string>
@@ -229,13 +239,11 @@
     <string name="web_site">웹사이트</string>
 
     <string name="project_intro">소개</string>
-    <string name="link">관련 링크</string>
-    <string name="role">역할</string>
     <string name="techStack">기술 스택</string>
     <string name="contributions">주요 기여</string>
 
     <!--Contact Section-->
-    <string name="copyright">Copyright (c) 2025 JunJangE. All Rights Reserved</string>
+    <string name="copyright">Copyright (c) %1$d JunJangE. All Rights Reserved</string>
 
 
 </resources>

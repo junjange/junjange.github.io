@@ -2,45 +2,51 @@ package junjange.dev.ui.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import junjange.dev.ui.state.rememberDeviceState
 import junjange.dev.ui.state.sectionTitleFontSize
 import junjange.dev.ui.theme.TITLE_LETTER_SPACING
-import junjange.dev.ui.theme.bodyLineHeight
+import junjange.dev.ui.theme.keepWords
 
 @Composable
 fun SectionHeader(
-    title: String,
+    eyebrow: String,
+    headline: String,
     modifier: Modifier = Modifier,
-    description: String? = null,
+    accents: List<Pair<String, Color>> = emptyList(),
 ) {
     val titleSize = rememberDeviceState().sectionTitleFontSize()
 
-    Column(modifier = modifier) {
+    Column(
+        modifier = modifier.fillMaxWidth().reveal(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
         Text(
-            text = title,
+            text = eyebrow,
+            color = MaterialTheme.colorScheme.primary,
+            fontWeight = FontWeight.Bold,
+            fontSize = 17.sp,
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = headline.keepWords(accents),
             color = MaterialTheme.colorScheme.onPrimaryContainer,
             fontWeight = FontWeight.Bold,
             fontSize = titleSize,
-            lineHeight = (titleSize.value * 1.25f).sp,
+            lineHeight = (titleSize.value * 1.35f).sp,
             letterSpacing = TITLE_LETTER_SPACING,
+            textAlign = TextAlign.Center,
         )
-
-        if (description != null) {
-            Spacer(modifier = Modifier.height(12.dp))
-            Text(
-                text = description,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                fontSize = 17.sp,
-                lineHeight = 17.sp.bodyLineHeight(),
-            )
-        }
     }
 }

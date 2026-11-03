@@ -16,10 +16,13 @@ fun Chip(
     text: String,
     modifier: Modifier = Modifier,
     accent: Boolean = false,
+    onCard: Boolean = false,
 ) {
     val container =
         if (accent) {
             MaterialTheme.colorScheme.primary.copy(alpha = 0.12f)
+        } else if (onCard) {
+            MaterialTheme.colorScheme.primaryContainer
         } else {
             MaterialTheme.colorScheme.secondaryContainer
         }

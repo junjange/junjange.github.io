@@ -6,7 +6,7 @@ val Black = Color(0xFF0C0C0E)
 val White = Color(0xFFFFFFFF)
 
 val DarkGray = Color(0xFF19191C)
-val Gray = Color(0xFF303033)
+val Gray = Color(0xFF26262B)
 val DarkOutline = Color(0xFF3A3A40)
 val LightGray = Color(0xFFF9FAFB)
 
@@ -18,3 +18,7 @@ val Grey300 = Color(0xFFD1D6DB)
 val Grey400 = Color(0xFFB0B8C1)
 val Grey600 = Color(0xFF6B7684)
 val Grey900 = Color(0xFF191F28)
+
+val PassOrderOrange = Color(0xFFFC7848)
+val PassOrderNavy = Color(0xFF132D48)
+val PassOrderNavyOnDark = Color(0xFF5A86B8)

@@ -48,6 +48,7 @@ import junjange.dev.ui.TABLET_CONTENT_MIN_HEIGHT
 import junjange.dev.ui.component.AnimatedArrow
 import junjange.dev.ui.component.HEADER_HEIGHT
 import junjange.dev.ui.component.LoadingScreen
+import junjange.dev.ui.component.reveal
 import junjange.dev.ui.model.Device
 import junjange.dev.ui.model.LocalScreenSize
 import junjange.dev.ui.model.LocalThemeMode
@@ -59,6 +60,7 @@ import junjange.dev.ui.state.rememberDeviceState
 import junjange.dev.ui.state.titleFontSize
 import junjange.dev.ui.theme.TITLE_LETTER_SPACING
 import junjange.dev.ui.theme.bodyLineHeight
+import junjange.dev.ui.theme.keepWords
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.blue_chip
 import junjange_dev.composeapp.generated.resources.follow_github
@@ -166,7 +168,7 @@ private fun HomeCompactSection(
                 contentDescription = null,
                 contentScale = ContentScale.FillHeight,
                 modifier =
-                    Modifier.height(
+                    Modifier.reveal(delayMillis = 300).height(
                         maxOf(
                             MOBILE_CONTENT_MIN_HEIGHT,
                             screenSize.height,
@@ -180,22 +182,24 @@ private fun HomeCompactSection(
                 text = nicknameString,
                 lineHeight = 76.sp,
                 textAlign = TextAlign.Center,
+                modifier = Modifier.reveal(delayMillis = 100),
             )
 
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = stringResource(Res.string.intro),
+                text = stringResource(Res.string.intro).keepWords(),
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 16.sp,
                 lineHeight = 16.sp.bodyLineHeight(),
                 textAlign = TextAlign.Center,
+                modifier = Modifier.reveal(delayMillis = 200),
             )
 
             Spacer(modifier = Modifier.height(36.dp))
 
             if (stackButtons) {
                 Column(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().reveal(delayMillis = 300),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     GithubButton(modifier = Modifier.fillMaxWidth())
@@ -203,6 +207,7 @@ private fun HomeCompactSection(
                 }
             } else {
                 Row(
+                    modifier = Modifier.reveal(delayMillis = 300),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
@@ -251,7 +256,8 @@ private fun HomeDesktopSection(
                 modifier =
                     Modifier
                         .width(imageWidth)
-                        .align(Alignment.CenterEnd),
+                        .align(Alignment.CenterEnd)
+                        .reveal(delayMillis = 400),
             )
 
             Column(
@@ -262,20 +268,26 @@ private fun HomeDesktopSection(
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.Center,
             ) {
-                Text(text = nicknameString, lineHeight = 76.sp)
-
-                Spacer(modifier = Modifier.height(20.dp))
-
                 Text(
-                    text = stringResource(Res.string.intro),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 17.sp,
-                    lineHeight = 17.sp.bodyLineHeight(),
+                    text = nicknameString,
+                    lineHeight = 88.sp,
+                    modifier = Modifier.reveal(delayMillis = 100),
                 )
 
-                Spacer(modifier = Modifier.height(36.dp))
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Text(
+                    text = stringResource(Res.string.intro).keepWords(),
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    fontSize = 18.sp,
+                    lineHeight = 18.sp.bodyLineHeight(),
+                    modifier = Modifier.reveal(delayMillis = 200),
+                )
+
+                Spacer(modifier = Modifier.height(40.dp))
 
                 Row(
+                    modifier = Modifier.reveal(delayMillis = 300),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
