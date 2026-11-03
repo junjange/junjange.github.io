@@ -65,7 +65,7 @@
 
     <string name="edu_boost_camp">부스트캠프 웹・모바일</string>
     <string name="edu_boost_camp_subtitle">네이버 교육 프로그램</string>
-    <string name="edu_boost_camp_desc">- 자기주도 학습과 협업 기반 프로젝트 개발 프로세스를 이수\n- 페어 프로그래밍과 상호 코드 리뷰를 수행하며 제3자가 읽기 쉬운 코드 작성과 기술적 의사결정 설득 역량 강화\n- 외부 라이브러리를 무조건 도입하기보다 트레이드오프를 분석해 기술 채택 기준 정립\n- Android Profiler로 미디어 플레이어와 뷰 생명주기 연동에서 발생한 메모리 누수를 규명·해결하며 CS 기초를 실무 코드에 적용</string>
+    <string name="edu_boost_camp_desc">- 자기주도 학습과 협업 기반 프로젝트 개발 프로세스를 이수\n- 페어 프로그래밍과 상호 코드 리뷰로 다른 사람이 읽기 쉬운 코드를 쓰는 데 집중\n- 기술을 고를 때는 대안별 장단점을 먼저 정리하고, 성능에 영향을 주는 결정은 Profiler로 측정해 검증한 뒤 근거와 함께 팀 위키에 공유</string>
     <string name="edu_boost_camp_period">2023.07 - 2023.12</string>
 
     <string name="community_dpm">디프만(Depromeet)</string>
@@ -75,7 +75,7 @@
 
     <string name="community_gdg_on_campus">GDG on Campus</string>
     <string name="community_gdg_subtitle">구글 대학생 개발자 커뮤니티</string>
-    <string name="community_gdg_desc">- 4기 Lead(회장) | 2022.08 - 2023.08\n- 3기 Core Member(운영진) | 2021.08 - 2022.08\n- Flutter 데브톡을 발표 후, 블로그와 유튜브로 공유했습니다.</string>
+    <string name="community_gdg_desc">- 4기 Lead(회장) | 2022.08 - 2023.08\n- 3기 Core Member(운영진) | 2021.08 - 2022.08\n- Flutter 데브톡 발표 후 블로그·유튜브로 공유</string>
     <string name="community_gdg_period">2021.08 - 2023.08</string>
 
 
@@ -85,6 +85,8 @@
     <string name="etc_droid_knights_2025_period">2025.06</string>
     <string name="etc_kusitms">KUSITMS 밋업데이 심사위원</string>
     <string name="etc_kusitms_period">2024.09 - 2024.12</string>
+    <string name="etc_capstone_award">2022 SW/AI사업단 Grow Up 캡스톤디자인 경진대회 장려상 ('오순택' 단독 개발)</string>
+    <string name="etc_capstone_award_period">2023.01</string>
     <string name="etc_gdsc_sch_x_skhu_hack">GDSC SCH X SKHU Hack 운영</string>
     <string name="etc_gdsc_sch_x_skhu_hack_period">2023.05</string>
     <string name="etc_gdsc_kr_winter_cup">GDSC KR Winter Cup 운영</string>
