@@ -24,7 +24,7 @@ import junjange_dev.composeapp.generated.resources.ic_today_drive_graphic
 import junjange_dev.composeapp.generated.resources.ic_geunyang_lottery_graphic
 import junjange_dev.composeapp.generated.resources.ic_whatnow_graphic
 import junjange_dev.composeapp.generated.resources.notion
-import junjange_dev.composeapp.generated.resources.fullstack_developer
+import junjange_dev.composeapp.generated.resources.problem_solver
 import junjange_dev.composeapp.generated.resources.project_bium
 import junjange_dev.composeapp.generated.resources.project_bium_contributions
 import junjange_dev.composeapp.generated.resources.project_bium_description
@@ -148,7 +148,7 @@ enum class Project(
         graphicRes = drawable.ic_geunyang_lottery_graphic,
         periodRes = Res.string.project_geunyang_lottery_period,
         descriptionRes = Res.string.project_geunyang_lottery_description,
-        roleRes = Res.string.fullstack_developer,
+        roleRes = Res.string.problem_solver,
         techStackRes = Res.string.project_geunyang_lottery_techStack,
         links =
             listOf(

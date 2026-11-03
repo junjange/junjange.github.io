@@ -1,6 +1,12 @@
 package junjange.dev.ui.section
 
 import androidx.compose.foundation.Image
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -70,31 +76,29 @@ fun ProjectSection(
 
         Spacer(modifier = Modifier.height(if (isDesktop) 64.dp else 40.dp))
 
-        Column(verticalArrangement = Arrangement.spacedBy(if (isDesktop) 48.dp else 40.dp)) {
+        val rowGap = if (isDesktop) 48.dp else 40.dp
+        val showMore = { count += getProjectCountIncrement(device = deviceState.value) }
+
+        Column(verticalArrangement = Arrangement.spacedBy(rowGap)) {
             Project.entries.take(count).chunked(columnCount).forEach { rowProjects ->
-                Row(horizontalArrangement = Arrangement.spacedBy(CARD_HORIZONTAL_GAP)) {
-                    rowProjects.forEachIndexed { index, project ->
-                        ProjectCard(
-                            project = project,
-                            modifier = Modifier.weight(1f).reveal(delayMillis = index * 100),
-                            onClick = { selectedProject = project },
-                        )
-                    }
-                    repeat(columnCount - rowProjects.size) {
-                        Spacer(modifier = Modifier.weight(1f))
-                    }
-                }
+                ProjectRow(
+                    projects = rowProjects,
+                    columnCount = columnCount,
+                    onClick = { selectedProject = it },
+                )
             }
         }
 
-        Spacer(modifier = Modifier.height(48.dp))
         if (count < Project.entries.size) {
-            DefaultOutlinedButton(
-                text = stringResource(Res.string.project_more),
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                onClick = { count += getProjectCountIncrement(device = deviceState.value) },
+            Spacer(modifier = Modifier.height(rowGap))
+            MorePreview(
+                projects = Project.entries.drop(count).take(columnCount),
+                columnCount = columnCount,
+                height = if (isDesktop) PEEK_HEIGHT_DESKTOP else PEEK_HEIGHT_COMPACT,
+                onShowMore = showMore,
             )
         } else {
+            Spacer(modifier = Modifier.height(48.dp))
             DefaultOutlinedButton(
                 text = stringResource(Res.string.project_collapse),
                 modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -110,6 +114,75 @@ fun ProjectSection(
         ProjectDialog(
             project = project,
             onDismissRequest = { selectedProject = null },
+        )
+    }
+}
+
+@Composable
+private fun ProjectRow(
+    projects: List<Project>,
+    columnCount: Int,
+    modifier: Modifier = Modifier,
+    animate: Boolean = true,
+    onClick: (Project) -> Unit,
+) {
+    Row(modifier = modifier, horizontalArrangement = Arrangement.spacedBy(CARD_HORIZONTAL_GAP)) {
+        projects.forEachIndexed { index, project ->
+            ProjectCard(
+                project = project,
+                modifier = Modifier.weight(1f).then(if (animate) Modifier.reveal(delayMillis = index * 100) else Modifier),
+                onClick = { onClick(project) },
+            )
+        }
+        repeat(columnCount - projects.size) {
+            Spacer(modifier = Modifier.weight(1f))
+        }
+    }
+}
+
+@Composable
+private fun MorePreview(
+    projects: List<Project>,
+    columnCount: Int,
+    height: Dp,
+    onShowMore: () -> Unit,
+) {
+    val background = MaterialTheme.colorScheme.primaryContainer
+
+    Box(
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .height(height)
+                .clipToBounds(),
+    ) {
+        ProjectRow(
+            projects = projects,
+            columnCount = columnCount,
+            animate = false,
+            modifier = Modifier.fillMaxWidth().wrapContentHeight(align = Alignment.Top, unbounded = true),
+            onClick = { onShowMore() },
+        )
+        Box(
+            modifier =
+                Modifier
+                    .matchParentSize()
+                    .background(
+                        Brush.verticalGradient(
+                            0f to background.copy(alpha = 0.1f),
+                            0.55f to background.copy(alpha = 0.9f),
+                            1f to background,
+                        ),
+                    ).clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null,
+                        onClick = onShowMore,
+                    ),
+        )
+        DefaultOutlinedButton(
+            text = stringResource(Res.string.project_more),
+            modifier = Modifier.align(Alignment.BottomCenter),
+            onClick = onShowMore,
         )
     }
 }
@@ -180,3 +253,5 @@ private fun getProjectCountIncrement(device: Device): Int =
 private const val INIT_PROJECT_COUNT = 6
 private const val THUMBNAIL_ASPECT_RATIO = 1.5f
 private val CARD_HORIZONTAL_GAP = 24.dp
+private val PEEK_HEIGHT_DESKTOP = 220.dp
+private val PEEK_HEIGHT_COMPACT = 200.dp
