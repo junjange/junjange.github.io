@@ -64,9 +64,10 @@ fun ProjectSection(
 ) {
     val deviceState = rememberDeviceState()
     val isDesktop = deviceState.value == Device.DESKTOP
-    var count by rememberSaveable { mutableStateOf(INIT_PROJECT_COUNT) }
+    var moreSteps by rememberSaveable { mutableStateOf(0) }
     var selectedProject by remember { mutableStateOf<Project?>(null) }
     val columnCount = getProjectColumnCount(device = deviceState.value)
+    val count = getInitialProjectCount(device = deviceState.value) + moreSteps * getProjectCountIncrement(device = deviceState.value)
 
     SectionContainer(modifier = modifier) {
         SectionHeader(
@@ -77,7 +78,7 @@ fun ProjectSection(
         Spacer(modifier = Modifier.height(if (isDesktop) 64.dp else 40.dp))
 
         val rowGap = if (isDesktop) 48.dp else 40.dp
-        val showMore = { count += getProjectCountIncrement(device = deviceState.value) }
+        val showMore = { moreSteps += 1 }
 
         Column(verticalArrangement = Arrangement.spacedBy(rowGap)) {
             Project.entries.take(count).chunked(columnCount).forEach { rowProjects ->
@@ -103,7 +104,7 @@ fun ProjectSection(
                 text = stringResource(Res.string.project_collapse),
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 onClick = {
-                    count = INIT_PROJECT_COUNT
+                    moreSteps = 0
                     onSectionClicked(Section.Project)
                 },
             )
@@ -243,6 +244,13 @@ private fun getProjectColumnCount(device: Device): Int =
         else -> 1
     }
 
+private fun getInitialProjectCount(device: Device): Int =
+    when (device) {
+        Device.DESKTOP -> 6
+        Device.TABLET -> 4
+        else -> 3
+    }
+
 private fun getProjectCountIncrement(device: Device): Int =
     when (device) {
         Device.DESKTOP -> 3
@@ -250,7 +258,6 @@ private fun getProjectCountIncrement(device: Device): Int =
         else -> 3
     }
 
-private const val INIT_PROJECT_COUNT = 6
 private const val THUMBNAIL_ASPECT_RATIO = 1.5f
 private val CARD_HORIZONTAL_GAP = 24.dp
 private val PEEK_HEIGHT_DESKTOP = 220.dp

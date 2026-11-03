@@ -164,7 +164,7 @@ private fun ExperienceCard(
         Spacer(modifier = Modifier.height(18.dp))
         Chip(text = stringResource(experience.periodRes), onCard = true)
         Spacer(modifier = Modifier.height(20.dp))
-        ExperienceDescription(description = stringResource(experience.descriptionRes))
+        ExperienceDescription(description = stringResource(experience.descriptionRes), isMobile = isMobile)
 
         if (experience.links.isNotEmpty()) {
             Spacer(modifier = Modifier.weight(1f))
@@ -187,6 +187,7 @@ private fun ExperienceCard(
 @Composable
 private fun ExperienceDescription(
     description: String,
+    isMobile: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val lines =
@@ -201,7 +202,22 @@ private fun ExperienceDescription(
     ) {
         lines.forEach { line ->
             val parts = line.split(" | ", limit = 2)
-            if (parts.size == 2) {
+            if (parts.size == 2 && isMobile) {
+                Column {
+                    Text(
+                        text = parts[0].keepWords(),
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 15.sp,
+                        lineHeight = 15.sp.bodyLineHeight(),
+                    )
+                    Text(
+                        text = parts[1],
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        fontSize = 13.sp,
+                    )
+                }
+            } else if (parts.size == 2) {
                 Row(modifier = Modifier.fillMaxWidth()) {
                     Text(
                         text = parts[0].keepWords(),
