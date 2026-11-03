@@ -112,6 +112,7 @@ private fun ProjectDialogContent(
             painter = painterResource(project.graphicRes),
             contentDescription = null,
             contentScale = ContentScale.Crop,
+            alignment = project.thumbnailAlignment,
             modifier = Modifier.fillMaxWidth().aspectRatio(1.8f),
         )
 

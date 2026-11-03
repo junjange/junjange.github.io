@@ -1,5 +1,7 @@
 package junjange.dev.ui.model
 
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.BiasAlignment
 import junjange_dev.composeapp.generated.resources.Res
 import junjange_dev.composeapp.generated.resources.Res.drawable
 import junjange_dev.composeapp.generated.resources.android_developer
@@ -141,6 +143,7 @@ enum class Project(
     val techStackRes: StringResource,
     val links: List<Link>,
     val contributionsRes: StringResource,
+    val thumbnailAlignment: Alignment = Alignment.Center,
 ) {
     GEUNYANG_LOTTERY(
         titleRes = Res.string.project_geunyang_lottery,
@@ -351,6 +354,7 @@ enum class Project(
                 Res.string.notion to "https://www.notion.so/Comaplain-fe8c33c71d5a4a42b456410a1db36cda",
             ),
         contributionsRes = Res.string.project_comaplain_contributions,
+        thumbnailAlignment = BiasAlignment(horizontalBias = -0.6f, verticalBias = 0f),
     ),
     BIUM(
         titleRes = Res.string.project_bium,

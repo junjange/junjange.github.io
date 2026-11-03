@@ -214,6 +214,7 @@ private fun ProjectCard(
             painter = painterResource(project.graphicRes),
             contentDescription = null,
             contentScale = ContentScale.Crop,
+            alignment = project.thumbnailAlignment,
         )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
