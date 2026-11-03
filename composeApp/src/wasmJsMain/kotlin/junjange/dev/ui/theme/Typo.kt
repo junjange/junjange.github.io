@@ -8,29 +8,19 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import junjange_dev.composeapp.generated.resources.Res
-import junjange_dev.composeapp.generated.resources.pretendard_black
 import junjange_dev.composeapp.generated.resources.pretendard_bold
-import junjange_dev.composeapp.generated.resources.pretendard_extrabold
-import junjange_dev.composeapp.generated.resources.pretendard_extralight
-import junjange_dev.composeapp.generated.resources.pretendard_light
 import junjange_dev.composeapp.generated.resources.pretendard_medium
 import junjange_dev.composeapp.generated.resources.pretendard_regular
 import junjange_dev.composeapp.generated.resources.pretendard_semibold
-import junjange_dev.composeapp.generated.resources.pretendard_thin
 import org.jetbrains.compose.resources.Font
 
 @Composable
 fun PretendardFontFamily() =
     FontFamily(
-        Font(Res.font.pretendard_black, weight = FontWeight.Black),
-        Font(Res.font.pretendard_extrabold, weight = FontWeight.ExtraBold),
         Font(Res.font.pretendard_bold, weight = FontWeight.Bold),
         Font(Res.font.pretendard_semibold, weight = FontWeight.SemiBold),
         Font(Res.font.pretendard_medium, weight = FontWeight.Medium),
         Font(Res.font.pretendard_regular, weight = FontWeight.Normal),
-        Font(Res.font.pretendard_light, weight = FontWeight.Light),
-        Font(Res.font.pretendard_extralight, weight = FontWeight.ExtraLight),
-        Font(Res.font.pretendard_thin, weight = FontWeight.Thin),
     )
 
 @Composable
