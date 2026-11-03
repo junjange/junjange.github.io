@@ -37,7 +37,7 @@
     <string name="android_developer">Android Developer</string>
     <string name="career_role_android">안드로이드 개발자</string>
     <string name="flutter_developer">Flutter Developer</string>
-    <string name="problem_solver">Problem Solver</string>
+    <string name="fullstack_developer">Full-stack Developer</string>
     <string name="android_developer_freelance">안드로이드 개발자 (프리랜서)</string>
 
     <string name="career_paytalab">페이타랩</string>
@@ -114,7 +114,7 @@
 
     <string name="project_link_letter">링크레터</string>
     <string name="project_link_letter_subtitle">Kotlin Multiplatform 블로그 구독 알림 서비스</string>
-    <string name="project_link_letter_period">2025.06 – 2025.07</string>
+    <string name="project_link_letter_period">2025.06 - 2025.07</string>
     <string name="project_link_letter_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room</string>
     <string name="project_link_letter_description">'링크레터'는 흩어져 있는 블로그를 한곳에 모아, 좋아하는 크리에이터의 새 글을 실시간 알림으로 받아보는 Kotlin Multiplatform 서비스입니다. 일일이 방문하지 않아도 관심 있는 소식을 빠짐없이 받아볼 수 있습니다.</string>
     <string name="project_link_letter_contributions">- 기획·개발·디자인 전 과정을 1인 주도\n- ksoup으로 블로그 HTML 파싱을 commonMain에서 공용 처리, Core 모듈 계층 분리 + Koin DI\n- MVI 아키텍처로 상태 관리 안정성 확보, RSS URL 메모리 캐싱으로 네트워크 요청 최소화\n- 일일 스케줄링·백그라운드 새 포스트 감지 푸시 알림 구현</string>
@@ -122,21 +122,21 @@
 
     <string name="project_geunyang_lottery">그냥복권</string>
     <string name="project_geunyang_lottery_subtitle">매주 번호를 맞추고 토스 포인트를 받는 미니앱</string>
-    <string name="project_geunyang_lottery_period">2026.05(개발) / 2026.06 – 현재(유지보수 중)</string>
+    <string name="project_geunyang_lottery_period">2026.05(개발) / 2026.06 - 현재(유지보수 중)</string>
     <string name="project_geunyang_lottery_techStack">React Native, Granite, Apps in Toss, TDS, Supabase, TypeScript</string>
     <string name="project_geunyang_lottery_description">'그냥복권'은 매주 번호를 맞추고 토스 포인트를 받는 토스 인앱 미니앱입니다. 토스 인앱에 동작하는 React Native 기반 미니앱으로, 회차별 번호 추첨부터 당첨 판정, 포인트 지급까지의 흐름을 직접 설계·구현했습니다.</string>
     <string name="project_geunyang_lottery_contributions">- 앱인토스 전용 AI 개발 하네스 직접 구축 → 기획·프론트·백 1인 개발\n- React Native·Granite 미니앱 개발 및 Apps in Toss 배포\n- Supabase 백엔드로 회차별 추첨·당첨 판정·포인트 지급 구현\n- 토스 디자인 시스템(TDS) 적용</string>
 
     <string name="project_today_drive">오늘의운행</string>
     <string name="project_today_drive_subtitle">운송 기사를 위한 운행 일지·정산 앱</string>
-    <string name="project_today_drive_period">2025.12 – 2026.01 / 2026.03 – 현재(유지보수 중)</string>
+    <string name="project_today_drive_period">2025.12 - 2026.01 / 2026.03 - 현재(유지보수 중)</string>
     <string name="project_today_drive_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room, Apache POI</string>
     <string name="project_today_drive_description">'오늘의운행'은 운송 기사가 하루 운행을 빠르게 기록하고 정산용 엑셀까지 한 번에 출력하는 운행 일지 앱입니다. 매일 수기로 장부를 쓰시던 아버지의 불편을 해소하기 위해 개발해 플레이스토어에 배포했고, KMP·클린 아키텍처로 설계했습니다.</string>
     <string name="project_today_drive_contributions">- Apache POI 엑셀 정산 출력 (항목·순서 사용자 지정)\n- 공박스 금액 자동 계산 로직으로 수기 계산 자동화\n- 백업·복원 기반 로컬 우선(local-first) 데이터 구조 설계</string>
 
     <string name="project_lucky_lottery">행운복권</string>
     <string name="project_lucky_lottery_subtitle">로또·연금복권 당첨번호를 확인하는 Kotlin Multiplatform 서비스</string>
-    <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
+    <string name="project_lucky_lottery_period">2020.11 - 2021.01(개발) / 2024.01 - 현재(유지보수 중)</string>
     <string name="project_lucky_lottery_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, MVI, Clean Architecture, Room, Ktor, Koin</string>
     <string name="project_lucky_lottery_description">'행운복권'은 로또·연금복권 당첨 번호를 회차별로 확인하고 OCR·QR 스캔으로 빠르게 당첨 여부를 볼 수 있는 서비스입니다. 아버지의 불편에서 출발한 첫 배포작으로, Android View → Jetpack Compose → Kotlin Multiplatform으로 세 단계에 걸쳐 진화시켜 지금은 Android·iOS를 하나의 코드베이스로 서비스합니다. 1,600명 이상의 다운로드와 MAU 142명을 기록했습니다.</string>
     <string name="project_lucky_lottery_contributions">- 기획·개발·디자인 1인 주도 - 1,600명 이상 다운로드·MAU 142명\n- KMP 전환 - 화면·ViewModel·UseCase·Repository를 commonMain 공유 (코드 공유율 약 76%, 파일 수 기준)\n- 클린 아키텍처 계층 분리 - Local-first 전환 때 UseCase 시그니처를 유지한 채 Repository 구현만 교체\n- OCR 번호 인식(Tesseract/Vision)·QR 스캔·로컬 우선 데이터 구조 설계</string>
@@ -167,7 +167,7 @@
     <string name="project_whatnow_period">2023.04 - 2023.07</string>
     <string name="project_whatnow_techStack">Android, Kotlin, Compose, Coroutines + Flow</string>
     <string name="project_whatnow_description">'왔나'는 약속 시간에 지각을 막기보다는, 기다리는 시간을 친구들과 함께 즐기는 share-play 서비스입니다. 설문조사를 통해 지각의 원인을 분석하고, 패널티 대신 즐거운 커뮤니케이션 경험으로 부정적 감정을 줄이는 방향으로 기획했습니다. 지각 상황을 유쾌하게 전환하여, 약속을 기다리는 시간조차 즐겁게 만들고자 했습니다.</string>
-    <string name="project_whatnow_contributions">- 홈·지도·사진 보내기 등 주요 화면 개발\n- 실시간 위치 공유 기능 구현\n- 디자이너 협업 디자인 시스템 구축·컴포넌트 모듈화</string>
+    <string name="project_whatnow_contributions">- 홈·지도·사진 보내기 등 주요 화면 개발\n- 실시간 위치 공유 - FusedLocationProviderClient로 위치를 수집해 네이버 지도에 표시</string>
 
     <string name="project_oh_soon_taxi">오순택</string>
     <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>
@@ -187,7 +187,7 @@
     <string name="project_kordle_subtitle">Wordle의 한국어 버전 서비스</string>
     <string name="project_kordle_period">2022.06 - 2022.08</string>
     <string name="project_kordle_techStack">Android, Kotlin, LiveData, Room</string>
-    <string name="project_kordle_description">'훈들'은 Wordle을 한국어 단어 맞추기 게임으로 구현한 프로젝트입니다. 국립국어원, KLUE vocab, NIADic 기반의 어휘를 활용해 여섯 번의 시도 안에 한글 단어를 맞추는 게임이며, 자모 단위로 풀어쓴 입력 방식과 색상 피드백을 통해 직관적인 플레이 경험을 제공합니다. 오픈소스 기반으로 제작되어 다양한 언어로 확장 가능하도록 구현했습니다.</string>
+    <string name="project_kordle_description">'훈들'은 Wordle을 한국어 단어 맞추기 게임으로 구현한 프로젝트입니다. 국립국어원, KLUE vocab, NIADic 기반의 어휘를 활용해 여섯 번의 시도 안에 한글 단어를 맞추는 게임이며, 자모 단위로 풀어쓴 입력 방식과 색상 피드백을 통해 직관적인 플레이 경험을 제공합니다.</string>
     <string name="project_kordle_contributions">- 자모 단위 단어 매칭 알고리즘 구현\n- 커스텀 키보드·게임 인터랙션 UI 구현\n- 게임 통계(연승·성공률·분포) 관리 기능 구현\n- 타이머·남은 시간 계산 기능 개발</string>
 
     <string name="project_pbp">Public Poll</string>
@@ -228,9 +228,9 @@
     <string name="project_camping_tour">캠핑투어</string>
     <string name="project_camping_tour_subtitle">주변 캠핑장과 추천 캠핑장 정보를 제공 후 예약할 수 있게 도움을 주는 서비스</string>
     <string name="project_camping_tour_period">2021.08</string>
-    <string name="project_camping_tour_techStack">Android, Kotlin, Room, AWS Amplify, AWS Cognito</string>
+    <string name="project_camping_tour_techStack">Android, Kotlin, 고캠핑 오픈 API, Glide</string>
     <string name="project_camping_tour_description">`캠핑투어`는 주변 캠핑장과 추천 캠핑장 정보를 제공 후 예약할 수 있게 도움을 주는 서비스입니다. 관광지, 계곡, 산, 바다, 숲 등 키워드 기반 검색과 글램핑, 카라반 등 다양한 유형의 캠핑장 정보를 지원하며, 전화문의 기능을 통해 추가 정보를 확인할 수 있습니다. 지역별, 주변 캠핑장 상세 검색을 통해 사용자가 원하는 캠핑지를 쉽고 빠르게 찾을 수 있도록 설계했습니다.</string>
-    <string name="project_camping_tour_contributions">- 기획·개발·디자인 1인 주도\n- 공공 데이터 오픈 API 캠핑장 정보 조회 기능 개발\n- AWS Amplify·Cognito 사용자 인증 구현\n- Room 로컬 DB 설계·캐싱 기능 개발</string>
+    <string name="project_camping_tour_contributions">- 기획·개발·디자인 1인 주도\n- 한국관광공사 고캠핑 오픈 API 연동 - 키워드 검색·위치 기반 주변 캠핑장 조회\n- Glide 이미지 로딩으로 캠핑장 목록 UI 구현</string>
 
     <string name="google_play_store">구글 플레이 스토어</string>
     <string name="github">깃허브</string>
