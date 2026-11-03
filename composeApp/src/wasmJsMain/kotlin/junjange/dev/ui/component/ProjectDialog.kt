@@ -170,7 +170,7 @@ private fun ProjectSummary(
         verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         Chip(text = stringResource(project.roleRes), accent = true)
-        Chip(text = stringResource(project.periodRes))
+        stringResource(project.periodRes).split(" / ").forEach { period -> Chip(text = period) }
     }
 }
 

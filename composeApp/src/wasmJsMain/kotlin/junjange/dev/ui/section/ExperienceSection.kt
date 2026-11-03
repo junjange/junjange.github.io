@@ -46,7 +46,9 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun ExperienceSection(modifier: Modifier = Modifier) {
-    val isMobile = rememberDeviceState().value == Device.MOBILE
+    val device = rememberDeviceState().value
+    val isMobile = device == Device.MOBILE
+    val stackPeriods = device != Device.DESKTOP
 
     SectionContainer(modifier = modifier) {
         SectionHeader(
@@ -60,6 +62,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             title = stringResource(Res.string.experience_education),
             items = Education.entries,
             isMobile = isMobile,
+            stackPeriods = stackPeriods,
         )
 
         Spacer(modifier = Modifier.height(GROUP_GAP))
@@ -68,6 +71,7 @@ fun ExperienceSection(modifier: Modifier = Modifier) {
             title = stringResource(Res.string.experience_community),
             items = Community.entries,
             isMobile = isMobile,
+            stackPeriods = stackPeriods,
         )
 
         Spacer(modifier = Modifier.height(GROUP_GAP))
@@ -91,13 +95,14 @@ private fun ExperienceGroup(
     title: String,
     items: List<Experience>,
     isMobile: Boolean,
+    stackPeriods: Boolean,
 ) {
     GroupTitle(text = title)
     Spacer(modifier = Modifier.height(20.dp))
     if (isMobile) {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
             items.forEach { experience ->
-                ExperienceCard(experience = experience, isMobile = true, modifier = Modifier.fillMaxWidth().reveal())
+                ExperienceCard(experience = experience, isMobile = true, stackPeriods = true, modifier = Modifier.fillMaxWidth().reveal())
             }
         }
     } else {
@@ -109,6 +114,7 @@ private fun ExperienceGroup(
                 ExperienceCard(
                     experience = experience,
                     isMobile = false,
+                    stackPeriods = stackPeriods,
                     modifier = Modifier.weight(1f).fillMaxHeight().reveal(delayMillis = index * 120),
                 )
             }
@@ -135,6 +141,7 @@ private fun GroupTitle(
 private fun ExperienceCard(
     experience: Experience,
     isMobile: Boolean,
+    stackPeriods: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val uriHandler = LocalUriHandler.current
@@ -164,7 +171,7 @@ private fun ExperienceCard(
         Spacer(modifier = Modifier.height(18.dp))
         Chip(text = stringResource(experience.periodRes), onCard = true)
         Spacer(modifier = Modifier.height(20.dp))
-        ExperienceDescription(description = stringResource(experience.descriptionRes), isMobile = isMobile)
+        ExperienceDescription(description = stringResource(experience.descriptionRes), stackPeriods = stackPeriods)
 
         if (experience.links.isNotEmpty()) {
             Spacer(modifier = Modifier.weight(1f))
@@ -187,7 +194,7 @@ private fun ExperienceCard(
 @Composable
 private fun ExperienceDescription(
     description: String,
-    isMobile: Boolean,
+    stackPeriods: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val lines =
@@ -202,7 +209,7 @@ private fun ExperienceDescription(
     ) {
         lines.forEach { line ->
             val parts = line.split(" | ", limit = 2)
-            if (parts.size == 2 && isMobile) {
+            if (parts.size == 2 && stackPeriods) {
                 Column {
                     Text(
                         text = parts[0].keepWords(),
