@@ -14,12 +14,12 @@
     <string name="visit_blog">Blog 방문하기</string>
 
     <!--About me-->
-    <string name="about_me_title1">근본 원인을 끝까지 추적합니다.</string>
-    <string name="about_me_description1">재현도 안 되고 로그도 없던 결제 끊김 이슈를 앱 생명주기까지 역추적해, OS가 결제 중 프로세스를 회수하는 것이 원인임을 밝혔습니다. 재시도 대신 진행 상태를 보존·복원하는 구조로 바꿔 결제 성공률을 90.3%에서 91.1%로 올렸습니다. 장애 대응에서도 증상 차단과 원인 규명을 분리해 접근합니다.</string>
-    <string name="about_me_title2">AI 활용의 한계를 시스템으로 극복합니다.</string>
-    <string name="about_me_description2">AI에게 구현과 테스트를 함께 맡기면 '절대 실패하지 않는 테스트'를 스스로 만들어내는 모순을 발견했습니다. 구현 에이전트와 테스트 에이전트를 격리해 서로 검증하는 Multi-Agent 워크플로우를 만들고, 파트 전체의 정식 개발 프로세스로 정착시켰습니다. 개발 속도가 올라가는 만큼 안전장치도 함께 만듭니다.</string>
-    <string name="about_me_title3">함께 성장하는 환경을 만듭니다.</string>
-    <string name="about_me_description3">GDG on Campus 운영진과 리드로 스터디·해커톤을 운영했고, 우아한테크코스와 네이버 부스트캠프에서 페어 프로그래밍과 코드 리뷰로 설명하고 읽는 힘을 다졌습니다. 실무에서도 구현 전에 설계를 문서로 정리해 팀과 싱크를 맞추고, 해결 경험은 위키와 블로그에 남깁니다.</string>
+    <string name="about_me_title1">근본적인 원인을 파악하고 해결합니다.</string>
+    <string name="about_me_description1">급한 장애는 증상을 막는 일과 원인을 찾는 일을 나눠 대응합니다. 재현되지 않고 로그도 남지 않던 결제 끊김도 임시로 덮지 않고, 사용자 행동 기록을 따라가 프로세스 강제 종료로 원인을 재현해 확인한 다음 구조를 바꿨습니다.</string>
+    <string name="about_me_title2">코드를 변경하기 전에 안전장치부터 마련합니다.</string>
+    <string name="about_me_description2">레거시를 고칠 때는 현재 동작을 테스트로 먼저 고정하고, 큰 변경은 점진 배포하며 언제든 롤백할 수 있게 합니다. AI로 개발 속도가 빨라진 뒤에는 AI가 쓴 테스트도 믿을 수 있도록 구현과 검증을 분리한 워크플로우를 만들어 파트에서 쓰고 있습니다.</string>
+    <string name="about_me_title3">구현 전에 팀과 설계를 합의합니다.</string>
+    <string name="about_me_description3">복잡한 기능은 설계 대안을 문서로 비교해 팀과 논의한 뒤 구현하고, 큰 변경은 대안별 트레이드오프를 근거로 팀을 설득해 진행합니다. 해결한 문제는 사내 위키와 기술 블로그에 남겨 팀이 같은 문제를 다시 풀지 않게 합니다.</string>
 
     <!--Career-->
     <string name="android_developer">Android Developer</string>
