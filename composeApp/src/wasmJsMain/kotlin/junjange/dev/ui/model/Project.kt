@@ -21,7 +21,7 @@ import junjange_dev.composeapp.generated.resources.ic_pmd_key_graphic
 import junjange_dev.composeapp.generated.resources.ic_public_poll_graphic
 import junjange_dev.composeapp.generated.resources.ic_recycle_cycle_graphic
 import junjange_dev.composeapp.generated.resources.ic_today_drive_graphic
-import junjange_dev.composeapp.generated.resources.ic_tohaeng_lottery_graphic
+import junjange_dev.composeapp.generated.resources.ic_geunyang_lottery_graphic
 import junjange_dev.composeapp.generated.resources.ic_whatnow_graphic
 import junjange_dev.composeapp.generated.resources.notion
 import junjange_dev.composeapp.generated.resources.problem_solver
@@ -115,12 +115,12 @@ import junjange_dev.composeapp.generated.resources.project_today_drive_descripti
 import junjange_dev.composeapp.generated.resources.project_today_drive_period
 import junjange_dev.composeapp.generated.resources.project_today_drive_subtitle
 import junjange_dev.composeapp.generated.resources.project_today_drive_techStack
-import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery
-import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_contributions
-import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_description
-import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_period
-import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_subtitle
-import junjange_dev.composeapp.generated.resources.project_tohaeng_lottery_techStack
+import junjange_dev.composeapp.generated.resources.project_geunyang_lottery
+import junjange_dev.composeapp.generated.resources.project_geunyang_lottery_contributions
+import junjange_dev.composeapp.generated.resources.project_geunyang_lottery_description
+import junjange_dev.composeapp.generated.resources.project_geunyang_lottery_period
+import junjange_dev.composeapp.generated.resources.project_geunyang_lottery_subtitle
+import junjange_dev.composeapp.generated.resources.project_geunyang_lottery_techStack
 import junjange_dev.composeapp.generated.resources.project_whatnow
 import junjange_dev.composeapp.generated.resources.project_whatnow_contributions
 import junjange_dev.composeapp.generated.resources.project_whatnow_description
@@ -142,19 +142,19 @@ enum class Project(
     val links: List<Link>,
     val contributionsRes: StringResource,
 ) {
-    TOHAENG_LOTTERY(
-        titleRes = Res.string.project_tohaeng_lottery,
-        subtitleRes = Res.string.project_tohaeng_lottery_subtitle,
-        graphicRes = drawable.ic_tohaeng_lottery_graphic,
-        periodRes = Res.string.project_tohaeng_lottery_period,
-        descriptionRes = Res.string.project_tohaeng_lottery_description,
+    GEUNYANG_LOTTERY(
+        titleRes = Res.string.project_geunyang_lottery,
+        subtitleRes = Res.string.project_geunyang_lottery_subtitle,
+        graphicRes = drawable.ic_geunyang_lottery_graphic,
+        periodRes = Res.string.project_geunyang_lottery_period,
+        descriptionRes = Res.string.project_geunyang_lottery_description,
         roleRes = Res.string.problem_solver,
-        techStackRes = Res.string.project_tohaeng_lottery_techStack,
+        techStackRes = Res.string.project_geunyang_lottery_techStack,
         links =
             listOf(
                 Res.string.toss_mini_app to "https://minion.toss.im/lhXqGEFx",
             ),
-        contributionsRes = Res.string.project_tohaeng_lottery_contributions,
+        contributionsRes = Res.string.project_geunyang_lottery_contributions,
     ),
     LUCKY_LOTTERY(
         titleRes = Res.string.project_lucky_lottery,
@@ -224,7 +224,6 @@ enum class Project(
         techStackRes = Res.string.project_friendogly_techStack,
         links =
             listOf(
-                Res.string.google_play_store to "https://play.google.com/store/apps/details?id=com.happy.friendogly&hl=ko",
                 Res.string.github to "https://github.com/woowacourse-teams/2024-friendogly",
             ),
         contributionsRes = Res.string.project_friendogly_contributions,
@@ -254,7 +253,6 @@ enum class Project(
         techStackRes = Res.string.project_whatnow_techStack,
         links =
             listOf(
-                Res.string.google_play_store to "https://play.google.com/store/apps/details?id=com.depromeet.whatnow&hl=ko-KR",
                 Res.string.github to "https://github.com/depromeet/whatnow-android",
                 Res.string.notion to "https://www.notion.so/what-now-b684457c95c2461786af4e3db6296917",
             ),
@@ -393,7 +391,6 @@ enum class Project(
         techStackRes = Res.string.project_camping_tour_techStack,
         links =
             listOf(
-                Res.string.google_play_store to "https://play.google.com/store/apps/details?id=com.junjange.touring",
                 Res.string.github to "https://github.com/junjange/camping-tour-android",
                 Res.string.notion to "https://www.notion.so/c6cc6728e74c44d2bf2c1749fe0d7469",
             ),

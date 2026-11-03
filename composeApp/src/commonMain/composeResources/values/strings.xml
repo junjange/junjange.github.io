@@ -105,15 +105,15 @@
     <string name="project_link_letter_period">2025.06 – 2025.07</string>
     <string name="project_link_letter_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, Koin, Ktor, Room</string>
     <string name="project_link_letter_description">'링크레터'는 흩어져 있는 블로그를 한곳에 모아, 좋아하는 크리에이터의 새 글을 실시간 알림으로 받아보는 Kotlin Multiplatform 서비스입니다. 일일이 방문하지 않아도 관심 있는 소식을 빠짐없이 받아볼 수 있습니다.</string>
-    <string name="project_link_letter_contributions">- 기획·개발·디자인 전 과정을 1인 주도\n- Android/iOS 코드 80% 이상 공유로 단일 코드베이스 개발, Core 모듈 계층 분리 + Koin DI\n- MVI 아키텍처로 상태 관리 안정성 확보, RSS URL 메모리 캐싱으로 네트워크 요청 최소화\n- 일일 스케줄링·백그라운드 새 포스트 감지 푸시 알림 구현</string>
+    <string name="project_link_letter_contributions">- 기획·개발·디자인 전 과정을 1인 주도\n- ksoup으로 블로그 HTML 파싱을 commonMain에서 공용 처리, Core 모듈 계층 분리 + Koin DI\n- MVI 아키텍처로 상태 관리 안정성 확보, RSS URL 메모리 캐싱으로 네트워크 요청 최소화\n- 일일 스케줄링·백그라운드 새 포스트 감지 푸시 알림 구현</string>
+    <string name="project_geunyang_lottery">그냥복권</string>
+    <string name="project_geunyang_lottery_subtitle">매주 번호를 맞추고 토스 포인트를 받는 미니앱</string>
+    <string name="project_geunyang_lottery_period">2026.05(개발) / 2026.06 – 현재(유지보수 중)</string>
+    <string name="project_geunyang_lottery_techStack">React Native, Granite, Apps in Toss, TDS, Supabase, TypeScript</string>
+    <string name="project_geunyang_lottery_description">'그냥복권'은 매주 번호를 맞추고 토스 포인트를 받는 토스 인앱 미니앱입니다. 토스 인앱에 동작하는 React Native 기반 미니앱으로, 회차별 번호 추첨부터 당첨 판정, 포인트 지급까지의 흐름을 직접 설계·구현했습니다.</string>
+    <string name="project_geunyang_lottery_contributions">- 앱인토스 전용 AI 개발 하네스 직접 구축 → 기획·프론트·백 1인 개발\n- React Native·Granite 미니앱 개발 및 Apps in Toss 배포\n- Supabase 백엔드로 회차별 추첨·당첨 판정·포인트 지급 구현\n- 토스 디자인 시스템(TDS) 적용</string>
 
 
-    <string name="project_tohaeng_lottery">토행복권</string>
-    <string name="project_tohaeng_lottery_subtitle">매주 번호를 맞추고 토스 포인트를 받는 미니앱</string>
-    <string name="project_tohaeng_lottery_period">2026.05(개발) / 2026.06 – 현재(유지보수 중)</string>
-    <string name="project_tohaeng_lottery_techStack">React Native, Granite, Apps in Toss, TDS, Supabase, TypeScript</string>
-    <string name="project_tohaeng_lottery_description">'토행복권'은 매주 번호를 맞추고 토스 포인트를 받는 토스 인앱 미니앱입니다. 토스 인앱에 동작하는 React Native 기반 미니앱으로, 회차별 번호 추첨부터 당첨 판정, 포인트 지급까지의 흐름을 직접 설계·구현했습니다.</string>
-    <string name="project_tohaeng_lottery_contributions">- 앱인토스 전용 AI 개발 하네스 직접 구축 → 기획·프론트·백 1인 개발\n- React Native·Granite 미니앱 개발 및 Apps in Toss 배포\n- Supabase 백엔드로 회차별 추첨·당첨 판정·포인트 지급 구현\n- 토스 디자인 시스템(TDS) 적용</string>
 
     <string name="project_today_drive">오늘의운행</string>
     <string name="project_today_drive_subtitle">운송 기사를 위한 운행 일지·정산 앱</string>
@@ -127,7 +127,7 @@
     <string name="project_lucky_lottery_period">2020.11 – 2021.01(개발) / 2024.01 – 현재(유지보수 중)</string>
     <string name="project_lucky_lottery_techStack">Kotlin Multiplatform, Jetpack Compose / Compose Multiplatform, MVI, Clean Architecture, Room, Ktor, Koin</string>
     <string name="project_lucky_lottery_description">'행운복권'은 로또·연금복권 당첨 번호를 회차별로 확인하고 OCR·QR 스캔으로 빠르게 당첨 여부를 볼 수 있는 서비스입니다. 아버지의 불편에서 출발한 첫 배포작으로, Android View → Jetpack Compose → Kotlin Multiplatform으로 세 단계에 걸쳐 진화시켜 지금은 Android·iOS를 하나의 코드베이스로 서비스합니다. 1,600명 이상의 다운로드와 MAU 142명을 기록했습니다.</string>
-    <string name="project_lucky_lottery_contributions">- 기획·개발·디자인 1인 주도 - 1,600명 이상 다운로드·MAU 142명\n- KMP 전환 - 화면·ViewModel·UseCase·Repository를 commonMain 공유\n- 계층 분리(클린 아키텍처)로 KMP 전환·local-first 재정의 두 대변경 국소화\n- OCR 번호 인식(Tesseract/Vision)·QR 스캔·로컬 우선 데이터 구조 설계</string>
+    <string name="project_lucky_lottery_contributions">- 기획·개발·디자인 1인 주도 - 1,600명 이상 다운로드·MAU 142명\n- KMP 전환 - 화면·ViewModel·UseCase·Repository를 commonMain 공유 (코드 공유율 약 76%, 파일 수 기준)\n- 클린 아키텍처 계층 분리 - Local-first 전환 때 UseCase 시그니처를 유지한 채 Repository 구현만 교체\n- OCR 번호 인식(Tesseract/Vision)·QR 스캔·로컬 우선 데이터 구조 설계</string>
 
     <string name="project_junjange_dev">저평가 우량주 포트폴리오</string>
     <string name="project_junjange_dev_subtitle">Kotlin Multiplatform 포트폴리오</string>
@@ -141,14 +141,14 @@
     <string name="project_friendogly_period">2024.07 - 2025.01</string>
     <string name="project_friendogly_techStack">Android, Kotlin, Coroutines + Flow, Hilt</string>
     <string name="project_friendogly_description">‘반갑개’는 강아지들이 산책 중 새로운 친구를 만날 수 있도록 도와주는 소셜 서비스입니다. 산책 장소와 일정을 공유하고, 주변 강아지들과 자연스럽게 교류할 수 있는 기회를 제공합니다.</string>
-    <string name="project_friendogly_contributions">- 소셜 로그인·인증 플로우 및 공통 모듈·아키텍처 구축\n- 예외 대신 결과 객체로 에러를 전달하는 공통 에러 핸들링 구조 설계\n- Firebase Analytics·Crashlytics 모니터링 체계 구축\n- CI/CD 배포 자동화 구축</string>
+    <string name="project_friendogly_contributions">- 우아한테크코스 Android 4인 팀으로 참여\n- Krossbow(STOMP) 기반 실시간 위치 공유와 Naver Maps 렌더링\n- Google·Kakao·Naver 소셜 로그인, Firebase 모니터링\n- JUnit5·Mockk·Kotest 기반 테스트 작성</string>
 
     <string name="project_move_move">뭅뭅</string>
     <string name="project_move_move_subtitle">짧은 댄스 영상을 업로드하고 시청하는 서비스</string>
     <string name="project_move_move_period">2023.11 - 2023.12</string>
     <string name="project_move_move_techStack">Android, Kotlin, Compose, MVI, Clean Architecture, Media3 ExoPlayer, Coroutines + Flow, Hilt</string>
     <string name="project_move_move_description">'뭅뭅'은 네이버 부스트캠프에서 진행한 프로젝트로, 짧은 개발 기간 동안 기술적 도전을 극복하며 완성한 댄스 숏폼 비디오 플랫폼입니다. 숏폼 비디오 플랫폼의 급성장과 댄스 콘텐츠의 높은 수요를 바탕으로 기획된 서비스로, 사용자가 댄스 영상을 시청하고 업로드할 수 있는 기능을 제공합니다. Android 3명·백엔드 2명으로 협업했고, 저는 다수의 영상을 끊김 없이 재생하는 비디오 스트리밍 성능 최적화를 담당했습니다.</string>
-    <string name="project_move_move_contributions">- ExoPlayer 3-인스턴스 순환 재활용 전략 - 재생 CPU 약 57% 절감\n- DisposableEffect·생명주기 연동으로 플레이어 리소스 누수 방지\n- MVI·클린 아키텍처로 업로드·스트리밍 상태 관리 안정화</string>
+    <string name="project_move_move_contributions">- ExoPlayer 3-인스턴스 순환 재활용 전략 - 재생 CPU 약 57% 절감\n- DisposableEffect·생명주기 연동으로 백그라운드 재생·영상 겹침 버그 수정\n- MVI·클린 아키텍처로 업로드·스트리밍 상태 관리 안정화</string>
 
     <string name="project_whatnow">왔나</string>
     <string name="project_whatnow_subtitle">약속 실시간 위치 공유 서비스</string>
@@ -160,9 +160,9 @@
     <string name="project_oh_soon_taxi">오순택</string>
     <string name="project_oh_soon_taxi_subtitle">학생 간 매칭을 통해 택시 동승을 지원하는 서비스</string>
     <string name="project_oh_soon_taxi_period">2022.08 - 2023.12</string>
-    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, MVVM, 멀티모듈 + Clean Architecture, Coroutines + Flow, Retrofit2 + OkHttp, STOMP, DataStore</string>
+    <string name="project_oh_soon_taxi_techStack">Android, Kotlin, MVVM, 멀티모듈 + Clean Architecture, Coroutines + Flow, Retrofit2 + OkHttp, STOMP</string>
     <string name="project_oh_soon_taxi_description">'오순택'은 학생 간 택시 동승을 지원하는 서비스로, 구글 대학생 개발자 커뮤니티에서 백엔드 3명과 함께 개발하며 안드로이드는 제가 혼자 전담한 프로젝트입니다. 셔틀버스가 운행되지 않는 야간과 주말 시간대에 택시를 함께 이용할 수 있도록 매칭 기능을 제공하여 금전적 부담과 대기 시간을 줄이는 것을 목표로 했습니다. 약속방 생성·참여·좌석 선택부터 실시간 채팅, 매너 온도·신고까지 20개가 넘는 화면을 단독으로 구현했습니다.</string>
-    <string name="project_oh_soon_taxi_contributions">- 안드로이드 전 기능 단독 구현 - 100건 이상 다운로드, 교내 신문 게재\n- app/data/domain 3모듈 멀티모듈·클린 아키텍처 설계\n- STOMP 기반 실시간 채팅 구현\n- 검색 Debounce·DataStore 자동 로그인 처리</string>
+    <string name="project_oh_soon_taxi_contributions">- 안드로이드 전 기능 단독 구현 - 100건 이상 다운로드, 교내 신문 게재, 캡스톤디자인 경진대회 장려상\n- 혼자라 계층 위반을 걸러줄 리뷰어가 없어 app/data/domain 3모듈 의존 방향을 빌드 설정으로 강제\n- STOMP 기반 실시간 채팅 구현\n- 검색 입력 Flow debounce 처리</string>
 
     <string name="project_knocknock">낙낙</string>
     <string name="project_knocknock_subtitle">푸시 알림 커스텀 서비스</string>
@@ -188,7 +188,7 @@
     <string name="project_pmd_key">PMD Key</string>
     <string name="project_pmd_key_subtitle">PMD 주행에 도움이 되는 서비스</string>
     <string name="project_pmd_key_period">2022.04</string>
-    <string name="project_pmd_key_techStack">Android, Kotlin, Compose, Ktor, ExoPlayer</string>
+    <string name="project_pmd_key_techStack">Android, Kotlin, MVVM, Kakao Map/Navi, Room, Retrofit</string>
     <string name="project_pmd_key_description">'PMD KEY'는 PMD(개인형 이동수단) 주행 시 필요한 필수 기능을 지원하는 안드로이드 애플리케이션입니다. 주행 시작과 종료 시 현재 위치를 지도에 마커로 표시하여 내 PMD의 위치를 쉽게 확인할 수 있으며, 주행 전 안전수칙 4가지를 이미지로 제공해 안전한 사용을 유도합니다. 또한, 오늘의 날씨 정보를 통해 주행 여부를 스스로 판단할 수 있도록 지원하고, 원하는 목적지를 검색해 경로를 안내하는 내비게이션 기능도 함께 제공합니다.</string>
     <string name="project_pmd_key_contributions">- 주행 시작·종료 위치 마커 표시 위치 추적 기능 개발\n- 주행 전 안전수칙 안내 가이드 기능 구현\n- 기상 정보 연동 날씨 안내 기능 개발\n- 목적지 검색·외부 내비 경로 연동 구현</string>
 
@@ -211,7 +211,7 @@
     <string name="project_recycle_cycle_period">2022.01</string>
     <string name="project_recycle_cycle_techStack">Flutter, Dart, TensorFlow Lite</string>
     <string name="project_recycle_cycle_description">`RecycleCycle`은 이미지 분류를 통해 사용자의 분리수거를 돕는 재활용 관리 서비스입니다. 촬영하거나 갤러리에서 선택한 쓰레기 이미지를 분류하여 최근 분리수거 내역과 항목별 비율을 시각화해 제공합니다. 분리수거 활동에 따라 경험치를 얻고 레벨업할 수 있으며, 레벨이 오를수록 새싹이 나무로 자라는 성장형 인터페이스로 친환경 활동을 유도합니다.</string>
-    <string name="project_recycle_cycle_contributions">- 분리수거 쓰레기 분류 페이지 개발\n- TensorFlow Lite 이미지 분류 기능 개발\n- Firebase 연동 실시간 데이터 관리</string>
+    <string name="project_recycle_cycle_contributions">- 팀 프로젝트로 참여\n- 온디바이스 TensorFlow Lite 모델로 쓰레기 이미지 분류\n- 분류 결과 Firebase 저장</string>
 
     <string name="project_camping_tour">캠핑투어</string>
     <string name="project_camping_tour_subtitle">주변 캠핑장과 추천 캠핑장 정보를 제공 후 예약할 수 있게 도움을 주는 서비스</string>
