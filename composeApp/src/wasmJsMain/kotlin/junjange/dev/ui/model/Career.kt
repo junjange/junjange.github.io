@@ -4,8 +4,8 @@ import junjange.dev.ui.model.CareerProject.Companion.LIO_PROJECTS
 import junjange.dev.ui.model.CareerProject.Companion.MATRIOS_PROJECTS
 import junjange.dev.ui.model.CareerProject.Companion.PAYTALAB_PROJECTS
 import junjange_dev.composeapp.generated.resources.Res
-import junjange_dev.composeapp.generated.resources.android_developer
 import junjange_dev.composeapp.generated.resources.android_developer_freelance
+import junjange_dev.composeapp.generated.resources.career_role_android
 import junjange_dev.composeapp.generated.resources.career_lio
 import junjange_dev.composeapp.generated.resources.career_lio_intro
 import junjange_dev.composeapp.generated.resources.career_lio_period
@@ -28,14 +28,16 @@ enum class Career(
     val introRes: StringResource,
     val teamRes: StringResource,
     val project: List<CareerProject>,
+    val joinDate: JoinDate? = null,
 ) {
     Paytalab(
         logoRes = Res.drawable.ic_paytalab,
         periodRes = Res.string.career_paytalab_period,
         nameRes = Res.string.career_paytalab,
         introRes = Res.string.career_paytalab_intro,
-        teamRes = Res.string.android_developer,
+        teamRes = Res.string.career_role_android,
         project = PAYTALAB_PROJECTS,
+        joinDate = JoinDate(year = 2025, month = 7, day = 28),
     ),
     Lio(
         logoRes = Res.drawable.ic_lio,
@@ -53,4 +55,9 @@ enum class Career(
         teamRes = Res.string.android_developer_freelance,
         project = MATRIOS_PROJECTS,
     ),
+    ;
+
+    companion object {
+        fun fullTimeMonths(): Int = entries.sumOf { it.joinDate?.elapsedMonths() ?: 0 }
+    }
 }
