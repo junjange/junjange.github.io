@@ -1,11 +1,13 @@
 package junjange.dev.ui.section
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.ui.Alignment
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
@@ -58,27 +60,12 @@ fun AboutSection(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(if (isMobile) 40.dp else 64.dp))
 
-        if (isDesktop) {
-            Row(
-                modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max),
-                horizontalArrangement = Arrangement.spacedBy(CARD_GAP),
-            ) {
-                AboutMe.entries.forEachIndexed { index, aboutMe ->
-                    AboutCard(
-                        index = index,
-                        aboutMe = aboutMe,
-                        modifier = Modifier.weight(1f).fillMaxHeight().reveal(delayMillis = index * 120),
-                    )
-                }
-            }
-        } else {
-            Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                AboutMe.entries.forEachIndexed { index, aboutMe ->
-                    AboutCard(
-                        index = index,
-                        aboutMe = aboutMe,
-                        modifier = Modifier.fillMaxWidth().reveal(),
-                    )
+        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            AboutMe.entries.forEachIndexed { index, aboutMe ->
+                if (isDesktop) {
+                    AboutWideCard(index = index, aboutMe = aboutMe, modifier = Modifier.fillMaxWidth().reveal())
+                } else {
+                    AboutCard(index = index, aboutMe = aboutMe, modifier = Modifier.fillMaxWidth().reveal())
                 }
             }
         }
@@ -97,9 +84,10 @@ private fun StatRow(isMobile: Boolean) {
         )
 
     if (isMobile) {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            stats.forEach { (label, value) ->
-                StatCard(label = label, value = value, modifier = Modifier.fillMaxWidth().reveal())
+        SurfaceCard(modifier = Modifier.fillMaxWidth().reveal(), padding = 24.dp) {
+            stats.forEachIndexed { index, (label, value) ->
+                if (index != 0) HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+                StatListRow(label = label, value = value)
             }
         }
     } else {
@@ -112,6 +100,32 @@ private fun StatRow(isMobile: Boolean) {
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun StatListRow(
+    label: String,
+    value: String,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(vertical = 14.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = label,
+            modifier = Modifier.weight(1f),
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontWeight = FontWeight.SemiBold,
+            fontSize = 15.sp,
+        )
+        Text(
+            text = value,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            fontWeight = FontWeight.Bold,
+            fontSize = 22.sp,
+            letterSpacing = TITLE_LETTER_SPACING,
+        )
     }
 }
 
@@ -141,35 +155,74 @@ private fun StatCard(
 }
 
 @Composable
+private fun AboutWideCard(
+    index: Int,
+    aboutMe: AboutMe,
+    modifier: Modifier = Modifier,
+) {
+    SurfaceCard(modifier = modifier, padding = 40.dp) {
+        Row {
+            Column(modifier = Modifier.width(WIDE_TITLE_WIDTH)) {
+                AboutNumber(index = index)
+                Spacer(modifier = Modifier.height(16.dp))
+                AboutTitle(aboutMe = aboutMe)
+            }
+            Spacer(modifier = Modifier.width(48.dp))
+            AboutDescription(aboutMe = aboutMe, modifier = Modifier.weight(1f).padding(top = 34.dp))
+        }
+    }
+}
+
+@Composable
 private fun AboutCard(
     index: Int,
     aboutMe: AboutMe,
     modifier: Modifier = Modifier,
 ) {
     SurfaceCard(modifier = modifier) {
-        Text(
-            text = "0${index + 1}",
-            color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold,
-            fontSize = 17.sp,
-        )
+        AboutNumber(index = index)
         Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            text = stringResource(aboutMe.titleRes).keepWords(),
-            color = MaterialTheme.colorScheme.onPrimaryContainer,
-            fontWeight = FontWeight.Bold,
-            fontSize = 22.sp,
-            lineHeight = 31.sp,
-            letterSpacing = TITLE_LETTER_SPACING,
-        )
+        AboutTitle(aboutMe = aboutMe)
         Spacer(modifier = Modifier.height(16.dp))
-        Text(
-            text = stringResource(aboutMe.descriptionRes).keepWords(),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            fontSize = 16.sp,
-            lineHeight = 16.sp.bodyLineHeight(),
-        )
+        AboutDescription(aboutMe = aboutMe)
     }
 }
 
+@Composable
+private fun AboutNumber(index: Int) {
+    Text(
+        text = "0${index + 1}",
+        color = MaterialTheme.colorScheme.primary,
+        fontWeight = FontWeight.Bold,
+        fontSize = 17.sp,
+    )
+}
+
+@Composable
+private fun AboutTitle(aboutMe: AboutMe) {
+    Text(
+        text = stringResource(aboutMe.titleRes).keepWords(),
+        color = MaterialTheme.colorScheme.onPrimaryContainer,
+        fontWeight = FontWeight.Bold,
+        fontSize = 22.sp,
+        lineHeight = 31.sp,
+        letterSpacing = TITLE_LETTER_SPACING,
+    )
+}
+
+@Composable
+private fun AboutDescription(
+    aboutMe: AboutMe,
+    modifier: Modifier = Modifier,
+) {
+    Text(
+        text = stringResource(aboutMe.descriptionRes).keepWords(),
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        fontSize = 16.sp,
+        lineHeight = 16.sp.bodyLineHeight(),
+    )
+}
+
 private val CARD_GAP = 20.dp
+private val WIDE_TITLE_WIDTH = 340.dp
