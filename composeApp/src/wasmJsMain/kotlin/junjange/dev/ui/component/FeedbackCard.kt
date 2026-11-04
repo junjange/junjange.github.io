@@ -63,8 +63,8 @@ fun FeedbackCard(
                 Text(
                     text = stringResource(Res.string.feedback_growth_label),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 13.sp,
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
