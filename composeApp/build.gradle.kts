@@ -238,7 +238,7 @@ val generateFeedbacks by tasks.registering {
                     val allowedKeys =
                         when (source) {
                             "github" -> setOf("source", "login", "id", "issue", "place", "relation", "strength", "growth", "createdAt")
-                            "specter" -> setOf("source", "place", "relation", "strength", "growth", "createdAt")
+                            "specter" -> setOf("source", "place", "relation", "period", "strength", "growth", "createdAt")
                             else -> fail("source 는 github 또는 specter 여야 해요.")
                         }
                     (json.keys - allowedKeys).takeIf { it.isNotEmpty() }?.let { fail("알 수 없는 항목이 있어요: $it") }
@@ -261,6 +261,8 @@ val generateFeedbacks by tasks.registering {
                     val growth = text("growth", FEEDBACK_MAX_LENGTH, required = false)
                     val createdAt = text("createdAt", 10, required = false)
                     if (createdAt != null && !datePattern.matches(createdAt)) fail("createdAt 은 YYYY-MM-DD 형식이어야 해요.")
+                    val period = text("period", 30, required = false)
+                    if (period != null && !Regex("""^\d{4}\.\d{2}( - \d{4}\.\d{2})?$""").matches(period)) fail("period 는 YYYY.MM - YYYY.MM 형식이어야 해요.")
 
                     val code =
                         """
@@ -270,6 +272,7 @@ val generateFeedbacks by tasks.registering {
                         |        relation = ${relation.code},
                         |        strength = ${kotlinString(strength)},
                         |        growth = ${growth?.let(::kotlinString) ?: "null"},
+                        |        period = ${period?.let(::kotlinString) ?: "null"},
                         |    ),
                         """.trimMargin()
                     (createdAt ?: "") to code

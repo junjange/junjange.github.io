@@ -18,6 +18,7 @@ data class Feedback(
     val relation: FeedbackRelation,
     val strength: String,
     val growth: String? = null,
+    val period: String? = null,
 )
 
 sealed interface FeedbackAuthor {
@@ -44,6 +45,14 @@ sealed interface FeedbackPlace {
     data object SideProject : FeedbackPlace
 
     data object Other : FeedbackPlace
+
+    val periodRes: StringResource?
+        get() =
+            when (this) {
+                is Company -> career.periodRes
+                is Activity -> experience.periodRes
+                SideProject, Other -> null
+            }
 
     val labelRes: StringResource
         get() =

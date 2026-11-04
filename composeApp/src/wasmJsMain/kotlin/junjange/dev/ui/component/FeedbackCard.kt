@@ -87,6 +87,13 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
     val relation = stringResource(feedback.relation.labelRes)
     val place = stringResource(feedback.place.labelRes)
     val specter = stringResource(Res.string.feedback_specter_author)
+    val placePeriod = feedback.place.periodRes?.let { stringResource(it) }
+    val period = (feedback.period ?: placePeriod)?.substringBefore(" (")?.takeIf { it.isNotBlank() }
+    val meta =
+        when (author) {
+            is FeedbackAuthor.GitHub -> "$place · $relation"
+            FeedbackAuthor.Specter -> "$relation · $specter"
+        }
 
     val rowModifier =
         when (author) {
@@ -117,12 +124,14 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
             )
             Spacer(modifier = Modifier.height(2.dp))
             Text(
-                text =
-                    when (author) {
-                        is FeedbackAuthor.GitHub -> "$place · $relation"
-                        FeedbackAuthor.Specter -> "$relation · $specter"
-                    },
-                color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 14.sp)
+                text = meta,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 14.sp,
+            )
+            period?.let {
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(text = it, color = MaterialTheme.colorScheme.outline, fontSize = 13.sp)
+            }
         }
     }
 }
