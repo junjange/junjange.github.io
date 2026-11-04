@@ -27,7 +27,7 @@
     <string name="feedback_see_all">피드백 전체 보기</string>
     <string name="feedback_eyebrow">Peer Feedback</string>
     <string name="feedback_headline">함께 일한 동료들이\n남겨준 이야기예요</string>
-    <string name="feedback_description">스펙터 평판 조회와 GitHub로 받은 피드백이에요. 맞춤법만 다듬고 그대로 옮겼어요.</string>
+    <string name="feedback_description">동료들이 남긴 피드백을 맞춤법만 다듬어 그대로 옮겼어요.</string>
     <string name="feedback_total">전체 %1$d</string>
     <string name="feedback_write">피드백 남기기</string>
     <string name="feedback_growth_label">아쉬웠던 점</string>

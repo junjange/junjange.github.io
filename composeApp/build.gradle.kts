@@ -187,7 +187,7 @@ val generateFeedbacks by tasks.registering {
     group = "feedback"
     description = "feedbacks/*.json을 검증하고 Kotlin 코드로 만들어요."
     val outputDir = layout.buildDirectory.dir("generated/feedback/kotlin")
-    inputs.dir(feedbackDataDir)
+    inputs.files(feedbackDataDir.asFileTree)
     inputs.files(feedbackSourceFiles)
     outputs.dir(outputDir)
     doLast {

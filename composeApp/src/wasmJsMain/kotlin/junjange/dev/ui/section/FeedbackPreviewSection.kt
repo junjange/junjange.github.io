@@ -68,6 +68,7 @@ fun FeedbackPreviewSection(
                         feedback = feedback,
                         isMobile = false,
                         modifier = Modifier.weight(1f).fillMaxHeight().reveal(delayMillis = index * 100),
+                        authorAtBottom = true,
                     )
                 }
             }

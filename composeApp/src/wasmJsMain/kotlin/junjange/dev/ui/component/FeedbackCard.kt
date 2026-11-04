@@ -42,6 +42,7 @@ fun FeedbackCard(
     feedback: Feedback,
     isMobile: Boolean,
     modifier: Modifier = Modifier,
+    authorAtBottom: Boolean = false,
 ) {
     val bodySize = if (isMobile) 16.sp else 17.sp
 
@@ -76,6 +77,7 @@ fun FeedbackCard(
             }
         }
         Spacer(modifier = Modifier.height(20.dp))
+        if (authorAtBottom) Spacer(modifier = Modifier.weight(1f))
         FeedbackAuthorRow(feedback = feedback)
     }
 }
@@ -89,7 +91,7 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
     val specter = stringResource(Res.string.feedback_specter_author)
     val placePeriod = feedback.place.periodRes?.let { stringResource(it) }
     val years = (feedback.period ?: placePeriod)?.toYearRange()
-    val title = "$place $relation"
+    val title = if (feedback.place == FeedbackPlace.Other) relation else "$place $relation"
     val source =
         when (author) {
             is FeedbackAuthor.GitHub -> "@${author.login}"
