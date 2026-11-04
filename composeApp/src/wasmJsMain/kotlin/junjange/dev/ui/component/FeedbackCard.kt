@@ -119,9 +119,14 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 15.sp,
+                lineHeight = 20.sp,
             )
-            Spacer(modifier = Modifier.height(2.dp))
-            Text(text = subtitle, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
+            Text(
+                text = subtitle,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 13.sp,
+                lineHeight = 18.sp,
+            )
         }
     }
 }
