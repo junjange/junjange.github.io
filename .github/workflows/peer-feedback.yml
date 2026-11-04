@@ -1,0 +1,90 @@
+name: Peer Feedback
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [closed]
+
+permissions: {}
+
+jobs:
+  submit:
+    if: github.event_name == 'issues' && github.event.issue.state == 'open' && contains(github.event.issue.labels.*.name, 'feedback')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    concurrency:
+      group: peer-feedback-${{ github.event.issue.number }}
+      cancel-in-progress: true
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      AUTHOR_LOGIN: ${{ github.event.issue.user.login }}
+      AUTHOR_ID: ${{ github.event.issue.user.id }}
+      BASE_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - id: parse
+        run: node .github/scripts/peer-feedback.mjs
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_CREATED_AT: ${{ github.event.issue.created_at }}
+          AUTHOR_TYPE: ${{ github.event.issue.user.type }}
+
+      - name: Rename issue
+        run: |
+          expected="동료 피드백 @$AUTHOR_LOGIN"
+          if [ "$ISSUE_TITLE" != "$expected" ]; then
+            gh issue edit "$ISSUE_NUMBER" --title "$expected"
+          fi
+
+      - name: Ask for changes
+        if: steps.parse.outputs.valid == 'false'
+        run: gh issue comment "$ISSUE_NUMBER" --body-file "$RUNNER_TEMP/feedback-errors.md"
+
+      - name: Open pull request
+        if: steps.parse.outputs.valid == 'true'
+        run: |
+          branch="feedback/$ISSUE_NUMBER"
+          file="feedbacks/github-$ISSUE_NUMBER.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add "$file"
+          git commit -m "동료 피드백 추가 (#$ISSUE_NUMBER)" -m "Co-authored-by: $AUTHOR_LOGIN <$AUTHOR_ID+$AUTHOR_LOGIN@users.noreply.github.com>"
+          git push --force origin "$branch"
+
+          if [ -z "$(gh pr list --head "$branch" --state open --json number --jq '.[].number')" ]; then
+            {
+              echo "@$AUTHOR_LOGIN 님이 남긴 동료 피드백이에요."
+              echo
+              echo "Closes #$ISSUE_NUMBER"
+            } > "$RUNNER_TEMP/pr-body.md"
+            gh pr create --base "$BASE_BRANCH" --head "$branch" --title "동료 피드백 @$AUTHOR_LOGIN" --body-file "$RUNNER_TEMP/pr-body.md" --label feedback
+          fi
+
+  thank:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.head.ref, 'feedback/')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
+    steps:
+      - run: |
+          issue="${HEAD_REF#feedback/}"
+          case "$issue" in
+            ''|*[!0-9]*) exit 0 ;;
+          esac
+          gh issue comment "$issue" --body "포트폴리오에 올렸어요. 시간 내서 남겨주셔서 고마워요! https://junjange.github.io/#/feedback"

@@ -67,10 +67,19 @@ fun ContactSection(modifier: Modifier = Modifier) {
             }
         }
 
-        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
+        SiteFooter()
+    }
+}
 
+@Composable
+fun SiteFooter(modifier: Modifier = Modifier) {
+    val deviceState = rememberDeviceState()
+    val horizontalPadding = deviceState.contentPadding().calculateStartPadding(LayoutDirection.Ltr)
+
+    Column(modifier = modifier.fillMaxWidth()) {
+        HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
         SectionContainer(contentPadding = PaddingValues(horizontal = horizontalPadding, vertical = 32.dp)) {
-            Footer(isMobile = isMobile)
+            Footer(isMobile = deviceState.value == Device.MOBILE)
         }
     }
 }

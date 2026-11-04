@@ -1,0 +1,76 @@
+name: 동료 피드백 남기기
+description: 함께 일하며 느낀 점을 남겨주세요.
+title: "동료 피드백"
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        함께 일한 경험을 나눠주셔서 고마워요.
+        제출하면 PR이 자동으로 열리고, 제가 확인한 뒤 [포트폴리오](https://junjange.github.io/#/feedback)에 올려요.
+
+        - 이름은 받지 않아요. 카드에는 GitHub 프로필 사진과 아이디가 보여요.
+        - 제목은 그대로 두세요. 아이디를 붙여 자동으로 바꿔요.
+        - 고치거나 내리고 싶으면 이 이슈에 댓글을 남겨주세요.
+
+  - type: dropdown
+    id: place
+    attributes:
+      label: 함께한 곳
+      options:
+        # generated:places:start
+        - 페이타랩
+        - 리오(Lio)
+        - 매트리오즈(Matrios)
+        - 우아한테크코스
+        - 부스트캠프 웹・모바일
+        - 디프만(Depromeet)
+        - GDG on Campus
+        - 사이드 프로젝트
+        - 기타
+        # generated:places:end
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relation
+    attributes:
+      label: 관계
+      options:
+        # generated:relations:start
+        - 리더
+        - 선임
+        - 같은 팀 동료
+        - 다른 팀 동료
+        - 후임
+        # generated:relations:end
+    validations:
+      required: true
+
+  - type: textarea
+    id: strength
+    attributes:
+      label: 좋았던 점
+      description: 300자 이내로 적어주세요. 기억에 남는 상황을 하나 곁들이면 더 좋아요.
+      placeholder: 장애가 났을 때 추측보다 로그와 재현 결과를 먼저 가져와서 원인을 같이 찾기 편했어요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: growth
+    attributes:
+      label: 아쉬웠던 점 (선택)
+      description: 200자 이내로 적어주세요. 솔직한 한마디가 피드백 전체를 더 믿을 수 있게 해줘요.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 확인
+      description: 이 이슈는 바로 공개되고, 지워도 Git 기록에는 남아요.
+      options:
+        - label: 포트폴리오와 공개 저장소에 올리는 데 동의해요.
+          required: true
+        - label: 회사 내부 프로젝트명이나 수치는 넣지 않았어요.
+          required: true
