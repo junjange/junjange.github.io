@@ -13,7 +13,7 @@
   "relations": [
     { "id": "Leader", "label": "리더" },
     { "id": "Senior", "label": "선임" },
-    { "id": "Teammate", "label": "같은 팀 동료" },
+    { "id": "Teammate", "label": "동료" },
     { "id": "OtherTeam", "label": "다른 팀 동료" },
     { "id": "Junior", "label": "후임" }
   ]

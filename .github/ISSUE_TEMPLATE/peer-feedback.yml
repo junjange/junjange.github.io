@@ -40,7 +40,7 @@ body:
         # generated:relations:start
         - 리더
         - 선임
-        - 같은 팀 동료
+        - 동료
         - 다른 팀 동료
         - 후임
         # generated:relations:end
