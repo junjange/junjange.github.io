@@ -56,6 +56,8 @@ val feedbackSourceFiles =
         "src/commonMain/composeResources/values/strings.xml",
     )
 
+val FEEDBACK_MAX_LENGTH = 300
+
 data class FeedbackOption(
     val id: String,
     val label: String,
@@ -255,9 +257,8 @@ val generateFeedbacks by tasks.registering {
                         }
                     val place = places[json["place"]] ?: fail("place 는 ${places.keys} 중 하나여야 해요.")
                     val relation = relations[json["relation"]] ?: fail("relation 은 ${relations.keys} 중 하나여야 해요.")
-                    val isGitHub = source == "github"
-                    val strength = text("strength", if (isGitHub) 300 else 1000, required = true)!!
-                    val growth = text("growth", if (isGitHub) 200 else 1000, required = false)
+                    val strength = text("strength", FEEDBACK_MAX_LENGTH, required = true)!!
+                    val growth = text("growth", FEEDBACK_MAX_LENGTH, required = false)
                     val createdAt = text("createdAt", 10, required = false)
                     if (createdAt != null && !datePattern.matches(createdAt)) fail("createdAt 은 YYYY-MM-DD 형식이어야 해요.")
 

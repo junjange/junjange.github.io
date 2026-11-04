@@ -46,8 +46,6 @@ fun FeedbackCard(
     val bodySize = if (isMobile) 16.sp else 17.sp
 
     SurfaceCard(modifier = modifier, padding = if (isMobile) 24.dp else 32.dp) {
-        Chip(text = stringResource(feedback.place.labelRes), onCard = true)
-        Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = feedback.strength.keepWords(),
             color = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -87,6 +85,8 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
     val uriHandler = LocalUriHandler.current
     val author = feedback.author
     val relation = stringResource(feedback.relation.labelRes)
+    val place = stringResource(feedback.place.labelRes)
+    val specter = stringResource(Res.string.feedback_specter_author)
 
     val rowModifier =
         when (author) {
@@ -109,14 +109,20 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
                 text =
                     when (author) {
                         is FeedbackAuthor.GitHub -> "@${author.login}"
-                        FeedbackAuthor.Specter -> stringResource(Res.string.feedback_specter_author)
+                        FeedbackAuthor.Specter -> place
                     },
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
             )
             Spacer(modifier = Modifier.height(2.dp))
-            Text(text = relation, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 14.sp)
+            Text(
+                text =
+                    when (author) {
+                        is FeedbackAuthor.GitHub -> "$place · $relation"
+                        FeedbackAuthor.Specter -> "$relation · $specter"
+                    },
+                color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 14.sp)
         }
     }
 }

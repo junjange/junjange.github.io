@@ -60,7 +60,7 @@ body:
     id: growth
     attributes:
       label: 아쉬웠던 점 (선택)
-      description: 200자 이내로 적어주세요. 솔직한 한마디가 피드백 전체를 더 믿을 수 있게 해줘요.
+      description: 300자 이내로 적어주세요. 솔직한 한마디가 피드백 전체를 더 믿을 수 있게 해줘요.
     validations:
       required: false
 

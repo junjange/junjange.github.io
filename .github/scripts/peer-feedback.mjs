@@ -10,7 +10,7 @@ const LABELS = {
   growth: "아쉬웠던 점 (선택)",
   consent: "확인",
 };
-const LIMITS = { strength: 300, growth: 200 };
+const LIMITS = { strength: 300, growth: 300 };
 
 function parseSections(body) {
   const sections = {};
