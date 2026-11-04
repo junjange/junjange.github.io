@@ -45,7 +45,7 @@ fun FeedbackCard(
 ) {
     val bodySize = if (isMobile) 16.sp else 17.sp
 
-    SurfaceCard(modifier = modifier, padding = if (isMobile) 24.dp else 32.dp) {
+    SurfaceCard(modifier = modifier, padding = if (isMobile) 20.dp else 28.dp) {
         Text(
             text = feedback.strength.keepWords(),
             color = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -53,12 +53,12 @@ fun FeedbackCard(
             lineHeight = bodySize.bodyLineHeight(),
         )
         feedback.growth?.let { growth ->
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             Column(
                 modifier =
                     Modifier
                         .background(MaterialTheme.colorScheme.primaryContainer, RoundedCornerShape(16.dp))
-                        .padding(if (isMobile) 16.dp else 20.dp),
+                        .padding(if (isMobile) 14.dp else 16.dp),
             ) {
                 Text(
                     text = stringResource(Res.string.feedback_growth_label),
@@ -66,7 +66,7 @@ fun FeedbackCard(
                     fontWeight = FontWeight.Bold,
                     fontSize = 14.sp,
                 )
-                Spacer(modifier = Modifier.height(6.dp))
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = growth.keepWords(),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -75,7 +75,7 @@ fun FeedbackCard(
                 )
             }
         }
-        Spacer(modifier = Modifier.height(28.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         FeedbackAuthorRow(feedback = feedback)
     }
 }
