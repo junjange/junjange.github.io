@@ -88,12 +88,14 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
     val place = stringResource(feedback.place.labelRes)
     val specter = stringResource(Res.string.feedback_specter_author)
     val placePeriod = feedback.place.periodRes?.let { stringResource(it) }
-    val period = (feedback.period ?: placePeriod)?.substringBefore(" (")?.takeIf { it.isNotBlank() }
-    val meta =
+    val years = (feedback.period ?: placePeriod)?.toYearRange()
+    val title = "$place $relation"
+    val source =
         when (author) {
-            is FeedbackAuthor.GitHub -> "$place · $relation"
-            FeedbackAuthor.Specter -> "$relation · $specter"
+            is FeedbackAuthor.GitHub -> "@${author.login}"
+            FeedbackAuthor.Specter -> specter
         }
+    val subtitle = listOfNotNull(years, source).joinToString(" · ")
 
     val rowModifier =
         when (author) {
@@ -113,25 +115,13 @@ private fun FeedbackAuthorRow(feedback: Feedback) {
         Spacer(modifier = Modifier.width(12.dp))
         Column(modifier = Modifier.padding(end = 8.dp)) {
             Text(
-                text =
-                    when (author) {
-                        is FeedbackAuthor.GitHub -> "@${author.login}"
-                        FeedbackAuthor.Specter -> place
-                    },
+                text = title,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
-                fontWeight = FontWeight.Bold,
-                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 15.sp,
             )
             Spacer(modifier = Modifier.height(2.dp))
-            Text(
-                text = meta,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                fontSize = 14.sp,
-            )
-            period?.let {
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(text = it, color = MaterialTheme.colorScheme.outline, fontSize = 13.sp)
-            }
+            Text(text = subtitle, color = MaterialTheme.colorScheme.onSurfaceVariant, fontSize = 13.sp)
         }
     }
 }
@@ -180,4 +170,15 @@ private fun PlaceAvatar(place: FeedbackPlace) {
     }
 }
 
-private const val AVATAR_SIZE = 44
+private fun String.toYearRange(): String? {
+    val years = Regex("""\d{4}""").findAll(this).map { it.value }.distinct().toList()
+    val ongoing = contains("재직 중") || contains("현재")
+    return when {
+        years.isEmpty() -> null
+        ongoing -> "${years.first()} – 현재"
+        years.size == 1 -> years.first()
+        else -> "${years.first()} – ${years.last()}"
+    }
+}
+
+private const val AVATAR_SIZE = 40

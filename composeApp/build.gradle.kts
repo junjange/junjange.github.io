@@ -238,7 +238,7 @@ val generateFeedbacks by tasks.registering {
                     val allowedKeys =
                         when (source) {
                             "github" -> setOf("source", "login", "id", "issue", "place", "relation", "strength", "growth", "createdAt")
-                            "specter" -> setOf("source", "place", "relation", "period", "strength", "growth", "createdAt")
+                            "specter" -> setOf("source", "login", "id", "place", "relation", "period", "strength", "growth", "createdAt")
                             else -> fail("source 는 github 또는 specter 여야 해요.")
                         }
                     (json.keys - allowedKeys).takeIf { it.isNotEmpty() }?.let { fail("알 수 없는 항목이 있어요: $it") }
@@ -253,7 +253,13 @@ val generateFeedbacks by tasks.registering {
                             "FeedbackAuthor.GitHub(login = ${kotlinString(login)}, id = ${id}L)"
                         } else {
                             if (!Regex("^specter-[a-z0-9-]+\\.json$").matches(file.name)) fail("파일 이름은 specter-이름.json 형식이어야 해요.")
-                            "FeedbackAuthor.Specter"
+                            val login = json["login"] as? String
+                            val id = (json["id"] as? Number)?.toLong()
+                            when {
+                                login == null && id == null -> "FeedbackAuthor.Specter"
+                                login == null || id == null || id <= 0 || !loginPattern.matches(login) -> fail("login 과 id 는 함께 올바르게 적어야 해요.")
+                                else -> "FeedbackAuthor.GitHub(login = ${kotlinString(login)}, id = ${id}L)"
+                            }
                         }
                     val place = places[json["place"]] ?: fail("place 는 ${places.keys} 중 하나여야 해요.")
                     val relation = relations[json["relation"]] ?: fail("relation 은 ${relations.keys} 중 하나여야 해요.")
