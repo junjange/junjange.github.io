@@ -44,7 +44,7 @@ fun FeedbackCard(
     modifier: Modifier = Modifier,
     authorAtBottom: Boolean = false,
 ) {
-    val bodySize = if (isMobile) 16.sp else 17.sp
+    val bodySize = if (isMobile) 15.sp else 16.sp
 
     SurfaceCard(modifier = modifier, padding = if (isMobile) 20.dp else 28.dp) {
         Text(
@@ -71,8 +71,8 @@ fun FeedbackCard(
                 Text(
                     text = growth.keepWords(),
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 15.sp,
-                    lineHeight = 15.sp.bodyLineHeight(),
+                    fontSize = 14.sp,
+                    lineHeight = 14.sp.bodyLineHeight(),
                 )
             }
         }
