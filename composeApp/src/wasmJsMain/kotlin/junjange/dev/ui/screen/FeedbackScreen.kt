@@ -47,6 +47,7 @@ import junjange.dev.ui.model.LocalThemeMode
 import junjange.dev.ui.model.ThemeMode
 import junjange.dev.ui.model.FEEDBACK_FORM_URL
 import junjange.dev.ui.model.peerFeedbacks
+import junjange.dev.ui.model.splitIntoColumns
 import junjange.dev.ui.section.SiteFooter
 import junjange.dev.ui.state.contentPadding
 import junjange.dev.ui.state.rememberDeviceState
@@ -276,16 +277,3 @@ private fun WriteButton(onClick: () -> Unit) {
         Text(text = stringResource(Res.string.feedback_write), fontWeight = FontWeight.SemiBold, fontSize = 16.sp)
     }
 }
-
-private fun List<Feedback>.splitIntoColumns(count: Int): List<List<Feedback>> {
-    val columns = List(count) { mutableListOf<Feedback>() }
-    val heights = IntArray(count)
-    forEach { feedback ->
-        val target = heights.indices.minBy { heights[it] }
-        columns[target] += feedback
-        heights[target] += feedback.strength.length + (feedback.growth?.length ?: 0) + CARD_BASE_WEIGHT
-    }
-    return columns
-}
-
-private const val CARD_BASE_WEIGHT = 120

@@ -73,3 +73,16 @@ enum class FeedbackRelation(
     OtherTeam(Res.string.feedback_relation_other_team),
     Junior(Res.string.feedback_relation_junior),
 }
+
+fun List<Feedback>.splitIntoColumns(count: Int): List<List<Feedback>> {
+    val columns = List(count) { mutableListOf<Feedback>() }
+    val heights = IntArray(count)
+    forEach { feedback ->
+        val target = heights.indices.minBy { heights[it] }
+        columns[target] += feedback
+        heights[target] += feedback.strength.length + (feedback.growth?.length ?: 0) + CARD_BASE_WEIGHT
+    }
+    return columns
+}
+
+private const val CARD_BASE_WEIGHT = 120
