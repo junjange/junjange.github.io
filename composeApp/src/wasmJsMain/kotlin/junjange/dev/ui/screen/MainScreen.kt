@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalNavigationDrawer
@@ -26,6 +25,7 @@ import junjange.dev.ui.section.AboutSection
 import junjange.dev.ui.section.CareerSection
 import junjange.dev.ui.section.ContactSection
 import junjange.dev.ui.section.ExperienceSection
+import junjange.dev.ui.section.FeedbackPreviewSection
 import junjange.dev.ui.section.HomeSection
 import junjange.dev.ui.section.ProjectSection
 import junjange.dev.ui.state.DeviceState
@@ -34,13 +34,14 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(
+    listState: LazyListState,
     modifier: Modifier = Modifier,
     onThemeChanged: (ThemeMode) -> Unit,
+    onFeedbackClick: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
 
     val deviceState = rememberDeviceState()
-    val listState = rememberLazyListState()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
 
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
@@ -68,6 +69,7 @@ fun MainScreen(
                 deviceState = deviceState,
                 modifier = modifier,
                 onThemeChanged = onThemeChanged,
+                onFeedbackClick = onFeedbackClick,
                 onTitleClick = {
                     scope.launch {
                         listState.animateScrollToItem(Section.Home.ordinal)
@@ -94,6 +96,7 @@ fun MainContent(
     deviceState: DeviceState,
     modifier: Modifier = Modifier,
     onThemeChanged: (ThemeMode) -> Unit,
+    onFeedbackClick: () -> Unit,
     onTitleClick: () -> Unit,
     onSectionClicked: (Section) -> Unit,
     onMenuClick: () -> Unit,
@@ -127,6 +130,7 @@ fun MainContent(
                 item { CareerSection() }
                 item { ProjectSection(onSectionClicked = onSectionClicked) }
                 item { ExperienceSection() }
+                item { FeedbackPreviewSection(onSeeAll = onFeedbackClick) }
                 item { ContactSection() }
             }
         }

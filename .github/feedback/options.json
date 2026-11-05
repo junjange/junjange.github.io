@@ -1,0 +1,20 @@
+{
+  "places": [
+    { "id": "Paytalab", "label": "페이타랩" },
+    { "id": "Lio", "label": "리오(Lio)" },
+    { "id": "Matrios", "label": "매트리오즈(Matrios)" },
+    { "id": "Woowacourse", "label": "우아한테크코스" },
+    { "id": "BoostCamp", "label": "부스트캠프 웹・모바일" },
+    { "id": "Depromeet", "label": "디프만(Depromeet)" },
+    { "id": "GDGOnCampus", "label": "GDG on Campus" },
+    { "id": "SideProject", "label": "사이드 프로젝트" },
+    { "id": "Other", "label": "기타" }
+  ],
+  "relations": [
+    { "id": "Leader", "label": "리더" },
+    { "id": "Senior", "label": "선임" },
+    { "id": "Teammate", "label": "동료" },
+    { "id": "OtherTeam", "label": "다른 팀 동료" },
+    { "id": "Junior", "label": "후임" }
+  ]
+}

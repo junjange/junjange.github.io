@@ -5,6 +5,7 @@
     <string name="section_career">Career</string>
     <string name="section_experience">Experience</string>
     <string name="section_project">Side Project</string>
+    <string name="section_feedback">Feedback</string>
 
     <!--Home-->
     <string name="blue_chip">저평가 우량주</string>
@@ -22,6 +23,24 @@
     <string name="experience_headline">함께 배우고\n함께 나눴어요</string>
     <string name="contact_headline">더 궁금한 점이 있다면\n편하게 연락 주세요</string>
     <string name="contact_email">이메일 보내기</string>
+    <string name="feedback_preview_headline">동료들은\n이렇게 말해요</string>
+    <string name="feedback_see_all">피드백 전체 보기</string>
+    <string name="feedback_eyebrow">Peer Feedback</string>
+    <string name="feedback_headline">함께 일한 동료들이\n남겨준 이야기예요</string>
+    <string name="feedback_description">동료들이 남긴 피드백을 맞춤법만 다듬어 그대로 옮겼어요.</string>
+    <string name="feedback_total">전체 %1$d</string>
+    <string name="feedback_write">피드백 남기기</string>
+    <string name="feedback_growth_label">아쉬웠던 점</string>
+    <string name="feedback_specter_author">스펙터 평판 조회</string>
+    <string name="feedback_place_side_project">사이드 프로젝트</string>
+    <string name="feedback_place_other">기타</string>
+    <string name="feedback_relation_leader">리더</string>
+    <string name="feedback_relation_senior">선임</string>
+    <string name="feedback_relation_teammate">동료</string>
+    <string name="feedback_relation_other_team">다른 팀 동료</string>
+    <string name="feedback_relation_junior">후임</string>
+    <string name="feedback_cta_title">함께 일해보셨나요?</string>
+    <string name="feedback_cta_description">같이 일하며 느낀 점을 남겨주세요.\nGitHub 계정만 있으면 바로 남길 수 있어요.</string>
     <string name="follow_github">Github 팔로우하기</string>
     <string name="visit_blog">Blog 방문하기</string>
 
@@ -95,9 +114,9 @@
     <string name="etc_paytalab_blog_period">2025.11</string>
     <string name="etc_droid_knights_2025">DroidKnights 2025 Contributor 페이지 기여</string>
     <string name="etc_droid_knights_2025_period">2025.06</string>
-    <string name="etc_kusitms">KUSITMS 밋업데이 심사위원</string>
+    <string name="etc_kusitms">KUSITMS(한국대학생IT경영학회) 밋업데이 심사위원</string>
     <string name="etc_kusitms_period">2024.09 - 2024.12</string>
-    <string name="etc_capstone_award">2022 SW/AI사업단 Grow Up 캡스톤디자인 경진대회 장려상 ('오순택' 단독 개발)</string>
+    <string name="etc_capstone_award">2022 SW/AI사업단 Grow Up 캡스톤디자인 경진대회 장려상 ('오순택' 개발)</string>
     <string name="etc_capstone_award_period">2023.01</string>
     <string name="etc_gdsc_sch_x_skhu_hack">GDSC SCH X SKHU Hack 운영</string>
     <string name="etc_gdsc_sch_x_skhu_hack_period">2023.05</string>
